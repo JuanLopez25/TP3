@@ -15,7 +15,7 @@ test("Procesar paquete centro de distribucion", () =>{
 
 
 test("Procesar paquete centro de facturacion", () =>{
-    var distribucion= new CentroFacturacion();
+    var distribucion= new CentroDistribucion();
     var paquete= new Paquete("1");
     distribucion.procesarPaquete(paquete);
     distribucion.terminarProceso(paquete);
