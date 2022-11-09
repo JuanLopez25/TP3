@@ -49,5 +49,9 @@ test("El paquete llega a destino y debe mantenerse alli", () =>{
     paquete.siguienteEtapa();
     paquete.siguienteEtapa();
     paquete.siguienteEtapa();
+    paquete.siguienteEtapa();
+    paquete.siguienteEtapa();
+    paquete.siguienteEtapa();
+
     expect(paquete.estadoPaquete()).toBe(paquete.destino);
 })
