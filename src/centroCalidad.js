@@ -6,7 +6,7 @@ function CentroCalidad() {
     }
 
     this.terminarProceso = function() {
-        
+        this.paquete=[];
     }
 }
 
