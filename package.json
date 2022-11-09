@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "testpush" : "git add . && git commit -m \"TDD iteration\" && git push && jest"
+    "test": "jest",
+    "testpush": "git add . && git commit -m \"TDD iteration\" && git push && jest"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.3.1"
+  }
 }
