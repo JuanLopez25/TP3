@@ -1,3 +1,4 @@
+const CentroCalidad= require('../src/centroCalidad')
 
 test("Crear centro de Calidad", () =>{
     var calidad= new CentroCalidad();
