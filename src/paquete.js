@@ -1,6 +1,9 @@
 
-function paquete() {
-    return "soy un paquete"
+function Paquete() {
+    this.estadoPaquete= function () {
+        return "Local";
+    }
+    
 }
 
-module.exports= paquete;
+module.exports= Paquete;
