@@ -12,7 +12,9 @@ function paquete(destinoPropuesto) {
 
 
     this.siguienteEtapa = function () {
-        this.posicionEstado+=1;
+        if ((this.posicionEstado+1)<(this.estados.length)){
+            this.posicionEstado+=1;
+        }
     }    
 }
 
