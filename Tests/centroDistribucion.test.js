@@ -12,3 +12,12 @@ test("Procesar paquete centro de distribucion", () =>{
     distribucion.procesarPaquete(paquete);
     expect(distribucion.paquetes.length).toBe(1);
 })
+
+
+test("Procesar paquete centro de facturacion", () =>{
+    var distribucion= new CentroFacturacion();
+    var paquete= new Paquete("1");
+    distribucion.procesarPaquete(paquete);
+    distribucion.terminarProceso(paquete);
+    expect(distribucion.paquetes.length).toBe(0);
+})
