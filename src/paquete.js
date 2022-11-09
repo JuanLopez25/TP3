@@ -3,7 +3,7 @@
 function paquete(destinoPropuesto) {
     this.destino=destinoPropuesto;
     this.posicionEstado = 0;
-    this.estados = ["Local","Centro de facturacion", "Centro de calidad", "Centro de distribucion",destino];
+    this.estados = ["Local","Centro de facturacion", "Centro de calidad", "Centro de distribucion",destinoPropuesto];
 
     
     this.estadoPaquete = function () {
