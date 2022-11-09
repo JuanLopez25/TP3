@@ -12,3 +12,12 @@ test("jest", () =>{
     var paquete = new Paquete();
     expect(paquete.estadoPaquete()).toBe("Local");
 })
+
+
+
+test("jest", () =>{
+    var paquete = new Paquete();
+    paquete.siguienteEtapa();
+    paquete.siguienteEtapa();
+    expect(paquete.estadoPaquete()).toBe("Centro de calidad");
+})
