@@ -9,6 +9,6 @@ test("Crear centro de facturacion", () =>{
 test("Procesar paquete centro de facturacion", () =>{
     var facturacion= new CentroFacturacion();
     var paquete= new Paquete("1")
-    salida.procesarPaquete(paquete);
+    facturacion.procesarPaquete(paquete);
     expect(facturacion.paquetes.length).toBe(1);
 })
