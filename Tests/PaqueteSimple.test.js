@@ -41,3 +41,13 @@ test("El paquete llega a destino identificado por un id", () =>{
     paquete.siguienteEtapa();
     expect(paquete.estadoPaquete()).toBe(paquete.destino);
 })
+
+
+test("El paquete llega a destino y debe mantenerse alli", () =>{
+    paquete.siguienteEtapa();
+    paquete.siguienteEtapa();
+    paquete.siguienteEtapa();
+    paquete.siguienteEtapa();
+    paquete.siguienteEtapa();
+    expect(paquete.estadoPaquete()).toBe(paquete.destino);
+})
