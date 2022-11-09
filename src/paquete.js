@@ -14,6 +14,7 @@ function paquete(destinoPropuesto) {
 
 
     this.siguienteEtapa = function () {
+        this.tiempo+=1;
         if ((this.posicionEstado+1)<(this.estados.length)){
             this.posicionEstado+=1;
         }
