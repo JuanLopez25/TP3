@@ -1,12 +1,17 @@
 
 
 function paquete() {
-    this.estado = "Local";
+    this.posicionEstado = 0;
+    this.estados = ["Local","Centro de facturacion", "Centro de calidad", "Centro de distribucion"];
+
+    
     this.estadoPaquete = function () {
-        return this.estado;
+        return this.estados[this.posicionEstado];
     }
+
+
     this.siguienteEtapa = function () {
-        this.estado = "Centro de facturacion";
+        this.posicionEstado+=1;
     }    
 }
 
