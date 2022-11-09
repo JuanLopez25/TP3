@@ -1,18 +1,13 @@
 
-function Paquete() {
 
+function paquete() {
     this.estado = "Local";
-
-    this.estadoPaquete= function () {
+    this.estadoPaquete = function () {
         return this.estado;
     }
-
-    this.siguienteEtapa() = function () {
+    this.siguienteEtapa = function () {
         this.estado = "Centro de facturacion";
-    }
-
-
-    
+    }    
 }
 
-module.exports= Paquete;
+module.exports= paquete;
