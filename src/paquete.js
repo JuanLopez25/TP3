@@ -2,7 +2,7 @@
 
 function paquete() {
     this.posicionEstado = 0;
-    this.estados = ["Local","Centro de facturacion", "Centro de calidad", "Centro de distribucion"];
+    this.estados = ["Local","Centro de facturacion", "Centro de calidad", "Centro de distribucion","Llegue a destino"];
 
     
     this.estadoPaquete = function () {
