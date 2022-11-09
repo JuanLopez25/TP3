@@ -1,5 +1,5 @@
 const CentroCalidad= require('../src/centroCalidad')
-
+const Paquete = require('../src/paquete')
 test("Crear centro de Calidad", () =>{
     var calidad= new CentroCalidad();
     expect(calidad.paquetes.length).toBe(0);
