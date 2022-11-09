@@ -18,7 +18,8 @@ test("Entra un paquete a la cola de salida", () =>{
 
 test("Termino de procesar paquetes", () =>{
     var salida= new colaSalida();
-    var paquete= new Paquete("1")
+    var paquete= new Paquete("1");
+    salida.procesarPaquete(paquete);
     salida.terminarProceso();
     expect(salida.paquetes.length).toBe(0);
 })

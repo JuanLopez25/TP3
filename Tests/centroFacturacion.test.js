@@ -12,3 +12,12 @@ test("Procesar paquete centro de facturacion", () =>{
     facturacion.procesarPaquete(paquete);
     expect(facturacion.paquetes.length).toBe(1);
 })
+
+
+test("Procesar paquete centro de facturacion", () =>{
+    var facturacion= new CentroFacturacion();
+    var paquete= new Paquete("1");
+    facturacion.procesarPaquete(paquete);
+    facturacion.terminarProceso(paquete);
+    expect(facturacion.paquetes.length).toBe(0);
+})
