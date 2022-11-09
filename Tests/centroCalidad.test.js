@@ -7,7 +7,7 @@ test("Crear centro de Calidad", () =>{
 
 
 test("Procesar paquete centro de facturacion", () =>{
-    var calidad= new CentroFacturacion();
+    var calidad= new CentroCalidad();
     var paquete= new Paquete("1")
     calidad.procesarPaquete(paquete);
     expect(calidad.paquetes.length).toBe(1);
