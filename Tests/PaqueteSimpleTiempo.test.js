@@ -17,3 +17,9 @@ test("Paquete inicia en el local", () =>{
 })
 
 
+test("Paquete inicia en el local", () =>{
+    paquete.siguienteEtapa();
+    paquete.siguienteEtapa();
+    expect(paquete.tiempo).toBe(2);
+})
+
