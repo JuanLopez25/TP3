@@ -21,3 +21,13 @@ test("jest", () =>{
     paquete.siguienteEtapa();
     expect(paquete.estadoPaquete()).toBe("Centro de calidad");
 })
+
+
+
+test("jest", () =>{
+    var paquete = new Paquete();
+    paquete.siguienteEtapa();
+    paquete.siguienteEtapa();
+    paquete.siguienteEtapa();
+    expect(paquete.estadoPaquete()).toBe("Centro de distribucion");
+})
