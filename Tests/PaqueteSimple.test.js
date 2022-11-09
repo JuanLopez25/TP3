@@ -38,5 +38,5 @@ test("jest", () =>{
     paquete.siguienteEtapa();
     paquete.siguienteEtapa();
     paquete.siguienteEtapa();
-    expect(paquete.estadoPaquete()).toBe("Llegue a destino");
+    expect(paquete.estadoPaquete()).toBe(paquete.destino);
 })
