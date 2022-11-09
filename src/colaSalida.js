@@ -1,8 +1,11 @@
 
-function colaSalida() {
-    this.paquetes=0;
+function colaSalida(paquete) {
+    this.paquetes=[];
     this.procesarPaquete = function() {
-        this.paquetes+=1;
+        (this.paquetes).push(paquete);
+    }
+    this.terminarProceso =  function() { 
+        this.paquetes=[];
     }
 }
 

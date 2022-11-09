@@ -1,14 +1,25 @@
-const colaSalida= require('../src/colaSalida')
+const colaSalida= require('../src/colaSalida');
+const Paquete = require('../src/paquete');
 
 test("Crear cola salida", () =>{
     var salida= new colaSalida();
-    expect(salida.paquetes).toBe(0);
+    expect(salida.paquetes.length).toBe(0);
 })
 
 
 
 test("Entra un paquete a la cola de salida", () =>{
     var salida= new colaSalida();
-    salida.procesarPaquete();
-    expect(salida.paquetes).toBe(1);
+    var paquete= new Paquete("1")
+    salida.procesarPaquete(paquete);
+    expect(salida.paquetes.length).toBe(1);
 })
+
+
+test("Termino de procesar paquetes", () =>{
+    var salida= new colaSalida();
+    var paquete= new Paquete("1")
+    salida.terminarProceso();
+    expect(salida.paquetes.length).toBe(0);
+})
+
