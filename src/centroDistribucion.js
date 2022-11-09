@@ -5,7 +5,7 @@ function CentroDistribucion() {
         (this.paquetes).push(paquete);
     }
     this.terminarProceso = function() {
-        //this.paquetes = [];
+        this.paquetes = [];
     }
 
 }
