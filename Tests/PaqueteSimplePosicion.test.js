@@ -45,7 +45,7 @@ test("El paquete llega a destino identificado por un id", () =>{
 
 test("El paquete llega a destino y debe mantenerse alli", () =>{
     paquete.siguienteEtapa();
-    paquete.siguienteEtapa();
+    paquete.siguienteEtapa();   
     paquete.siguienteEtapa();
     paquete.siguienteEtapa();
     paquete.siguienteEtapa();
