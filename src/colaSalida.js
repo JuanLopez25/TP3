@@ -1,6 +1,6 @@
 
 function colaSalida() {
-    
+    this.paquetes=0;
 }
 
 
