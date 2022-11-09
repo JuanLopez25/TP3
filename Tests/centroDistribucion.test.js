@@ -1,3 +1,5 @@
+const CentroDistribucion=require('../src/centroDistribucion')
+
 
 test("Crear centro de distribucion", () =>{
     var distribucion = new CentroDistribucion();
