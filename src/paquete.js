@@ -5,6 +5,8 @@ function paquete(destinoPropuesto) {
     this.posicionEstado = 0;
     this.estados = ["Local","Centro de facturacion", "Centro de calidad", "Centro de distribucion",destinoPropuesto];
 
+
+    this.tiempo=0;
     
     this.estadoPaquete = function () {
         return this.estados[this.posicionEstado];
