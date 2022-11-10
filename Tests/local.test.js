@@ -39,3 +39,13 @@ test("Verificar cantidad de paquetes en centro de facturacion agregando 1 paquet
     local.avanzarTiempo();
     expect(local.paquetesCentroDeFacturacion()).toBe(1);
 })
+
+
+test("Verificar cantidad de paquetes en centro de facturacion agregando 2 paquetes y procesandolos para que lleguen al centro de facturacion", () =>{
+    var local= new Local();
+    var paquete= new Paquete();
+    local.agregarPaquete(paquete);
+    local.agregarPaquete(paquete);
+    local.avanzarTiempo();
+    expect(local.paquetesCentroDeFacturacion()).toBe(1);
+})
