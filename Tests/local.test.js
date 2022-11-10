@@ -47,5 +47,5 @@ test("Verificar cantidad de paquetes en centro de facturacion agregando 2 paquet
     local.agregarPaquete(paquete);
     local.agregarPaquete(paquete);
     local.avanzarTiempo();
-    expect(local.paquetesCentroDeFacturacion()).toBe(1);
+    expect(local.paquetesCentroDeFacturacion()).toBe(2);
 })
