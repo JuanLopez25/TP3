@@ -10,7 +10,7 @@ function Local() {
 
      
     this.agregarPaquete= function(paquete) {
-        this.colaDeSalida.procesarPaquetes(paquete);
+        this.colaDeSalida.procesarPaquete(paquete);
     }
 }
 
