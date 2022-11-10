@@ -6,6 +6,7 @@ function CentroFacturacion() {
         var i=0;
         while (i<paquetesAgregar.length) {
             (this.paquetes).push(paquetesAgregar[i]);
+            i++;
         }
     }
 
