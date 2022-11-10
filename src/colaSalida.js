@@ -4,9 +4,10 @@ function colaSalida(paquete) {
     this.procesarPaquete = function() {
         (this.paquetes).push(paquete);
     }
-    this.terminarProceso =  function() { 
-        this.paquetes=[];
-        
+    this.terminarProceso = function() {
+        var entrega= this.paquetes;
+        this.paquetes = [];
+        return entrega;
     }
 }
 
