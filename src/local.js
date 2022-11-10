@@ -1,5 +1,5 @@
-const ColaSalida=require('../src/colaSalida');
-const CentroFacturacion = require('../src/centroFacturacion');
+const ColaSalida=require('./colaSalida');
+const CentroFacturacion = require('./centroFacturacion');
 
 
 //commit 80 primer refactor
