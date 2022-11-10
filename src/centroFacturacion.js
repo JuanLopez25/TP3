@@ -2,7 +2,9 @@
 function CentroFacturacion() {
     this.paquetes=[];
     this.procesarPaquete = function(paquetesAgregar) {
-        paquetesAgregar.forEach ( paquete=>(this.paquetes).push(paquete));
+        paquetesAgregar.forEach (
+            paquete => (this.paquetes).push(paquete)
+        );
     }
 
     this.terminarProceso = function() {
