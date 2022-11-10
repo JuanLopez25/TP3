@@ -1,16 +1,16 @@
-
+const ColaSalida=require('../src/colaSalida')
 
 function Local() {
     
-    this.paquetes=0;
+    this.colaDeSalida= new ColaSalida();
 
     this.colaDeSalida= function() {
-        return this.paquetes;
+        return this.colaDeSalida.paquetes.length;
     }
 
      
-    this.agregarPaquete= function() {
-        this.paquetes+=1;
+    this.agregarPaquete= function(paquete) {
+        this.colaDeSalida.procesarPaquetes(paquete);
     }
 }
 
