@@ -18,6 +18,10 @@ function Local() {
     this.agregarPaquete= function(paquete) {
         this.colaDeSalida.procesarPaquete(paquete);
     }
+
+    this.paquetesCentroDeFacturacion= function(){
+        return 0;
+    }
 }
 
 
