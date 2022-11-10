@@ -2,7 +2,7 @@ const ColaSalida= require('../src/colaSalida');
 const Paquete = require('../src/paquete');
 
 test("Crear cola salida", () =>{
-    var salida= new colaSalida();
+    var salida= new ColaSalida();
     expect(salida.paquetes.length).toBe(0);
 })
 
