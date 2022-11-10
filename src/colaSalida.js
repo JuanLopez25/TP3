@@ -6,6 +6,7 @@ function colaSalida(paquete) {
     }
     this.terminarProceso =  function() { 
         this.paquetes=[];
+        
     }
 }
 
