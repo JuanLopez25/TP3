@@ -24,3 +24,9 @@ test("Verificar cantidad de paquetes en la cola del salida del local agregando 5
     local.agregarPaquete(paquete);
     expect(local.paquetesColaDeSalida()).toBe(5);
 })
+
+
+test("Verificar cantidad de paquetes en centro de facturacion", () =>{
+    var local= new Local();
+    expect(local.paquetesCentroDeFacturacion()).toBe(0);
+})

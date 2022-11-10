@@ -1,5 +1,11 @@
 const ColaSalida=require('../src/colaSalida')
 
+
+//commit 80 primer refactor
+
+
+
+
 function Local() {
     
     this.colaDeSalida= new ColaSalida();
