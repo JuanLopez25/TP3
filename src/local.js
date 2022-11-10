@@ -4,7 +4,7 @@ function Local() {
     
     this.colaDeSalida= new ColaSalida();
 
-    this.colaDeSalida= function() {
+    this.paquetesColaDeSalida= function() {
         return this.colaDeSalida.paquetes.length;
     }
 
