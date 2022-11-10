@@ -22,7 +22,7 @@ function Local() {
     }
 
     this.paquetesCentroDeFacturacion= function(){
-        return 0;
+        return this.centroDeFacturacion.paquetes.length;
     }
 
     this.avanzarTiempo = function() {
