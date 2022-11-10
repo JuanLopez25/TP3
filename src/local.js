@@ -2,13 +2,15 @@
 
 function Local() {
     
+    this.paquetes=0;
+
     this.colaDeSalida= function() {
-        return 0;
+        return this.paquetes;
     }
 
      
     this.agregarPaquete= function() {
-        return 1;
+        this.paquetes+=1;
     }
 }
 
