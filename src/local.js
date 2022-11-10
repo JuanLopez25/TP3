@@ -1,4 +1,5 @@
-const ColaSalida=require('../src/colaSalida')
+const ColaSalida=require('../src/colaSalida');
+const CentroFacturacion = require('./centroFacturacion');
 
 
 //commit 80 primer refactor
@@ -9,6 +10,7 @@ const ColaSalida=require('../src/colaSalida')
 function Local() {
     
     this.colaDeSalida= new ColaSalida();
+    this.centroDeFacturacion = new CentroFacturacion();
 
     this.paquetesColaDeSalida= function() {
         return this.colaDeSalida.paquetes.length;
