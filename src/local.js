@@ -24,7 +24,9 @@ function Local() {
     }
 
     this.avanzarTiempo = function() {
-        
+        var paquetes2= this.centroDeFacturacion.terminarProceso();
+        var paquetes1= this.colaDeSalida.terminarProceso();
+        this.centroDeFacturacion.agregarPaquete(paquetes1);
     }
 
 }
