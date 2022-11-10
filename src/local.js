@@ -22,6 +22,11 @@ function Local() {
     this.paquetesCentroDeFacturacion= function(){
         return 0;
     }
+
+    this.avanzarTiempo = function() {
+        
+    }
+
 }
 
 
