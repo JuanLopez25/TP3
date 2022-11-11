@@ -25,6 +25,14 @@ function Local() {
         return this.centroDeFacturacion.paquetes.length;
     }
 
+
+    this.paquetesCentroDeCalidad= function(){
+        return 0;
+    }
+
+
+
+
     this.avanzarTiempo = function() {
         var paquetes2= this.centroDeFacturacion.terminarProceso();
         var paquetes1= this.colaDeSalida.terminarProceso();
