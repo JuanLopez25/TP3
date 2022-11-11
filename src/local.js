@@ -2,11 +2,7 @@ const ColaSalida=require('./colaSalida');
 const CentroFacturacion = require('./centroFacturacion');
 const CentroCalidad = require('./centroCalidad');
 
-
 //commit 80 primer refactor
-
-
-
 
 function Local() {
     
@@ -18,7 +14,6 @@ function Local() {
         return this.colaDeSalida.paquetes.length;
     }
 
-     
     this.agregarPaquete= function(paquete) {
         this.colaDeSalida.procesarPaquete(paquete);
     }
@@ -27,19 +22,14 @@ function Local() {
         return this.centroDeFacturacion.paquetes.length;
     }
 
-
     this.paquetesCentroDeCalidad= function(){
         return this.centroDeCalidad.paquetes.length;
     }
-
-
-
 
     this.avanzarTiempo = function() {
         var paquetes3= this.centroDeCalidad.terminarProceso();
         var paquetes2= this.centroDeFacturacion.terminarProceso();
         var paquetes1= this.colaDeSalida.terminarProceso();
-
 
         (this.centroDeFacturacion).procesarPaquete(paquetes1);
         (this.centroDeCalidad).procesarPaquete(paquetes2);
