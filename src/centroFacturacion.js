@@ -1,10 +1,10 @@
 
+
 function CentroFacturacion() {
     this.paquetes=[];
     this.procesarPaquete = function(paquetesAgregar) {
-        //(this.paquetes).push(paquete);
         var i=0;
-        while (i<paquetesAgregar.length) {
+        while (i<(paquetesAgregar.length)) {
             (this.paquetes).push(paquetesAgregar[i]);
             i++;
         }
