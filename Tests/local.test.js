@@ -11,7 +11,7 @@ beforeEach(()=> {
     paquete1 = new Paquete("1");
     paquete2= new Paquete("2");
     lista=[];
-    lista.push(paquete)
+    lista.push(paquete1)
 });
 
 test("Verificar cantidad de paquetes en la cola del salida del local", () =>{
