@@ -1,5 +1,5 @@
 function Destino(){
-
+    this.paquetes=[];
 
 }
 
