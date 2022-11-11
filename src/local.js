@@ -1,5 +1,6 @@
 const ColaSalida=require('./colaSalida');
 const CentroFacturacion = require('./centroFacturacion');
+const CentroCalidad = require('./centroCalidad');
 
 
 //commit 80 primer refactor
@@ -11,6 +12,7 @@ function Local() {
     
     this.colaDeSalida= new ColaSalida();
     this.centroDeFacturacion = new CentroFacturacion();
+    this.centroDeCalidad= new this.centroDeCalidad();
 
     this.paquetesColaDeSalida= function() {
         return this.colaDeSalida.paquetes.length;
