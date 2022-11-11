@@ -33,12 +33,14 @@ function Local() {
     }
 
     this.avanzarTiempo = function() {
+        var paquetes4= this.centroDeDistribucion.terminarProceso();
         var paquetes3= this.centroDeCalidad.terminarProceso();
         var paquetes2= this.centroDeFacturacion.terminarProceso();
         var paquetes1= this.colaDeSalida.terminarProceso();
 
         (this.centroDeFacturacion).procesarPaquete(paquetes1);
         (this.centroDeCalidad).procesarPaquete(paquetes2);
+        (this.centroDeDistribucion).procesarPaquete(paquetes3);
     }
 
 }
