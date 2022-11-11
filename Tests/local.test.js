@@ -102,3 +102,14 @@ test("Verificar cantidad de paquetes en centro de distribucion agregando 1 paque
     local.avanzarTiempo();
     expect(local.paquetesCentroDeDistribucion()).toBe(1);
 })
+
+test("Verificar cantidad de paquetes en centro de distribucion agregando 1 paquete y procesandolo para que llegue al centro de distribucion", () =>{
+    var local= new Local();
+    var paquete= new Paquete();
+    local.agregarPaquete(paquete);
+    local.agregarPaquete(paquete);
+    local.avanzarTiempo();
+    local.avanzarTiempo();
+    local.avanzarTiempo();
+    expect(local.paquetesCentroDeDistribucion()).toBe(2);
+})
