@@ -27,7 +27,7 @@ function Local() {
 
 
     this.paquetesCentroDeCalidad= function(){
-        return 0;
+        return this.paquetesCentroDeCalidad.paquetes.length;
     }
 
 
