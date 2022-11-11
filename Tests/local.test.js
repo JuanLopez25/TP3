@@ -112,3 +112,12 @@ test("Verificar cantidad de paquetes en centro de distribucion agregando 2 paque
 test("Verificar cantidad de paquetes en destino", () =>{
     expect(local.paquetesDestino()).toBe(0);
 })
+
+test("Verificar cantidad de paquetes en destino agregando 1 paquete", () =>{
+    local.agregarPaquete(lista);
+    local.avanzarTiempo();
+    local.avanzarTiempo();
+    local.avanzarTiempo();
+    local.avanzarTiempo();
+    expect(local.paquetesCentroDeDistribucion()).toBe(1);
+})
