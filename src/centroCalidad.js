@@ -10,7 +10,9 @@ function CentroCalidad() {
     }
 
     this.terminarProceso = function() {
-        this.paquetes=[];
+        var entrega= this.paquetes;
+        this.paquetes = [];
+        return entrega;
     }
 }
 
