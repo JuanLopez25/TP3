@@ -2,6 +2,7 @@ const ColaSalida=require('./colaSalida');
 const CentroFacturacion = require('./centroFacturacion');
 const CentroCalidad = require('./centroCalidad');
 const CentroDistribucion = require('./centroDistribucion');
+const Destino=require('../src/destino');
 
 //commit 80 primer refactor
 
@@ -11,6 +12,7 @@ function Local() {
     this.centroDeFacturacion = new CentroFacturacion();
     this.centroDeCalidad= new CentroCalidad();
     this.centroDeDistribucion= new CentroDistribucion();
+    this.destino= new Destino();
 
     this.paquetesColaDeSalida= function() {
         return this.colaDeSalida.paquetes.length;
@@ -30,6 +32,10 @@ function Local() {
 
     this.paquetesCentroDeDistribucion= function(){
         return this.centroDeDistribucion.paquetes.length;
+    }
+
+    this.paquetesDestino= function(){
+        return this.destino.paquetes.length;
     }
 
     this.avanzarTiempo = function() {

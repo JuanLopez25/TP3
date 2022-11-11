@@ -1,5 +1,5 @@
 const Destino=require('../src/destino');
-const Paquete= require('../src/paquete')
+const Paquete= require('../src/paquete');
 
 var paquete;
 var lista;
