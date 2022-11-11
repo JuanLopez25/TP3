@@ -70,3 +70,13 @@ test("Verificar cantidad de paquetes en centro de calidad", () =>{
     var local= new Local();
     expect(local.paquetesCentroDeCalidad()).toBe(0);
 })
+
+
+test("Verificar cantidad de paquetes en centro de calidad agregando 1 paquete y procesandolo para que llegue al centro de calidad", () =>{
+    var local= new Local();
+    var paquete= new Paquete();
+    local.agregarPaquete(paquete);
+    local.avanzarTiempo();
+    local.avanzarTiempo();
+    expect(local.paquetesCentroDeCalidad()).toBe(1);
+})
