@@ -12,7 +12,7 @@ function Local() {
     
     this.colaDeSalida= new ColaSalida();
     this.centroDeFacturacion = new CentroFacturacion();
-    this.centroDeCalidad= new this.centroDeCalidad();
+    this.centroDeCalidad= new CentroCalidad();
 
     this.paquetesColaDeSalida= function() {
         return this.colaDeSalida.paquetes.length;
