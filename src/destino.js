@@ -3,4 +3,4 @@ function Destino(){
 
 }
 
-module.exports= destino;
+module.exports= Destino;
