@@ -2,8 +2,12 @@
 function CentroDistribucion() {
     this.paquetes=[];
     
-    this.procesarPaquete = function(paquete) {
-        (this.paquetes).push(paquete);
+    this.procesarPaquete = function(paquetesAgregar) {
+        var i=0;
+        while (i<(paquetesAgregar.length)) {
+            (this.paquetes).push(paquetesAgregar[i]);
+            i++;
+        }
     }
     
     this.terminarProceso = function() {
