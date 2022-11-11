@@ -88,3 +88,7 @@ test("Verificar cantidad de paquetes en centro de calidad agregando 2 paquetes y
 //-----------------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------
 
+test("Verificar cantidad de paquetes en centro de distribucion", () =>{
+    var local= new Local();
+    expect(local.paquetesCentroDeDistribucion()).toBe(0);
+})
