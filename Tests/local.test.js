@@ -14,15 +14,12 @@ test("Verificar cantidad de paquetes en la cola del salida del local agregando p
 })
 
 
-test("Verificar cantidad de paquetes en la cola del salida del local agregando 5 paquetes", () =>{
+test("Verificar cantidad de paquetes en la cola del salida del local agregando 2 paquetes", () =>{
     var local= new Local();
     var paquete= new Paquete();
     local.agregarPaquete(paquete);
     local.agregarPaquete(paquete);
-    local.agregarPaquete(paquete);
-    local.agregarPaquete(paquete);
-    local.agregarPaquete(paquete);
-    expect(local.paquetesColaDeSalida()).toBe(5);
+    expect(local.paquetesColaDeSalida()).toBe(2);
 })
 
 
