@@ -18,13 +18,13 @@ test("Crear centro de Calidad", () =>{
 
 
 test("Procesar paquete centro de calidad", () =>{
-    calidad.procesarPaquete(paquete);
+    calidad.procesarPaquete(lista);
     expect(calidad.paquetes.length).toBe(1);
 })
 
 
 test("Procesar paquete centro de calidad", () =>{
-    calidad.procesarPaquete(paquete);
-    calidad.terminarProceso(paquete);
+    calidad.procesarPaquete(lista);
+    calidad.terminarProceso(lista);
     expect(calidad.paquetes.length).toBe(0);
 })
