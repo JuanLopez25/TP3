@@ -1,5 +1,6 @@
 const Destino=require('../src/destino');
 
 test("Verificar cantidad de paquetes en el destino", () =>{
-    expect(Destino.paquetes.length).toBe(0);
+    var destino= new Destino();
+    expect(destino.paquetes.length).toBe(0);
 })
