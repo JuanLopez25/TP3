@@ -16,13 +16,10 @@ test("Crear cola salida", () =>{
     expect(salida.paquetes.length).toBe(0);
 })
 
-
-
 test("Entra un paquete a la cola de salida", () =>{
     salida.procesarPaquete(lista);
     expect(salida.paquetes.length).toBe(1);
 })
-
 
 test("Termino de procesar paquetes", () =>{
     salida.procesarPaquete(lista);
