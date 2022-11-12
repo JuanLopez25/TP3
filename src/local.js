@@ -29,6 +29,7 @@ function Local(letra) {
     this.centroDeCalidad= new CentroCalidad();
     this.centroDeDistribucion= new CentroDistribucion();
     this.destino= new Destino("1");
+    this.cantidadRecibidos=0;
 
     //---------------------------------------------------------------------
     //---------------------------------------------------------------------
@@ -55,7 +56,7 @@ function Local(letra) {
     }
 
     this.paquetesDestino= function(){
-        return this.destino.paquetes.length;
+        return this.cantidadRecibidos;
     }
 
     //---------------------------------------------------------------------
@@ -67,12 +68,15 @@ function Local(letra) {
         var paquetes2= this.centroDeFacturacion.terminarProceso();
         var paquetes1= this.colaDeSalida.terminarProceso();
 
+        this.cantidadRecibidos+=this.destino.paquetes.length;
+
 
         (this.centroDeFacturacion).procesarPaquetes(paquetes1);
         (this.centroDeCalidad).procesarPaquetes(paquetes2);
         (this.centroDeDistribucion).procesarPaquetes(paquetes3);
         (this.destino).procesarPaquetes(paquetes4);
-        
+        this.informarPaquetesEnDestino();
+
     }
 
 
