@@ -38,6 +38,12 @@ test("6 paquetes a cola de salida y proceso dos veces por lo que deberia el cent
     expect(local.centrosCreados[2].paquetes.length).toBe(1);
 })
 
+test("6 paquetes a cola de salida y proceso tres veces por lo que deberia el centro de calidad estar facturando 1 paquete", () =>{
+    local.avanzarTiempo(3);
+    expect(local.centrosCreados[3].paquetes.length).toBe(1);
+})
+
+
 
 
 
