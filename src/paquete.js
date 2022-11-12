@@ -5,8 +5,10 @@ function Paquete(destinoPropuesto,productos,urgencia) {
        switch(urgencia){
             case "muy rapido":
                 this.urgencia=4;
+                break;
             case "rapido":
                 this.urgencia=6;
+                break;
        }
 }
 
