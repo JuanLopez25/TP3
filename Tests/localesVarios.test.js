@@ -108,3 +108,12 @@ test("Creo un local que no cumpla losrequisitos y agrego CC", () =>{
     local= new Local(["CD","CF","CD","CD","CD","CD"]);
     expect(local.centrosCreados[8].nombre).toBe("D");
 })
+
+test("Creo un local que no cumpla losrequisitos y agrego CC", () =>{
+    var reseter= new Paquete("1",[],"muy rapido");
+    var reseter.resetearID();
+    local= new Local(["CF","CD","CF","CC"]);
+    local.agregarPaquetes([new Paquete("1",[],"muy rapido")]);
+    local.avanzarTiempo(5);
+    expect(local.informarPaquetesEnDestino()).toBe("P1: Destino 1, Urgencia 5, llego a tiempo\n");
+})

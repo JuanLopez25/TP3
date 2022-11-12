@@ -1,7 +1,7 @@
 
 var Paquete = (function(){
     var contador=0;
-    newPaquete= function(destinoPropuesto,productos,urgencia) {
+    newPaquete= function(destinoPropuesto,productos,urgencia,cantidadCentros) {
         contador+=1;
         this.id=contador;
         this.destino=destinoPropuesto;
