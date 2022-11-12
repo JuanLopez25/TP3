@@ -78,7 +78,7 @@ var Local = (function(){
         
         this.informarPaquetesEnDestino=function() {
             var largo= this.centrosCreados.length-1;
-            return this.centrosCreaados[largo].informarLlegadas();
+            return this.centrosCreados[largo].informarLlegadas();
         }
     }
     return newLocal;
