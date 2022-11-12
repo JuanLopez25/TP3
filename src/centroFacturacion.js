@@ -5,9 +5,9 @@ function CentroFacturacion() {
     this.cola=[];
     this.procesarPaquete = function(paquetesAgregar) {
         var i=0;
-        this.cola = this.cola.concat(paquetesAgregar);
         var paqueteTemporal;
-
+        
+        this.agregarACola(paquetesAgregar);
         
         while (i<(this.cola.length)) {
             if (this.paquetes.length<3) {
@@ -26,8 +26,14 @@ function CentroFacturacion() {
         return entrega;
     }
 
-    
+
+    this.agregarACola = function (paquetesAgregar) {
+        var i=0;
+        while (this.cola.length<5) {
+            this.cola.push(paquetesAgregar[i]);
+            i++;
+        }
+    }
 }
 
-module.exports=CentroFacturacion;
-
+module.exports = CentroFacturacion;
