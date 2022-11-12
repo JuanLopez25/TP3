@@ -38,7 +38,7 @@ function Local() {
         return this.destino.paquetes.length;
     }
 
-    this.avanzarTiempo = function() {
+    this.proceso = function () {
         var paquetes4= this.centroDeDistribucion.terminarProceso();
         var paquetes3= this.centroDeCalidad.terminarProceso();
         var paquetes2= this.centroDeFacturacion.terminarProceso();
@@ -49,6 +49,16 @@ function Local() {
         (this.centroDeDistribucion).procesarPaquete(paquetes3);
         (this.destino).procesarPaquete(paquetes4);
         
+    }
+
+
+    
+    this.avanzarTiempo = function(cantidad) {
+        var i=0;
+        while (i<cantidad) {
+            this.proceso();
+            i++;
+        }
     }
 
 }

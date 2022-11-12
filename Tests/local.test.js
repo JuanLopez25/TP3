@@ -40,7 +40,7 @@ test("Verificar cantidad de paquetes en centro de facturacion", () =>{
 
 test("Verificar cantidad de paquetes en centro de facturacion agregando 1 paquete y procesandolo para que llegue al centro de facturacion", () =>{
     local.agregarPaquete(lista);
-    local.avanzarTiempo();
+    local.avanzarTiempo(1);
     expect(local.paquetesCentroDeFacturacion()).toBe(1);
 })
 
@@ -48,7 +48,7 @@ test("Verificar cantidad de paquetes en centro de facturacion agregando 1 paquet
 test("Verificar cantidad de paquetes en centro de facturacion agregando 2 paquetes y procesandolos para que lleguen al centro de facturacion", () =>{
     lista.push(paquete2);
     local.agregarPaquete(lista);
-    local.avanzarTiempo();
+    local.avanzarTiempo(1);
     expect(local.paquetesCentroDeFacturacion()).toBe(2);
 })
 
@@ -65,16 +65,14 @@ test("Verificar cantidad de paquetes en centro de calidad", () =>{
 
 test("Verificar cantidad de paquetes en centro de calidad agregando 1 paquete y procesandolo para que llegue al centro de calidad", () =>{
     local.agregarPaquete(lista);
-    local.avanzarTiempo();
-    local.avanzarTiempo();
+    local.avanzarTiempo(2);
     expect(local.paquetesCentroDeCalidad()).toBe(1);
 })
 
 test("Verificar cantidad de paquetes en centro de calidad agregando 2 paquetes y procesandolos para que lleguen al centro de calidad", () =>{
     lista.push(paquete2);
     local.agregarPaquete(lista);
-    local.avanzarTiempo();
-    local.avanzarTiempo();
+    local.avanzarTiempo(2);
     expect(local.paquetesCentroDeCalidad()).toBe(2);
 })
 
@@ -89,18 +87,14 @@ test("Verificar cantidad de paquetes en centro de distribucion", () =>{
 
 test("Verificar cantidad de paquetes en centro de distribucion agregando 1 paquete y procesandolo para que llegue al centro de distribucion", () =>{
     local.agregarPaquete(lista);
-    local.avanzarTiempo();
-    local.avanzarTiempo();
-    local.avanzarTiempo();
+    local.avanzarTiempo(3);
     expect(local.paquetesCentroDeDistribucion()).toBe(1);
 })
 
 test("Verificar cantidad de paquetes en centro de distribucion agregando 2 paquete y procesandolo para que llegue al centro de distribucion", () =>{
     lista.push(paquete2);
     local.agregarPaquete(lista);
-    local.avanzarTiempo();
-    local.avanzarTiempo();
-    local.avanzarTiempo();
+    local.avanzarTiempo(3);
     expect(local.paquetesCentroDeDistribucion()).toBe(2);
 })
 
@@ -115,10 +109,7 @@ test("Verificar cantidad de paquetes en destino", () =>{
 
 test("Verificar cantidad de paquetes en destino agregando 1 paquete", () =>{
     local.agregarPaquete(lista);
-    local.avanzarTiempo();
-    local.avanzarTiempo();
-    local.avanzarTiempo();
-    local.avanzarTiempo();
+    local.avanzarTiempo(4);
     expect(local.paquetesDestino()).toBe(1);
 })
 
@@ -126,23 +117,13 @@ test("Verificar cantidad de paquetes en destino agregando 1 paquete", () =>{
 test("Verificar cantidad de paquetes en Destino agregando 2 paquete y procesandolo para que llegue al Destino", () =>{
     lista.push(paquete2);
     local.agregarPaquete(lista);
-    local.avanzarTiempo();
-    local.avanzarTiempo();
-    local.avanzarTiempo();
-    local.avanzarTiempo();
+    local.avanzarTiempo(4);
     expect(local.paquetesDestino()).toBe(2);
 })
 
 test("Verificar cantidad de paquetes en Destino agregando 2 paquete y procesandolos de mas para que se queden en el Destino", () =>{
     lista.push(paquete2);
     local.agregarPaquete(lista);
-    local.avanzarTiempo();
-    local.avanzarTiempo();
-    local.avanzarTiempo();
-    local.avanzarTiempo();
-    local.avanzarTiempo();
-    local.avanzarTiempo();
-    local.avanzarTiempo();
-    local.avanzarTiempo();
+    local.avanzarTiempo(8);
     expect(local.paquetesDestino()).toBe(2);
 })
