@@ -12,11 +12,6 @@ beforeEach(()=> {
     lista.push(paquete)
 });
 
-//------------------------------------------------------------------
-//------------------------------------------------------------------
-//------------------------------------------------------------------
-//------------------------------------------------------------------
-
 test("Crear centro de Calidad", () =>{
     expect(calidad.paquetes.length).toBe(0);
 })
@@ -34,10 +29,12 @@ test("Procesar paquete centro de calidad", () =>{
     expect(calidad.paquetes.length).toBe(0);
 })
 
-//------------------------------------------------------------------
-//------------------------------------------------------------------
-//------------------------------------------------------------------
-//------------------------------------------------------------------
+test("Entran 2 paquetes al centro de calidad y deberian entrar nada mas que 2 ya que este es el limite", () =>{
+    lista.push(paquete);
+    calidad.procesarPaquete(lista);
+    expect(calidad.paquetes.length).toBe(3);
+})
+
 
 
 
