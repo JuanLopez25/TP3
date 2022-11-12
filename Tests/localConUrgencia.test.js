@@ -60,6 +60,7 @@ test("12 paquetes a centro de distribucion y procesa los 10 con mayor urgencia",
 })
 
 test("Comparar urgencia con tiempo de llegada", () =>{
+    local.centrosCreados[0].paquetes;
     local.avanzarTiempo(4);  //Llega el primer paquete, el "muy rapido"
     expect(local.informarPaquetesEnDestino()).toBe("P1: Destino 1, Urgencia 4, llego a tiempo\n");
 })

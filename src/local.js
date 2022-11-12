@@ -58,9 +58,15 @@ var Local = (function(){
         
 
         this.proceso = function () {
-            var contador=this.centrosCreados.length-1;
+            var contador=(this.centrosCreados.length)-1;
+            var centroActual;
+            var centroAnterior;
+            var paquetesAux;
             while (contador>0) {
-                (this.centrosCreados[contador]).procesarPaquetes((this.centrosCreados[contador-1]).terminarProceso()); 
+                centroActual=this.centrosCreados[contador];
+                centroAnterior=this.centrosCreados[contador-1];
+                paquetesAux=centroAnterior.terminarProceso();
+                centroActual.procesarPaquetes(paquetesAux); 
                 contador--;
             }
         }
