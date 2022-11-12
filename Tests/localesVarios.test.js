@@ -28,7 +28,7 @@ test("6 paquetes a cola de salida y toma los 5 de mayor urgencia", () =>{
     expect(urgenciaTotal).toBe(28);
 })
 
-test("6 paquetes a cola de salida y proceso una vez por lo que deberia el centro de facturacion estar facturando 3 paquetes", () =>{
+test("6 paquetes a cola de salida y proceso una vez por lo que deberia el centro de facturacion estar procesando 3 paquetes", () =>{
     local= new Local(["CF","CC","CC","CD","CF"]);
     local.agregarPaquetes(lista);
     local.avanzarTiempo(1);
@@ -72,6 +72,14 @@ test("6 paquetes a cola de salida y proceso dos veces por lo que deberia el cent
     local.agregarPaquetes(lista);
     local.avanzarTiempo(2);
     expect(local.centrosCreados[2].paquetes.length).toBe(5);
+})
+
+
+test("6 paquetes a cola de salida y proceso tres veces por lo que deberia el centro de facturacion estar procesando 3 paquetes", () =>{
+    local= new Local(["CD","CD","CF","CC","CD"]);
+    local.agregarPaquetes(lista);
+    local.avanzarTiempo(3);
+    expect(local.centrosCreados[3].paquetes.length).toBe(3);
 })
 
 
