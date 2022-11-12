@@ -13,7 +13,7 @@ function CentroFacturacion() {
             if (this.paquetes.length<3) {
                 paqueteTemporal= this.cola[i];
                 (this.paquetes).push(paqueteTemporal);
-                this.cola = this.cola.filter(paquete => paquete!=paqueteTemporal);
+                this.cola = this.cola.filter(paquete => paquete!==paqueteTemporal);
             }
             i++;
         }
