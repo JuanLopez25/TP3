@@ -22,7 +22,7 @@ var Paquete = (function(){
             if(this.tiempo<=this.urgencia) {
                 return "P"+this.id+": Destino "+this.destino+", Urgencia "+this.urgencia+", llego a tiempo\n";
             } else {
-                return "P"+this.id+": Destino "+this.destino+", Urgencia "+this.urgencia+", llego a tiempo\n";
+                return "P"+this.id+": Destino "+this.destino+", Urgencia "+this.urgencia+", no llego a tiempo\n";
             }
         }
         this.resetearID=function() {
