@@ -32,11 +32,11 @@ var Local = (function(){
         centros.forEach(elemento =>
             {switch(elemento){
                 case "CF":
-                    centrosCreados.push(new CentroFacturacion());
+                    this.centrosCreados.push(new CentroFacturacion());
                 case "CC":
-                    centrosCreados.push(new CentroCalidad());
+                    this.centrosCreados.push(new CentroCalidad());
                 case "CD":
-                    centrosCreados.push(new CentroDistribucion());
+                    this.centrosCreados.push(new CentroDistribucion());
             }}
         );
         this.cantidadRecibidos=0;
