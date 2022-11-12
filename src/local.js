@@ -56,7 +56,7 @@ function Local(letra) {
     }
 
     this.paquetesDestino= function(){
-        return this.cantidadRecibidos;
+        return this.destino.paquetes.length;
     }
 
     //---------------------------------------------------------------------
@@ -68,14 +68,12 @@ function Local(letra) {
         var paquetes2= this.centroDeFacturacion.terminarProceso();
         var paquetes1= this.colaDeSalida.terminarProceso();
 
-        this.cantidadRecibidos+=this.destino.paquetes.length;
 
 
         (this.centroDeFacturacion).procesarPaquetes(paquetes1);
         (this.centroDeCalidad).procesarPaquetes(paquetes2);
         (this.centroDeDistribucion).procesarPaquetes(paquetes3);
         (this.destino).procesarPaquetes(paquetes4);
-        this.informarPaquetesEnDestino();
 
     }
 
