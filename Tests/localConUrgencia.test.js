@@ -7,8 +7,11 @@ var paqueteRapido;
 var paqueteNormal;
 var local;
 var lista;
+var reseter;
 
 beforeEach(()=> {
+    reseter= new Paquete("1",[],"muy rapido");
+    reseter.resetearID();
     paqueteMuyRapido=new Paquete("1",[],"muy rapido");
     paqueteRapido=new Paquete("1",[],"rapido");
     paqueteNormal=new Paquete("1",[],"normal");

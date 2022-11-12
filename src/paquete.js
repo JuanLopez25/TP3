@@ -25,6 +25,9 @@ var Paquete = (function(){
                 return "P"+this.id+": Destino "+this.destino+", Urgencia "+this.urgencia+", llego a tiempo\n";
             }
         }
+        this.resetearID=function() {
+            contador=0;
+        }
     }
     return newPaquete;
 })();
