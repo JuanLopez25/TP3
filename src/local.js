@@ -21,79 +21,87 @@ const Destino=require('../src/destino');
 //module pattern
 
 
+var Local = (function(centros){
+    var contadorOrigen="A";
+    var contadorDestino=1;
+    newLocal= function(){
+        this.nombre=contadorOrigen;
+        this.colaDeSalida= new ColaSalida();
+        this.centroDeFacturacion = new CentroFacturacion();
+        this.centroDeCalidad= new CentroCalidad();
+        this.centroDeDistribucion= new CentroDistribucion();
+        this.destino= new Destino(contadorDestino);
+        this.cantidadRecibidos=0;
 
-function Local(letra) {
-    this.nombre=letra;
-    this.colaDeSalida= new ColaSalida();
-    this.centroDeFacturacion = new CentroFacturacion();
-    this.centroDeCalidad= new CentroCalidad();
-    this.centroDeDistribucion= new CentroDistribucion();
-    this.destino= new Destino("1");
-    this.cantidadRecibidos=0;
 
-    //---------------------------------------------------------------------
-    //---------------------------------------------------------------------
-    
-    this.agregarPaquetes= function(paquete) {
-        this.colaDeSalida.procesarPaquetes(paquete);
-    }
 
-    this.paquetesColaDeSalida= function() {
-        return this.colaDeSalida.paquetes.length;
-    }
+        contadorDestino+=1;
+        var letra=contadorOrigen.charCodeAt();
+        letra++;
+        contadorOrigen=String.fromCharCode(letra);
+        
 
-    this.paquetesCentroDeFacturacion= function(){
-        return this.centroDeFacturacion.paquetes.length;
-    }
+        //---------------------------------------------------------------------
+        //---------------------------------------------------------------------
+        
+        this.agregarPaquetes= function(paquete) {
+            this.colaDeSalida.procesarPaquetes(paquete);
+        }
 
-    this.paquetesCentroDeCalidad= function(){
-        return this.centroDeCalidad.paquetes.length;
-    }
+        this.paquetesColaDeSalida= function() {
+            return this.colaDeSalida.paquetes.length;
+        }
 
-    this.paquetesCentroDeDistribucion= function(){
-        return this.centroDeDistribucion.paquetes.length;
-    }
+        this.paquetesCentroDeFacturacion= function(){
+            return this.centroDeFacturacion.paquetes.length;
+        }
 
-    this.paquetesDestino= function(){
-        return this.cantidadRecibidos;
-    }
+        this.paquetesCentroDeCalidad= function(){
+            return this.centroDeCalidad.paquetes.length;
+        }
 
-    //---------------------------------------------------------------------
-    
-    //---------------------------------------------------------------------
+        this.paquetesCentroDeDistribucion= function(){
+            return this.centroDeDistribucion.paquetes.length;
+        }
 
-    this.proceso = function () {
-        var paquetes4= this.centroDeDistribucion.terminarProceso();
-        var paquetes3= this.centroDeCalidad.terminarProceso();
-        var paquetes2= this.centroDeFacturacion.terminarProceso();
-        var paquetes1= this.colaDeSalida.terminarProceso();
+        this.paquetesDestino= function(){
+            return this.cantidadRecibidos;
+        }
 
-        this.cantidadRecibidos+=paquetes4.length;
+        //---------------------------------------------------------------------
+        
+        //---------------------------------------------------------------------
 
-        (this.centroDeFacturacion).procesarPaquetes(paquetes1);
-        (this.centroDeCalidad).procesarPaquetes(paquetes2);
-        (this.centroDeDistribucion).procesarPaquetes(paquetes3);
-        (this.destino).procesarPaquetes(paquetes4);
+        this.proceso = function () {
+            var paquetes4= this.centroDeDistribucion.terminarProceso();
+            var paquetes3= this.centroDeCalidad.terminarProceso();
+            var paquetes2= this.centroDeFacturacion.terminarProceso();
+            var paquetes1= this.colaDeSalida.terminarProceso();
 
-    }
+            this.cantidadRecibidos+=paquetes4.length;
 
-    this.avanzarTiempo = function(cantidad) {
-        var i=0;
-        while (i<cantidad) {
-            this.proceso();
-            i++;
+            (this.centroDeFacturacion).procesarPaquetes(paquetes1);
+            (this.centroDeCalidad).procesarPaquetes(paquetes2);
+            (this.centroDeDistribucion).procesarPaquetes(paquetes3);
+            (this.destino).procesarPaquetes(paquetes4);
+
+        }
+
+        this.avanzarTiempo = function(cantidad) {
+            var i=0;
+            while (i<cantidad) {
+                this.proceso();
+                i++;
+            }
+        }
+        
+        this.informarPaquetesEnDestino=function() {
+            return this.destino.informarLlegadas();
         }
     }
-    
-    this.informarPaquetesEnDestino=function() {
-        return this.destino.informarLlegadas();
-    }
-
-    //---------------------------------------------------------------------
-    //---------------------------------------------------------------------
+    return newLocal;
 
 
-}
-
+})();
 
 module.exports= Local;
