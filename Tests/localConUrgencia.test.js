@@ -48,6 +48,6 @@ test("12 paquetes a centro de distribucion y procesa los 10 con mayor urgencia",
     var lista2= lista.concat(lista)
     distribucion.procesarPaquetes(lista2);
     var urgenciaTotal=0;
-    distribucion.paquetes.forEach(elemento => urgenciaTotal+=elemento.urgencia);
+    distribucion.cola.forEach(elemento => urgenciaTotal+=elemento.urgencia);
     expect(urgenciaTotal).toBe(56);
 })
