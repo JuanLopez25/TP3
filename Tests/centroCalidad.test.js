@@ -32,7 +32,7 @@ test("Procesar paquete centro de calidad", () =>{
 test("Entran 2 paquetes al centro de calidad y deberian entrar nada mas que 2 ya que este es el limite", () =>{
     lista.push(paquete);
     calidad.procesarPaquete(lista);
-    expect(calidad.paquetes.length).toBe(3);
+    expect(calidad.paquetes.length).toBe(1);
 })
 
 
