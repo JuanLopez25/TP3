@@ -17,28 +17,34 @@ beforeEach(()=> {
     paqueteRapido2=new Paquete("1",[],"rapido");
     paqueteNormal=new Paquete("1",[],"normal");
     paqueteNormal2=new Paquete("1",[],"normal");
-    local= new Local(["CF","CC","CC","CD","CF"]);
     lista=[paqueteMuyRapido,paqueteNormal,paqueteNormal2,paqueteRapido,paqueteRapido2,paqueteMuyRapido2];
-    local.agregarPaquetes(lista);
 });
 
 test("6 paquetes a cola de salida y toma los 5 de mayor urgencia", () =>{
+    local= new Local(["CF","CC","CC","CD","CF"]);
+    local.agregarPaquetes(lista);
     var urgenciaTotal=0;
     local.centrosCreados[0].paquetes.forEach(elemento => urgenciaTotal+=elemento.urgencia);
     expect(urgenciaTotal).toBe(28);
 })
 
 test("6 paquetes a cola de salida y proceso una vez por lo que deberia el centro de facturacion estar facturando 3 paquetes", () =>{
+    local= new Local(["CF","CC","CC","CD","CF"]);
+    local.agregarPaquetes(lista);
     local.avanzarTiempo(1);
     expect(local.centrosCreados[1].paquetes.length).toBe(3);
 })
 
 test("6 paquetes a cola de salida y proceso dos veces por lo que deberia el centro de calidad estar facturando 1 paquete", () =>{
+    local= new Local(["CF","CC","CC","CD","CF"]);
+    local.agregarPaquetes(lista);
     local.avanzarTiempo(2);
     expect(local.centrosCreados[2].paquetes.length).toBe(1);
 })
 
 test("6 paquetes a cola de salida y proceso tres veces por lo que deberia el centro de calidad estar facturando 1 paquete", () =>{
+    local= new Local(["CF","CC","CC","CD","CF"]);
+    local.agregarPaquetes(lista);
     local.avanzarTiempo(3);
     expect(local.centrosCreados[3].paquetes.length).toBe(1);
 })
