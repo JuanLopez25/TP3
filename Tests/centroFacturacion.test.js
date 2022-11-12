@@ -27,3 +27,13 @@ test("Procesar paquete centro de facturacion", () =>{
     facturacion.terminarProceso(lista);
     expect(facturacion.paquetes.length).toBe(0);
 })
+
+
+test("Entran 3 paquetes al centro de facturacion", () =>{
+    lista.push(paquete);
+    lista.push(paquete);
+    facturacion.procesarPaquete(lista);
+    expect(facturacion.paquetes.length).toBe(3);
+})
+
+
