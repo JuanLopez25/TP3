@@ -11,13 +11,13 @@ const Destino=require('../src/destino');
 //terminamos de meter los limites de procesamiento para el commit 173
 
 
-function Local() {
-    
+function Local(letra) {
+    this.nombre=letra;
     this.colaDeSalida= new ColaSalida();
     this.centroDeFacturacion = new CentroFacturacion();
     this.centroDeCalidad= new CentroCalidad();
     this.centroDeDistribucion= new CentroDistribucion();
-    this.destino= new Destino();
+    this.destino= new Destino("1");
 
     //---------------------------------------------------------------------
     //---------------------------------------------------------------------

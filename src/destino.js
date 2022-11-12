@@ -1,4 +1,5 @@
-function Destino(){
+function Destino(numero){
+    this.nombre=numero;
     this.paquetes=[];
 
     this.procesarPaquete = function(paquetesAgregar) {
