@@ -9,3 +9,8 @@ test("Crear Paquete con urgencia rapido", () =>{
     var paquete= new Paquete("1",[],"rapido");
     expect(paquete.urgencia).toBe(6);
 })
+
+test("Crear Paquete con urgencia normal", () =>{
+    var paquete= new Paquete("1",[],"normal");
+    expect(paquete.urgencia).toBe(8);
+})
