@@ -28,3 +28,10 @@ test("5 paquetes a centro de Facturacion y procesa los 3 con mayor urgencia", ()
     local.centroDeFacturacion.paquetes.forEach(elemento => urgenciaTotal+=elemento.urgencia);
     expect(urgenciaTotal).toBe(14);
 })
+
+test("3 paquetes a centro de calidad y procesa el de mayor urgencia", () =>{
+    local.avanzarTiempo(2);
+    var urgenciaTotal=0;
+    local.centroDeFacturacion.paquetes.forEach(elemento => urgenciaTotal+=elemento.urgencia);
+    expect(urgenciaTotal).toBe(4);
+})
