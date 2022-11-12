@@ -8,7 +8,7 @@ function CentroDistribucion() {
         var i=0;
         var paqueteTemporal;
 
-        
+        this.cola = this.cola.concat(paquetesAgregar);
         while (i<(this.cola.length)) {
             if (this.paquetes.length<10) {
                 paqueteTemporal= this.cola[i];
