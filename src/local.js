@@ -21,16 +21,16 @@ const Destino=require('../src/destino');
 //module pattern
 
 
-var Local = (function(centros){
+var Local = (function(){
     var contadorOrigen="A";
     var contadorDestino=1;
-    newLocal= function(){
+    newLocal= function(centros){
         this.nombre=contadorOrigen;
         this.colaDeSalida= new ColaSalida();
 
         this.centrosCreados=[];
-        centros.forEach(element =>
-            {switch(element){
+        centros.forEach(elemento =>
+            {switch(elemento){
                 case "CF":
                     centrosCreados.push(new CentroFacturacion());
                 case "CC":
