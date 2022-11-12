@@ -5,6 +5,7 @@ const CentroDistribucion = require('./centroDistribucion');
 const Destino=require('../src/destino');
 
 //commit 80 primer refactor
+//commit 154 refactor de "avanzar tiempo"
 
 function Local() {
     
@@ -14,12 +15,16 @@ function Local() {
     this.centroDeDistribucion= new CentroDistribucion();
     this.destino= new Destino();
 
-    this.paquetesColaDeSalida= function() {
-        return this.colaDeSalida.paquetes.length;
-    }
+    //---------------------------------------------------------------------
+    //---------------------------------------------------------------------
 
+    
     this.agregarPaquete= function(paquete) {
         this.colaDeSalida.procesarPaquete(paquete);
+    }
+
+    this.paquetesColaDeSalida= function() {
+        return this.colaDeSalida.paquetes.length;
     }
 
     this.paquetesCentroDeFacturacion= function(){
@@ -37,6 +42,9 @@ function Local() {
     this.paquetesDestino= function(){
         return this.destino.paquetes.length;
     }
+
+    //---------------------------------------------------------------------
+    //---------------------------------------------------------------------
 
     this.proceso = function () {
         var paquetes4= this.centroDeDistribucion.terminarProceso();
@@ -60,6 +68,10 @@ function Local() {
             i++;
         }
     }
+    
+    //---------------------------------------------------------------------
+    //---------------------------------------------------------------------
+
 
 }
 

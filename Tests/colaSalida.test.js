@@ -27,3 +27,12 @@ test("Termino de procesar paquetes", () =>{
     expect(salida.paquetes.length).toBe(0);
 })
 
+test("Entran 5 paquetes a la cola de salida", () =>{
+    lista.push(paquete);
+    lista.push(paquete);
+    lista.push(paquete);
+    lista.push(paquete);
+    salida.procesarPaquete(lista);
+    expect(salida.paquetes.length).toBe(5);
+})
+
