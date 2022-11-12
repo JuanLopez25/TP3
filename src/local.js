@@ -53,12 +53,9 @@ var Local = (function(){
         }
 
         this.paquetesColaDeSalida= function() {
-            return this.colaDeSalida.paquetes.length;
+            return this.centrosCreados[0].paquetes.length;
         }
         
-        this.paquetesDestino= function(){
-            return this.cantidadRecibidos;
-        }
 
         this.proceso = function () {
             var contador=this.centrosCreados.length-1;

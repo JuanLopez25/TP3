@@ -30,27 +30,3 @@ test("Verificar cantidad de paquetes en la cola del salida del local agregando 2
 })
 
 
-test("Verificar cantidad de paquetes en destino", () =>{
-    expect(local.paquetesDestino()).toBe(0);
-})
-
-test("Verificar cantidad de paquetes en destino agregando 1 paquete", () =>{
-    local.agregarPaquetes(lista);
-    local.avanzarTiempo(4);
-    expect(local.paquetesDestino()).toBe(1);
-})
-
-
-test("Verificar cantidad de paquetes en Destino agregando 2 paquete y procesandolo para que llegue al Destino", () =>{
-    lista.push(paquete2);
-    local.agregarPaquetes(lista);
-    local.avanzarTiempo(4);
-    expect(local.paquetesDestino()).toBe(1);
-})
-
-test("Verificar cantidad de paquetes en Destino agregando 2 paquete y procesandolos de mas para que se queden en el Destino", () =>{
-    lista.push(paquete2);
-    local.agregarPaquetes(lista);
-    local.avanzarTiempo(8);
-    expect(local.paquetesDestino()).toBe(2);
-})
