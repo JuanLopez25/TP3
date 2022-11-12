@@ -9,6 +9,15 @@ function CentroDistribucion() {
         var paqueteTemporal;
 
         this.agregarACola(paquetesAgregar);
+        this.cola.sort(function (a, b) {
+            if (a.urgencia > b.urgencia) {
+              return 1;
+            }
+            if (a.urgencia < b.urgencia) {
+              return -1;
+            }
+            return 0;
+          });
 
         while (i<(this.cola.length)) {
             if (this.paquetes.length<10) {
