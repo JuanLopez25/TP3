@@ -132,3 +132,13 @@ test("Verificar cantidad de paquetes en Destino agregando 2 paquete y procesando
     local.avanzarTiempo();
     expect(local.paquetesDestino()).toBe(2);
 })
+
+test("Verificar cantidad de paquetes en Destino agregando 2 paquete y procesandolos de mas para que se queden en el Destino", () =>{
+    lista.push(paquete2);
+    local.agregarPaquete(lista);
+    local.avanzarTiempo();
+    local.avanzarTiempo();
+    local.avanzarTiempo();
+    local.avanzarTiempo();
+    expect(local.paquetesDestino()).toBe(2);
+})
