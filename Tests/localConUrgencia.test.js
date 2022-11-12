@@ -11,7 +11,7 @@ var reseter;
 
 beforeEach(()=> {
     reseter= new Paquete("1",[],"muy rapido");
-    reseter.resetearID();
+    reseter.resetearID(); //Creamos este paquete para resetear el id, y que los paquetes de este test empiezen desde el id 1;
     paqueteMuyRapido=new Paquete("1",[],"muy rapido");
     paqueteRapido=new Paquete("1",[],"rapido");
     paqueteNormal=new Paquete("1",[],"normal");
