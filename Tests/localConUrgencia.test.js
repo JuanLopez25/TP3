@@ -25,7 +25,7 @@ beforeEach(()=> {
 
 test("6 paquetes a cola de salida y toma los 5 de mayor urgencia", () =>{
     var urgenciaTotal=0;
-    local.colaDeSalida.paquetes.forEach(elemento => urgenciaTotal+=elemento.urgencia);
+    local.centrosCreados[0].paquetes.forEach(elemento => urgenciaTotal+=elemento.urgencia);
     expect(urgenciaTotal).toBe(28);
 })
 
@@ -35,7 +35,7 @@ test("5 paquetes a centro de Facturacion y procesa los 3 con mayor urgencia", ()
     local.agregarPaquetes(lista2); 
     local.avanzarTiempo(1); 
     var urgenciaTotal=0;
-    local.centroDeFacturacion.paquetes.forEach(elemento => urgenciaTotal+=elemento.urgencia);
+    local.centrosCreados[1].paquetes.forEach(elemento => urgenciaTotal+=elemento.urgencia);
     expect(urgenciaTotal).toBe(12);
 })
 
@@ -45,7 +45,7 @@ test("3 paquetes a centro de calidad y procesa el de mayor urgencia", () =>{
     local.agregarPaquetes(lista2);
     local.avanzarTiempo(2);  
     var urgenciaTotal=0;
-    local.centroDeCalidad.paquetes.forEach(elemento => urgenciaTotal+=elemento.urgencia);
+    local.centrosCreados[2].paquetes.forEach(elemento => urgenciaTotal+=elemento.urgencia);
     expect(urgenciaTotal).toBe(4);
 })
 
