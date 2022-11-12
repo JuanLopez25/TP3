@@ -11,8 +11,9 @@ function Destino(numero){
     }
 
 
-    this.informarLlegadas= function(){
-        
+    this.informarLlegadas= function(paquetes){
+        var respuesta;
+        paquetes.forEach(elemento => respuesta.concat(elemento.informe()))
     }
     
 }
