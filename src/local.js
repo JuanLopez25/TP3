@@ -27,10 +27,7 @@ var Local = (function(centros){
     newLocal= function(){
         this.nombre=contadorOrigen;
         this.colaDeSalida= new ColaSalida();
-        this.centroDeFacturacion = new CentroFacturacion();
-        this.centroDeCalidad= new CentroCalidad();
-        this.centroDeDistribucion= new CentroDistribucion();
-        this.destino= new Destino(contadorDestino);
+        this.centrosIntermedios= this.crearCentros(centros);
         this.cantidadRecibidos=0;
 
 
@@ -98,6 +95,22 @@ var Local = (function(centros){
         this.informarPaquetesEnDestino=function() {
             return this.destino.informarLlegadas();
         }
+
+        this.crearCentros= function(centros) {
+            var centrosCreados=[];
+            centros.forEach(element =>
+                {switch(element){
+                    case "CF":
+                        centrosCreados.push(new CentroFacturacion());
+                    case "CC":
+                        centrosCreados.push(new CentroCalidad());
+                    case "CD":
+                        centrosCreados.push(new CentroDistribucion());
+                }}
+            );
+            return centrosCreados;
+        }
+
     }
     return newLocal;
 
