@@ -9,6 +9,9 @@ function Paquete(destinoPropuesto,productos,urgencia) {
             case "rapido":
                 this.urgencia=6;
                 break;
+            case "normal":
+                this.urgencia=8;
+                break;
        }
 }
 
