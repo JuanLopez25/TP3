@@ -1,5 +1,5 @@
 
-function Paquete(id,destinoPropuesto,productos,urgencia) {
+function Paquete(destinoPropuesto,productos,urgencia) {
     this.destino=destinoPropuesto;
     this.productos=productos;
     this.tiempo=0;
