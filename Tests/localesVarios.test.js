@@ -59,11 +59,11 @@ test("6 paquetes a cola de salida y toma los 5 de mayor urgencia", () =>{
 })
 
 
-test("6 paquetes a cola de salida y proceso una vez por lo que deberia el centro de distribucion estar procesando 6 paquetes", () =>{
+test("6 paquetes a cola de salida y proceso una vez por lo que deberia el centro de distribucion estar procesando 5 paquetes", () =>{
     local= new Local(["CD","CD","CF","CC","CD"]);
     local.agregarPaquetes(lista);
     local.avanzarTiempo(1);
-    expect(local.centrosCreados[1].paquetes.length).toBe(6);
+    expect(local.centrosCreados[1].paquetes.length).toBe(5);
 })
 
 
