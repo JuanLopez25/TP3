@@ -55,19 +55,7 @@ var Local = (function(){
         this.paquetesColaDeSalida= function() {
             return this.colaDeSalida.paquetes.length;
         }
-
-        this.paquetesCentroDeFacturacion= function(){
-            return this.centroDeFacturacion.paquetes.length;
-        }
-
-        this.paquetesCentroDeCalidad= function(){
-            return this.centroDeCalidad.paquetes.length;
-        }
-
-        this.paquetesCentroDeDistribucion= function(){
-            return this.centroDeDistribucion.paquetes.length;
-        }
-
+        
         this.paquetesDestino= function(){
             return this.cantidadRecibidos;
         }
