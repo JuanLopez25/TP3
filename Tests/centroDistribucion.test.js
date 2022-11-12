@@ -54,8 +54,8 @@ test("Entran 11 paquetes al centro de distribucion y deberian entrar nada mas qu
     lista.push(paquete);
     lista.push(paquete);
     lista.push(paquete);
-    facturacion.procesarPaquete(lista);
-    expect(facturacion.paquetes.length).toBe(3);
+    distribucion.procesarPaquete(lista);
+    expect(distribucion.paquetes.length).toBe(10);
 })
 
 
