@@ -55,7 +55,7 @@ function Local(letra) {
     }
 
     this.paquetesDestino= function(){
-        return this.destino.paquetes.length;
+        return this.cantidadRecibidos;
     }
 
     //---------------------------------------------------------------------
