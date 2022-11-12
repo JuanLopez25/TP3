@@ -8,6 +8,7 @@ function Destino(numero){
             (this.paquetes).push(paquetesAgregar[i]);
             i++;
         }
+        console.log(this.informarLlegadas());
     }
 
 
