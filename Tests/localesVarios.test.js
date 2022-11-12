@@ -67,6 +67,14 @@ test("6 paquetes a cola de salida y proceso una vez por lo que deberia el centro
 })
 
 
+test("6 paquetes a cola de salida y proceso dos veces por lo que deberia el centro de distribucion estar procesando 5 paquetes", () =>{
+    local= new Local(["CD","CD","CF","CC","CD"]);
+    local.agregarPaquetes(lista);
+    local.avanzarTiempo(2);
+    expect(local.centrosCreados[2].paquetes.length).toBe(5);
+})
+
+
 
 
 
