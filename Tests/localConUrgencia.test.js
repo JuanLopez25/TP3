@@ -46,6 +46,7 @@ test("3 paquetes a centro de calidad y procesa el de mayor urgencia", () =>{
 test("12 paquetes a centro de distribucion y procesa los 10 con mayor urgencia", () =>{
     var distribucion= new CentroDistribucion();
     var lista2= lista.concat(lista)
+    lista2= lista2.concat(lista);
     distribucion.procesarPaquetes(lista2);
     var urgenciaTotal=0;
     distribucion.cola.forEach(elemento => urgenciaTotal+=elemento.urgencia);
