@@ -36,3 +36,13 @@ test("Entran 5 paquetes a la cola de salida", () =>{
     expect(salida.paquetes.length).toBe(5);
 })
 
+test("Entran 6 paquetes a la cola de salida y deberian entrar nada mas que 5 ya que este es el limite", () =>{
+    lista.push(paquete);
+    lista.push(paquete);
+    lista.push(paquete);
+    lista.push(paquete);
+    lista.push(paquete);
+    salida.procesarPaquete(lista);
+    expect(salida.paquetes.length).toBe(5);
+})
+
