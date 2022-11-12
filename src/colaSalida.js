@@ -3,6 +3,15 @@ function colaSalida(paquete) {
     this.paquetes=[];
     this.procesarPaquete = function(paquetesAgregar) {
         var i=0;
+        paquetesAgregar.sort(function (a, b) {
+            if (a.urgencia > b.urgencia) {
+              return 1;
+            }
+            if (a.urgencia < b.urgencia) {
+              return -1;
+            }
+            return 0;
+          });
         while (i<(paquetesAgregar.length)) {
             if (this.paquetes.length<5) {
                 (this.paquetes).push(paquetesAgregar[i]);
