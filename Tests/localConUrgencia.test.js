@@ -33,7 +33,14 @@ test("5 paquetes a centro de Facturacion y procesa los 3 con mayor urgencia", ()
 })
 
 test("3 paquetes a centro de calidad y procesa el de mayor urgencia", () =>{
-    local.avanzarTiempo(2);
+    local.avanzarTiempo(2); ///centro de calidad procesa el primer muy rapidos y en la cola de espera el primero es muy rapido y el segundo es rapido
+    // el centro de facturacion esta procesando el rapido y el normal
+    var lista2= [paqueteMuyRapido,paqueteMuyRapido, paqueteMuyRapido, paqueteMuyRapido, paqueteMuyRapido, paqueteMuyRapido];
+    local.agregarPaquetes(lista2);  //Cola de salida agrendando 5 muy rapidos
+    local.avanzarTiempo(1); //facturacion esta procesando 3 muy rapidos
+    //centro de calidad esta procesando el muy rapido y en cola tiene [rapido,rapido,normal]
+    local.avanzarTiempo(1); //facturacion procesando los 2 muy rapidos
+    //centro de calidad deberia procesar un muy rapido pero en cola el orden es [rapido,rapido,normal,muy rapido, muy rapido, muy rapido]
     var urgenciaTotal=0;
     local.centroDeCalidad.paquetes.forEach(elemento => urgenciaTotal+=elemento.urgencia);
     expect(urgenciaTotal).toBe(4);
