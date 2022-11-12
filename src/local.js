@@ -29,20 +29,35 @@ var Local = (function(){
     newLocal= function(centros){
         this.nombre=contadorOrigen;
         this.centrosCreados=[new ColaSalida()];
+        var i=0;
+        var j=0;
+        var k=0;
         centros.forEach(elemento =>
             {
             switch(elemento){
                 case "CF":
                     this.centrosCreados.push(new CentroFacturacion());
+                    i=1;
                     break;
                 case "CC":
                     this.centrosCreados.push(new CentroCalidad());
+                    j=1;
                     break;
                 case "CD":
                     this.centrosCreados.push(new CentroDistribucion());
+                    k=1;
                     break;
             }}
         );
+        if (i==0) {
+            this.centrosCreados.push(new CentroFacturacion());
+        }
+        if (j==0) {
+            this.centrosCreados.push(new CentroCalidad());
+        }
+        if (k==0) {
+            this.centrosCreados.push(new CentroDistribucion());
+        }
         this.centrosCreados.push(new Destino(contadorDestino));
         this.cantidadRecibidos=0;
 

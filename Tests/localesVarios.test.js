@@ -84,7 +84,7 @@ test("6 paquetes a cola de salida y proceso tres veces por lo que deberia el cen
 
 //chequear que se deban tener uno de cada uno
 
-test("6 paquetes a cola de salida y toma los 5 de mayor urgencia", () =>{
+test("Creo un local que no cumpla los requisitos y debe agregarse el CF y el CC", () =>{
     local= new Local(["CD"]);
     expect(local.centrosCreados[2].nombre).toBe("CF");
 })
