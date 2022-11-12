@@ -15,6 +15,7 @@ function CentroCalidad() {
                 paqueteTemporal= this.cola[i];
                 (this.paquetes).push(paqueteTemporal);
                 this.cola.splice(i,1);
+                i--;
             }
             i++;
         }
