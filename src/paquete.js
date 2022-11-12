@@ -1,13 +1,13 @@
 
 var Paquete = (function(){
     var contador=0;
-    newPaquete= function(destinoPropuesto,productos,urgencia,cantidadCentros) {
+    newPaquete= function(destinoPropuesto,productos,urgenciaSolicitada,cantidadCentros) {
         contador+=1;
         this.id=contador;
         this.destino=destinoPropuesto;
         this.productos=productos;
         this.tiempo=0;
-        switch(urgencia){
+        switch(urgenciaSolicitada){
             case "muy rapido":
                 this.urgencia=cantidadCentros;
                 break;
