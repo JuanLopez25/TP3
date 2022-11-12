@@ -48,9 +48,12 @@ test("6 paquetes a cola de salida y proceso tres veces por lo que deberia el cen
     local.avanzarTiempo(3);
     expect(local.centrosCreados[3].paquetes.length).toBe(1);
 })
+///-----------------------
+///-----------------------
 
 
-
-
-
-
+test("6 paquetes a cola de salida y toma los 5 de mayor urgencia", () =>{
+    local= new Local(["CD","CD","CF","CC","CD"]);
+    local.agregarPaquetes(lista);
+    expect(local.centrosCreados[0].paquetes.length).toBe(5);
+})
