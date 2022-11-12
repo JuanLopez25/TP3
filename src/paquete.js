@@ -9,13 +9,13 @@ var Paquete = (function(){
         this.tiempo=0;
         switch(urgencia){
             case "muy rapido":
-                this.urgencia=4;
+                this.urgencia=cantidadCentros;
                 break;
             case "rapido":
-                this.urgencia=6;
+                this.urgencia=cantidadCentros*1.5;
                 break;
             case "normal":
-                this.urgencia=8;
+                this.urgencia=cantidadCentros*2;
                 break;
         }
         this.informe= function() {
