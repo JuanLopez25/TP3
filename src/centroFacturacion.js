@@ -6,6 +6,15 @@ function CentroFacturacion() {
     this.procesarPaquetes = function(paquetesAgregar) {
         var i=0;
         var paqueteTemporal;
+        paquetesAgregar.sort(function (a, b) {
+            if (a.urgencia > b.urgencia) {
+              return 1;
+            }
+            if (a.urgencia < b.urgencia) {
+              return -1;
+            }
+            return 0;
+          });
         
         this.agregarACola(paquetesAgregar);
         
