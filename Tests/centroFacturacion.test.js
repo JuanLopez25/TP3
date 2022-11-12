@@ -44,3 +44,6 @@ test("Entran 4 paquetes al centro de facturacion y deberian entrar nada mas que 
     expect(facturacion.paquetes.length).toBe(3);
 })
 
+
+
+
