@@ -2,6 +2,7 @@
 
 function CentroFacturacion() {
     this.paquetes=[];
+    this.cola=[];
     this.procesarPaquete = function(paquetesAgregar) {
         var i=0;
         while (i<(paquetesAgregar.length)) {
