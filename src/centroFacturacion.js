@@ -16,7 +16,7 @@ function CentroFacturacion() {
               return -1;
             }
             return 0;
-          });
+        });
 
         
         while (i<(this.cola.length)) {
