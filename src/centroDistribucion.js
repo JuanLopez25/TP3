@@ -8,7 +8,8 @@ function CentroDistribucion() {
         var i=0;
         var paqueteTemporal;
 
-        this.cola = this.cola.concat(paquetesAgregar);
+        this.agregarACola(paquetesAgregar);
+
         while (i<(this.cola.length)) {
             if (this.paquetes.length<10) {
                 paqueteTemporal= this.cola[i];
@@ -24,6 +25,14 @@ function CentroDistribucion() {
         var entrega= this.paquetes;
         this.paquetes = [];
         return entrega;
+    }
+
+    this.agregarACola = function (paquetesAgregar) {
+        var i=0;
+        while ((this.cola.length)<40  &&  i<paquetesAgregar.length) {  //es menor que 40 por que 10 pueden ser procesados, y 30 a la cola de espera
+            this.cola.push(paquetesAgregar[i]);
+            i++;
+        }
     }
 
 }
