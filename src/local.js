@@ -47,6 +47,8 @@ function Local() {
         (this.centroDeFacturacion).procesarPaquete(paquetes1);
         (this.centroDeCalidad).procesarPaquete(paquetes2);
         (this.centroDeDistribucion).procesarPaquete(paquetes3);
+        (this.destino).procesarPaquete(paquetes4);
+        
     }
 
 }

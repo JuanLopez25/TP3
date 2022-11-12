@@ -1,5 +1,6 @@
 function Destino(){
     this.paquetes=[];
+
     this.recibirPaquete = function(paquetesAgregar) {
         var i=0;
         while (i<(paquetesAgregar.length)) {
@@ -7,6 +8,7 @@ function Destino(){
             i++;
         }
     }
+    
 }
 
 module.exports= Destino;

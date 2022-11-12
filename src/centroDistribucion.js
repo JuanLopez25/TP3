@@ -11,7 +11,9 @@ function CentroDistribucion() {
     }
     
     this.terminarProceso = function() {
+        var entrega= this.paquetes;
         this.paquetes = [];
+        return entrega;
     }
 
 }
