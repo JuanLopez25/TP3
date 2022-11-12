@@ -1,5 +1,7 @@
 
-function colaSalida(paquete) {
+
+
+function ColaSalida(paquete) {
     this.paquetes=[];
     this.procesarPaquetes = function(paquetesAgregar) {
         var i=0;
@@ -27,5 +29,4 @@ function colaSalida(paquete) {
     }
 }
 
-
-module.exports= colaSalida;
+module.exports= ColaSalida;

@@ -23,10 +23,13 @@ test("6 paquetes a cola de salida y toma los 5 de mayor urgencia", () =>{
 })
 
 test("5 paquetes a centro de Facturacion y procesa los 3 con mayor urgencia", () =>{
-    local.avanzarTiempo(1);
+    local.avanzarTiempo(1);   //facturacion procesando 3 y 2 en cola
+    var lista2= [paqueteMuyRapido,paqueteMuyRapido, paqueteMuyRapido, paqueteMuyRapido, paqueteMuyRapido, paqueteMuyRapido];
+    local.agregarPaquetes(lista2);  //Cola de salida agrendando 5
+    local.avanzarTiempo(1); //facturacion procesando 3 y cola de 4 
     var urgenciaTotal=0;
     local.centroDeFacturacion.paquetes.forEach(elemento => urgenciaTotal+=elemento.urgencia);
-    expect(urgenciaTotal).toBe(14);
+    expect(urgenciaTotal).toBe(12);
 })
 
 test("3 paquetes a centro de calidad y procesa el de mayor urgencia", () =>{
