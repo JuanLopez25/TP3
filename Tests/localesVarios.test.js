@@ -30,7 +30,7 @@ test("6 paquetes a cola de salida y toma los 5 de mayor urgencia", () =>{
 
 test("6 paquetes a cola de salida y proceso dos veces por lo que deberia el centro de facturacion estar facturando 3 paquetes", () =>{
     local.avanzarTiempo(1);
-    expect(local.centrosCreados[1].length).toBe(3);
+    expect(local.centrosCreados[1].paquetes.length).toBe(3);
 })
 
 
