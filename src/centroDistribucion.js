@@ -1,6 +1,8 @@
 
 function CentroDistribucion() {
     this.paquetes=[];
+    this.cola=[];
+
     
     this.procesarPaquete = function(paquetesAgregar) {
         var i=0;
