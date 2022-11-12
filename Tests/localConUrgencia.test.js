@@ -1,11 +1,11 @@
 const Local= require('../src/local')
 const Paquete= require('../src/paquete')
 
-var paqueteMuyRapido
-var paqueteRapido
-var paqueteNormal
-var local
-var lista
+var paqueteMuyRapido;
+var paqueteRapido;
+var paqueteNormal;
+var local;
+var lista;
 
 beforeEach(()=> {
     paqueteMuyRapido=new Paquete("1",[],"muy rapido");
@@ -23,6 +23,7 @@ test("6 paquetes a cola de salida y toma los 5 de mayor urgencia", () =>{
 })
 
 test("5 paquetes a centro de Facturacion y procesa los 3 con mayor urgencia", () =>{
+    local.avanzarTiempo(1);
     var urgenciaTotal=0;
     local.centroDeFacturacion.paquetes.forEach(elemento => urgenciaTotal+=elemento.urgencia);
     expect(urgenciaTotal).toBe(14);
