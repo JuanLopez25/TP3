@@ -12,7 +12,7 @@ function Destino(numero){
 
 
     this.informarLlegadas= function(){
-        var respuesta;
+        var respuesta="";
         this.paquetes.forEach(elemento => respuesta.concat(elemento.informe()))
     }
     
