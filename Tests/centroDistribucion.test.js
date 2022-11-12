@@ -43,3 +43,19 @@ test("Entran 10 paquetes al centro de distribucion", () =>{
 })
 
 
+test("Entran 11 paquetes al centro de distribucion y deberian entrar nada mas que 10 ya que este es el limite", () =>{
+    lista.push(paquete);
+    lista.push(paquete);
+    lista.push(paquete);
+    lista.push(paquete);
+    lista.push(paquete);
+    lista.push(paquete);
+    lista.push(paquete);
+    lista.push(paquete);
+    lista.push(paquete);
+    lista.push(paquete);
+    facturacion.procesarPaquete(lista);
+    expect(facturacion.paquetes.length).toBe(3);
+})
+
+
