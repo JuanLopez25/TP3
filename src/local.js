@@ -7,6 +7,8 @@ const Destino=require('../src/destino');
 //commit 80 primer refactor
 //commit 154 refactor de "avanzar tiempo"
 //commit 168 ya no sirven los condicionales y deshechar los paquetes, hay que guardarlos temporalmente los restantes en una "cola" del centro (nos damos cuenta gracias al fail del test "Verificar cantidad de paquetes en Destino agregando 2 paquete y procesandolos de mas para que se queden en el Destino" en el localSinLimite.test.js)
+//commit 169 lo logramos solucionar
+
 
 function Local() {
     
@@ -52,6 +54,7 @@ function Local() {
         var paquetes3= this.centroDeCalidad.terminarProceso();
         var paquetes2= this.centroDeFacturacion.terminarProceso();
         var paquetes1= this.colaDeSalida.terminarProceso();
+
 
         (this.centroDeFacturacion).procesarPaquete(paquetes1);
         (this.centroDeCalidad).procesarPaquete(paquetes2);

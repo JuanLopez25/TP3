@@ -1,10 +1,12 @@
 
+
+
 function CentroCalidad() {
     this.paquetes=[];
     this.cola= [];
     this.procesarPaquete = function(paquetesAgregar) {
         var i=0;
-        (this.cola).push(paquetesAgregar); 
+        this.cola= this.cola.concat(paquetesAgregar)
         var paqueteTemporal;
         while (i<((this.cola).length)) {
             if (this.paquetes.length<1) {
@@ -24,3 +26,4 @@ function CentroCalidad() {
 }
 
 module.exports=CentroCalidad;
+

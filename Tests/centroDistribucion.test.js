@@ -27,3 +27,19 @@ test("Procesar paquete centro de facturacion", () =>{
     distribucion.terminarProceso(lista);
     expect(distribucion.paquetes.length).toBe(0);
 })
+
+test("Entran 10 paquetes al centro de distribucion", () =>{
+    lista.push(paquete);
+    lista.push(paquete);
+    lista.push(paquete);
+    lista.push(paquete);
+    lista.push(paquete);
+    lista.push(paquete);
+    lista.push(paquete);
+    lista.push(paquete);
+    lista.push(paquete);
+    distribucion.procesarPaquete(lista);
+    expect(distribucion.paquetes.length).toBe(10);
+})
+
+
