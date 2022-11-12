@@ -9,6 +9,11 @@ function Destino(numero){
             i++;
         }
     }
+
+
+    this.informarLlegadas= function(){
+        
+    }
     
 }
 
