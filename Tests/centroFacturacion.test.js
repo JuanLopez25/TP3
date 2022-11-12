@@ -18,12 +18,12 @@ test("Crear centro de facturacion", () =>{
 })
 
 test("Procesar paquete centro de facturacion", () =>{
-    facturacion.procesarPaquete(lista);
+    facturacion.procesarPaquetes(lista);
     expect(facturacion.paquetes.length).toBe(1);
 })
 
 test("Procesar paquete centro de facturacion", () =>{
-    facturacion.procesarPaquete(lista);
+    facturacion.procesarPaquetes(lista);
     facturacion.terminarProceso(lista);
     expect(facturacion.paquetes.length).toBe(0);
 })
@@ -32,7 +32,7 @@ test("Procesar paquete centro de facturacion", () =>{
 test("Entran 3 paquetes al centro de facturacion", () =>{
     lista.push(paquete);
     lista.push(paquete);
-    facturacion.procesarPaquete(lista);
+    facturacion.procesarPaquetes(lista);
     expect(facturacion.paquetes.length).toBe(3);
 })
 
@@ -40,7 +40,7 @@ test("Entran 4 paquetes al centro de facturacion y deberian entrar nada mas que 
     lista.push(paquete);
     lista.push(paquete);
     lista.push(paquete);
-    facturacion.procesarPaquete(lista);
+    facturacion.procesarPaquetes(lista);
     expect(facturacion.paquetes.length).toBe(3);
 })
 

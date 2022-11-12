@@ -4,7 +4,7 @@ function CentroDistribucion() {
     this.cola=[];
 
 
-    this.procesarPaquete = function(paquetesAgregar) {
+    this.procesarPaquetes = function(paquetesAgregar) {
         var i=0;
         var paqueteTemporal;
 

@@ -17,12 +17,12 @@ test("Crear cola salida", () =>{
 })
 
 test("Entra un paquete a la cola de salida", () =>{
-    salida.procesarPaquete(lista);
+    salida.procesarPaquetes(lista);
     expect(salida.paquetes.length).toBe(1);
 })
 
 test("Termino de procesar paquetes", () =>{
-    salida.procesarPaquete(lista);
+    salida.procesarPaquetes(lista);
     salida.terminarProceso();
     expect(salida.paquetes.length).toBe(0);
 })
@@ -32,7 +32,7 @@ test("Entran 5 paquetes a la cola de salida", () =>{
     lista.push(paquete);
     lista.push(paquete);
     lista.push(paquete);
-    salida.procesarPaquete(lista);
+    salida.procesarPaquetes(lista);
     expect(salida.paquetes.length).toBe(5);
 })
 
@@ -42,7 +42,7 @@ test("Entran 6 paquetes a la cola de salida y deberian entrar nada mas que 5 ya 
     lista.push(paquete);
     lista.push(paquete);
     lista.push(paquete);
-    salida.procesarPaquete(lista);
+    salida.procesarPaquetes(lista);
     expect(salida.paquetes.length).toBe(5);
 })
 

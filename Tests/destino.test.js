@@ -17,6 +17,6 @@ test("Verificar cantidad de paquetes en el destino", () =>{
 })
 
 test("Recibir paquete destino", () =>{
-    destino.procesarPaquete(lista);
+    destino.procesarPaquetes(lista);
     expect(destino.paquetes.length).toBe(1);
 })

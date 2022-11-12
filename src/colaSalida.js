@@ -1,7 +1,7 @@
 
 function colaSalida(paquete) {
     this.paquetes=[];
-    this.procesarPaquete = function(paquetesAgregar) {
+    this.procesarPaquetes = function(paquetesAgregar) {
         var i=0;
         paquetesAgregar.sort(function (a, b) {
             if (a.urgencia > b.urgencia) {

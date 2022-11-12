@@ -9,7 +9,8 @@ const Destino=require('../src/destino');
 //commit 168 ya no sirven los condicionales y deshechar los paquetes, hay que guardarlos temporalmente los restantes en una "cola" del centro (nos damos cuenta gracias al fail del test "Verificar cantidad de paquetes en Destino agregando 2 paquete y procesandolos de mas para que se queden en el Destino" en el localSinLimite.test.js)
 //commit 170 lo logramos solucionar
 //terminamos de meter los limites de procesamiento para el commit 173
-
+//commmit 189 eliminamos los test de paquete ya que quedaron obsoletos
+//Rediseñamos la clase paquete para que tenga el nivel de urgencia
 
 function Local(letra) {
     this.nombre=letra;
@@ -23,8 +24,8 @@ function Local(letra) {
     //---------------------------------------------------------------------
 
     
-    this.agregarPaquete= function(paquete) {
-        this.colaDeSalida.procesarPaquete(paquete);
+    this.agregarPaquetes= function(paquete) {
+        this.colaDeSalida.procesarPaquetes(paquete);
     }
 
     this.paquetesColaDeSalida= function() {
@@ -57,10 +58,10 @@ function Local(letra) {
         var paquetes1= this.colaDeSalida.terminarProceso();
 
 
-        (this.centroDeFacturacion).procesarPaquete(paquetes1);
-        (this.centroDeCalidad).procesarPaquete(paquetes2);
-        (this.centroDeDistribucion).procesarPaquete(paquetes3);
-        (this.destino).procesarPaquete(paquetes4);
+        (this.centroDeFacturacion).procesarPaquetes(paquetes1);
+        (this.centroDeCalidad).procesarPaquetes(paquetes2);
+        (this.centroDeDistribucion).procesarPaquetes(paquetes3);
+        (this.destino).procesarPaquetes(paquetes4);
         
     }
 

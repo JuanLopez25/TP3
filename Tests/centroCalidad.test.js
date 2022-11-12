@@ -18,20 +18,20 @@ test("Crear centro de Calidad", () =>{
 
 
 test("Procesar paquete centro de calidad", () =>{
-    calidad.procesarPaquete(lista);
+    calidad.procesarPaquetes(lista);
     expect(calidad.paquetes.length).toBe(1);
 })
 
 
 test("Procesar paquete centro de calidad", () =>{
-    calidad.procesarPaquete(lista);
+    calidad.procesarPaquetes(lista);
     calidad.terminarProceso(lista);
     expect(calidad.paquetes.length).toBe(0);
 })
 
 test("Entran 2 paquetes al centro de calidad y deberian entrar nada mas que 1 ya que este es el limite", () =>{
     lista.push(paquete);
-    calidad.procesarPaquete(lista);
+    calidad.procesarPaquetes(lista);
     expect(calidad.paquetes.length).toBe(1);
 })
 

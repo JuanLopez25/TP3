@@ -13,7 +13,7 @@ beforeEach(()=> {
     paqueteNormal=new Paquete("1",[],"normal");
     local= new Local("A");
     lista=[paqueteMuyRapido,paqueteNormal,paqueteNormal,paqueteRapido,paqueteRapido,paqueteMuyRapido];
-    local.agregarPaquete(lista);
+    local.agregarPaquetes(lista);
 });
 
 test("6 paquetes a cola de salida y toma los 5 de mayor urgencia", () =>{

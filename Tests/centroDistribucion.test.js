@@ -17,13 +17,13 @@ test("Crear centro de distribucion", () =>{
 })
 
 test("Procesar paquete centro de distribucion", () =>{
-    distribucion.procesarPaquete(lista);
+    distribucion.procesarPaquetes(lista);
     expect(distribucion.paquetes.length).toBe(1);
 })
 
 
 test("Procesar paquete centro de facturacion", () =>{
-    distribucion.procesarPaquete(lista);
+    distribucion.procesarPaquetes(lista);
     distribucion.terminarProceso(lista);
     expect(distribucion.paquetes.length).toBe(0);
 })
@@ -38,7 +38,7 @@ test("Entran 10 paquetes al centro de distribucion", () =>{
     lista.push(paquete);
     lista.push(paquete);
     lista.push(paquete);
-    distribucion.procesarPaquete(lista);
+    distribucion.procesarPaquetes(lista);
     expect(distribucion.paquetes.length).toBe(10);
 })
 
@@ -54,7 +54,7 @@ test("Entran 11 paquetes al centro de distribucion y deberian entrar nada mas qu
     lista.push(paquete);
     lista.push(paquete);
     lista.push(paquete);
-    distribucion.procesarPaquete(lista);
+    distribucion.procesarPaquetes(lista);
     expect(distribucion.paquetes.length).toBe(10);
 })
 
