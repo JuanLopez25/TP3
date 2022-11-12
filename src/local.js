@@ -18,7 +18,7 @@ const Destino=require('../src/destino');
 //arrat.splice
 //protocolos
 //refactors
-
+//module pattern
 
 
 
