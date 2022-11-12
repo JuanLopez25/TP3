@@ -5,9 +5,15 @@ function CentroFacturacion() {
     this.cola=[];
     this.procesarPaquete = function(paquetesAgregar) {
         var i=0;
-        while (i<(paquetesAgregar.length)) {
+        this.cola = this.cola.concat(paquetesAgregar);
+        var paqueteTemporal;
+
+
+        while (i<(this.cola.length)) {
             if (this.paquetes.length<3) {
-                (this.paquetes).push(paquetesAgregar[i]);
+                paqueteTemporal= this.cola[i];
+                (this.paquetes).push(paqueteTemporal);
+                this.cola = this.cola.filter(paquete => paquete!=paqueteTemporal);
             }
             i++;
         }
