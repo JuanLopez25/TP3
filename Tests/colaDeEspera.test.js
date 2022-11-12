@@ -18,7 +18,7 @@ beforeEach(()=> {
 test("Crear centro de facturacion y verificamos su cola de espera la cual deberia ser 5", () =>{
     var facturacion= new CentroFacturacion();
     facturacion.procesarPaquete(lista);
-    expect(facturacion.cola.length).toBe(6);
+    expect(facturacion.cola.length).toBe(5);
 })
 
 

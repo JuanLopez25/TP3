@@ -12,7 +12,7 @@ function CentroCalidad() {
             if (this.paquetes.length<1) {
                 paqueteTemporal= this.cola[i];
                 (this.paquetes).push(paqueteTemporal);
-                this.cola = this.cola.filter(paquete => paquete!=paqueteTemporal);
+                this.cola.splice(i,1);
             }
             i++;
         }
