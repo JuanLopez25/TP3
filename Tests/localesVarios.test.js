@@ -21,8 +21,17 @@ beforeEach(()=> {
     lista=[paqueteMuyRapido,paqueteNormal,paqueteNormal2,paqueteRapido,paqueteRapido2,paqueteMuyRapido2];
     local.agregarPaquetes(lista);
 });
+
 test("6 paquetes a cola de salida y toma los 5 de mayor urgencia", () =>{
     var urgenciaTotal=0;
     local.centrosCreados[0].paquetes.forEach(elemento => urgenciaTotal+=elemento.urgencia);
     expect(urgenciaTotal).toBe(28);
 })
+
+test("6 paquetes a cola de salida y proceso dos veces por lo que deberia el centro de facturacion estar facturando 3 paquetes", () =>{
+    local.avanzarTiempo(1);
+    expect(local.centrosCreados[1].length).toBe(3);
+})
+
+
+
