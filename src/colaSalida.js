@@ -4,7 +4,9 @@ function colaSalida(paquete) {
     this.procesarPaquete = function(paquetesAgregar) {
         var i=0;
         while (i<(paquetesAgregar.length)) {
-            (this.paquetes).push(paquetesAgregar[i]);
+            if (this.paquetes.length<5) {
+                (this.paquetes).push(paquetesAgregar[i]);
+            }
             i++;
         }
     }
