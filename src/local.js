@@ -26,9 +26,7 @@ var Local = (function(){
     var contadorDestino=1;
     newLocal= function(centros){
         this.nombre=contadorOrigen;
-        this.colaDeSalida= new ColaSalida();
-
-        this.centrosCreados=[];
+        this.centrosCreados=[new ColaSalida()];
         centros.forEach(elemento =>
             {switch(elemento){
                 case "CF":
@@ -39,21 +37,19 @@ var Local = (function(){
                     this.centrosCreados.push(new CentroDistribucion());
             }}
         );
+        this.centrosCreados.push(new Destino(contadorDestino));
         this.cantidadRecibidos=0;
-
-
 
         contadorDestino+=1;
         var letra=contadorOrigen.charCodeAt();
         letra++;
         contadorOrigen=String.fromCharCode(letra);
         
-
         //---------------------------------------------------------------------
         //---------------------------------------------------------------------
         
-        this.agregarPaquetes= function(paquete) {
-            this.colaDeSalida.procesarPaquetes(paquete);
+        this.agregarPaquetes= function(paquetes) {
+            this.centrosCreados[0].procesarPaquetes(paquetes);
         }
 
         this.paquetesColaDeSalida= function() {
@@ -76,20 +72,12 @@ var Local = (function(){
             return this.cantidadRecibidos;
         }
 
-
         this.proceso = function () {
-            var paquetes4= this.centroDeDistribucion.terminarProceso();
-            var paquetes3= this.centroDeCalidad.terminarProceso();
-            var paquetes2= this.centroDeFacturacion.terminarProceso();
-            var paquetes1= this.colaDeSalida.terminarProceso();
-
-            this.cantidadRecibidos+=paquetes4.length;
-
-            (this.centroDeFacturacion).procesarPaquetes(paquetes1);
-            (this.centroDeCalidad).procesarPaquetes(paquetes2);
-            (this.centroDeDistribucion).procesarPaquetes(paquetes3);
-            (this.destino).procesarPaquetes(paquetes4);
-
+            var contador=this.centrosCreados.length-1;
+            while (contador>0) {
+                (this.centrosCreados[contador]).procesarPaquetes((this.centrosCreados[contador-1]).terminarProceso()); 
+                contador--;
+            }
         }
 
         this.avanzarTiempo = function(cantidad) {
