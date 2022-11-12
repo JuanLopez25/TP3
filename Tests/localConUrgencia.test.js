@@ -9,6 +9,6 @@ test("6 paquetes a cola de salida y toma los 5 de mayor urgencia", () =>{
     var lista=[paqueteMuyRapido,paqueteNormal,paqueteNormal,paqueteRapido,paqueteRapido,paqueteMuyRapido];
     local.agregarPaquete(lista);
     var urgenciaTotal=0;
-    local.colaDeSalida.paquetes.forEach(elemto => urgenciaTotal+=elemento.urgencia);
+    local.colaDeSalida.paquetes.forEach(elemento => urgenciaTotal+=elemento.urgencia);
     expect(urgenciaTotal).toBe(28);
 })
