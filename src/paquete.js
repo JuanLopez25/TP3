@@ -16,9 +16,9 @@ function Paquete(destinoPropuesto,productos,urgencia) {
     }
     this.informe = function() {
         if(this.tiempo<=this.urgencia) {
-            return "P"+"Destino "+this.destino+", Urgencia "+this.urgencia+", llego a tiempo\n";
+            return "P"+this.id+"Destino "+this.destino+", Urgencia "+this.urgencia+", llego a tiempo\n";
         } else {
-            return "P"+"Destino "+this.destino+", Urgencia "+this.urgencia+", llego a tiempo\n";
+            return "P"+this.id+"Destino "+this.destino+", Urgencia "+this.urgencia+", llego a tiempo\n";
         }
     }
 }
