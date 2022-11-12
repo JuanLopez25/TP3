@@ -9,6 +9,9 @@ function CentroDistribucion() {
         var paqueteTemporal;
 
         this.agregarACola(paquetesAgregar);
+
+        this.cola.forEach(elemento => elemento.aumentarTiempo());
+
         this.cola.sort(function (a, b) {
             if (a.urgencia > b.urgencia) {
               return 1;

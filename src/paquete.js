@@ -28,6 +28,9 @@ var Paquete = (function(){
         this.resetearID=function() {
             contador=0;
         }
+        this.aumentarTiempo= function(){
+            this.tiempo+=1;
+        }
     }
     return newPaquete;
 })();
