@@ -130,6 +130,5 @@ test("Verificar cantidad de paquetes en Destino agregando 2 paquete y procesando
     local.avanzarTiempo();
     local.avanzarTiempo();
     local.avanzarTiempo();
-    local.avanzarTiempo();
-    expect(local.paquetesCentroDeDistribucion()).toBe(2);
+    expect(local.paquetesDestino()).toBe(2);
 })
