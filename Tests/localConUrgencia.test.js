@@ -52,3 +52,8 @@ test("12 paquetes a centro de distribucion y procesa los 10 con mayor urgencia",
     distribucion.paquetes.forEach(elemento => urgenciaTotal+=elemento.urgencia);
     expect(urgenciaTotal).toBe(56);
 })
+
+test("Comparar urgencia con tiempo de llegada", () =>{
+    var paquete= new Paquete("1",[],"normal");
+    expect(paquete.urgencia).toBe(8);
+})

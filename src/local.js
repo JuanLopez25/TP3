@@ -12,6 +12,16 @@ const Destino=require('../src/destino');
 //commmit 189 eliminamos los test de paquete ya que quedaron obsoletos
 //Rediseñamos la clase paquete para que tenga el nivel de urgencia
 
+
+//TDD
+//array.sort
+//arrat.splice
+//protocolos
+//refactors
+
+
+
+
 function Local(letra) {
     this.nombre=letra;
     this.colaDeSalida= new ColaSalida();
