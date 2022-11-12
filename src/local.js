@@ -74,18 +74,15 @@ function Local(letra) {
         (this.centroDeCalidad).procesarPaquetes(paquetes2);
         (this.centroDeDistribucion).procesarPaquetes(paquetes3);
         (this.destino).procesarPaquetes(paquetes4);
-        return this.informarPaquetesEnDestino();
 
     }
 
     this.avanzarTiempo = function(cantidad) {
-        var respuesta="";
         var i=0;
         while (i<cantidad) {
-            respueste=respuesta+this.proceso();
+            this.proceso();
             i++;
         }
-        return respuesta;
     }
     
     this.informarPaquetesEnDestino=function() {
