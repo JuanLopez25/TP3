@@ -18,7 +18,7 @@ beforeEach(()=> {
     paqueteRapido2=new Paquete("1",[],"rapido");
     paqueteNormal=new Paquete("1",[],"normal");
     paqueteNormal2=new Paquete("1",[],"normal");
-    local= new Local("A");
+    local= new Local(["CF","CC","CD"]);
     lista=[paqueteMuyRapido,paqueteNormal,paqueteNormal2,paqueteRapido,paqueteRapido2,paqueteMuyRapido2];
     local.agregarPaquetes(lista);
 });

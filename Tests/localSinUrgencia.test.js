@@ -7,7 +7,7 @@ var lista;
 var local;
 
 beforeEach(()=> {
-    local= new Local("A");
+    local= new Local(["CF","CC","CD"]);
     paquete1 = new Paquete("1");
     paquete2= new Paquete("2");
     lista=[];
