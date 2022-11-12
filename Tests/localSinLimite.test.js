@@ -73,7 +73,7 @@ test("Verificar cantidad de paquetes en centro de calidad agregando 2 paquetes y
     lista.push(paquete2);
     local.agregarPaquete(lista);
     local.avanzarTiempo(2);
-    expect(local.paquetesCentroDeCalidad()).toBe(2);
+    expect(local.paquetesCentroDeCalidad()).toBe(1);
 })
 
 //-----------------------------------------------------------------------------------------------------------------
