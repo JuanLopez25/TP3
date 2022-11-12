@@ -29,11 +29,14 @@ function CentroFacturacion() {
 
     this.agregarACola = function (paquetesAgregar) {
         var i=0;
-        while (this.cola.length<5) {
+        while ((this.cola.length)<8  &&  i<paquetesAgregar.length) {  //es menor que 8 por que 3 pueden ser procesados, y 5 a la cola de espera
             this.cola.push(paquetesAgregar[i]);
             i++;
         }
     }
 }
+
+
+
 
 module.exports = CentroFacturacion;
