@@ -36,4 +36,11 @@ test("Entran 3 paquetes al centro de facturacion", () =>{
     expect(facturacion.paquetes.length).toBe(3);
 })
 
+test("Entran 4 paquetes al centro de facturacion y deberian entrar nada mas que 3 ya que este es el limite", () =>{
+    lista.push(paquete);
+    lista.push(paquete);
+    lista.push(paquete);
+    facturacion.procesarPaquete(lista);
+    expect(facturacion.paquetes.length).toBe(5);
+})
 
