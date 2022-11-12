@@ -4,7 +4,9 @@ function CentroCalidad() {
     this.procesarPaquete = function(paquetesAgregar) {
         var i=0;
         while (i<(paquetesAgregar.length)) {
-            (this.paquetes).push(paquetesAgregar[i]);
+            if (this.paquetes.length<1) {
+                (this.paquetes).push(paquetesAgregar[i]);
+            }
             i++;
         }
     }
