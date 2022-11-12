@@ -1,5 +1,6 @@
 const Local= require('../src/local')
 const Paquete= require('../src/paquete')
+const CentroDistribucion=require('../src/centroDistribucion')
 
 var paqueteMuyRapido;
 var paqueteRapido;
@@ -40,4 +41,13 @@ test("3 paquetes a centro de calidad y procesa el de mayor urgencia", () =>{
     var urgenciaTotal=0;
     local.centroDeCalidad.paquetes.forEach(elemento => urgenciaTotal+=elemento.urgencia);
     expect(urgenciaTotal).toBe(4);
+})
+
+test("12 paquetes a centro de distribucion y procesa los 10 con mayor urgencia", () =>{
+    var distribucion= new CentroDistribucion();
+    var lista2= lista.concat(lista)
+    distribucion.procesarPaquetes(lista2);
+    var urgenciaTotal=0;
+    distribucion.paquetes.forEach(elemento => urgenciaTotal+=elemento.urgencia);
+    expect(urgenciaTotal).toBe(56);
 })
