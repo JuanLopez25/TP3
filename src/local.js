@@ -85,6 +85,10 @@ function Local(letra) {
         }
     }
     
+    this.informarPaquetesEnDestino=function() {
+        this.destino.informarLlegadas();
+    }
+
     //---------------------------------------------------------------------
     //---------------------------------------------------------------------
 
