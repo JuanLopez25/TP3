@@ -54,6 +54,6 @@ test("12 paquetes a centro de distribucion y procesa los 10 con mayor urgencia",
 })
 
 test("Comparar urgencia con tiempo de llegada", () =>{
-    var paquete= new Paquete("1",[],"normal");
-    expect(paquete.urgencia).toBe(8);
+    local.avanzarTiempo(4);  //Llega el primer paquete, el "muy rapido"
+    expect(local.destino.informarLlegadas()).toBe("P1: Destino 1, Urgencia 4, llego a tiempo\n");
 })
