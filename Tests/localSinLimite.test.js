@@ -95,7 +95,7 @@ test("Verificar cantidad de paquetes en centro de distribucion agregando 2 paque
     lista.push(paquete2);
     local.agregarPaquete(lista);
     local.avanzarTiempo(3);
-    expect(local.paquetesCentroDeDistribucion()).toBe(2);
+    expect(local.paquetesCentroDeDistribucion()).toBe(1);
 })
 
 //-----------------------------------------------------------------------------------------------------------------
