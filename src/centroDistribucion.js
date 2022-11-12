@@ -2,7 +2,7 @@
 function CentroDistribucion() {
     this.paquetes=[];
     this.cola=[];
-
+    this.nombre="CD";
 
     this.procesarPaquetes = function(paquetesAgregar) {
         var i=0;

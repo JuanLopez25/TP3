@@ -3,6 +3,7 @@
 function CentroFacturacion() {
     this.paquetes=[];
     this.cola=[];
+    this.nombre="CF";
     this.procesarPaquetes = function(paquetesAgregar) {
         var i=0;
         var paqueteTemporal;

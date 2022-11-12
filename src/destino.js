@@ -1,7 +1,7 @@
 function Destino(numero){
     this.nombre=numero;
     this.paquetes=[];
-
+    this.nombre="D";
     this.procesarPaquetes = function(paquetesAgregar) {
         var i=0;
         while (i<(paquetesAgregar.length)) {

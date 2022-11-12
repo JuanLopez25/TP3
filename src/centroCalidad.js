@@ -4,6 +4,7 @@
 function CentroCalidad() {
     this.paquetes=[];
     this.cola= [];
+    this.nombre="CC";
     this.procesarPaquetes = function(paquetesAgregar) {
         var i=0;
         var paqueteTemporal;

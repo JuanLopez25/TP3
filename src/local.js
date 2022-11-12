@@ -2,7 +2,9 @@ const ColaSalida=require('./colaSalida');
 const CentroFacturacion = require('./centroFacturacion');
 const CentroCalidad = require('./centroCalidad');
 const CentroDistribucion = require('./centroDistribucion');
-const Destino=require('../src/destino');
+const Destino=require('./destino');
+
+const Paquete=require('./Paquete')
 
 //commit 80 primer refactor
 //commit 154 refactor de "avanzar tiempo"
@@ -28,13 +30,17 @@ var Local = (function(){
         this.nombre=contadorOrigen;
         this.centrosCreados=[new ColaSalida()];
         centros.forEach(elemento =>
-            {switch(elemento){
+            {
+            switch(elemento){
                 case "CF":
                     this.centrosCreados.push(new CentroFacturacion());
+                    break;
                 case "CC":
                     this.centrosCreados.push(new CentroCalidad());
+                    break;
                 case "CD":
                     this.centrosCreados.push(new CentroDistribucion());
+                    break;
             }}
         );
         this.centrosCreados.push(new Destino(contadorDestino));
@@ -88,5 +94,7 @@ var Local = (function(){
 
 
 })();
+
+
 
 module.exports= Local;
