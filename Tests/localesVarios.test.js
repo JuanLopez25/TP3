@@ -111,7 +111,7 @@ test("Creo un local que no cumpla losrequisitos y agrego CC", () =>{
 
 test("Creo un local que no cumpla losrequisitos y agrego CC", () =>{
     var reseter= new Paquete("1",[],"muy rapido");
-    var reseter.resetearID();
+    reseter.resetearID();
     local= new Local(["CF","CD","CF","CC"]);
     local.agregarPaquetes([new Paquete("1",[],"muy rapido")]);
     local.avanzarTiempo(5);
