@@ -1,6 +1,6 @@
 
-function paquete(destinoPropuesto) {
+function Paquete(destinoPropuesto) {
        
 }
 
-module.exports= paquete;
+module.exports= Paquete;
