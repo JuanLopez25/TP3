@@ -66,5 +66,6 @@ test("Comparar urgencia con tiempo de llegada", () =>{
 
 test("Comparar urgencia con tiempo de llegada del segundo paquete muy rapido, el cual llega a destiempo", () =>{
     local.avanzarTiempo(5);  //Llega el primer paquete, el "muy rapido"
+    local.destino.informarLlegadas();
     expect(local.destino.informarLlegadas()).toBe("P2: Destino 1, Urgencia 4, no llego a tiempo\n");
 })
