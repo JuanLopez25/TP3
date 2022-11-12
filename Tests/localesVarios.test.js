@@ -95,4 +95,8 @@ test("Creo un local que no cumpla los requisitos y debe agregarse el CF y el CC"
     expect(local.centrosCreados[3].nombre).toBe("CC");
 })
 
+test("Creo un local que no cumpla los requisitos y debe agregarse el CF y el CC", () =>{
+    local= new Local(["CD"]);
+    expect(local.centrosCreados[4].nombre).toBe("D");
+})
 
