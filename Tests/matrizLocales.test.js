@@ -32,10 +32,10 @@ test("Crear matriz de locales y analizar los nombres", () =>{
 
 
 
-// test("Crear matriz de locales 3", () =>{
-//     var numDestinos=matriz.locales[0].centrosCreados[4].numero+matriz.locales[1].centrosCreados[4].numero+matriz.locales[2].centrosCreados[4].numero+matriz.locales[3].centrosCreados[4].numero;
-//     expect(numDestinos).toBe(10);
-// })
+test("Crear matriz de locales 3", () =>{
+    var numDestinos=matriz.locales[0].centrosCreados[4].numero+matriz.locales[1].centrosCreados[4].numero+matriz.locales[2].centrosCreados[4].numero;
+    expect(numDestinos).toBe(6);
+})
 
 
 
