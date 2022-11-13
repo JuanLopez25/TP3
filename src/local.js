@@ -8,28 +8,31 @@ const Paquete=require('./Paquete');
 var Local = (function(){
     var contadorOrigen="A";
     var contadorDestino=1;
-    newLocal= function(centros){
+    newLocal= function(centros,limitesColasDeEspera){
         this.nombre=contadorOrigen;
         this.centrosCreados=[new ColaSalida()];
         var i=0;
         var j=0;
         var k=0;
+        var contador=0;
         centros.forEach(elemento =>
             {
             switch(elemento){
                 case "CF":
-                    this.centrosCreados.push(new CentroFacturacion());
+                    this.centrosCreados.push(new CentroFacturacion(limitesColasDeEspera[contador]));
                     i=1;
                     break;
                 case "CC":
-                    this.centrosCreados.push(new CentroCalidad());
+                    this.centrosCreados.push(new CentroCalidad(limitesColasDeEspera[contador]));
                     j=1;
                     break;
                 case "CD":
-                    this.centrosCreados.push(new CentroDistribucion());
+                    this.centrosCreados.push(new CentroDistribucion(limitesColasDeEspera[contador]));
                     k=1;
                     break;
-            }}
+            }
+            contador+=1;
+        }
         );
         if (i==0) {
             this.centrosCreados.push(new CentroFacturacion());

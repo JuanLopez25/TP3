@@ -1,10 +1,10 @@
 const Local=require('./local');
 
-function MatrizLocales(locales,centros){
+function MatrizLocales(locales,centros,limitesColasDeEspera){
     var contador=0;
     this.locales=[]
     while(contador<locales){
-        this.locales.push(new Local(centros));
+        this.locales.push(new Local(centros,limitesColasDeEspera[contador]));
         contador+=1;
     }
 
