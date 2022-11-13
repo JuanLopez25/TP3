@@ -4,6 +4,11 @@ function CentroDistribucion(limiteColaDeEspera) {
     this.paquetes=[];
     this.cola=[];
     this.nombre="CD";
+    if (limiteColaDeEspera<10){
+        limiteColaDeEspera=10;
+    } else if (limiteColaDeEspera>30) {
+        limiteColaDeEspera=30;
+    }
     this.limiteCola= limiteColaDeEspera;
     this.procesarPaquetes = function(paquetesAgregar) {
         var i=0;
