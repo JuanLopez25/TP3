@@ -51,7 +51,7 @@ test("3 paquetes a centro de calidad y procesa el de mayor urgencia", () =>{
 
 test("12 paquetes a centro de distribucion y procesa los 10 con mayor urgencia", () =>{
     var distribucion= new CentroDistribucion();
-    var lista2=[paqueteMuyRapido1,paqueteNormal1,paqueteNormal2,paqueteRapido1,paqueteRapido2,paqueteMuyRapido2];;
+    var lista2=[paqueteMuyRapido,paqueteNormal,paqueteNormal2,paqueteRapido,paqueteRapido2,paqueteMuyRapido2];;
     lista2= lista2.concat(lista2);
     distribucion.procesarPaquetes(lista2);
     var urgenciaTotal=0;
