@@ -55,4 +55,4 @@ test("Avanzar tiempo en los locales de la matriz", () =>{
     expect(matriz.locales[0].centrosCreados[1].paquetes.length).toBe(1);
     expect(matriz.locales[1].centrosCreados[1].paquetes.length).toBe(1);
     expect(matriz.locales[2].centrosCreados[1].paquetes.length).toBe(1);
-}
+})
