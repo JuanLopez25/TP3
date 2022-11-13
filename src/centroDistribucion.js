@@ -54,7 +54,7 @@ function CentroDistribucion() {
         var colaAux=[];
         var destinoAnterior=[];
         this.cola.forEach(paquete1 => {
-            if(!(paquete1.destino in destinoAnterior)){
+            if(!destinoAnterior.includes(paquete1.destino)){
                 var listaAux=[];
                 this.cola.forEach(paquete2 => {
                     if(paquete1.destino==paquete2.destino){
