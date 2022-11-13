@@ -1,5 +1,6 @@
 const MatrizLocales=require('../src/matrizLocales');
 const Paquete= require('../src/paquete')
+const Local= require('../src/local')
 
 var matriz;
 var reseter;
@@ -9,7 +10,7 @@ var paqueteRapido2;
 var paqueteNormal;
 
 beforeEach(()=> {
-    reseter= new MatrizLocales(4,["CF","CC","CD"]);
+    reseter= new Local(["CF","CC","CD"]);
     reseter.resetearID();
     matriz= new MatrizLocales(4,["CF","CC","CD"]);
     paqueteMuyRapido=new Paquete(1,[],"muy rapido",4);
