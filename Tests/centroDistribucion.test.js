@@ -58,4 +58,11 @@ test("Entran 11 paquetes al centro de distribucion y deberian entrar nada mas qu
     expect(distribucion.paquetes.length).toBe(10);
 })
 
+test("Unir paquetes", () =>{
+    var paquete1=new Paquete(1,[],"muy rapido",4);
+    var paquete2=new Paquete(1,[],"normal",4);
+    var lista=[paquete1,paquete2];
+    distribucion.procesarPaquetes(lista);
+    expect(distribucion.paquetes.length).toBe(1);
+})
 
