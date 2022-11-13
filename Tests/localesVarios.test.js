@@ -76,7 +76,7 @@ test("6 paquetes a cola de salida y proceso dos veces por lo que deberia el cent
 
 
 test("6 paquetes a cola de salida y proceso tres veces por lo que deberia el centro de facturacion estar procesando 3 paquetes", () =>{
-    local= new Local(["CD","CD","CF","CC","CD"]);
+    local= new Local(["CD","CD","CF","CC","CD"],[14,13,4,2,29]);
     local.agregarPaquetes(lista);
     local.avanzarTiempo(3);
     expect(local.centrosCreados[3].paquetes.length).toBe(3);
@@ -85,27 +85,27 @@ test("6 paquetes a cola de salida y proceso tres veces por lo que deberia el cen
 //chequear que se deban tener uno de cada uno
 
 test("Creo un local que no cumpla los requisitos y debe agregarse el CF y el CC", () =>{
-    local= new Local(["CD"]);
+    local= new Local(["CD"],[14]);
     expect(local.centrosCreados[2].nombre).toBe("CF");
 })
 
 
 test("Creo un local que no cumpla los requisitos y debe agregarse el CF y el CC", () =>{
-    local= new Local(["CD"]);
+    local= new Local(["CD"],[14]);
     expect(local.centrosCreados[3].nombre).toBe("CC");
 })
 
 test("Creo un local que no cumpla los requisitos y debe agregarse el CF y el CC", () =>{
-    local= new Local(["CD"]);
+    local= new Local(["CD"],[14]);
     expect(local.centrosCreados[4].nombre).toBe("D");
 })
 
 test("Creo un local que no cumpla los requisitos y agrego CC", () =>{
-    local= new Local(["CD","CF","CD","CD","CD","CD"]);
+    local= new Local(["CD","CF","CD","CD","CD","CD"],[15,3,15,16,14,13]);
     expect(local.centrosCreados[7].nombre).toBe("CC");
 })
 test("Creo un local que no cumpla losrequisitos y agrego CC", () =>{
-    local= new Local(["CD","CF","CD","CD","CD","CD"]);
+    local= new Local(["CD","CF","CD","CD","CD","CD"],[15,4,30,25,24,20]);
     expect(local.centrosCreados[8].nombre).toBe("D");
 })
 
@@ -113,7 +113,7 @@ test("Creo un local mas grande y verifico la urgencia", () =>{
     var reseter= new Paquete("1",[],"muy rapido");
     reseter.resetearID();
     var centrosAgregar= ["CF","CD","CF","CC"];
-    local= new Local(centrosAgregar);
+    local= new Local(centrosAgregar,[3,25,4,3]);
     local.agregarPaquetes([new Paquete("1",[],"muy rapido",centrosAgregar.length+1)]);
     local.avanzarTiempo(5);
     expect(local.informarPaquetesEnDestino()).toBe("P1: Destino 1, Urgencia 5, llego a tiempo\n");
@@ -123,7 +123,7 @@ test("Creo un local mucho mas grande y verifico la urgencia", () =>{
     var reseter= new Paquete("1",[],"muy rapido");
     reseter.resetearID();
     var centrosAgregar= ["CF","CD","CF","CF","CC"];
-    local= new Local(centrosAgregar);
+    local= new Local(centrosAgregar,[4,25,3,4,2]);
     local.agregarPaquetes([new Paquete("1",[],"muy rapido",centrosAgregar.length+1)]);
     local.avanzarTiempo(6);
     expect(local.informarPaquetesEnDestino()).toBe("P1: Destino 1, Urgencia 6, llego a tiempo\n");
