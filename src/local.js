@@ -86,6 +86,10 @@ var Local = (function(){
             var largo= this.centrosCreados.length-1;
             return this.centrosCreados[largo].informarLlegadas();
         }
+        this.resetearID=function() {
+            contadorOrigen="A";
+            contadorDestino=1;
+        }
     }
     return newLocal;
 
