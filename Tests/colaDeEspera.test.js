@@ -10,7 +10,7 @@ beforeEach(()=> {
     lista=[];
     var i=1;
     while (i<=50) {
-        var paquete= new Paquete(i,[],"normal",4);
+        paquete= new Paquete(i,[],"normal",4);
         lista.push(paquete) 
         i++;
     }
