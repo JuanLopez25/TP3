@@ -10,7 +10,7 @@ var lista;
 var reseter;
 
 beforeEach(()=> {
-    reseter= new Paquete("1",[],"muy rapido");
+    reseter= new Paquete(1,[],"muy rapido");
     reseter.resetearID(); //Creamos este paquete para resetear el id, y que los paquetes de este test empiezen desde el id 1;
     paqueteMuyRapido=new Paquete(1,[],"muy rapido",4);
     paqueteMuyRapido2=new Paquete(2,[],"muy rapido",4);
@@ -18,7 +18,7 @@ beforeEach(()=> {
     paqueteRapido2=new Paquete(4,[],"rapido",4);
     paqueteNormal=new Paquete(5,[],"normal",4);
     paqueteNormal2=new Paquete(6,[],"normal",4);
-    local= new Local(["CF","CC","CD"]);
+    local= new Local(["CF","CC","CD"],[3,3,24]);
     lista=[paqueteMuyRapido,paqueteNormal,paqueteNormal2,paqueteRapido,paqueteRapido2,paqueteMuyRapido2];
     local.agregarPaquetes(lista);
 });

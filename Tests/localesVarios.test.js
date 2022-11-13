@@ -9,7 +9,7 @@ var lista;
 var reseter;
 
 beforeEach(()=> {
-    reseter= new Paquete("1",[],"muy rapido");
+    reseter= new Paquete(1,[],"muy rapido");
     reseter.resetearID(); //Creamos este paquete para resetear el id, y que los paquetes de este test empiezen desde el id 1;
     paqueteMuyRapido=new Paquete(1,[],"muy rapido",4);
     paqueteMuyRapido2=new Paquete(2,[],"muy rapido",4);
@@ -21,7 +21,7 @@ beforeEach(()=> {
 });
 
 test("6 paquetes a cola de salida y toma los 5 de mayor urgencia", () =>{
-    local= new Local(["CF","CC","CC","CD","CF"]);
+    local= new Local(["CF","CC","CC","CD","CF"],[3,2,5,24,6]);
     local.agregarPaquetes(lista);
     var urgenciaTotal=0;
     local.centrosCreados[0].paquetes.forEach(elemento => urgenciaTotal+=elemento.urgencia);
@@ -29,21 +29,21 @@ test("6 paquetes a cola de salida y toma los 5 de mayor urgencia", () =>{
 })
 
 test("6 paquetes a cola de salida y proceso una vez por lo que deberia el centro de facturacion estar procesando 3 paquetes", () =>{
-    local= new Local(["CF","CC","CC","CD","CF"]);
+    local= new Local(["CF","CC","CC","CD","CF"],[4,3,4,23,6]);
     local.agregarPaquetes(lista);
     local.avanzarTiempo(1);
     expect(local.centrosCreados[1].paquetes.length).toBe(3);
 })
 
 test("6 paquetes a cola de salida y proceso dos veces por lo que deberia el centro de calidad estar procesando 1 paquete", () =>{
-    local= new Local(["CF","CC","CC","CD","CF"]);
+    local= new Local(["CF","CC","CC","CD","CF"],[4,2,3,25,6]);
     local.agregarPaquetes(lista);
     local.avanzarTiempo(2);
     expect(local.centrosCreados[2].paquetes.length).toBe(1);
 })
 
 test("6 paquetes a cola de salida y proceso tres veces por lo que deberia el centro de calidad estar procesando 1 paquete", () =>{
-    local= new Local(["CF","CC","CC","CD","CF"]);
+    local= new Local(["CF","CC","CC","CD","CF"],[3,2,4,17,5]);
     local.agregarPaquetes(lista);
     local.avanzarTiempo(3);
     expect(local.centrosCreados[3].paquetes.length).toBe(1);
@@ -53,14 +53,14 @@ test("6 paquetes a cola de salida y proceso tres veces por lo que deberia el cen
 
 
 test("6 paquetes a cola de salida y toma los 5 de mayor urgencia", () =>{
-    local= new Local(["CD","CD","CF","CC","CD"]);
+    local= new Local(["CD","CD","CF","CC","CD"],[30,22,4,3,15]);
     local.agregarPaquetes(lista);
     expect(local.centrosCreados[0].paquetes.length).toBe(5);
 })
 
 
 test("6 paquetes a cola de salida y proceso una vez por lo que deberia el centro de distribucion estar procesando 5 paquetes", () =>{
-    local= new Local(["CD","CD","CF","CC","CD"]);
+    local= new Local(["CD","CD","CF","CC","CD"],[13,15,3,2,28]);
     local.agregarPaquetes(lista);
     local.avanzarTiempo(1);
     expect(local.centrosCreados[1].paquetes.length).toBe(5);
@@ -68,7 +68,7 @@ test("6 paquetes a cola de salida y proceso una vez por lo que deberia el centro
 
 
 test("6 paquetes a cola de salida y proceso dos veces por lo que deberia el centro de distribucion estar procesando 5 paquetes", () =>{
-    local= new Local(["CD","CD","CF","CC","CD"]);
+    local= new Local(["CD","CD","CF","CC","CD"],[24,30,3,2,25]);
     local.agregarPaquetes(lista);
     local.avanzarTiempo(2);
     expect(local.centrosCreados[2].paquetes.length).toBe(5);
