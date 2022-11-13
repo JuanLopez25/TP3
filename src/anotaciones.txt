@@ -6,6 +6,8 @@ terminamos de meter los limites de procesamiento para el commit 173
 commmit 189 eliminamos los test de paquete ya que quedaron obsoletos
 Rediseñamos la clase paquete para que tenga el nivel de urgencia
 commit 336 cambio en colas de espera 
+commit 356 funcionan colas de esperar variables con matrices de varios locales y los obliga a cumplir los limites de la consigna
+
 
 
 TDD

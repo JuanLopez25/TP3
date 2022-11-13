@@ -16,6 +16,8 @@ function MatrizLocales(locales,centros,limitesColasDeEspera){
     this.avanzarTiempo= function(cantidad){
         this.locales.forEach(local => local.avanzarTiempo(cantidad));
     }
+
+    
 }
 
 module.exports= MatrizLocales;
