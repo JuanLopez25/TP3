@@ -69,5 +69,5 @@ test("Comparar urgencia con tiempo de llegada del segundo paquete muy rapido, el
     local.avanzarTiempo(4);
     local.informarPaquetesEnDestino();
     local.avanzarTiempo(1);  //Llega el primer paquete, el "muy rapido"
-    expect(local.informarPaquetesEnDestino()).toBe("P2: Destino 1, Urgencia 4, no llego a tiempo\n");
+    expect(local.informarPaquetesEnDestino()).toBe("P2: Destino 2, Urgencia 4, no llego a tiempo\n");
 })
