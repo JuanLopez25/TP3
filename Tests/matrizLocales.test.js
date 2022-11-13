@@ -24,11 +24,11 @@ test("Crear matriz de locales", () =>{
 })
 
 
-// test("Crear matriz de locales 2", () =>{
-//     var strNombres=matriz.locales[0].nombre+matriz.locales[1].nombre+matriz.locales[2].nombre+matriz.locales[3].nombre;
-//     expect(strNombres).toBe("ABCD");
+test("Crear matriz de locales y analizar los nombres", () =>{
+    var strNombres=matriz.locales[0].nombre+matriz.locales[1].nombre+matriz.locales[2].nombre;
+    expect(strNombres).toBe("ABC");
    
-// })
+})
 
 
 
