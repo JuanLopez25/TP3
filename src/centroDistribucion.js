@@ -52,27 +52,31 @@ function CentroDistribucion() {
     
     this.unirPaquetes = function(){
         var colaAux=[];
+        var destinoAnterior=0;
         this.cola.forEach(paquete1 => {
-            var listaAux=[];
-            this.cola.forEach(paquete2 => {
-                if(paquete1.destino==paquete2.destino){
-                    listaAux.push(paquete2);
-                }
-            });
-            if(listaAux.length>1){
-                var urgenciaAux=0;
-                listaAux.forEach(paquete => {
-                    if(urgenciaAux<paquete.urgencia){
-                        urgenciaAux=paquete.urgencia
+            if(destinoAnterior!=paquete1.destino){
+                var listaAux=[];
+                this.cola.forEach(paquete2 => {
+                    if(paquete1.destino==paquete2.destino){
+                        listaAux.push(paquete2);
                     }
                 });
-                var paqueteUnion= new Paquete(paquete1.destino,listaAux);
-                paqueteUnion.tiempo=paquete1.tiempo;
-                paqueteUnion.urgencia=urgenciaAux;
-                colaAux.push(paqueteUnion);
-            }
-            else{
-                colaAux.push(paquete1);
+                if(listaAux.length>1){
+                    var urgenciaAux=0;
+                    listaAux.forEach(paquete => {
+                        if(urgenciaAux<paquete.urgencia){
+                            urgenciaAux=paquete.urgencia
+                        }
+                    });
+                    var paqueteUnion= new Paquete(paquete1.destino,listaAux);
+                    paqueteUnion.tiempo=paquete1.tiempo;
+                    paqueteUnion.urgencia=urgenciaAux;
+                    colaAux.push(paqueteUnion);
+                }
+                else{
+                    colaAux.push(paquete1);
+                }
+                destinoAnterior=paquete1.destino;
             }
         });
         this.cola=colaAux;
