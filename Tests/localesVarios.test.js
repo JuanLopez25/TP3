@@ -118,3 +118,13 @@ test("Creo un local mas grande y verifico la urgencia", () =>{
     local.avanzarTiempo(5);
     expect(local.informarPaquetesEnDestino()).toBe("P1: Destino 1, Urgencia 5, llego a tiempo\n");
 })
+
+test("Creo un local mucho mas grande y verifico la urgencia", () =>{
+    var reseter= new Paquete("1",[],"muy rapido");
+    reseter.resetearID();
+    var centrosAgregar= ["CF","CD","CF","CF","CC"];
+    local= new Local(centrosAgregar);
+    local.agregarPaquetes([new Paquete("1",[],"muy rapido",centrosAgregar.length+1)]);
+    local.avanzarTiempo(6);
+    expect(local.informarPaquetesEnDestino()).toBe("P1: Destino 1, Urgencia 6, llego a tiempo\n");
+})
