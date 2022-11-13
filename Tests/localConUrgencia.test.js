@@ -50,7 +50,7 @@ test("3 paquetes a centro de calidad y procesa el de mayor urgencia", () =>{
 })
 
 test("12 paquetes a centro de distribucion y procesa los 10 con mayor urgencia", () =>{
-    var distribucion= new CentroDistribucion();
+    var distribucion= new CentroDistribucion(30);
     var paqueteMuyRapido3=new Paquete(7,[],"muy rapido",4);
     var paqueteMuyRapido4=new Paquete(8,[],"muy rapido",4);
     var paqueteRapido3=new Paquete(9,[],"rapido",4);

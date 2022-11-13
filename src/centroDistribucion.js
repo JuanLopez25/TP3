@@ -4,7 +4,7 @@ function CentroDistribucion(limiteColaDeEspera) {
     this.paquetes=[];
     this.cola=[];
     this.nombre="CD";
-
+    this.limiteCola= limiteColaDeEspera;
     this.procesarPaquetes = function(paquetesAgregar) {
         var i=0;
         var paqueteTemporal;
@@ -44,7 +44,7 @@ function CentroDistribucion(limiteColaDeEspera) {
 
     this.agregarACola = function (paquetesAgregar) {
         var i=0;
-        while ((this.cola.length)<(limiteColaDeEspera+10)  &&  i<paquetesAgregar.length) {  //es menor que 40 por que 10 pueden ser procesados, y 30 a la cola de espera
+        while ((this.cola.length)<(this.limiteCola+10)  &&  i<paquetesAgregar.length) {  //es menor que 40 por que 10 pueden ser procesados, y 30 a la cola de espera
             this.cola.push(paquetesAgregar[i]);
             i++;
         }

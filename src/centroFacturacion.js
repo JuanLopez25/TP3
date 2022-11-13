@@ -4,6 +4,7 @@ function CentroFacturacion(limiteColaDeEspera) {
     this.paquetes=[];
     this.cola=[];
     this.nombre="CF";
+    this.limiteCola= limiteColaDeEspera;
     this.procesarPaquetes = function(paquetesAgregar) {
         var i=0;
         var paqueteTemporal;
@@ -43,7 +44,7 @@ function CentroFacturacion(limiteColaDeEspera) {
 
     this.agregarACola = function (paquetesAgregar) {
         var i=0;
-        while ((this.cola.length)<(limiteColaDeEspera+3)  &&  i<paquetesAgregar.length) {  //es menor que 9 por que 3 pueden ser procesados, y 6 a la cola de espera
+        while ((this.cola.length)<(this.limiteCola+3)  &&  i<paquetesAgregar.length) {  //es menor que 9 por que 3 pueden ser procesados, y 6 a la cola de espera
             this.cola.push(paquetesAgregar[i]);
             i++;
         }
