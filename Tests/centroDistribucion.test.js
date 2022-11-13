@@ -76,3 +76,14 @@ test("Unir paquetes con mismo destino", () =>{
     expect(distribucion.paquetes[0].urgencia).toBe(4);
 })
 
+test("Unir paquetes con mismo destino: dos destinos", () =>{
+    var paqueteAux=new Paquete(1,[],"normal",4);
+    var paqueteAux2=new Paquete(2,[],"normal",4);
+    lista.push(paquete2);
+    lista.push(paqueteAux);
+    lista.push(paqueteAux2);
+    distribucion.procesarPaquetes(lista);
+    expect(distribucion.paquetes.length).toBe(2);
+})
+
+
