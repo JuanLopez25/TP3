@@ -1,3 +1,4 @@
+const Paquete = require("./Paquete");
 
 function CentroDistribucion() {
     this.paquetes=[];
@@ -45,6 +46,33 @@ function CentroDistribucion() {
             this.cola.push(paquetesAgregar[i]);
             i++;
         }
+    }
+    
+    this.unirPaquetes = function(){
+        var colaAux=[];
+        this.cola.forEach(paquete1 => {
+            var listaAux=[];
+            this.cola.forEach(paquete2 => {
+                if(paquete1.destino==paquete2.destino){
+                    listaAux.push(paquete2);
+                }
+            });
+            if(listaAux.length>1){
+                var urgenciaAux=0;
+                listaAux.forEach(paquete => {
+                    if(urgenciaAux<paquete.urgencia){
+                        urgenciaAux=paquete.urgencia
+                    }
+                });
+                var paqueteUnion= new Paquete(paquete1.destino,listaAux);
+                paqueteUnion.tiempo=paquete1.tiempo;
+                paqueteUnion.urgencia=urgenciaAux;
+                colaAux.push(paqueteUnion);
+            }
+            else{
+                colaAux.push(paquete1);
+            }
+        });
     }
 
 }
