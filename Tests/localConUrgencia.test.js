@@ -57,7 +57,7 @@ test("12 paquetes a centro de distribucion y procesa los 10 con mayor urgencia",
     var paqueteRapido4=new Paquete(10,[],"rapido",4);
     var paqueteNormal3=new Paquete(11,[],"normal",4);
     var paqueteNormal4=new Paquete(12,[],"normal",4);
-    var lista2=[paqueteMuyRapido3,paqueteNormal3,paqueteNormal4,paqueteRapido3,paqueteRapido4,paqueteMuyRapido4];;
+    var lista2=[paqueteMuyRapido3,paqueteNormal3,paqueteMuyRapido4,paqueteRapido3,paqueteRapido4,paqueteNormal4];;
     lista2= lista.concat(lista2);
     distribucion.procesarPaquetes(lista2);
     var urgenciaTotal=0;
