@@ -12,6 +12,10 @@ function MatrizLocales(locales,centros){
         var local=(this.locales).find(elemento => elemento.nombre==localNombre);
         local.agregarPaquetes(paquetesAgregar);
     }
+
+    this.avanzarTiempo= function(cantidad){
+        this.locales.forEach(local => local.avanzarTiempo(cantidad));
+    }
 }
 
 module.exports= MatrizLocales;
