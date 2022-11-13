@@ -35,13 +35,13 @@ var Local = (function(){
         }
         );
         if (i==0) {
-            this.centrosCreados.push(new CentroFacturacion());
+            this.centrosCreados.push(new CentroFacturacion(3));
         }
         if (j==0) {
-            this.centrosCreados.push(new CentroCalidad());
+            this.centrosCreados.push(new CentroCalidad(2));
         }
         if (k==0) {
-            this.centrosCreados.push(new CentroDistribucion());
+            this.centrosCreados.push(new CentroDistribucion(30));
         }
         this.centrosCreados.push(new Destino(contadorDestino));
         this.cantidadRecibidos=0;
