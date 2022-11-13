@@ -8,9 +8,9 @@ function MatrizLocales(locales,centros){
         contador+=1;
     }
 
-    this.agregarPaquetes= function(paquetesAgregar,local){
-        var i=this.locales.findIndex(elemento => elemento.nombre==local);
-        this.locales[i].agregarPaquetes(paquetesAgregar);
+    this.agregarPaquetes= function(paquetesAgregar,localNombre){
+        var local=(this.locales).find(elemento => elemento.nombre==localNombre);
+        local.agregarPaquetes(paquetesAgregar);
     }
 }
 
