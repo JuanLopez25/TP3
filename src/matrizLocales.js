@@ -2,8 +2,9 @@ const Local=require('./local');
 
 function MatrizLocales(locales,centros){
     var contador=0;
+    this.locales=[]
     while(contador<locales){
-        this.locales[contador]=new Local(centros);
+        this.locales.push(new Local(centros));
         contador+=1;
     }
 }
