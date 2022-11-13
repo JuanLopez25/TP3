@@ -109,7 +109,7 @@ test("Creo un local que no cumpla losrequisitos y agrego CC", () =>{
     expect(local.centrosCreados[8].nombre).toBe("D");
 })
 
-test("Creo un local que no cumpla losrequisitos y agrego CC", () =>{
+test("Creo un local mas grande y verifico la urgencia", () =>{
     var reseter= new Paquete("1",[],"muy rapido");
     reseter.resetearID();
     var centrosAgregar= ["CF","CD","CF","CC"];
