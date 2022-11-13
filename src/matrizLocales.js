@@ -7,6 +7,11 @@ function MatrizLocales(locales,centros){
         this.locales.push(new Local(centros));
         contador+=1;
     }
+
+    this.agregarPaquetes= function(paquetesAgregar,localAgregarPaquete){
+        var local=this.locales.find(local => local.nombre=localAgregarPaquete);
+        local.agregarPaquetes(paquetesAgregar);
+    }
 }
 
 module.exports= MatrizLocales;
