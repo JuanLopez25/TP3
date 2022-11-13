@@ -40,12 +40,12 @@ test("Crear matriz de locales 3", () =>{
 
 
 
-// test("Agregar paquetes a la matriz", () =>{
-//     matriz.agregarPaquetes([paqueteMuyRapido],"A");
-//     matriz.agregarPaquetes([paqueteRapido],"B"); 
-//     expect(matriz.locales[0].centrosCreados[0].paquetes.length).toBe(1);
-//     expect(matriz.locales[1].centrosCreados[0].paquetes.length).toBe(1);
-// })
+test("Agregar paquetes a la matriz", () =>{
+    matriz.agregarPaquetes([paqueteMuyRapido],"A");
+    matriz.agregarPaquetes([paqueteRapido],"B"); 
+    expect(matriz.locales[0].centrosCreados[0].paquetes.length).toBe(1);
+    expect(matriz.locales[1].centrosCreados[0].paquetes.length).toBe(1);
+})
 
 // test("Avanzar tiempo en los locales de la matriz", () =>{
 //     matriz.agregarPaquetes([paqueteMuyRapido],"A");
