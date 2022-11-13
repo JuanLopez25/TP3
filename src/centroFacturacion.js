@@ -4,7 +4,12 @@ function CentroFacturacion(limiteColaDeEspera) {
     this.paquetes=[];
     this.cola=[];
     this.nombre="CF";
-    this.limiteCola= limiteColaDeEspera;
+    if (limiteColaDeEspera<3){
+        limiteColaDeEspera=3;
+    } else if (limiteColaDeEspera>6) {
+        limiteColaDeEspera=6;
+    }
+    this.limiteCola=limiteColaDeEspera;
     this.procesarPaquetes = function(paquetesAgregar) {
         var i=0;
         var paqueteTemporal;
