@@ -6,7 +6,7 @@ var lista;
 var calidad;
 
 beforeEach(()=> {
-    calidad= new CentroCalidad();
+    calidad= new CentroCalidad(3);
     paquete = new Paquete("1");
     lista=[];
     lista.push(paquete)

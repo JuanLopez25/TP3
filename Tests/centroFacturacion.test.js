@@ -24,7 +24,7 @@ test("Procesar paquete centro de facturacion", () =>{
 
 test("Procesar paquete centro de facturacion", () =>{
     facturacion.procesarPaquetes(lista);
-    facturacion.terminarProceso(lista);
+    //facturacion.terminarProceso(lista);
     expect(facturacion.paquetes.length).toBe(0);
 })
 
