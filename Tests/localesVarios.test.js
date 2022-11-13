@@ -113,7 +113,7 @@ test("Creo un local que no cumpla losrequisitos y agrego CC", () =>{
     var reseter= new Paquete("1",[],"muy rapido");
     reseter.resetearID();
     local= new Local(["CF","CD","CF","CC"]);
-    local.agregarPaquetes([new Paquete("1",[],"muy rapido")]);
+    local.agregarPaquetes([new Paquete("1",[],"muy rapido",5)]);
     local.avanzarTiempo(5);
     expect(local.informarPaquetesEnDestino()).toBe("P1: Destino 1, Urgencia 5, llego a tiempo\n");
 })
