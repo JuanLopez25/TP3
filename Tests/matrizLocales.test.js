@@ -63,3 +63,9 @@ test("Crear Local con urgencia invalida para el CF", () =>{
     expect(local2.centrosCreados[1].limiteCola).toBe(3);
 })
 
+
+test("Crear Local con urgencia invalida para el CC", () =>{
+    var local2= new Local(["CF","CC","CD"],[2,1,1]);
+    expect(local2.centrosCreados[2].limiteCola).toBe(2);
+})
+
