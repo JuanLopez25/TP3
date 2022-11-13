@@ -6,7 +6,7 @@ var lista;
 var distribucion;
 
 beforeEach(()=> {
-    distribucion= new CentroDistribucion();
+    distribucion= new CentroDistribucion(30);
     paquete1 = new Paquete(1,[],"muy rapido",4);
     paquete2 = new Paquete(2,[],"normal",4);
     paquete3 = new Paquete(3,[],"muy rapido",4);
