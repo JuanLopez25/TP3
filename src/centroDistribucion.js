@@ -52,9 +52,9 @@ function CentroDistribucion() {
     
     this.unirPaquetes = function(){
         var colaAux=[];
-        var destinoAnterior=0;
+        var destinoAnterior=[];
         this.cola.forEach(paquete1 => {
-            if(destinoAnterior!=paquete1.destino){
+            if(!(paquete1.destino in destinoAnterior)){
                 var listaAux=[];
                 this.cola.forEach(paquete2 => {
                     if(paquete1.destino==paquete2.destino){
@@ -76,7 +76,7 @@ function CentroDistribucion() {
                 else{
                     colaAux.push(paquete1);
                 }
-                destinoAnterior=paquete1.destino;
+                destinoAnterior.push(paquete1.destino);
             }
         });
         this.cola=colaAux;
