@@ -4,7 +4,7 @@ const CentroCalidad = require('./centroCalidad');
 const CentroDistribucion = require('./centroDistribucion');
 const Destino=require('./destino');
 
-const Paquete=require('./Paquete')
+const Paquete=require('./Paquete');
 
 //commit 80 primer refactor
 //commit 154 refactor de "avanzar tiempo"
