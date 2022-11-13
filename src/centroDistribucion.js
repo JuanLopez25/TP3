@@ -62,15 +62,18 @@ function CentroDistribucion() {
                     }
                 });
                 if(listaAux.length>1){
-                    var urgenciaAux=0;
-                    listaAux.forEach(paquete => {
-                        if(urgenciaAux<paquete.urgencia){
-                            urgenciaAux=paquete.urgencia
+                    listaAux.sort(function (a, b) {
+                        if (a.urgencia > b.urgencia) {
+                          return 1;
                         }
-                    });
+                        if (a.urgencia < b.urgencia) {
+                          return -1;
+                        }
+                        return 0;
+                      });
                     var paqueteUnion= new Paquete(paquete1.destino,listaAux);
                     paqueteUnion.tiempo=paquete1.tiempo;
-                    paqueteUnion.urgencia=urgenciaAux;
+                    paqueteUnion.urgencia=paqueteUnion.productos[0].urgencia;
                     colaAux.push(paqueteUnion);
                 }
                 else{
