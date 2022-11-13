@@ -56,3 +56,10 @@ test("Avanzar tiempo en los locales de la matriz", () =>{
     expect(matriz.locales[1].centrosCreados[1].paquetes.length).toBe(1);
     expect(matriz.locales[2].centrosCreados[1].paquetes.length).toBe(1);
 })
+
+
+test("Crear Local con urgencia invalida para el CF", () =>{
+    matriz= new Local(["CF","CC","CD"],[[2,3,23]]);
+    expect(local.centrosCreados[1].limiteCola).toBe(3);
+})
+
