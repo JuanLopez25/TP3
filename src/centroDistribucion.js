@@ -13,6 +13,8 @@ function CentroDistribucion() {
 
         this.cola.forEach(elemento => elemento.aumentarTiempo());
 
+        this.unirPaquetes();
+
         this.cola.sort(function (a, b) {
             if (a.urgencia > b.urgencia) {
               return 1;
@@ -73,6 +75,7 @@ function CentroDistribucion() {
                 colaAux.push(paquete1);
             }
         });
+        this.cola=colaAux;
     }
 
 }
