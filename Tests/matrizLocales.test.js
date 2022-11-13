@@ -1,4 +1,5 @@
 const MatrizLocales=require('../src/matrizLocales');
+const Paquete= require('../src/paquete')
 
 test("Crear matriz de locales", () =>{
     var matriz= new MatrizLocales(4,["CF","CC","CD"]);
