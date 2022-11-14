@@ -138,17 +138,17 @@ test("Creo un local mas grande y verifico la urgencia", () =>{
     expect(matriz.locales[0].informarPaquetesEnDestino()).toBe("P1: Destino 1, Urgencia 5, llego a tiempo\n");
 })
 
-// test("Creo un local mucho mas grande y verifico la urgencia", () =>{
-//     var reseter= new Paquete("1",[],"muy rapido");
-//     reseter.resetearID();
-//     var centrosAgregar= ["CF","CD","CF","CF","CC"];
-//     matriz= new MatrizLocales(1,centrosAgregar,[[4,25,3,4,2]]);
-//     matriz.agregarPaquetes([new Paquete("1",[],"muy rapido",centrosAgregar.length+1)],"A");
-//     matriz.avanzarTiempo();  
-//     matriz.avanzarTiempo();  
-//     matriz.avanzarTiempo();  
-//     matriz.avanzarTiempo();  
-//     matriz.avanzarTiempo();  
-//     matriz.avanzarTiempo();  
-//     expect(matriz.locales[0].informarPaquetesEnDestino()).toBe("P1: Destino 1, Urgencia 6, llego a tiempo\n");
-// })
+test("Creo un local mucho mas grande y verifico la urgencia", () =>{
+     var reseter= new Paquete("1",[],"muy rapido");
+     reseter.resetearID();
+     var centrosAgregar= ["CF","CD","CF","CF","CC"];
+     matriz= new MatrizLocales(1,centrosAgregar,[[4,25,3,4,2]]);
+     matriz.agregarPaquetes([new Paquete("1",[],"muy rapido",centrosAgregar.length+1)],"A");
+     matriz.avanzarTiempo();  
+     matriz.avanzarTiempo();  
+     matriz.avanzarTiempo();  
+     matriz.avanzarTiempo();  
+     matriz.avanzarTiempo();  
+     matriz.avanzarTiempo();  
+     expect(matriz.locales[0].informarPaquetesEnDestino()).toBe("P1: Destino 1, Urgencia 6, llego a tiempo\n");
+})
