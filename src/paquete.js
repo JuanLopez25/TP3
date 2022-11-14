@@ -8,8 +8,8 @@ var Paquete = (function(){
         this.destino=destinoPropuesto;
         this.productos=productos;
         this.tiempo=0;
-        this.calcularUrgencia();
-        
+        this.calcularUrgencia(urgenciaSolicitada);
+
         this.informe= function() {
             if(this.tiempo<=this.urgencia) {
                 return "P"+this.id+": Destino "+this.destino+", Urgencia "+this.urgencia+", llego a tiempo\n";
