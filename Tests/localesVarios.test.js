@@ -126,7 +126,10 @@ test("Creo un local mas grande y verifico la urgencia", () =>{
     reseter.resetearID();
     var centrosAgregar= ["CF","CD","CF","CC"];
     matriz= new MatrizLocales(1,centrosAgregar,[[3,25,4,3]]);
-    matriz.agregarPaquetes([new Paquete("1",[],"muy rapido",centrosAgregar.length+1)],"A");
+    var lista2= [];
+    lista2.push(new Paquete("1",[],"muy rapido",5));
+
+    matriz.agregarPaquetes(lista2,"A");
     matriz.avanzarTiempo();  
     matriz.avanzarTiempo();  
     matriz.avanzarTiempo();  
