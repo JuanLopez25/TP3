@@ -125,7 +125,10 @@ test("Procesamos y verificamos donde estan los paquetes con destino 3", () =>{
     var paqueteRapido1= new Paquete(1,[],"muy rapido",4);
     var paqueteRapido2= new Paquete(3,[],"muy rapido",4);
     var paqueteRapido3= new Paquete(4,[],"muy rapido",4);
-    matriz2.agregarPaquetes(lista,"A");
+    lista2.push(paqueteRapido1);
+    lista2.push(paqueteRapido2);
+    lista2.push(paqueteRapido3);
+    matriz2.agregarPaquetes(lista2,"A");
     matriz2.avanzarTiempo(1);
     matriz2.avanzarTiempo(1);
     matriz2.avanzarTiempo(1);
