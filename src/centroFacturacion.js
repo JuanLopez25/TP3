@@ -15,7 +15,7 @@ function CentroFacturacion(limiteColaDeEspera) {
         var paqueteTemporal;
         
         this.agregarACola(paquetesAgregar);
-
+        console.log(this.cola);
         this.cola.forEach(elemento => elemento.aumentarTiempo());
 
         this.cola.sort(function (a, b) {
