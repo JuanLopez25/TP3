@@ -54,6 +54,10 @@ function CentroFacturacion(limiteColaDeEspera) {
             i++;
         }
     }
+
+    this.puedeEntrarACola= function() {
+        return (this.cola.length+3)<this.limiteCola;
+    }
 }
 
 

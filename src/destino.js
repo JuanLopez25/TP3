@@ -1,6 +1,7 @@
 function Destino(numero){
     this.numero=numero;
     this.paquetes=[];
+    this.cola=[];
     this.nombre="D";
     this.procesarPaquetes = function(paquetesAgregar) {
         var i=0;

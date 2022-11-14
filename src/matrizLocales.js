@@ -1,4 +1,5 @@
 const Local= require('./local');
+const Paquete=require('./paquete')
 
 function MatrizLocales(locales,centros,limitesColasDeEspera){
     var contador=0;
@@ -15,21 +16,49 @@ function MatrizLocales(locales,centros,limitesColasDeEspera){
     }
 
     this.avanzarTiempo= function(repeticiones){
+
+
         var paquetesAux;
+        var cantidadRepeticiones=0;
+        var numeroLocal=0;
         var paquetesDeLocales= new Array(this.locales.length);
-        while(repeticiones<cantidad){
+        while(cantidadRepeticiones<repeticiones){
+            numeroLocal=0;
             this.locales.forEach(local => {
-                paquetesAux=local.proceso(); //una lista con listas de paquetes adentro
-                paquetesDeLocales.push(paquetesAux);   //paquetes de locales quedará con listas de paquetes en orden de los locales
+                paquetesAux=local.proceso();
+                paquetesDeLocales[numeroLocal]=paquetesAux;   
+                numeroLocal++;
             });
-            repeticiones++;
-        }
-        repeticiones=this.cantidadCentros; //Tengo la cantidad de centros de procesamiento sin contar el destino
-        while (repeticiones>0) {
-            //verificar a centro me conviene pasar
-            repeticiones--;
+            cantidadRepeticiones++;
         }
 
+       
+
+
+
+
+
+
+        var columna=1;
+        var fila=0;
+        var paquetesAProcesar;
+
+        while (columna<this.cantidadCentros) {
+            fila=0;
+
+            this.locales.forEach(local => {
+                paquetesAProcesar=paquetesDeLocales[fila][columna-1];
+                if (paquetesAProcesar!=0){
+                    if (local.centrosCreados[columna].puedeEntrarACola()) {
+                        local.centrosCreados[columna].procesarPaquetes(paquetesAProcesar);
+                    }
+                } else {
+                    local.centrosCreados[columna].procesarPaquetes([])
+                }
+                fila++;
+            });
+            columna++;
+        }
 
 
     }
@@ -38,5 +67,4 @@ function MatrizLocales(locales,centros,limitesColasDeEspera){
 }
 
 module.exports= MatrizLocales;
-
 

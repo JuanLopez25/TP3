@@ -3,6 +3,7 @@
 
 function ColaSalida(paquete) {
     this.paquetes=[];
+    this.cola=[];
     this.nombre="CS";
     this.procesarPaquetes = function(paquetesAgregar) {
         var i=0;

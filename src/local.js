@@ -65,9 +65,15 @@ var Local = (function(){
 
         this.proceso = function () {
             var paquetes=new Array(this.centrosCreados.length-1);
+            
             var contador=0;
+            var paquetesAux;
             while (contador<this.centrosCreados.length-1) {
-                paquetes.push(this.centrosCreados[contador].terminarProceso());
+                paquetesAux=this.centrosCreados[contador].terminarProceso();
+                if (paquetesAux.length==0) {
+                    paquetesAux=0;
+                }
+                paquetes[contador]=(paquetesAux);
                 contador++;
             }
             return paquetes;

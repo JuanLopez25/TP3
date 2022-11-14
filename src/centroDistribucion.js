@@ -90,6 +90,11 @@ function CentroDistribucion(limiteColaDeEspera) {
         this.cola=colaAux;
     }
 
+
+    this.puedeEntrarACola= function() {
+        return (this.cola.length+10)<this.limiteCola;
+    }
+
 }
 
 module.exports=CentroDistribucion;
