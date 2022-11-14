@@ -50,7 +50,6 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                     paquetesLocalSuperior=paquetesDeLocales[fila-1][columna-1];
                     localSuperior=this.locales[fila-1];
                 } else {
-                    console.log("entro")
                     localSuperior=0;
                     paquetesLocalSuperior=0;
                 }
@@ -59,7 +58,6 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                     paquetesLocalPosterior=paquetesDeLocales[fila+1][columna-1];
                     
                 } else {
-                    console.log("entro")
                     localPosterior=0;
                     paquetesLocalPosterior=0;
                 }
@@ -72,9 +70,11 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                         local.centrosCreados[columna].procesarPaquetes(paquetesAProcesar);
                     }
                     if(paquetesLocalSuperior!=0 && local.centrosCreados[columna].puedeEntrarACola()) {
+                        console.log("no entro")
                         local.centrosCreados[columna].procesarPaquetes(paquetesLocalSuperior);
                     }
                     if(paquetesLocalPosterior!=0 && local.centrosCreados[columna].puedeEntrarACola()) {
+                        console.log("no entro")
                         local.centrosCreados[columna].procesarPaquetes(paquetesLocalPosterior);
                     }
                     
