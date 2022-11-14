@@ -5,9 +5,6 @@ const MatrizLocales= require('../src/matrizLocales');
 var paqueteMuyRapido;
 var paqueteRapido;
 var paqueteNormal;
-var paqueteMuyRapido2;
-var paqueteRapido2;
-var paqueteNormal2;
 var lista;
 var reseter;
 var matriz;
@@ -18,7 +15,7 @@ beforeEach(()=> {
     reseter2= new Local(["CF","CC","CD"],[6,2,14]);
     reseter2.resetearID();
     reseter.resetearID(); //Creamos este paquete para resetear el id, y que los paquetes de este test empiezen desde el id 1;
-    matriz= new MatrizLocales(1,["CF","CC","CC","CD","CF"],[[3,2,5,24,6]]);
+
 
     paqueteMuyRapido=new Paquete(1,[],"muy rapido",4);
     paqueteMuyRapido2=new Paquete(1,[],"muy rapido",4);
@@ -27,12 +24,9 @@ beforeEach(()=> {
     paqueteNormal=new Paquete(1,[],"normal",4);
     paqueteNormal2=new Paquete(1,[],"normal",4);
     lista=[paqueteMuyRapido,paqueteNormal,paqueteNormal2,paqueteRapido,paqueteRapido2,paqueteMuyRapido2];
-    matriz.agregarPaquetes(lista,"A");
-    matriz.avanzarTiempo();
 });
 
-
-test("6 paquetes a cola de salida y toma los 5 de mayor urgencia y deja uno en su cola de salida", () =>{
+test("6 paquetes a cola de salida y toma los 5 de mayor urgencia", () =>{
     matriz= new MatrizLocales(1,["CF","CC","CC","CD","CF"],[[3,2,5,24,6]]);
     matriz.agregarPaquetes(lista,"A");
     var urgenciaTotal=0;
