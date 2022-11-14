@@ -29,7 +29,8 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             paquetesDeLocales[numeroLocal]=paquetesAux;   
             numeroLocal++;
         });
-       
+        
+        console.log(paquetesDeLocales);
 
         var columna=1;
         var fila=0;
@@ -52,12 +53,12 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
         }
 
        
-        this.locales.forEach(local => {
-            console.log("El local "+local.nombre);
-            local.centrosCreados.forEach(elemento =>{
-                console.log("El centro "+elemento.nombre+" esta procesando : "+elemento.paquetes.length+" paquetes y tiene en la cola de espera "+elemento.cola.length);
-            });
-        });
+        // this.locales.forEach(local => {
+        //     console.log("El local "+local.nombre);
+        //     local.centrosCreados.forEach(elemento =>{
+        //         console.log("El centro "+elemento.nombre+" esta procesando : "+elemento.paquetes.length+" paquetes y tiene en la cola de espera "+elemento.cola.length);
+        //     });
+        // });
 
     }
 

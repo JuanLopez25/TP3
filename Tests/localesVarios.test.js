@@ -52,7 +52,6 @@ beforeEach(()=> {
 test("6 paquetes a cola de salida y proceso tres veces por lo que deberia el centro de calidad estar procesando 1 paquete", () =>{
     matriz= new MatrizLocales(1,["CF","CC","CC","CD","CF"],[[3,2,4,17,5]]);
     matriz.agregarPaquetes(lista,"A");
-    console.log(matriz.locales[0].centrosCreados[0].paquetes.length)
     matriz.avanzarTiempo();  
     matriz.avanzarTiempo();  
     matriz.avanzarTiempo();  
