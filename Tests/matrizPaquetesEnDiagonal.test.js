@@ -117,11 +117,15 @@ test("Procesamos y verificamos donde estan los paquetes con destino 3", () =>{
 })
 
 test("Procesamos y verificamos donde estan los paquetes con destino 3", () =>{
-    matriz.avanzarTiempo(1);
-    matriz.avanzarTiempo(1);
-    matriz.avanzarTiempo(1);
-    matriz.avanzarTiempo(1);
-    expect(matriz.locales[1].centrosCreados[2].paquetes.length).toBe(0);
-    expect(matriz.locales[2].centrosCreados[3].paquetes.length).toBe(1);
-    expect(matriz.locales[2].informarPaquetesEnDestino()).toBe("P1: Destino 1, Urgencia 4, llego a tiempo\nP4: Destino 3, Urgencia 6, llego a tiempo\n");
+    reseter2= new Local(["CF","CC","CD"],[6,2,14]);
+    reseter2.resetearID();
+    var matriz2= new MatrizLocales(4,["CF","CC","CD"],[[6,3,23],[5,4,10],[6,2,14],[6,3,20]]);
+    lista.push(new Paquete(4,[],"rapido",4));
+    matriz2.agregarPaquetes(lista,"A");
+    matriz2.avanzarTiempo(1);
+    matriz2.avanzarTiempo(1);
+    matriz2.avanzarTiempo(1);
+    expect(matriz2.locales[1].centrosCreados[2].paquetes.length).toBe(0);
+    expect(matriz2.locales[2].centrosCreados[3].paquetes.length).toBe(1);
+    expect(matriz2.locales[2].informarPaquetesEnDestino()).toBe("P1: Destino 1, Urgencia 4, llego a tiempo\nP4: Destino 3, Urgencia 6, llego a tiempo\n");
 })
