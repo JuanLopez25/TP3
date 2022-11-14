@@ -102,7 +102,7 @@ test("Procesamos y verificamos donde estan los paquetes con destino 3", () =>{
 test("Procesamos y verificamos donde estan los paquetes con destino 3", () =>{
     var matriz2= new MatrizLocales(4,["CF","CC","CD"],[[6,3,23],[5,4,10],[6,2,14],[6,3,20]]);
     lista.push(new Paquete(4,[],"rapido",4));
-    matriz.agregarPaquetes(lista,"A");
+    matriz2.agregarPaquetes(lista,"A");
     matriz2.avanzarTiempo(1);
     matriz2.avanzarTiempo(1);
     matriz2.avanzarTiempo(1);
