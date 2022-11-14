@@ -12,8 +12,25 @@ function CentroDistribucion(limiteColaDeEspera) {
         limiteColaDeEspera=30;
     }
     this.limiteCola= limiteColaDeEspera;
-    this.funcionesCentro= new FuncionesCentros(this.cola,this.paquetes,this.colaSalida,this.limiteCola,10);
-    
+    this.funcionesCentro= FuncionesCentros;
+
+    this.procesarPaquetes = function() {
+        this.funcionesCentro.procesarPaquetes(this.cola,this.paquetes,10);
+    }
+    this.terminarProceso = function() {
+        var entrega= this.funcionesCentro.terminarProceso(this.paquetes,this.colaSalida);
+        return entrega;
+    }
+
+    this.agregarACola = function (paquetesAgregar) {
+        this.funcionesCentro.agregarACola(this.cola,this.limiteCola,paquetesAgregar);
+    }
+
+    this.puedeEntrarACola= function() {
+        var valor=this.funcionesCentro.puedeEntrarACola(this.limiteCola,this.cola);
+        return valor;
+    } 
+
     this.unirPaquetes = function(){
         var colaAux=[];
         var destinoAnterior=[];
