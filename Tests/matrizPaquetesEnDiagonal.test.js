@@ -22,6 +22,7 @@ beforeEach(()=> {
     paqueteRapido=new Paquete(2,[],"rapido",4);
     paqueteNormal=new Paquete(3,[],"normal",4);
     paqueteRapido2=new Paquete(4,[],"rapido",4);
+    
     lista.push(paqueteMuyRapido);
     lista.push(paqueteRapido);
     lista.push(paqueteNormal);
@@ -77,5 +78,5 @@ test("Proceso paquetes en A y B y avanzo para verificar los destinos", () =>{
     matriz.avanzarTiempo(1);
     matriz.avanzarTiempo(1);
     expect(matriz.locales[0].informarPaquetesEnDestino()).toBe("P1: Destino 1, Urgencia 4, llego a tiempo\n");
-    
+    expect(matriz.locales[1].informarPaquetesEnDestino()).toBe("P2: Destino 2, Urgencia 6, llego a tiempo\n");
 })
