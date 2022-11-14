@@ -5,7 +5,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
     var contador=0;
     this.locales=[]
     this.cantidadCentros=centros.length+1;
-    while(contador<localesAgregar){
+    while(contador<localesAgregar){  
         this.locales.push(new Local(centros,limitesColasDeEspera[contador]));
         contador+=1;
     }
@@ -15,29 +15,20 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
         local.agregarPaquetes(paquetesAgregar);
     }
 
-    this.avanzarTiempo= function(repeticiones){
+    this.avanzarTiempo= function(){
 
 
         var paquetesAux;
-        var cantidadRepeticiones=0;
         var numeroLocal=0;
         var paquetesDeLocales= new Array(this.locales.length);
-        while(cantidadRepeticiones<repeticiones){
-            numeroLocal=0;
-            this.locales.forEach(local => {
-                paquetesAux=local.proceso();
-                paquetesDeLocales[numeroLocal]=paquetesAux;   
-                numeroLocal++;
-            });
-            cantidadRepeticiones++;
-        }
-
        
-
-
-
-
-
+            
+        this.locales.forEach(local => {
+            paquetesAux=local.proceso();
+            paquetesDeLocales[numeroLocal]=paquetesAux;   
+            numeroLocal++;
+        });
+        
 
         var columna=1;
         var fila=0;
@@ -59,6 +50,9 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             });
             columna++;
         }
+
+
+       
 
 
     }
