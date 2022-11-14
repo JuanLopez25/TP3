@@ -22,12 +22,20 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
         local.agregarPaquetes(paquetesAgregar);
     }
 
-    this.avanzarTiempo= function(){
-
-
-        var paquetesAux;
+    this.generarMatrizPaquetes= function() {
         var numeroLocal=0;
+        var paquetesAux;
         var paquetesDeLocales= new Array(this.locales.length);
+        this.locales.forEach(local => {
+            paquetesAux=local.proceso();
+            paquetesDeLocales[numeroLocal]=paquetesAux;   
+            numeroLocal++;
+        });
+        return paquetesDeLocales;
+    }
+
+    this.avanzarTiempo= function(){
+        var paquetesDeLocales;;
         var columna=this.cantidadCentros;
         var fila=0;
         var paquetesAProcesarMismoLocal;
@@ -37,13 +45,8 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
         var l=0;
         var cantidadQuePuedoProcesar=0;
         var paquetesQueDePuedenProcesar=[];
-         //Si vale 1, da igual a donde va. Si vale 0 tiene que bajar, y si vale 2 tiene que subir.
-            
-        this.locales.forEach(local => {
-            paquetesAux=local.proceso();
-            paquetesDeLocales[numeroLocal]=paquetesAux;   
-            numeroLocal++;
-        });
+         
+        paquetesDeLocales=this.generarMatrizPaquetes();
 
         
         fila=0;
