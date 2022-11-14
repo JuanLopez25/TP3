@@ -71,7 +71,6 @@ test("Comparar urgencia con tiempo de llegada", () =>{
 
 test("Comparar urgencia con tiempo de llegada del segundo paquete muy rapido, el cual llega a destiempo", () =>{
     matriz.avanzarTiempo();
-    console.log("---------");   
     matriz.avanzarTiempo(); 
     matriz.avanzarTiempo(); 
     matriz.avanzarTiempo();
