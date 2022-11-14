@@ -1,5 +1,4 @@
 const Paquete = require("./Paquete");
-const FuncionesCentros= require('./moduloFuncionesCentros');
 
 function CentroDistribucion(limiteColaDeEspera) {
     this.paquetes=[];
@@ -12,15 +11,40 @@ function CentroDistribucion(limiteColaDeEspera) {
         limiteColaDeEspera=30;
     }
     this.limiteCola= limiteColaDeEspera;
-    this.funcionesCentro= FuncionesCentros;
-
     this.procesarPaquetes = function() {
-        this.funcionesCentro.procesarPaquetes(this.cola,this.paquetes,10);
+        var i=0;
+        var paqueteTemporal;
+
+        
+
+        this.cola.forEach(elemento => elemento.aumentarTiempo());
+
+        this.unirPaquetes();
+
+        this.cola.sort(function (a, b) {
+            if (a.urgencia > b.urgencia) {
+              return 1;
+            }
+            if (a.urgencia < b.urgencia) {
+              return -1;
+            }
+            return 0;
+          });
+
+        while (i<(this.cola.length)) {
+            if (this.paquetes.length<10) {
+                paqueteTemporal= this.cola[i];
+                (this.paquetes).push(paqueteTemporal);
+                this.cola.splice(i,1);
+                i--;
+            }
+            i++;
+        }
     }
+    
     this.terminarProceso = function() {
         this.paquetes.forEach(paquete=>{
             this.colaSalida.push(paquete);
-            
         });
         this.paquetes = [];
         var entrega=[]
@@ -32,14 +56,13 @@ function CentroDistribucion(limiteColaDeEspera) {
     }
 
     this.agregarACola = function (paquetesAgregar) {
-        this.funcionesCentro.agregarACola(this.cola,this.limiteCola,paquetesAgregar);
+        var i=0;
+        while ((this.cola.length)<(this.limiteCola)  &&  i<paquetesAgregar.length) {  
+            this.cola.push(paquetesAgregar[i]);
+            i++;
+        }
     }
-
-    this.puedeEntrarACola= function() {
-        var valor=this.funcionesCentro.puedeEntrarACola(this.limiteCola,this.cola);
-        return valor;
-    } 
-
+    
     this.unirPaquetes = function(){
         var colaAux=[];
         var destinoAnterior=[];
@@ -76,6 +99,9 @@ function CentroDistribucion(limiteColaDeEspera) {
     }
 
 
+    this.puedeEntrarACola= function() {
+        return (this.limiteCola-this.cola.length);
+    }
 
   
 
