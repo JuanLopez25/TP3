@@ -1,20 +1,21 @@
 
 
-var funcionesCentros= (function(colaCentro,paquetesProcesando,colaSalidaCentro,limiteColaEspera,cantidadProcesablesCentro){
+var funcionesCentros= (function(){
 
-    var cola=colaCentro;
-    var paquetes=paquetesProcesando;
-    var colaSalida=colaSalidaCentro;
-    var limiteCola=limiteColaEspera;
-    var cantidadProcesables=cantidadProcesablesCentro;
-    return {
-        procesarPaquetes: function() {
+    
+    newFuncionesCentro= function(colaCentro,paquetesProcesando,colaSalidaCentro,limiteColaEspera,cantidadProcesablesCentro) {
+        this.cola=colaCentro;
+        this.paquetes=paquetesProcesando;
+        this.colaSalida=colaSalidaCentro;
+        this.limiteCola=limiteColaEspera;
+        this.cantidadProcesables=cantidadProcesablesCentro;
+        this.procesarPaquetes=function() {
             var i=0;
             var paqueteTemporal;
             
-            cola.forEach(elemento => elemento.aumentarTiempo());
+            this.cola.forEach(elemento => elemento.aumentarTiempo());
     
-            cola.sort(function (a, b) {
+            this.cola.sort(function (a, b) {
                 if (a.urgencia > b.urgencia) {
                   return 1;
                 }
@@ -24,43 +25,44 @@ var funcionesCentros= (function(colaCentro,paquetesProcesando,colaSalidaCentro,l
                 return 0;
             });
     
-            while (i<(cola.length)) {
-                if (paquetes.length<cantidadProcesables) {
+            while (i<(this.cola.length)) {
+                if (this.paquetes.length<this.cantidadProcesables) {
                     paqueteTemporal= cola[i];
-                    (paquetes).push(paqueteTemporal);
-                    cola.splice(i,1);
+                    (this.paquetes).push(paqueteTemporal);
+                    this.cola.splice(i,1);
                     i--;
                 }
                 i++;
             }
-        },
+        }
     
         
-        terminarProceso: function() {
-            paquetes.forEach(paquete=>{
-                colaSalida.push(paquete);
+        this.terminarProceso= function() {
+            this.paquetes.forEach(paquete=>{
+                this.colaSalida.push(paquete);
             });
-            paquetes = [];
+            this.paquetes = [];
             var entrega=[]
-            colaSalida.forEach(paquete=>{
+            this.colaSalida.forEach(paquete=>{
                 entrega.push(paquete);
             });
-            colaSalida=[];
+            this.colaSalida=[];
             return entrega;
-        },
+        }
     
-        agregarACola : function (paquetesAgregar) {
+        this.agregarACola=function (paquetesAgregar) {
             var i=0;
-            while ((cola.length)<(limiteCola)  &&  i<paquetesAgregar.length) {  
-                cola.push(paquetesAgregar[i]);
+            while ((this.cola.length)<(this.limiteCola)  &&  i<paquetesAgregar.length) {  
+                this.cola.push(paquetesAgregar[i]);
                 i++;
             }
-        },
+        }
     
-        puedeEntrarACola: function() {
-            return (limiteCola-cola.length);
-        },
+        this.puedeEntrarACola=function() {
+            return (this.limiteCola-this.cola.length);
+        }
     }
+    return newFuncionesCentro;   
 })();
 
 
