@@ -57,15 +57,11 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
         var paquetesDelDestino=[];
         this.locales.forEach(local => {
             paquetesAProcesar=paquetesDeLocales[fila][columna-1];
-            console.log(paquetesAProcesar);
             if (paquetesAProcesar!=0){
-                console.log("entre");
-                paquetesAProcesar.forEach(elemento => {
-                    console.log("entre2");
+                paquetesAProcesar.forEach(elemento => {   //CUIDADO QUE ESTO ME LLEVO TIEMPO, PERO LO HABIA HECHO BIEN DE UNA Y ME SACA LOS PAQUETES SI NO PUEDEN LLEGAR AL DESTINO PROPUESTO
                     if(elemento.destino==(fila+1)) {
                         paquetesDelDestino.push(elemento);
                     }
-                    console.log(paquetesDelDestino);
                 });
                 local.centrosCreados[columna].procesarPaquetes(paquetesDelDestino);
             } else {
