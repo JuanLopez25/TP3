@@ -38,6 +38,7 @@ test("Proceso paquetes en un A y B y avanzo para verificar momentaneamente que s
      matriz.agregarPaquetes(lista,"B");
      matriz.avanzarTiempo(1);
      expect(matriz.locales[0].centrosCreados[1].paquetes.length).toBe(3);
+     expect(matriz.locales[0].centrosCreados[1].cola.length).toBe(4);
 })
 
 
