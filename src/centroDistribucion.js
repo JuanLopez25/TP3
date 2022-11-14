@@ -20,15 +20,7 @@ function CentroDistribucion(limiteColaDeEspera) {
     }
     
     this.terminarProceso = function() {
-        this.paquetes.forEach(paquete=>{
-            this.colaSalida.push(paquete);
-        });
-        this.paquetes = [];
-        var entrega=[]
-        this.colaSalida.forEach(paquete=>{
-            entrega.push(paquete);
-        });
-        this.colaSalida=[];
+        var entrega=this.funcionesCentros.terminarProceso(this.paquetes,this.colaSalida);
         return entrega;
     }
 

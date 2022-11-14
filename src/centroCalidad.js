@@ -18,25 +18,13 @@ function CentroCalidad(limiteColaDeEspera) {
     this.procesarPaquetes = function() {
         this.funcionesCentros.procesarPaquetes(this.cola,this.paquetes,1);
     }
-
-    
     this.terminarProceso = function() {
-        this.paquetes.forEach(paquete=>{
-            this.colaSalida.push(paquete);
-        });
-        this.paquetes = [];
-        var entrega=[]
-        this.colaSalida.forEach(paquete=>{
-            entrega.push(paquete);
-        });
-        this.colaSalida=[];
+        var entrega=this.funcionesCentros.terminarProceso(this.paquetes,this.colaSalida);
         return entrega;
     }
-
     this.agregarACola = function (paquetesAgregar) {
         this.funcionesCentros.agregarACola(this.cola,this.limiteCola,paquetesAgregar);
     }
-
     this.puedeEntrarACola= function() {
         var cantidad= this.funcionesCentros.puedeEntrarACola(this.limiteCola,this.cola);
         return cantidad;

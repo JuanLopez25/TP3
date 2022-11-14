@@ -24,6 +24,18 @@ var funcionesCentros= (function(){
             }
         },
     
+        terminarProceso : function(paquetes,colaSalida) {
+            paquetes.forEach(paquete=>{
+                colaSalida.push(paquete);
+            });
+            paquetes = [];
+            var entrega=[]
+            colaSalida.forEach(paquete=>{
+                entrega.push(paquete);
+            });
+            colaSalida=[];
+            return entrega;
+        },
     
         agregarACola : function (cola,limiteCola,paquetesAgregar) {
             var i=0;
