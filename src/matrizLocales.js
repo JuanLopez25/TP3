@@ -250,20 +250,9 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
         return paquetesDeLocales;
     }
 
-
-
-    this.avanzarTiempo= function(){
-        var paquetesDeLocales;;
-        var columna=this.cantidadCentros;
+    this.encolarNoProcesados= function(paquetesDeLocales) {
         var fila=0;
-        paquetesDeLocales=this.generarMatrizPaquetes();
-        paquetesDeLocales=this.procesarPaquetesDelDestino(paquetesDeLocales);
-        paquetesDeLocales=this.analizarMovimientos(paquetesDeLocales);
-        paquetesDeLocales=this.encolarYProcesar(paquetesDeLocales);
-        
-
-        fila=0;
-
+        var columna;
         paquetesDeLocales.forEach(filaPaquetes=> {
             columna=0;
             filaPaquetes.forEach(paquetes=>{
@@ -276,9 +265,15 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             })
             fila++;
         })
-        
-        
-       
+    }
+
+    this.avanzarTiempo= function(){
+        var paquetesDeLocales;
+        paquetesDeLocales=this.generarMatrizPaquetes();
+        paquetesDeLocales=this.procesarPaquetesDelDestino(paquetesDeLocales);
+        paquetesDeLocales=this.analizarMovimientos(paquetesDeLocales);
+        paquetesDeLocales=this.encolarYProcesar(paquetesDeLocales);
+        this.encolarNoProcesados(paquetesDeLocales); 
     }
 
 
