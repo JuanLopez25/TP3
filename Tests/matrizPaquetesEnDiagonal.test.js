@@ -157,5 +157,5 @@ test("Procesamos y verificamos donde estan los paquetes con destino 3", () =>{
     matriz2.avanzarTiempo(1);
     matriz2.avanzarTiempo(1);
     matriz2.avanzarTiempo(1);
-    expect(matriz2.locales[3].informarPaquetesEnDestino()).toBe("P5: Destino 3, Urgencia 6, llego a tiempo\n");
+    expect(matriz2.locales[3].informarPaquetesEnDestino()).toBe("P5: Destino 4, Urgencia 6, llego a tiempo\n");
 })
