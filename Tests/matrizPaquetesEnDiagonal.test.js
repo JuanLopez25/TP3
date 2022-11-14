@@ -40,6 +40,7 @@ test("Proceso paquetes en A y B y avanzo para verificar momentaneamente que se m
      expect(matriz.locales[0].centrosCreados[1].paquetes.length).toBe(3);
      expect(matriz.locales[0].centrosCreados[1].cola.length).toBe(3);
      expect(matriz.locales[1].centrosCreados[1].paquetes.length).toBe(2);
+     expect(matriz.locales[1].centrosCreados[1].cola.length).toBe(0);
 })
 
 
