@@ -4,6 +4,7 @@
 function ColaSalida(paquete) {
     this.paquetes=[];
     this.cola=[];
+    this.colaSalida=[];
     this.nombre="CS";
     this.procesarPaquetes = function(paquetesAgregar) {
         var i=0;
@@ -28,9 +29,11 @@ function ColaSalida(paquete) {
     }
     
     this.terminarProceso = function() {
-        var entrega= this.paquetes;
-        this.paquetes = [];
-        return entrega;
+      this.paquetes.forEach(paquete=>{
+        this.colaSalida.push(paquete);
+      });
+      this.paquetes = [];
+      return this.colaSalida;
     }
 }
 

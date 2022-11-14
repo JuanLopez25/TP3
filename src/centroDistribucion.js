@@ -3,6 +3,7 @@ const Paquete = require("./Paquete");
 function CentroDistribucion(limiteColaDeEspera) {
     this.paquetes=[];
     this.cola=[];
+    this.colaSalida=[];
     this.nombre="CD";
     if (limiteColaDeEspera<10){
         limiteColaDeEspera=10;
@@ -42,9 +43,11 @@ function CentroDistribucion(limiteColaDeEspera) {
     }
     
     this.terminarProceso = function() {
-        var entrega= this.paquetes;
+        this.paquetes.forEach(paquete=>{
+            this.colaSalida.push(paquete);
+        });
         this.paquetes = [];
-        return entrega;
+        return this.colaSalida;
     }
 
     this.agregarACola = function (paquetesAgregar) {

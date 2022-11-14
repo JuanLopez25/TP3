@@ -3,6 +3,7 @@
 function CentroCalidad(limiteColaDeEspera) {
     this.paquetes=[];
     this.cola= [];
+    this.colaSalida=[];
     this.nombre="CC";
     if (limiteColaDeEspera<2){
         limiteColaDeEspera=2;
@@ -40,9 +41,11 @@ function CentroCalidad(limiteColaDeEspera) {
     }
 
     this.terminarProceso = function() {
-        var entrega= this.paquetes;
+        this.paquetes.forEach(paquete=>{
+            this.colaSalida.push(paquete);
+        });
         this.paquetes = [];
-        return entrega;
+        return this.colaSalida;
     }
 
     this.agregarACola = function (paquetesAgregar) {

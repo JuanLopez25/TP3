@@ -31,7 +31,6 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
         var l=0;
         var cantidadQuePuedoProcesar=0;
         var paquetesQueDePuedenProcesar=[];
-        var paquetesDeLocalesProcesar=new Array(this.locales.length);
          //Si vale 1, da igual a donde va. Si vale 0 tiene que bajar, y si vale 2 tiene que subir.
             
         this.locales.forEach(local => {

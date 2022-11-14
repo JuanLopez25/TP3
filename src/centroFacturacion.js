@@ -3,6 +3,7 @@
 function CentroFacturacion(limiteColaDeEspera) {
     this.paquetes=[];
     this.cola=[];
+    this.colaSalida=[];
     this.nombre="CF";
     if (limiteColaDeEspera<3){
         limiteColaDeEspera=3;
@@ -40,9 +41,11 @@ function CentroFacturacion(limiteColaDeEspera) {
     }
 
     this.terminarProceso = function() {
-        var entrega= this.paquetes;
+        this.paquetes.forEach(paquete=>{
+            this.colaSalida.push(paquete);
+        });
         this.paquetes = [];
-        return entrega;
+        return this.colaSalida;
     }
 
 
