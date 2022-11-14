@@ -236,4 +236,3 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
 }
 
 module.exports= MatrizLocales;
-
