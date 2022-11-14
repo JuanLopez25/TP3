@@ -80,7 +80,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                         local.centrosCreados[columna].procesarPaquetes(paquetesLocalSuperior);
                     }
                     if(paquetesLocalPosterior!=0 && local.centrosCreados[columna].puedeEntrarACola()) {
-                        console.log("entre aca con "+local.nombre+" con tamaño en cola de espera: "+local.centrosCreados[columna].limiteCola);
+                        console.log("entre aca con "+local.nombre+" con tamaño en cola de espera: "+local.centrosCreados[columna].limiteCola+" en el: "+local.centrosCreados[columna].nombre);
                         local.centrosCreados[columna].procesarPaquetes(paquetesLocalPosterior);
                     }
                     
