@@ -52,7 +52,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             columna++;
         }
 
-        console.log(this.locales.informarPaquetesEnDestino());
+        console.log("informa: "+this.locales.informarPaquetesEnDestino());
         // this.locales.forEach(local => {
         //     console.log("El local "+local.nombre);
         //     local.centrosCreados.forEach(elemento =>{
