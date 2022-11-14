@@ -30,7 +30,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             numeroLocal++;
         });
         
-        //console.log(paquetesDeLocales);
+        
 
         var columna=1;
         var fila=0;
@@ -45,16 +45,16 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             fila=0;
             this.locales.forEach(local => {  
                 paquetesAProcesar=paquetesDeLocales[fila][columna-1];
-                if ((fila-1)>=0){   //si no estamos en el primer local
+                if ((fila-1)>=0){   
                     paquetesLocalSuperior=paquetesDeLocales[fila-1][columna-1];
                     localSuperior=this.locales[fila-1];
                 } else {
                     localSuperior=0;
                     paquetesLocalSuperior=0;
                 }
-                if ((fila+1)<this.locales.length) {   //si no estamos en el ultimo local.
+                if ((fila+1)<this.locales.length) {  
                     paquetesLocalPosterior=paquetesDeLocales[fila+1][columna-1];
-                    //console.log("local :"+local.nombre+" tiene en paquetes posterior: "+paquetesLocalPosterior);
+                    
                 } else {
                     localPosterior=0;
                     paquetesLocalPosterior=0;
@@ -76,11 +76,9 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                         local.centrosCreados[columna].procesarPaquetes(paquetesAProcesar);
                     }
                     if(paquetesLocalSuperior!=0 && local.centrosCreados[columna].puedeEntrarACola()) {
-                        //console.log("NO entre aca")
                         local.centrosCreados[columna].procesarPaquetes(paquetesLocalSuperior);
                     }
                     if(paquetesLocalPosterior!=0 && local.centrosCreados[columna].puedeEntrarACola()) {
-                        console.log("entre aca con "+local.nombre+" con tamaño en cola de espera: "+local.centrosCreados[columna].limiteCola+" en el: "+local.centrosCreados[columna].nombre);
                         local.centrosCreados[columna].procesarPaquetes(paquetesLocalPosterior);
                     }
                     
@@ -112,16 +110,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             }
             fila++;
         });
-        //console.log(this.locales[0].centrosCreados[3].paquetes.length+" y "+this.locales[0].centrosCreados[3].cola.length);
-        //console.log(this.locales[0].centrosCreados[4].paquetes);
-        //console.log("informa: "+this.locales[0].informarPaquetesEnDestino());
-        // this.locales.forEach(local => {
-        //     console.log("El local "+local.nombre);
-        //     local.centrosCreados.forEach(elemento =>{
-        //         console.log("El centro "+elemento.nombre+" esta procesando : "+elemento.paquetes.length+" paquetes y tiene en la cola de espera "+elemento.cola.length);
-        //     });
-        // });
-
+       
     }
 
 

@@ -49,7 +49,7 @@ function CentroDistribucion(limiteColaDeEspera) {
 
     this.agregarACola = function (paquetesAgregar) {
         var i=0;
-        while ((this.cola.length)<(this.limiteCola+10)  &&  i<paquetesAgregar.length) {  //es menor que 40 por que 10 pueden ser procesados, y 30 a la cola de espera
+        while ((this.cola.length)<(this.limiteCola+(10-this.paquetes.length))  &&  i<paquetesAgregar.length) {  //es menor que 40 por que 10 pueden ser procesados, y 30 a la cola de espera
             this.cola.push(paquetesAgregar[i]);
             i++;
         }
