@@ -83,7 +83,14 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                         
                         if(filasAMoverse<(columna-1)) {
                             if(filasAMoverse==columna-2) {
-                                paquete.sePuedeMover=0;
+                               if(paquete.destino-(fila) == 0) {
+                                    paquete.sePuedeMover=0;
+                               }else if (paquete.destino-(fila)>0) {
+                                    paquete.sePuedeMover=-2;
+                               } else {
+                                    paquete.sePuedeMover=2;
+                               }
+
                             } else {
                                 paquete.sePuedeMover=4; //hay que analizar el caso limite aun
                             }
@@ -241,8 +248,3 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
 
 module.exports= MatrizLocales;
 
-
-
-["Cs","CF","CC","CC"]
-["Cs","CF","CC","CC"]
-["Cs","CF","CC","CC"]
