@@ -169,7 +169,7 @@ test("Procesamos y verificamos donde estan los paquetes con destino 3", () =>{
     matriz2.agregarPaquetes(lista,"A");
     matriz2.avanzarTiempo(1);
     matriz2.avanzarTiempo(1);
-    //matriz2.avanzarTiempo(1);
+    matriz2.avanzarTiempo(1);
     matriz2.avanzarTiempo(1);
     expect(matriz2.locales[0].informarPaquetesEnDestino()).toBe("P1: Destino 1, Urgencia 4, llego a tiempo\n");
 })
