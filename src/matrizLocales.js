@@ -191,11 +191,11 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
         var cantidadQuePuedoProcesar;
         var condicionAux;
         if (limite==0) {
-            condicionAux=this.limitesMismoLocal;
+            condicionAux=this.limitesMismoLocal();
         } else if (limite==1) {
-            condicionAux=this.limitesLocalSuperior;
+            condicionAux=this.limitesLocalSuperior();
         } else if (limite==-1) {
-            condicionAux=this.limitesLocalPosterior;
+            condicionAux=this.limitesLocalPosterior();
         }
         if (paquetesAProcesar!=0 && local.centrosCreados[columna].puedeEntrarACola()>0) {     
             cantidadQuePuedoProcesar=local.centrosCreados[columna].puedeEntrarACola();
