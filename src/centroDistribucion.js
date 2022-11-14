@@ -92,7 +92,7 @@ function CentroDistribucion(limiteColaDeEspera) {
 
 
     this.puedeEntrarACola= function() {
-        return (this.limiteCola+10)-(this.paquetes.length+this.cola.length);
+        return (this.limiteCola-this.cola.length);
     }
 
     this.prioridadCola= function() {

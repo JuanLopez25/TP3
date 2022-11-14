@@ -13,7 +13,7 @@ var lista;
 beforeEach(()=> {
     reseter= new Local(["CF","CC","CD"],[6,2,14]);
     reseter.resetearID();
-    matriz= new MatrizLocales(3,["CF","CC","CD"],[[4,3,23],[5,4,10],[6,2,14]]);
+    matriz= new MatrizLocales(3,["CF","CC","CD"],[[6,3,23],[5,4,10],[6,2,14]]);
     lista=[];
     paqueteMuyRapido=new Paquete(1,[],"muy rapido",4);
     paqueteRapido=new Paquete(2,[],"rapido",4);
@@ -34,12 +34,21 @@ test("Proceso paquetes en un unico local", () =>{
     expect(matriz.locales[1].centrosCreados[0].paquetes.length).toBe(4);
 })
 
-test("Proceso paquetes en un A y B y avanzo para verificar momentaneamente que se muevan hacia A", () =>{
+test("Proceso paquetes en A y B y avanzo para verificar momentaneamente que se muevan hacia A", () =>{
      matriz.agregarPaquetes(lista,"B");
      matriz.avanzarTiempo(1);
      expect(matriz.locales[0].centrosCreados[1].paquetes.length).toBe(3);
-     expect(matriz.locales[0].centrosCreados[1].cola.length).toBe(4);
-     expect(matriz.locales[1].centrosCreados[1].paquetes.length).toBe(1);
+     expect(matriz.locales[0].centrosCreados[1].cola.length).toBe(3);
+     expect(matriz.locales[1].centrosCreados[1].paquetes.length).toBe(2);
 })
 
 
+// test("Proceso paquetes en A, B y C y avanzo para verificar momentaneamente que se muevan hacia A y B respectivamente", () =>{
+//     matriz.agregarPaquetes(lista,"B");
+//     matriz.agregarPaquetes(lista,"C");
+//     matriz.avanzarTiempo(1);
+//     expect(matriz.locales[0].centrosCreados[1].paquetes.length).toBe(3);
+//     expect(matriz.locales[0].centrosCreados[1].cola.length).toBe(4);
+//     expect(matriz.locales[1].centrosCreados[1].paquetes.length).toBe(3);
+//     expect(matriz.locales[0].centrosCreados[1].cola.length).toBe(4);
+// })

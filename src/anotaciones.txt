@@ -8,7 +8,8 @@ Rediseñamos la clase paquete para que tenga el nivel de urgencia
 commit 336 cambio en colas de espera 
 commit 356 funcionan colas de esperar variables con matrices de varios locales y los obliga a cumplir los limites de la consigna
 commit 461 hemos logrado que los paquetes se mueven en diagonal pero sin tener en cuenta al destino que deben llegar
-
+commit 461 tenemos la version de que entran x paquetes a ser procesados y x paquetes a la cola, todo a la vez
+A partir del commit 463 tenemos la version de que no podes meter mas de los aceptados cola
 
 TDD
 array.sort
