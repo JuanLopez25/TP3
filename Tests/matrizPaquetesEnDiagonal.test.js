@@ -13,7 +13,7 @@ var lista;
 beforeEach(()=> {
     reseter= new Local(["CF","CC","CD"],[6,2,14]);
     reseter.resetearID();
-    matriz= new MatrizLocales(3,["CF","CC","CD"],[[4,3,23],[5,4,10],[6,2,14]]);
+    matriz= new MatrizLocales(4,["CF","CC","CD"],[[4,3,23],[5,4,10],[6,2,14]]);
     lista=[];
     paqueteMuyRapido=new Paquete(1,[],"muy rapido",4);
     paqueteRapido=new Paquete(2,[],"rapido",4);
