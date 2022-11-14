@@ -100,8 +100,6 @@ test("Procesamos y verificamos donde estan los paquetes con destino 3", () =>{
 
 
 test("Procesamos y verificamos donde estan los paquetes con destino 3", () =>{
-    reseter= new Paquete(1,[],"muy rapido");
-    reseter.resetearID();
     reseter2= new Local(["CF","CC","CD"],[6,2,14]);
     reseter2.resetearID();
     var matriz2= new MatrizLocales(4,["CF","CC","CD"],[[6,3,23],[5,4,10],[6,2,14],[6,3,20]]);
@@ -118,12 +116,12 @@ test("Procesamos y verificamos donde estan los paquetes con destino 3", () =>{
     expect(matriz2.locales[3].centrosCreados[3].paquetes[0].destino).toBe(4);
 })
 
-// test("Procesamos y verificamos donde estan los paquetes con destino 3", () =>{
-//     matriz.avanzarTiempo(1);
-//     matriz.avanzarTiempo(1);
-//     matriz.avanzarTiempo(1);
-//     matriz.avanzarTiempo(1);
-//     expect(matriz.locales[1].centrosCreados[2].paquetes.length).toBe(0);
-//     expect(matriz.locales[2].centrosCreados[3].paquetes.length).toBe(1);
-//     expect(matriz.locales[2].informarPaquetesEnDestino()).toBe("P1: Destino 1, Urgencia 4, llego a tiempo\nP4: Destino 3, Urgencia 6, llego a tiempo\n");
-// })
+test("Procesamos y verificamos donde estan los paquetes con destino 3", () =>{
+    matriz.avanzarTiempo(1);
+    matriz.avanzarTiempo(1);
+    matriz.avanzarTiempo(1);
+    matriz.avanzarTiempo(1);
+    expect(matriz.locales[1].centrosCreados[2].paquetes.length).toBe(0);
+    expect(matriz.locales[2].centrosCreados[3].paquetes.length).toBe(1);
+    expect(matriz.locales[2].informarPaquetesEnDestino()).toBe("P1: Destino 1, Urgencia 4, llego a tiempo\nP4: Destino 3, Urgencia 6, llego a tiempo\n");
+})
