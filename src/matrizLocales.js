@@ -54,7 +54,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                 }
                 if ((fila+1)<this.locales.length) {   //si no estamos en el ultimo local.
                     paquetesLocalPosterior=paquetesDeLocales[fila+1][columna-1];
-                    console.log("local :"+local.nombre+" tiene en paquetes posterior: "+paquetesLocalPosterior);
+                    //console.log("local :"+local.nombre+" tiene en paquetes posterior: "+paquetesLocalPosterior);
                 } else {
                     localPosterior=0;
                     paquetesLocalPosterior=0;
@@ -80,7 +80,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                         local.centrosCreados[columna].procesarPaquetes(paquetesLocalSuperior);
                     }
                     if(paquetesLocalPosterior!=0 && local.centrosCreados[columna].puedeEntrarACola()) {
-                        //console.log("entre aca")
+                        console.log("entre aca con "+local.nombre)
                         local.centrosCreados[columna].procesarPaquetes(paquetesLocalPosterior);
                     }
                     
