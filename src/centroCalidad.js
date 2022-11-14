@@ -2,9 +2,9 @@ const FuncionesCentros= require('./moduloFuncionesCentros');
 
 function CentroCalidad(limiteColaDeEspera) {
     this.paquetes=[];
-    this.cola= ["1"];
+    this.cola= [];
     this.funcionesCentros=FuncionesCentros;
-    this.colaSalida=["3"];
+    this.colaSalida=[];
     
     this.nombre="CC";
     if (limiteColaDeEspera<2){
@@ -14,6 +14,7 @@ function CentroCalidad(limiteColaDeEspera) {
     }
     this.limiteCola= limiteColaDeEspera;
     this.funcionesCentros=FuncionesCentros;
+
     this.procesarPaquetes = function() {
         this.funcionesCentros.procesarPaquetes(this.cola,this.paquetes,1);
     }
