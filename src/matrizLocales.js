@@ -97,7 +97,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                             arribaOAbajo=0;
                         }
                         filasAMoverse=math.abs(filasAMoverse);
-                        paquete=this.aCualMoverme(paquete,filasAMoverse,fila,columna);
+                        this.aCualMoverme(paquete,filasAMoverse,fila,columna,arribaOAbajo);
                         
                     });
                 }
@@ -108,7 +108,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
         return paquetesDeLocales;
     }
 
-    this.aCualMoverme = function(paquete,filasAMoverse,fila,columna) {
+    this.aCualMoverme = function(paquete,filasAMoverse,fila,columna,arribaOAbajo) {
         if(filasAMoverse<(columna-1)) {
             if(filasAMoverse==columna-2) {
                if(paquete.destino-(fila) == 0) {
@@ -133,7 +133,6 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                 paquete.sePuedeMover=0;
             }
         }
-        return paquete;
     }
 
     this.encolarYProcesar= function(paquetesDeLocales) {
