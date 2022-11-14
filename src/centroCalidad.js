@@ -34,15 +34,12 @@ function CentroCalidad(limiteColaDeEspera) {
     }
 
     this.agregarACola = function (paquetesAgregar) {
-        var i=0;
-        while ((this.cola.length)<(this.limiteCola)  &&  i<paquetesAgregar.length) {  
-            this.cola.push(paquetesAgregar[i]);
-            i++;
-        }
+        this.funcionesCentros.agregarACola(this.cola,this.limiteCola);
     }
 
     this.puedeEntrarACola= function() {
-        return (this.limiteCola-this.cola.length);
+        var cantidad= this.funcionesCentros.puedeEntrarACola(this.limiteCola,this.cola);
+        return cantidad;
     }
 }
 
