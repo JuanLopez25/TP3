@@ -74,7 +74,7 @@ test("Comparar urgencia con tiempo de llegada del segundo paquete muy rapido, el
     matriz.avanzarTiempo(); 
     matriz.avanzarTiempo(); 
     matriz.avanzarTiempo();
-    matriz.locales[0].informarPaquetesEnDestino() 
+    console.log(matriz.locales[0].informarPaquetesEnDestino()+"hola");
     matriz.avanzarTiempo();   //Llega el primer paquete, el "muy rapido"
     expect(matriz.locales[0].informarPaquetesEnDestino()).toBe("P2: Destino 1, Urgencia 4, no llego a tiempo\n");
 })
