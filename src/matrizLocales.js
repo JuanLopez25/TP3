@@ -46,6 +46,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             this.locales.forEach(local => {  
                 paquetesAProcesar=paquetesDeLocales[fila][columna-1];
                 if ((fila-1)>=0){   //si no estamos en el primer local
+                    console.log("entre con "+local.nombre)
                     paquetesLocalSuperior=paquetesDeLocales[fila-1][columna-1];
                     localSuperior=this.locales[fila-1];
                 } else {
@@ -53,6 +54,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                     paquetesLocalSuperior=0;
                 }
                 if ((fila+1)<this.locales.length) {   //si no estamos en el ultimo local.
+                    console.log("entre con "+local.nombre)
                     paquetesLocalPosterior=paquetesDeLocales[fila+1][columna-1];
                 } else {
                     localPosterior=0;
@@ -75,11 +77,11 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                         local.centrosCreados[columna].procesarPaquetes(paquetesAProcesar);
                     }
                     if(paquetesLocalSuperior!=0 && local.centrosCreados[columna].puedeEntrarACola()) {
-                        console.log("NO entre aca")
+                        //console.log("NO entre aca")
                         local.centrosCreados[columna].procesarPaquetes(paquetesLocalSuperior);
                     }
                     if(paquetesLocalPosterior!=0 && local.centrosCreados[columna].puedeEntrarACola()) {
-                        console.log("entre aca")
+                        //console.log("entre aca")
                         local.centrosCreados[columna].procesarPaquetes(paquetesLocalPosterior);
                     }
                     
