@@ -55,3 +55,12 @@ test("Proceso paquetes en A, B y C y avanzo para verificar momentaneamente que s
     expect(matriz.locales[2].centrosCreados[1].paquetes.length).toBe(1);
     expect(matriz.locales[2].centrosCreados[1].cola.length).toBe(0);
 })
+
+test("Verificando que el paquete llegue a su destino", () =>{
+    matriz.agregarPaquetes(lista,"B");
+    matriz.avanzarTiempo(1);
+    expect(matriz.locales[0].centrosCreados[1].paquetes.length).toBe(3);
+    expect(matriz.locales[0].centrosCreados[1].cola.length).toBe(3);
+    expect(matriz.locales[1].centrosCreados[1].paquetes.length).toBe(2);
+    expect(matriz.locales[1].centrosCreados[1].cola.length).toBe(0);
+})

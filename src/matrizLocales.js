@@ -21,7 +21,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
         var paquetesAux;
         var numeroLocal=0;
         var paquetesDeLocales= new Array(this.locales.length);
-        var columna=1;
+        var columna=this.cantidadCentros;
         var fila=0;
         var paquetesAProcesarMismoLocal;
         var paquetesLocalSuperior;
@@ -38,9 +38,26 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             numeroLocal++;
         });
 
+        
+        fila=0;
+        var paquetesDelDestino=[];
+        this.locales.forEach(local => {
+            paquetesAProcesar=paquetesDeLocales[fila][columna-1]; //en el ultimo columna-1
+            if (paquetesAProcesar!=0){
+                paquetesAProcesar.forEach(elemento => {   //CUIDADO QUE ESTO ME LLEVO TIEMPO, PERO LO HABIA HECHO BIEN DE UNA Y ME SACA LOS PAQUETES SI NO PUEDEN LLEGAR AL DESTINO PROPUESTO
+                    if(elemento.destino==(fila+1)) {
+                        paquetesDelDestino.push(elemento);
+                    }
+                });
+                local.centrosCreados[columna].procesarPaquetes(paquetesDelDestino);
+            } else {
+                local.centrosCreados[columna].procesarPaquetes([])
+            }
+            fila++;
+        });
        
-        columna=1;
-        while (columna<this.cantidadCentros) {
+        columna=columna-1; //tiene el indice del ultimo
+        while (columna>0) {
             fila=0;
             this.locales.forEach(local => { 
                 paquetesAProcesarMismoLocal=paquetesDeLocales[fila][columna-1];
@@ -116,25 +133,10 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                 
                 fila++;
             });
-            columna++;
+            columna--;
         }
         
-        fila=0;
-        var paquetesDelDestino=[];
-        this.locales.forEach(local => {
-            paquetesAProcesar=paquetesDeLocales[fila][columna-1];
-            if (paquetesAProcesar!=0){
-                paquetesAProcesar.forEach(elemento => {   //CUIDADO QUE ESTO ME LLEVO TIEMPO, PERO LO HABIA HECHO BIEN DE UNA Y ME SACA LOS PAQUETES SI NO PUEDEN LLEGAR AL DESTINO PROPUESTO
-                    if(elemento.destino==(fila+1)) {
-                        paquetesDelDestino.push(elemento);
-                    }
-                });
-                local.centrosCreados[columna].procesarPaquetes(paquetesDelDestino);
-            } else {
-                local.centrosCreados[columna].procesarPaquetes([])
-            }
-            fila++;
-        });
+        
        
     }
 
