@@ -84,7 +84,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                     } else if (arribaOAbajo==-1) {
                         paquete.sePuedeMover=-1;
                     } else {
-                        paquete.sePuedeMover=;
+                        paquete.sePuedeMover=0;
                     }
                 }
                 columna--;
