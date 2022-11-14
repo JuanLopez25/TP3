@@ -5,7 +5,7 @@ function MatrizLocales(locales,centros,limitesColasDeEspera){
     var contador=0;
     this.locales=[]
     this.cantidadCentros=centros.length+1;
-    while(contador<locales-1){
+    while(contador<locales){
         this.locales.push(new Local(centros,limitesColasDeEspera[contador]));
         contador+=1;
     }
