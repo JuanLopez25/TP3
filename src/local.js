@@ -10,7 +10,7 @@ var Local = (function(){
     var contadorDestino=1;
     newLocal= function(centros,limitesColasDeEspera){
         this.nombre=contadorOrigen;
-        this.inicializarCentros(this.centrosCreados,centros);
+        this.centrosCreados=this.inicializarCentros(centros);
         contadorDestino+=1;
         var letra=contadorOrigen.charCodeAt();
         letra++;
@@ -61,8 +61,8 @@ var Local = (function(){
             contadorDestino=1;
         }
 
-        this.inicializarCentros= function(centrosCreados,centros) {
-            centrosCreados=[new ColaSalida()];
+        this.inicializarCentros= function(centros) {
+            var centrosCreados=[new ColaSalida()];
             var i=0;
             var j=0;
             var k=0;
@@ -96,6 +96,7 @@ var Local = (function(){
                 centrosCreados.push(new CentroDistribucion(30));
             }
             centrosCreados.push(new Destino(contadorDestino));
+            return centrosCreados;
         }
 
     }
