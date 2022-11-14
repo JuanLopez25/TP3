@@ -44,6 +44,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
         fila=0;
         var paquetesDelDestino=[];
         this.locales.forEach(local => {
+            paquetesDelDestino=[];
             paquetesAProcesar=paquetesDeLocales[fila][columna-1]; //en el ultimo columna-1
             if (paquetesAProcesar!=0){
                 paquetesAProcesar.forEach(elemento => {   //CUIDADO QUE ESTO ME LLEVO TIEMPO, PERO LO HABIA HECHO BIEN DE UNA Y ME SACA LOS PAQUETES SI NO PUEDEN LLEGAR AL DESTINO PROPUESTO
