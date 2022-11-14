@@ -97,7 +97,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                     noProcesados=[];
                     l=0;
                     cantidadQuePuedoProcesar=local.centrosCreados[columna].puedeEntrarACola();
-                    local.centrosCreados[columna].procesarPaquetes(paquetesLocalPosterior);
+                    local.centrosCreados[columna].agregarACola(paquetesLocalPosterior);
                     while (l<paquetesLocalPosterior.length) {
                         if (l>(cantidadQuePuedoProcesar-1)) {
                             noProcesados.push(paquetesLocalPosterior[l]);
