@@ -76,7 +76,6 @@ test("12 paquetes a centro de distribucion y procesa los 10 con mayor urgencia",
 })
 
 test("Comparar urgencia con tiempo de llegada", () =>{
-    matriz.locales[0].centrosCreados[0].paquetes;
     matriz.avanzarTiempo();   //Llega el primer paquete, el "muy rapido"
     matriz.avanzarTiempo(); 
     matriz.avanzarTiempo(); 
