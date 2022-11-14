@@ -173,7 +173,7 @@ test("Procesamos y verificamos donde estan los paquetes con destino 3", () =>{
     lista2.push(paqueteMuyRapido2);
     lista2.push(paqueteRapido2);
     lista2.push(paqueteNormal2);
-    lista2.push(paqueteMuyRapido3);
+    lista2.push(paqueteRapido3);
     lista2.push(new Paquete(4,[],"rapido",4));
     matriz2.agregarPaquetes(lista2,"A");
     matriz2.avanzarTiempo(1);
