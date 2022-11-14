@@ -43,5 +43,6 @@ test("6 paquetes a cola de salida y toma los 5 de mayor urgencia", () =>{
     matriz.agregarPaquetes(lista,"A");
     matriz.avanzarTiempo();
     matriz.avanzarTiempo();
+    expect(matriz.locales[0].centrosCreados[1].colaSalida.length).toBe(1);
     expect(matriz.locales[0].centrosCreados[0].colaSalida.length).toBe(0);
 })
