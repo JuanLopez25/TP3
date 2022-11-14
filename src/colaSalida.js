@@ -1,5 +1,5 @@
 
-
+const FuncionesCentros= require('./moduloFuncionesCentros');
 
 function ColaSalida(paquete) {
     this.paquetes=[];
@@ -8,7 +8,7 @@ function ColaSalida(paquete) {
     this.colaSalida=[];
     this.funcionesCentros=FuncionesCentros;  
     this.procesarPaquetes = function() {
-        this.funcionesCentros.procesarPaquetes(this.cola,this.paquetes,5);
+      this.funcionesCentros.procesarPaquetes(this.cola,this.paquetes,5);
     }
     
     
