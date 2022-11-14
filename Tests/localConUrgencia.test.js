@@ -33,7 +33,7 @@ beforeEach(()=> {
 test("6 paquetes a cola de salida y toma los 5 de mayor urgencia", () =>{
     var urgenciaTotal=0;
     matriz.locales[0].centrosCreados[0].paquetes.forEach(elemento => urgenciaTotal+=elemento.urgencia);
-    expect(urgenciaTotal).toBe(28);
+    expect(urgenciaTotal).toBe(30);
 })
 
 test("5 paquetes a centro de Facturacion y procesa los 3 con mayor urgencia", () =>{
