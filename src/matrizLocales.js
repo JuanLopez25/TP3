@@ -36,7 +36,6 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
         var paquetesAProcesar;
         var paquetesLocalSuperior;
         var paquetesLocalPosterior;
-        var paquetesPosibles=[];
         var localSuperior;
         var localPosterior;
 
@@ -66,6 +65,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
 
                 if (paquetesAProcesar!=0){
                     if (local.centrosCreados[columna].puedeEntrarACola()) {
+                        console.log("entre con: "+local.cantidadCentros[columna].nombre);
                         local.centrosCreados[columna].procesarPaquetes(paquetesAProcesar);
                     }
                     if(paquetesLocalSuperior!=0 && local.centrosCreados[columna].puedeEntrarACola()) {
