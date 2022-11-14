@@ -51,7 +51,7 @@ test("Proceso paquetes en A, B y C y avanzo para verificar momentaneamente que s
     expect(matriz.locales[0].centrosCreados[1].paquetes.length).toBe(3);
     expect(matriz.locales[0].centrosCreados[1].cola.length).toBe(3); //A le saco 2 a B
     expect(matriz.locales[1].centrosCreados[1].paquetes.length).toBe(3); //B se quedo con 2 procesando de los suyos y 1 de C
-    expect(matriz.locales[1].centrosCreados[1].cola.length).toBe(3); //B se queda con 3 de C en cola
-    expect(matriz.locales[2].centrosCreados[1].paquetes.length).toBe(0);
+    expect(matriz.locales[1].centrosCreados[1].cola.length).toBe(2); //B se queda con 2 de C en cola
+    expect(matriz.locales[2].centrosCreados[1].paquetes.length).toBe(1);
     expect(matriz.locales[2].centrosCreados[1].cola.length).toBe(0);
 })
