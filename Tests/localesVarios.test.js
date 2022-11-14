@@ -27,7 +27,7 @@ beforeEach(()=> {
 });
 
 test("6 paquetes a cola de salida y toma los 5 de mayor urgencia", () =>{
-    matriz= new MatrizLocales(1,["CF","CC","CC","CD","CF"],[3,2,5,24,6]);
+    matriz= new MatrizLocales(1,["CF","CC","CC","CD","CF"],[[3,2,5,24,6]]);
     matriz.agregarPaquetes(lista,"A");
     var urgenciaTotal=0;
     matriz.locales[0].centrosCreados[0].paquetes.forEach(elemento => urgenciaTotal+=elemento.urgencia);
@@ -35,7 +35,7 @@ test("6 paquetes a cola de salida y toma los 5 de mayor urgencia", () =>{
 })
 
 test("6 paquetes a cola de salida y proceso una vez por lo que deberia el centro de facturacion estar procesando 3 paquetes", () =>{
-    matriz= new MatrizLocales(1,["CF","CC","CC","CD","CF"],[4,3,4,23,6]);
+    matriz= new MatrizLocales(1,["CF","CC","CC","CD","CF"],[[4,3,4,23,6]]);
     matriz.agregarPaquetes(lista,"A");
     matriz.avanzarTiempo();  
     expect(matriz.locales[0].centrosCreados[1].paquetes.length).toBe(3);
