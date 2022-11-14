@@ -81,7 +81,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                         }
                         filasAMoverse=math.abs(filasAMoverse);
                         
-                        if(filasAMoverse<(columna-1)) {
+                        if(filasAMoverse<(columna)) {
                             
                             paquete.sePuedeMover=2; //hay que analizar el caso limite aun
                         } else {
