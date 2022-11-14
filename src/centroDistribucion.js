@@ -33,11 +33,12 @@ function CentroDistribucion(limiteColaDeEspera) {
     }
 
     this.agregarACola = function (paquetesAgregar) {
-        var i=0;
-        while ((this.cola.length)<(this.limiteCola)  &&  i<paquetesAgregar.length) {  
-            this.cola.push(paquetesAgregar[i]);
-            i++;
-        }
+        this.funcionesCentros.agregarACola(this.cola,this.limiteCola,paquetesAgregar);
+    }
+
+    this.puedeEntrarACola= function() {
+        var cantidad= this.funcionesCentros.puedeEntrarACola(this.limiteCola,this.cola);
+        return cantidad;
     }
     
     this.unirPaquetes = function(){
@@ -76,9 +77,7 @@ function CentroDistribucion(limiteColaDeEspera) {
     }
 
 
-    this.puedeEntrarACola= function() {
-        return (this.limiteCola-this.cola.length);
-    }
+    
 
   
 
