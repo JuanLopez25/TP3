@@ -8,6 +8,7 @@ var Paquete = (function(){
         this.destino=destinoPropuesto;
         this.productos=productos;
         this.tiempo=0;
+        this.urgencia=0;
         this.calcularUrgencia(urgenciaSolicitada,cantidadCentros);
 
         this.informe= function() {
