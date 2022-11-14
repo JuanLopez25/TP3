@@ -27,13 +27,15 @@ test("Crear centro de distribucion", () =>{
 })
 
 test("Procesar paquete centro de distribucion", () =>{
-    distribucion.procesarPaquetes(lista);
+    distribucion.agregarACola(lista);
+    distribucion.procesarPaquetes();
     expect(distribucion.paquetes.length).toBe(1);
 })
 
 
 test("Procesar paquete centro de facturacion", () =>{
-    distribucion.procesarPaquetes(lista);
+    distribucion.agregarACola(lista);
+    distribucion.procesarPaquetes();
     distribucion.terminarProceso(lista);
     expect(distribucion.paquetes.length).toBe(0);
 })
@@ -48,7 +50,8 @@ test("Entran 10 paquetes al centro de distribucion", () =>{
     lista.push(paquete8);
     lista.push(paquete9);
     lista.push(paquete10);
-    distribucion.procesarPaquetes(lista);
+    distribucion.agregarACola(lista);
+    distribucion.procesarPaquetes();
     expect(distribucion.paquetes.length).toBe(10);
 })
 
@@ -64,14 +67,16 @@ test("Entran 11 paquetes al centro de distribucion y deberian entrar nada mas qu
     lista.push(paquete9);
     lista.push(paquete10);
     lista.push(paquete11);
-    distribucion.procesarPaquetes(lista);
+    distribucion.agregarACola(lista);
+    distribucion.procesarPaquetes();
     expect(distribucion.paquetes.length).toBe(10);
 })
 
 test("Unir paquetes con mismo destino", () =>{
     var paqueteAux=new Paquete(1,[],"normal",4);
     lista.push(paqueteAux);
-    distribucion.procesarPaquetes(lista);
+    distribucion.agregarACola(lista);
+    distribucion.procesarPaquetes();
     expect(distribucion.paquetes.length).toBe(1);
     expect(distribucion.paquetes[0].urgencia).toBe(4);
 })
@@ -82,7 +87,8 @@ test("Unir paquetes con mismo destino: dos destinos", () =>{
     lista.push(paquete2);
     lista.push(paqueteAux);
     lista.push(paqueteAux2);
-    distribucion.procesarPaquetes(lista);
+    distribucion.agregarACola(lista);
+    distribucion.procesarPaquetes();
     expect(distribucion.paquetes.length).toBe(2);
 })
 
