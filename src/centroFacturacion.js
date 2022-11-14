@@ -10,12 +10,11 @@ function CentroFacturacion(limiteColaDeEspera) {
         limiteColaDeEspera=6;
     }
     this.limiteCola=limiteColaDeEspera;
-    this.procesarPaquetes = function(paquetesAgregar) {
+    this.procesarPaquetes = function() {
         var i=0;
         var paqueteTemporal;
         
-        this.agregarACola(paquetesAgregar);
-        //console.log(this.cola);
+        
         this.cola.forEach(elemento => elemento.aumentarTiempo());
 
         this.cola.sort(function (a, b) {

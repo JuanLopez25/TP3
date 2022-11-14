@@ -10,11 +10,11 @@ function CentroDistribucion(limiteColaDeEspera) {
         limiteColaDeEspera=30;
     }
     this.limiteCola= limiteColaDeEspera;
-    this.procesarPaquetes = function(paquetesAgregar) {
+    this.procesarPaquetes = function() {
         var i=0;
         var paqueteTemporal;
 
-        this.agregarACola(paquetesAgregar);
+        
 
         this.cola.forEach(elemento => elemento.aumentarTiempo());
 
