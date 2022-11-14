@@ -75,9 +75,11 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                         local.centrosCreados[columna].procesarPaquetes(paquetesAProcesar);
                     }
                     if(paquetesLocalSuperior!=0 && local.centrosCreados[columna].puedeEntrarACola()) {
+                        console.log("NO entre aca")
                         local.centrosCreados[columna].procesarPaquetes(paquetesLocalSuperior);
                     }
                     if(paquetesLocalPosterior!=0 && local.centrosCreados[columna].puedeEntrarACola()) {
+                        console.log("entre aca")
                         local.centrosCreados[columna].procesarPaquetes(paquetesLocalPosterior);
                     }
                     
