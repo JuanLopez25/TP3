@@ -27,7 +27,7 @@ var funcionesCentros= (function(){
     
             while (i<(this.cola.length)) {
                 if (this.paquetes.length<this.cantidadProcesables) {
-                    paqueteTemporal= cola[i];
+                    paqueteTemporal= this.cola[i];
                     (this.paquetes).push(paqueteTemporal);
                     this.cola.splice(i,1);
                     i--;
