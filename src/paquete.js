@@ -9,18 +9,8 @@ var Paquete = (function(){
         this.productos=productos;
         this.tiempo=0;
         this.urgencia=0;
-        switch(urgenciaSolicitada){
-            case "muy rapido":
-                this.urgencia=cantidadCentros;
-                break;
-            case "rapido":
-                this.urgencia=cantidadCentros*1.5;
-                break;
-            case "normal":
-                this.urgencia=cantidadCentros*2;
-                break;
-        }
-        //this.urgencia=this.calcularUrgencia(urgenciaSolicitada,cantidadCentros);
+        this.urgenciaSolicitada2=urgenciaSolicitada;
+        this.urgencia=this.calcularUrgencia(this.urgenciaSolicitada2,cantidadCentros);
 
 
 
