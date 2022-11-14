@@ -28,10 +28,13 @@ function ColaSalida(paquete) {
     }
     
     this.terminarProceso = function() {
-        var entrega= this.paquetes;
-        this.paquetes = [];
-        return entrega;
-    }
+      this.colaSalida=[];
+      this.paquetes.forEach(paquete=>{
+          this.colaSalida.push(paquete);
+      });
+      this.paquetes = [];
+      return this.colaSalida;
+  }
 }
 
 module.exports= ColaSalida;

@@ -42,9 +42,12 @@ function CentroDistribucion(limiteColaDeEspera) {
         }
     }
     this.terminarProceso = function() {
-        var entrega= this.paquetes;
+        this.colaSalida=[];
+        this.paquetes.forEach(paquete=>{
+            this.colaSalida.push(paquete);
+        });
         this.paquetes = [];
-        return entrega;
+        return this.colaSalida;
     }
 
     this.agregarACola = function (paquetesAgregar) {
