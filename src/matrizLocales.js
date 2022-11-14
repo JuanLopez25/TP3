@@ -52,6 +52,8 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                         paquetesDelDestino.push(elemento);
                     }
                 });
+                paquetesAProcesar=[];
+                paquetesDeLocales[fila][columna-1]=[];
                 local.centrosCreados[columna].procesarPaquetes(paquetesDelDestino);
             } else {
                 local.centrosCreados[columna].procesarPaquetes([])
