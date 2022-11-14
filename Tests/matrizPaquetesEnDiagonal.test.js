@@ -29,6 +29,7 @@ beforeEach(()=> {
 
 
 test("Proceso paquetes en un unico local", () =>{
+    matriz.agregarPaquetes(lista,"B");
     expect(matriz.locales[0].centrosCreados[0].paquetes.length).toBe(4);
     expect(matriz.locales[1].centrosCreados[0].paquetes.length).toBe(4);
 })
