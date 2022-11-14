@@ -189,21 +189,28 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
         var noProcesados=[];
         var l=0;
         var cantidadQuePuedoProcesar;
-        var condicionAux;
-        if (limite==0) {
-            condicionAux=this.limitesMismoLocal();
-        } else if (limite==1) {
-            condicionAux=this.limitesLocalSuperior();
-        } else if (limite==-1) {
-            condicionAux=this.limitesLocalPosterior();
-        }
+       
         if (paquetesAProcesar!=0 && local.centrosCreados[columna].puedeEntrarACola()>0) {     
             cantidadQuePuedoProcesar=local.centrosCreados[columna].puedeEntrarACola();
             paquetesAProcesar.forEach(paquete=> {
-                if (condicionAux(paquete)) {
-                    paquetesQueDePuedenProcesar.push(paquete);
-                } else {
-                    noProcesados.push(paquete);
+                if (limite==0) {
+                    if (this.limitesMismoLocal(paquete)) {
+                        paquetesQueDePuedenProcesar.push(paquete);
+                    } else {
+                        noProcesados.push(paquete);
+                    }
+                } else if (limite==1) {
+                    if (this.limitesLocalSuperior(paquete)) {
+                        paquetesQueDePuedenProcesar.push(paquete);
+                    } else {
+                        noProcesados.push(paquete);
+                    }
+                } else if (limite==-1) {
+                    if (this.limitesLocalPosterior(paquete)) {
+                        paquetesQueDePuedenProcesar.push(paquete);
+                    } else {
+                        noProcesados.push(paquete);
+                    }
                 }
             })
             local.centrosCreados[columna].agregarACola(paquetesQueDePuedenProcesar);
@@ -223,13 +230,13 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
     }
 
 
-    this.limitesMismoLocal= function(paquete) {
+    this.limitesMismoLocal = function(paquete) {
         return (paquete.sePuedeMover==2 || paquete.sePuedeMover==0  || paquete.sePuedeMover==-2 || paquete.sePuedeMover==4);
     }
-    this.limiesLocalSuperior= function(paquete) {
+    this.limitesLocalSuperior = function(paquete) {
         return (paquete.sePuedeMover==4 || paquete.sePuedeMover==-1 || paquete.sePuedeMover==-2);
     }
-    this.limitesLocalPosterior= function(paquete) {
+    this.limitesLocalPosterior = function(paquete) {
         return (paquete.sePuedeMover==4 || paquete.sePuedeMover==1 || paquete.sePuedeMover==2);
     }
 
