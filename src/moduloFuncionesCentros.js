@@ -38,7 +38,11 @@ var funcionesCentros= (function(){
             colaSalida.forEach(paquete=>{
                 entrega.push(paquete);
             });
-            colaSalida=[];
+            i=0;
+            colaSalida.forEach(paquete=>{
+                colaSalida.splice(i,1);
+                i++;
+            })
             return entrega;
         },
     
