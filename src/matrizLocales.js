@@ -97,7 +97,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                             arribaOAbajo=0;
                         }
                         filasAMoverse=math.abs(filasAMoverse);
-                        this.aCualMoverme(paquete,filasAMoverse,fila,columna);
+                        paquete=this.aCualMoverme(paquete,filasAMoverse,fila,columna);
                         
                     });
                 }
@@ -133,6 +133,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                 paquete.sePuedeMover=0;
             }
         }
+        return paquete;
     }
 
     this.encolarYProcesar= function(paquetesDeLocales) {
