@@ -237,6 +237,22 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             });
             columna--;
         }
+
+
+        fila=0;
+
+        paquetesDeLocales.forEach(filaPaquetes=> {
+            columna=0;
+            filaPaquetes.forEach(paquetes=>{
+                if (paquetes!=0) {
+                    paquetes.forEach(paquete=> {
+                        this.locales[fila].centrosCreados[columna].colaSalida.push(paquete);
+                    });
+                }
+                columna++;
+            })
+            fila++;
+        })
         
         
        
