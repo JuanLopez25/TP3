@@ -4,6 +4,7 @@ const Local= require('../src/local')
 
 var matriz;
 var reseter;
+var reseter2;
 var paqueteMuyRapido;
 var paqueteRapido;
 var paqueteRapido2;
@@ -11,7 +12,9 @@ var paqueteNormal;
 var lista;
 
 beforeEach(()=> {
-    reseter= new Local(["CF","CC","CD"],[6,2,14]);
+    reseter2= new Local(["CF","CC","CD"],[6,2,14]);
+    reseter2.resetearID();
+    reseter= new Paquete(1,[],"muy rapido");
     reseter.resetearID();
     matriz= new MatrizLocales(3,["CF","CC","CD"],[[6,3,23],[5,4,10],[6,2,14]]);
     lista=[];
@@ -63,4 +66,16 @@ test("Verificando que el paquete llegue a su destino", () =>{
     expect(matriz.locales[0].centrosCreados[1].cola.length).toBe(3);
     expect(matriz.locales[1].centrosCreados[1].paquetes.length).toBe(2);
     expect(matriz.locales[1].centrosCreados[1].cola.length).toBe(0);
+})
+
+
+
+
+test("Proceso paquetes en A y B y avanzo para verificar los destinos", () =>{
+    matriz.avanzarTiempo(1);
+    matriz.avanzarTiempo(1);
+    matriz.avanzarTiempo(1);
+    matriz.avanzarTiempo(1);
+    expect(matriz.locales[0].informarPaquetesEnDestino()).toBe("P1: Destino 1, Urgencia 4, llego a tiempo\n");
+    
 })
