@@ -22,8 +22,17 @@ COMMIT NUMERO 573 TP COMPLETADO CON LA CONSIGNA
 COMMIT 574 TODO REFACTOR
 
 TDD
+
 array.sort
 array.splice
-protocolos
+array.find
+array.push
+array.forEach
+biblioteca mathjs
+
+thorw error cuando se crea mal la matriz
+protocolos para todos los archivos
 refactors
-module pattern
+funciones que retornan si se cumplen condiciones
+module pattern para instanciar locales y paquetes
+modulo pattern para las funciones de los centros

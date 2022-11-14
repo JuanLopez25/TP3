@@ -1,4 +1,5 @@
 const Paquete = require("./Paquete");
+const FuncionesCentros= require('./moduloFuncionesCentros');
 
 function CentroDistribucion(limiteColaDeEspera) {
     this.paquetes=[];
@@ -11,57 +12,7 @@ function CentroDistribucion(limiteColaDeEspera) {
         limiteColaDeEspera=30;
     }
     this.limiteCola= limiteColaDeEspera;
-    this.procesarPaquetes = function() {
-        var i=0;
-        var paqueteTemporal;
-
-        
-
-        this.cola.forEach(elemento => elemento.aumentarTiempo());
-
-        this.unirPaquetes();
-
-        this.cola.sort(function (a, b) {
-            if (a.urgencia > b.urgencia) {
-              return 1;
-            }
-            if (a.urgencia < b.urgencia) {
-              return -1;
-            }
-            return 0;
-          });
-
-        while (i<(this.cola.length)) {
-            if (this.paquetes.length<10) {
-                paqueteTemporal= this.cola[i];
-                (this.paquetes).push(paqueteTemporal);
-                this.cola.splice(i,1);
-                i--;
-            }
-            i++;
-        }
-    }
-    
-    this.terminarProceso = function() {
-        this.paquetes.forEach(paquete=>{
-            this.colaSalida.push(paquete);
-        });
-        this.paquetes = [];
-        var entrega=[]
-        this.colaSalida.forEach(paquete=>{
-            entrega.push(paquete);
-        });
-        this.colaSalida=[];
-        return entrega;
-    }
-
-    this.agregarACola = function (paquetesAgregar) {
-        var i=0;
-        while ((this.cola.length)<(this.limiteCola)  &&  i<paquetesAgregar.length) {  //es menor que 40 por que 10 pueden ser procesados, y 30 a la cola de espera
-            this.cola.push(paquetesAgregar[i]);
-            i++;
-        }
-    }
+    this.funcionesCentro= new FuncionesCentros(this.cola,this.paquetes,this.colaSalida,this.limiteCola,10);
     
     this.unirPaquetes = function(){
         var colaAux=[];
@@ -99,23 +50,8 @@ function CentroDistribucion(limiteColaDeEspera) {
     }
 
 
-    this.puedeEntrarACola= function() {
-        return (this.limiteCola-this.cola.length);
-    }
 
-    this.prioridadCola= function() {
-        var prio;
-        if (this.cola.length==0){
-            prio=1;   //nadie en la cola
-        } else if (this.cola.length<(this.limiteCola+10)) {
-            prio=2;   //se puede entrar a la cola
-        } else {
-            prio=3;   //no se puede entrar a la cola
-        }
-
-        return prio;
-    }
-
+  
 
 }
 

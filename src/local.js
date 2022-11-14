@@ -33,7 +33,7 @@ var Local = (function(){
             }
             contador+=1;
         }
-        );
+    );
         if (i==0) {
             this.centrosCreados.push(new CentroFacturacion(3));
         }
