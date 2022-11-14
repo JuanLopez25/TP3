@@ -1,5 +1,6 @@
 const Local= require('../src/local')
 const Paquete= require('../src/paquete')
+const Matriz= require('../src/matrizLocales');
 
 var paqueteMuyRapido;
 var paqueteRapido;
@@ -7,6 +8,7 @@ var paqueteNormal;
 var local;
 var lista;
 var reseter;
+var matriz;
 
 beforeEach(()=> {
     reseter= new Paquete(1,[],"muy rapido");
