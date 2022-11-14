@@ -15,6 +15,7 @@ function CentroDistribucion(limiteColaDeEspera) {
     this.funcionesCentros=FuncionesCentros;
 
     this.procesarPaquetes = function() {
+        this.unirPaquetes();
         this.funcionesCentros.procesarPaquetes(this.cola,this.paquetes,10);
     }
     
