@@ -81,7 +81,7 @@ test("6 paquetes a cola de salida y proceso dos veces por lo que deberia el cent
     matriz.agregarPaquetes(lista,"A");
     matriz.avanzarTiempo();  
     matriz.avanzarTiempo();  
-    expect(matriz.locales[0].centrosCreados[2].paquetes.length).toBe(5);
+    expect(matriz.locales[0].centrosCreados[2].paquetes.length).toBe(1);
 })
 
 
