@@ -61,6 +61,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             if (paquetesAProcesar!=0){
                 console.log("entre");
                 paquetesAProcesar.forEach(elemento => {
+                    console.log("entre2");
                     if(elemento.destino==(fila+1)) {
                         paquetesDelDestino.push(elemento);
                     }
