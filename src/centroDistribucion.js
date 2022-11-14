@@ -7,8 +7,7 @@ function CentroDistribucion(limiteColaDeEspera) {
     this.colaSalida=[];
     this.nombre="CD";
     this.funcionesCentros=FuncionesCentros;
-    this.limiteCola=this.funcionesCentros.limitesCola(2,5,limiteColaDeEspera);
-
+    this.limiteCola=this.funcionesCentros.limitesCola(10,30,limiteColaDeEspera);
 
     this.procesarPaquetes = function() {
         this.unirPaquetes();
@@ -27,7 +26,7 @@ function CentroDistribucion(limiteColaDeEspera) {
         var cantidad= this.funcionesCentros.puedeEntrarACola(this.limiteCola,this.cola);
         return cantidad;
     }
-
+    
     this.unirPaquetes = function(){
         var colaAux=[];
         var destinoAnterior=[];

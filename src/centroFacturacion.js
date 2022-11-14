@@ -6,7 +6,7 @@ function CentroFacturacion(limiteColaDeEspera) {
     this.colaSalida=[];
     this.nombre="CF";
     this.funcionesCentros=FuncionesCentros;
-    this.limiteCola=this.funcionesCentros.limitesCola(2,5,limiteColaDeEspera);
+    this.limiteCola=this.funcionesCentros.limitesCola(3,6,limiteColaDeEspera);
 
 
     this.procesarPaquetes = function() {
