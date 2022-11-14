@@ -173,7 +173,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
 
 
                     paquetesLocalSuperior.forEach(paquete=> {
-                        if (paquete.sePuedeMover==4 || paquete.sePuedeMover==-1) {
+                        if (paquete.sePuedeMover==4 || paquete.sePuedeMover==-1 || paquete.sePuedeMover==-2) {
                             paquetesQueDePuedenProcesar.push(paquete);
                         }else {
                             noProcesados.push(paquete);
@@ -207,7 +207,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
 
 
                     paquetesLocalPosterior.forEach(paquete=> {
-                        if (paquete.sePuedeMover==4 || paquete.sePuedeMover==1) {
+                        if (paquete.sePuedeMover==4 || paquete.sePuedeMover==1 || paquete.sePuedeMover==2) {
                             paquetesQueDePuedenProcesar.push(paquete);
                         }else {
                             noProcesados.push(paquete);
