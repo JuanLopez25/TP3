@@ -114,10 +114,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
         return paquetesDeLocales;
     }
 
-    this.avanzarTiempo= function(){
-        var paquetesDeLocales;;
-        var columna=this.cantidadCentros;
-        var fila=0;
+    this.encolarYProcesar= function(paquetesDeLocales) {
         var paquetesAProcesarMismoLocal;
         var paquetesLocalSuperior;
         var paquetesLocalPosterior;
@@ -125,17 +122,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
         var l=0;
         var cantidadQuePuedoProcesar=0;
         var paquetesQueDePuedenProcesar=[];
-         
-        paquetesDeLocales=this.generarMatrizPaquetes();
-        paquetesDeLocales=this.procesarPaquetesDelDestino(paquetesDeLocales);
-        paquetesDeLocales=this.analizarMovimientos(paquetesDeLocales);
-        
-       
-        
-
-       
-
-        columna=this.cantidadCentros-1; //tiene el indice del ultimo
+        var columna=this.cantidadCentros-1; 
         while (columna>0) {
             fila=0;
             this.locales.forEach(local => { 
@@ -260,7 +247,20 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             });
             columna--;
         }
+        return paquetesDeLocales;
+    }
 
+
+
+    this.avanzarTiempo= function(){
+        var paquetesDeLocales;;
+        var columna=this.cantidadCentros;
+        var fila=0;
+        paquetesDeLocales=this.generarMatrizPaquetes();
+        paquetesDeLocales=this.procesarPaquetesDelDestino(paquetesDeLocales);
+        paquetesDeLocales=this.analizarMovimientos(paquetesDeLocales);
+        paquetesDeLocales=this.encolarYProcesar(paquetesDeLocales);
+        
 
         fila=0;
 
