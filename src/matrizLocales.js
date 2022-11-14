@@ -38,6 +38,9 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
         var paquetesLocalPosterior;
         var localSuperior;
         var localPosterior;
+        var nuevoPaquetes;
+        var l=0;
+        var cantidadQuePuedoProcesar=0;
 
         while (columna<this.cantidadCentros) {
             fila=0;
@@ -61,16 +64,59 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                 }
 
                
-        
+
                 if (paquetesAProcesar!=0 && local.centrosCreados[columna].puedeEntrarACola()>0) {
-                    
+                    nuevoPaquetes=[];
+                    l=0;
+                    cantidadQuePuedoProcesar=local.centrosCreados[columna].puedeEntrarACola();
                     local.centrosCreados[columna].procesarPaquetes(paquetesAProcesar);
+                    while (l<paquetesAProcesar.length) {
+                        if (l>(cantidadQuePuedoProcesar-1)) {
+                            nuevoPaquetes.push(paquetesAProcesar[l]);
+                        }
+                        l++;
+                    }
+
+                    if (nuevoPaquetes.length==0) {
+                        nuevoPaquetes=0;
+                    }
+
+                    paquetesDeLocales[fila][columna-1]=nuevoPaquetes;
                 }
                 if(paquetesLocalSuperior!=0 && local.centrosCreados[columna].puedeEntrarACola()>0) {
+                    nuevoPaquetes=[];
+                    l=0;
+                    cantidadQuePuedoProcesar=local.centrosCreados[columna].puedeEntrarACola();
                     local.centrosCreados[columna].procesarPaquetes(paquetesLocalSuperior);
+                    while (l<paquetesLocalSuperior.length) {
+                        if (l>(cantidadQuePuedoProcesar-1)) {
+                            nuevoPaquetes.push(paquetesLocalSuperior[l]);
+                        }
+                        l++;
+                    }
+                    
+                    if (nuevoPaquetes.length==0) {
+                        nuevoPaquetes=0;
+                    }
+                    paquetesDeLocales[fila-1][columna-1]=nuevoPaquetes;
                 }
                 if(paquetesLocalPosterior!=0 && local.centrosCreados[columna].puedeEntrarACola()>0) {
+                    nuevoPaquetes=[];
+                    l=0;
+                    cantidadQuePuedoProcesar=local.centrosCreados[columna].puedeEntrarACola();
                     local.centrosCreados[columna].procesarPaquetes(paquetesLocalPosterior);
+                    while (l<paquetesLocalPosterior.length) {
+                        if (l>(cantidadQuePuedoProcesar-1)) {
+                            nuevoPaquetes.push(paquetesLocalPosterior[l]);
+                        }
+                        l++;
+                    }
+                    
+                    if (nuevoPaquetes.length==0) {
+                        nuevoPaquetes=0;
+                    }
+                    paquetesDeLocales[fila+1][columna-1]=nuevoPaquetes;
+
                 }else {
                     local.centrosCreados[columna].procesarPaquetes([]);
                 }
