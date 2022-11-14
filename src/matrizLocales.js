@@ -54,7 +54,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                 }
                 if ((fila+1)<this.locales.length) {   //si no estamos en el ultimo local.
                     paquetesLocalPosterior=paquetesDeLocales[fila+1][columna-1];
-                    console.log("local :"+local.nombre+" tiene en paquetes superior: "+paquetesLocalSuperior);
+                    console.log("local :"+local.nombre+" tiene en paquetes posterior: "+paquetesLocalPosterior);
                 } else {
                     localPosterior=0;
                     paquetesLocalPosterior=0;
