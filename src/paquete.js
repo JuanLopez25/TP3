@@ -2,6 +2,7 @@
 var Paquete = (function(){
     var contador=0;
     newPaquete= function(destinoPropuesto,productos,urgenciaSolicitada,cantidadCentros) {
+        this.sePuedeMover;
         contador+=1;
         this.id=contador;
         this.destino=destinoPropuesto;

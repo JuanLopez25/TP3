@@ -1,5 +1,6 @@
 const Local= require('./local');
 const Paquete=require('./paquete')
+const math = require('mathjs');
 
 function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
     var contador=0;
@@ -31,6 +32,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
         var cantidadQuePuedoProcesar=0;
         var prio=0;
         var paquetesDeLocalesProcesar=new Array(this.locales.length);
+         //Si vale 1, da igual a donde va. Si vale 0 tiene que bajar, y si vale 2 tiene que subir.
             
         this.locales.forEach(local => {
             paquetesAux=local.proceso();
@@ -55,8 +57,23 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             }
             fila++;
         });
-       
-        columna=columna-1; //tiene el indice del ultimo
+
+        var filasAMoverse;
+        fila=1;
+        paquetesDeLocales.forEach(filaPaquetes=> {
+            filaPaquetes.forEach(paquete=>{
+                filasAMoverse=(paquete.destino-(fila));
+                filasAMoverse=math.abs(filasAMoverse);
+                if(filasAMoverse<(columna-1)) {
+                    paquete.sePuedeMover=1;
+                }
+                columna--;
+            })
+            fila++;
+        })
+
+
+        columna=this.cantidadCentros-1; //tiene el indice del ultimo
         while (columna>0) {
             fila=0;
             this.locales.forEach(local => { 
@@ -71,6 +88,9 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                 } else {
                     paquetesLocalPosterior=0;
                 }
+
+                
+
 
                 if (paquetesAProcesarMismoLocal!=0 && local.centrosCreados[columna].puedeEntrarACola()>0) {
                     noProcesados=[];
