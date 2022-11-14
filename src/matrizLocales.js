@@ -86,7 +86,6 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                 if (paquetes!=0) {
                     paquetes.forEach(paquete=> {
                         filasAMoverse=(paquete.destino-(fila));
-                       
                         if (filasAMoverse<0) {
                             arribaOAbajo=1;
                         } else if (filasAMoverse>0) {
@@ -117,7 +116,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                }
 
             } else {
-                paquete.sePuedeMover=4; //hay que analizar el caso limite aun
+                paquete.sePuedeMover=4; 
             }
         } else {
             
@@ -140,7 +139,9 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
         var l=0;
         var cantidadQuePuedoProcesar=0;
         var paquetesQueDePuedenProcesar=[];
-        var columna=this.cantidadCentros-1; 
+        var columna=this.cantidadCentros-1;
+    
+        
         while (columna>0) {
             fila=0;
             this.locales.forEach(local => { 
@@ -155,110 +156,9 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                 } else {
                     paquetesLocalPosterior=0;
                 }
-
-                
-
-
-                if (paquetesAProcesarMismoLocal!=0 && local.centrosCreados[columna].puedeEntrarACola()>0) {
-                   
-                    paquetesQueDePuedenProcesar=[];
-                    noProcesados=[];
-                    l=0;
-                    cantidadQuePuedoProcesar=local.centrosCreados[columna].puedeEntrarACola();
-
-                    paquetesAProcesarMismoLocal.forEach(paquete=> {
-                        if (paquete.sePuedeMover==2 || paquete.sePuedeMover==0  || paquete.sePuedeMover==-2 || paquete.sePuedeMover==4) {
-                            paquetesQueDePuedenProcesar.push(paquete);
-                        } else {
-                            noProcesados.push(paquete);
-                        }
-                    })
-                   
-                    local.centrosCreados[columna].agregarACola(paquetesQueDePuedenProcesar);
-                    if (cantidadQuePuedoProcesar<=paquetesQueDePuedenProcesar.length){
-                        while (l<paquetesQueDePuedenProcesar.length) {
-                            if (l>(cantidadQuePuedoProcesar-1)) {
-                                noProcesados.push(paquetesQueDePuedenProcesar[l]);
-                            }
-                            l++;
-                        }
-                    }
-                    
-                    if (noProcesados.length==0) {
-                        noProcesados=0;
-                    }
-
-                    paquetesDeLocales[fila][columna-1]=noProcesados;
-                }
-
-                if(paquetesLocalSuperior!=0 && local.centrosCreados[columna].puedeEntrarACola()>0) {
-                    
-                    paquetesQueDePuedenProcesar=[];
-                    noProcesados=[];
-                    l=0;
-                    cantidadQuePuedoProcesar=local.centrosCreados[columna].puedeEntrarACola();
-
-
-                    paquetesLocalSuperior.forEach(paquete=> {
-                        if (paquete.sePuedeMover==4 || paquete.sePuedeMover==-1 || paquete.sePuedeMover==-2) {
-                            paquetesQueDePuedenProcesar.push(paquete);
-                        }else {
-                            noProcesados.push(paquete);
-                        }
-                    })
-
-
-                    local.centrosCreados[columna].agregarACola(paquetesQueDePuedenProcesar);
-
-                    if (cantidadQuePuedoProcesar<=paquetesQueDePuedenProcesar.length){
-                        while (l<paquetesQueDePuedenProcesar.length) {
-                            if (l>(cantidadQuePuedoProcesar-1)) {
-                                noProcesados.push(paquetesQueDePuedenProcesar[l]);
-                            }
-                            l++;
-                        }
-                    }
-                    if (noProcesados.length==0) {
-                        noProcesados=0;
-                    }
-                    paquetesDeLocales[fila-1][columna-1]=noProcesados;
-                }
-
-
-
-                if(paquetesLocalPosterior!=0 && local.centrosCreados[columna].puedeEntrarACola()>0) {
-                    paquetesQueDePuedenProcesar=[];
-                    noProcesados=[];
-                    l=0;
-                    cantidadQuePuedoProcesar=local.centrosCreados[columna].puedeEntrarACola();
-
-
-                    paquetesLocalPosterior.forEach(paquete=> {
-                        if (paquete.sePuedeMover==4 || paquete.sePuedeMover==1 || paquete.sePuedeMover==2) {
-                            paquetesQueDePuedenProcesar.push(paquete);
-                        }else {
-                            noProcesados.push(paquete);
-                        }
-                    })
-
-
-
-                    local.centrosCreados[columna].agregarACola(paquetesQueDePuedenProcesar);
-                    if (cantidadQuePuedoProcesar<=paquetesQueDePuedenProcesar.length){
-                        while (l<paquetesQueDePuedenProcesar.length) {
-                            if (l>(cantidadQuePuedoProcesar-1)) {
-                                noProcesados.push(paquetesQueDePuedenProcesar[l]);
-                            }
-                            l++;
-                        }
-                    }
-                    if (noProcesados.length==0) {
-                        noProcesados=0;
-                    }
-                    paquetesDeLocales[fila+1][columna-1]=noProcesados;
-
-                }
-                
+                this.procesarPaquetesPermitidos(paquetesDeLocales,paquetesAProcesarMismoLocal,local,fila,columna,0);
+                this.procesarPaquetesPermitidos(paquetesDeLocales,paquetesLocalSuperior,local,fila,columna,1);
+                this.procesarPaquetesPermitidos(paquetesDeLocales,paquetesLocalPosterior,local,fila,columna,-1);
                 local.centrosCreados[columna].procesarPaquetes();
                 
                 fila++;
@@ -283,6 +183,59 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             fila++;
         })
     }
+
+    this.procesarPaquetesPermitidos= function(paquetesDeLocales,paquetesAProcesar,local,fila,columna,limite) {
+        var paquetesQueDePuedenProcesar=[];
+        var noProcesados=[];
+        var l=0;
+        var cantidadQuePuedoProcesar;
+        var condicionAux;
+        if (limite==0) {
+            condicionAux=this.limitesMismoLocal;
+        } else if (limite==1) {
+            condicionAux=this.limitesLocalSuperior;
+        } else if (limite==-1) {
+            condicionAux=this.limitesLocalPosterior;
+        }
+        if (paquetesAProcesar!=0 && local.centrosCreados[columna].puedeEntrarACola()>0) {     
+            cantidadQuePuedoProcesar=local.centrosCreados[columna].puedeEntrarACola();
+            paquetesAProcesar.forEach(paquete=> {
+                if (condicionAux(paquete)) {
+                    paquetesQueDePuedenProcesar.push(paquete);
+                } else {
+                    noProcesados.push(paquete);
+                }
+            })
+            local.centrosCreados[columna].agregarACola(paquetesQueDePuedenProcesar);
+            if (cantidadQuePuedoProcesar<=paquetesQueDePuedenProcesar.length){
+                while (l<paquetesQueDePuedenProcesar.length) {
+                    if (l>(cantidadQuePuedoProcesar-1)) {
+                        noProcesados.push(paquetesQueDePuedenProcesar[l]);
+                    }
+                    l++;
+                }
+            }
+            if (noProcesados.length==0) {
+                noProcesados=0;
+            }
+            paquetesDeLocales[fila][columna-1]=noProcesados;
+        }
+    }
+
+
+    this.limitesMismoLocal= function(paquete) {
+        return (paquete.sePuedeMover==2 || paquete.sePuedeMover==0  || paquete.sePuedeMover==-2 || paquete.sePuedeMover==4);
+    }
+    this.limiesLocalSuperior= function(paquete) {
+        return (paquete.sePuedeMover==4 || paquete.sePuedeMover==-1 || paquete.sePuedeMover==-2);
+    }
+    this.limitesLocalPosterior= function(paquete) {
+        return (paquete.sePuedeMover==4 || paquete.sePuedeMover==1 || paquete.sePuedeMover==2);
+    }
+
+
+
+
 }
 
 module.exports= MatrizLocales;
