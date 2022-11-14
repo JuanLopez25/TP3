@@ -11,7 +11,7 @@ function CentroCalidad(limiteColaDeEspera) {
         limiteColaDeEspera=5;
     }
     this.limiteCola= limiteColaDeEspera;
-    this.funcionesCentro= FuncionesCentros;
+    
     this.procesarPaquetes = function() {
         var i=0;
         var paqueteTemporal;
