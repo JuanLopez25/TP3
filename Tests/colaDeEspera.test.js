@@ -19,7 +19,8 @@ beforeEach(()=> {
 
 test("Crear centro de facturacion y verificamos su cola de espera la cual deberia ser 6", () =>{
     var facturacion= new CentroFacturacion(6);
-    facturacion.procesarPaquetes(lista);
+    facturacion.agregarACola(lista);
+    facturacion.procesarPaquetes();
     expect(facturacion.cola.length).toBe(6);
 })
 
@@ -27,13 +28,15 @@ test("Crear centro de facturacion y verificamos su cola de espera la cual deberi
 
 test("Crear centro de calidad y verificamos su cola de espera la cual deberia ser 5", () =>{
     var calidad= new CentroCalidad(5);
-    calidad.procesarPaquetes(lista);
+    calidad.agregarACola(lista);
+    calidad.procesarPaquetes();
     expect(calidad.cola.length).toBe(5);
 })
 
 test("Crear centro de distribucion y verificamos su cola de espera la cual deberia ser 30", () =>{
     var distribucion= new CentroDistribucion(30);
-    distribucion.procesarPaquetes(lista);
+    distribucion.agregarACola(lista);
+    distribucion.procesarPaquetes();
     expect(distribucion.cola.length).toBe(30);
 })
 
