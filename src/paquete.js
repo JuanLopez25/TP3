@@ -8,6 +8,7 @@ var Paquete = (function(){
         this.destino=destinoPropuesto;
         this.productos=productos;
         this.tiempo=0;
+        this.urgencia=0;
         switch(urgenciaSolicitada){
             case "muy rapido":
                 this.urgencia=cantidadCentros;
@@ -19,7 +20,10 @@ var Paquete = (function(){
                 this.urgencia=cantidadCentros*2;
                 break;
         }
-        this.urgencia=this.calcularUrgencia(urgenciaSolicitada,cantidadCentros);
+        //this.urgencia=this.calcularUrgencia(urgenciaSolicitada,cantidadCentros);
+
+
+
         this.informe= function() {
             if(this.tiempo<=this.urgencia) {
                 return "P"+this.id+": Destino "+this.destino+", Urgencia "+this.urgencia+", llego a tiempo\n";
