@@ -17,10 +17,27 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
         throw new Error("no se puede crear la matriz porque los centros son menos que la cantidad de locales");
     }
 
+
+
+
+    this.avanzarTiempo= function(){
+        var paquetesDeLocales;
+        paquetesDeLocales=this.generarMatrizPaquetes();
+        paquetesDeLocales=this.procesarPaquetesDelDestino(paquetesDeLocales);
+        paquetesDeLocales=this.analizarMovimientos(paquetesDeLocales);
+        paquetesDeLocales=this.encolarYProcesar(paquetesDeLocales);
+        this.encolarNoProcesados(paquetesDeLocales); 
+    }
+
+
     this.agregarPaquetes= function(paquetesAgregar,localNombre){
         var local=(this.locales).find(elemento => elemento.nombre==localNombre);
         local.agregarPaquetes(paquetesAgregar);
     }
+
+
+
+
 
     this.generarMatrizPaquetes= function() {
         var numeroLocal=0;
@@ -80,31 +97,8 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                             arribaOAbajo=0;
                         }
                         filasAMoverse=math.abs(filasAMoverse);
+                        this.aCualMoverme(paquete,filasAMoverse,fila,columna);
                         
-                        if(filasAMoverse<(columna-1)) {
-                            if(filasAMoverse==columna-2) {
-                               if(paquete.destino-(fila) == 0) {
-                                    paquete.sePuedeMover=0;
-                               }else if (paquete.destino-(fila)>0) {
-                                    paquete.sePuedeMover=-2;
-                               } else {
-                                    paquete.sePuedeMover=2;
-                               }
-
-                            } else {
-                                paquete.sePuedeMover=4; //hay que analizar el caso limite aun
-                            }
-                        } else {
-                            
-                            if (arribaOAbajo==1) {
-                                paquete.sePuedeMover=1;
-                            } else if (arribaOAbajo==-1) {
-                                
-                                paquete.sePuedeMover=-1;
-                            } else {
-                                paquete.sePuedeMover=0;
-                            }
-                        }
                     });
                 }
                 columna--;
@@ -112,6 +106,33 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             fila++;
         })
         return paquetesDeLocales;
+    }
+
+    this.aCualMoverme = function(paquete,filasAMoverse,fila,columna) {
+        if(filasAMoverse<(columna-1)) {
+            if(filasAMoverse==columna-2) {
+               if(paquete.destino-(fila) == 0) {
+                    paquete.sePuedeMover=0;
+               }else if (paquete.destino-(fila)>0) {
+                    paquete.sePuedeMover=-2;
+               } else {
+                    paquete.sePuedeMover=2;
+               }
+
+            } else {
+                paquete.sePuedeMover=4; //hay que analizar el caso limite aun
+            }
+        } else {
+            
+            if (arribaOAbajo==1) {
+                paquete.sePuedeMover=1;
+            } else if (arribaOAbajo==-1) {
+                
+                paquete.sePuedeMover=-1;
+            } else {
+                paquete.sePuedeMover=0;
+            }
+        }
     }
 
     this.encolarYProcesar= function(paquetesDeLocales) {
@@ -266,17 +287,6 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             fila++;
         })
     }
-
-    this.avanzarTiempo= function(){
-        var paquetesDeLocales;
-        paquetesDeLocales=this.generarMatrizPaquetes();
-        paquetesDeLocales=this.procesarPaquetesDelDestino(paquetesDeLocales);
-        paquetesDeLocales=this.analizarMovimientos(paquetesDeLocales);
-        paquetesDeLocales=this.encolarYProcesar(paquetesDeLocales);
-        this.encolarNoProcesados(paquetesDeLocales); 
-    }
-
-
 }
 
 module.exports= MatrizLocales;
