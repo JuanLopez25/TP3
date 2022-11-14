@@ -69,7 +69,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             }
             fila++;
         });
-        //console.log(this.locales[0].centrosCreados[5].nombre);
+        console.log(this.locales[0].centrosCreados[4].paquetes);
         //console.log("informa: "+this.locales[0].informarPaquetesEnDestino());
         // this.locales.forEach(local => {
         //     console.log("El local "+local.nombre);
