@@ -8,7 +8,7 @@ function ColaSalida(paquete) {
     this.procesarPaquetes = function(paquetesAgregar) {
         var i=0;
 
-        //paquetesAgregar.forEach(elemento => elemento.aumentarTiempo());
+        paquetesAgregar.forEach(elemento => elemento.aumentarTiempo());
 
         paquetesAgregar.sort(function (a, b) {
             if (a.urgencia > b.urgencia) {
