@@ -44,8 +44,7 @@ var Local = (function(){
             this.centrosCreados.push(new CentroDistribucion(30));
         }
         this.centrosCreados.push(new Destino(contadorDestino));
-        this.cantidadRecibidos=0;
-
+        
         contadorDestino+=1;
         var letra=contadorOrigen.charCodeAt();
         letra++;
