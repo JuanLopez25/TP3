@@ -28,13 +28,13 @@ beforeEach(()=> {
 
 
 
-// test("Proceso paquetes en un unico local", () =>{
-//     expect(matriz.locales[0].centrosCreados[0].paquetes.length).toBe(4);
-// })
+test("Proceso paquetes en un unico local", () =>{
+    expect(matriz.locales[0].centrosCreados[0].paquetes.length).toBe(4);
+})
 
 
 
-// test("Proceso paquetes en un unico local y avanzo de manera tal que se distribuyan en el local A y B", () =>{
-//     matriz.avanzarTiempo(1);
-//     expect(matriz.locales[1].centrosCreados[1].paquetes.length).toBe(1);
-// })
+test("Proceso paquetes en un unico local y avanzo de manera tal que se distribuyan en el local A y B", () =>{
+    matriz.avanzarTiempo(1);
+    expect(matriz.locales[1].centrosCreados[1].paquetes.length).toBe(1);
+})

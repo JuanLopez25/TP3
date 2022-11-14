@@ -37,7 +37,6 @@ test("6 paquetes a cola de salida y toma los 5 de mayor urgencia", () =>{
 test("6 paquetes a cola de salida y proceso una vez por lo que deberia el centro de facturacion estar procesando 3 paquetes", () =>{
     matriz= new MatrizLocales(1,["CF","CC","CC","CD","CF"],[4,3,4,23,6]);
     matriz.agregarPaquetes(lista,"A");
-    console.log(matriz.locales[0].centrosCreados[0]);
     matriz.avanzarTiempo();  
     expect(matriz.locales[0].centrosCreados[1].paquetes.length).toBe(3);
 })

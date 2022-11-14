@@ -28,7 +28,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             paquetesDeLocales[numeroLocal]=paquetesAux;   
             numeroLocal++;
         });
-        
+        console.log(paquetesAux);
 
         var columna=1;
         var fila=0;
