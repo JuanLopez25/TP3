@@ -1,4 +1,4 @@
-
+const FuncionesCentros= require('./moduloFuncionesCentros');
 
 function CentroFacturacion(limiteColaDeEspera) {
     this.paquetes=[];
@@ -11,33 +11,10 @@ function CentroFacturacion(limiteColaDeEspera) {
         limiteColaDeEspera=6;
     }
     this.limiteCola=limiteColaDeEspera;
+    this.funcionesCentros=FuncionesCentros;
+
     this.procesarPaquetes = function() {
-        var i=0;
-        var paqueteTemporal;
-        
-        
-        this.cola.forEach(elemento => elemento.aumentarTiempo());
-
-        this.cola.sort(function (a, b) {
-            if (a.urgencia > b.urgencia) {
-              return 1;
-            }
-            if (a.urgencia < b.urgencia) {
-              return -1;
-            }
-            return 0;
-        });
-
-        
-        while (i<(this.cola.length)) {
-            if (this.paquetes.length<3) {
-                paqueteTemporal= this.cola[i];
-                (this.paquetes).push(paqueteTemporal);
-                this.cola.splice(i,1);
-                i--;
-            }
-            i++;
-        }
+        this.funcionesCentros.procesarPaquetes(this.cola,this.paquetes,3);
     }
 
     this.terminarProceso = function() {

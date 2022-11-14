@@ -1,4 +1,5 @@
 const Paquete = require("./Paquete");
+const FuncionesCentros= require('./moduloFuncionesCentros');
 
 function CentroDistribucion(limiteColaDeEspera) {
     this.paquetes=[];
@@ -11,30 +12,10 @@ function CentroDistribucion(limiteColaDeEspera) {
         limiteColaDeEspera=30;
     }
     this.limiteCola= limiteColaDeEspera;
-    this.procesarPaquetes = function() {
-        var i=0;
-        var paqueteTemporal;
-        this.cola.forEach(elemento => elemento.aumentarTiempo());
-        this.unirPaquetes();
-        this.cola.sort(function (a, b) {
-            if (a.urgencia > b.urgencia) {
-              return 1;
-            }
-            if (a.urgencia < b.urgencia) {
-              return -1;
-            }
-            return 0;
-          });
+    this.funcionesCentros=FuncionesCentros;
 
-        while (i<(this.cola.length)) {
-            if (this.paquetes.length<10) {
-                paqueteTemporal= this.cola[i];
-                (this.paquetes).push(paqueteTemporal);
-                this.cola.splice(i,1);
-                i--;
-            }
-            i++;
-        }
+    this.procesarPaquetes = function() {
+        this.funcionesCentros.procesarPaquetes(this.cola,this.paquetes,10);
     }
     
     this.terminarProceso = function() {
