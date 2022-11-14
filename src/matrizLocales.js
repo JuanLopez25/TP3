@@ -65,6 +65,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                     if(elemento.destino==(fila+1)) {
                         paquetesDelDestino.push(elemento);
                     }
+                    console.log(paquetesDelDestino);
                 });
                 local.centrosCreados[columna].procesarPaquetes(paquetesDelDestino);
             } else {
