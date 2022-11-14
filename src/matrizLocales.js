@@ -41,9 +41,9 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
         var paquetesAProcesar;
         this.locales.forEach(local => {
             paquetesDelDestino=[];
-            paquetesAProcesar=paquetesDeLocales[fila][columna-1]; //en el ultimo columna-1
+            paquetesAProcesar=paquetesDeLocales[fila][columna-1];
             if (paquetesAProcesar!=0){
-                paquetesAProcesar.forEach(elemento => {   //CUIDADO QUE ESTO ME LLEVO TIEMPO, PERO LO HABIA HECHO BIEN DE UNA Y ME SACA LOS PAQUETES SI NO PUEDEN LLEGAR AL DESTINO PROPUESTO
+                paquetesAProcesar.forEach(elemento => {   
                     if(elemento.destino==(fila+1)) {
                         paquetesDelDestino.push(elemento);
                     }
@@ -59,35 +59,17 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
         return paquetesDeLocales;
     }
 
-    this.avanzarTiempo= function(){
-        var paquetesDeLocales;;
-        var columna=this.cantidadCentros;
-        var fila=0;
-        var paquetesAProcesarMismoLocal;
-        var paquetesLocalSuperior;
-        var paquetesLocalPosterior;
-        var noProcesados;
-        var l=0;
-        var cantidadQuePuedoProcesar=0;
-        var paquetesQueDePuedenProcesar=[];
-         
-        paquetesDeLocales=this.generarMatrizPaquetes();
-        paquetesDeLocales=this.procesarPaquetesDelDestino(paquetesDeLocales);
-        
-       
-        
 
+    this.analizarMovimientos= function(paquetesDeLocales) {
+        var columna=this.cantidadCentros;
         var filasAMoverse;
         var arribaOAbajo;
-        fila=1;
+        var fila=1;
         paquetesDeLocales.forEach(filaPaquetes=> {
             columna=this.cantidadCentros;
-           
             filaPaquetes.forEach(paquetes=>{
                 if (paquetes!=0) {
-                   
                     paquetes.forEach(paquete=> {
-              
                         filasAMoverse=(paquete.destino-(fila));
                        
                         if (filasAMoverse<0) {
@@ -129,7 +111,29 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             })
             fila++;
         })
+        return paquetesDeLocales;
+    }
 
+    this.avanzarTiempo= function(){
+        var paquetesDeLocales;;
+        var columna=this.cantidadCentros;
+        var fila=0;
+        var paquetesAProcesarMismoLocal;
+        var paquetesLocalSuperior;
+        var paquetesLocalPosterior;
+        var noProcesados;
+        var l=0;
+        var cantidadQuePuedoProcesar=0;
+        var paquetesQueDePuedenProcesar=[];
+         
+        paquetesDeLocales=this.generarMatrizPaquetes();
+        paquetesDeLocales=this.procesarPaquetesDelDestino(paquetesDeLocales);
+        paquetesDeLocales=this.analizarMovimientos(paquetesDeLocales);
+        
+       
+        
+
+       
 
         columna=this.cantidadCentros-1; //tiene el indice del ultimo
         while (columna>0) {
