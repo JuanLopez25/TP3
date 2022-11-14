@@ -91,7 +91,7 @@ test("6 paquetes a cola de salida y proceso tres veces por lo que deberia el cen
     matriz.avanzarTiempo();  
     matriz.avanzarTiempo();  
     matriz.avanzarTiempo();  
-    expect(matriz.locales[0].centrosCreados[3].paquetes.length).toBe(3);
+    expect(matriz.locales[0].centrosCreados[3].paquetes.length).toBe(1);
 })
 
 // //chequear que se deban tener uno de cada uno
