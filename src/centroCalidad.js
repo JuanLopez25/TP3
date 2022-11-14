@@ -47,7 +47,7 @@ function CentroCalidad(limiteColaDeEspera) {
 
     this.agregarACola = function (paquetesAgregar) {
         var i=0;
-        while ((this.cola.length)<(this.limiteCola+(1-this.paquetes.length))  &&  i<paquetesAgregar.length) {  //es menor que 6 por que 1 puede ser procesado, y 5 a la cola de espera
+        while ((this.cola.length)<(this.limiteCola)  &&  i<paquetesAgregar.length) {  //es menor que 6 por que 1 puede ser procesado, y 5 a la cola de espera
             this.cola.push(paquetesAgregar[i]);
             i++;
         }

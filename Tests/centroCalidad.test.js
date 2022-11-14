@@ -10,6 +10,7 @@ beforeEach(()=> {
     paquete = new Paquete("1");
     lista=[];
     lista.push(paquete)
+    calidad.agregarACola(lista);
 });
 
 test("Crear centro de Calidad", () =>{
@@ -18,22 +19,17 @@ test("Crear centro de Calidad", () =>{
 
 
 test("Procesar paquete centro de calidad", () =>{
-    calidad.procesarPaquetes(lista);
+    calidad.procesarPaquetes();
     expect(calidad.paquetes.length).toBe(1);
 })
 
 
 test("Procesar paquete centro de calidad", () =>{
-    calidad.procesarPaquetes(lista);
+    calidad.procesarPaquetes();
     calidad.terminarProceso(lista);
     expect(calidad.paquetes.length).toBe(0);
 })
 
-test("Entran 2 paquetes al centro de calidad y deberian entrar nada mas que 1 ya que este es el limite", () =>{
-    lista.push(paquete);
-    calidad.procesarPaquetes(lista);
-    expect(calidad.paquetes.length).toBe(1);
-})
 
 
 
