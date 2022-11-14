@@ -64,7 +64,7 @@ test("6 paquetes a cola de salida y proceso tres veces por lo que deberia el cen
 test("6 paquetes a cola de salida y toma los 5 de mayor urgencia", () =>{
     matriz= new MatrizLocales(1,["CD","CD","CF","CC","CD"],[[30,22,4,3,15]]);
     matriz.agregarPaquetes(lista,"A");
-    expect(matriz.locales[0].centrosCreados[0].paquetes.length).toBe(1);
+    expect(matriz.locales[0].centrosCreados[0].paquetes.length).toBe(5);
 })
 
 
