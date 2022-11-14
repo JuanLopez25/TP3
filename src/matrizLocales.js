@@ -41,6 +41,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                 paquetesAProcesar=paquetesDeLocales[fila][columna-1];
                 if (paquetesAProcesar!=0){
                     if (local.centrosCreados[columna].puedeEntrarACola()) {
+                        console.log("entre a procesar "+paquetesAProcesar);
                         local.centrosCreados[columna].procesarPaquetes(paquetesAProcesar);
                     }
                 } else {
@@ -51,12 +52,12 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             columna++;
         }
 
-        this.locales.forEach(local => {
-            console.log("El local "+local.nombre);
-            local.centrosCreados.forEach(elemento =>{
-                console.log("El centro "+elemento.nombre+" esta procesando : "+elemento.paquetes.length+" paquetes y tiene en la cola de espera "+elemento.cola.length);
-            });
-        });
+        // this.locales.forEach(local => {
+        //     console.log("El local "+local.nombre);
+        //     local.centrosCreados.forEach(elemento =>{
+        //         console.log("El centro "+elemento.nombre+" esta procesando : "+elemento.paquetes.length+" paquetes y tiene en la cola de espera "+elemento.cola.length);
+        //     });
+        // });
        
 
 
