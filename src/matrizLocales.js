@@ -41,7 +41,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             this.locales.forEach(local => {
                 paquetesAProcesar=paquetesDeLocales[fila][columna-1];
                 if (paquetesAProcesar!=0){
-                    console.log(loca.centrosCreados[columna].limiteCola.length)
+                    console.log(local.centrosCreados[columna].limiteCola.length)
                     if (local.centrosCreados[columna].puedeEntrarACola()) {
                         console.log("entra--------")
                         local.centrosCreados[columna].procesarPaquetes(paquetesAProcesar);
