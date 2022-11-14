@@ -13,15 +13,17 @@ var funcionesCentros= (function(){
                 }
                 return 0;
             });
-            while (i<(cola.length)) {
+            
+            cola.forEach(paquete=>{
                 if (paquetes.length<cantidadProcesables) {
-                    paqueteTemporal= cola[i];
+                    paqueteTemporal= paquete;
                     (paquetes).push(paqueteTemporal);
                     cola.splice(i,1);
                     i--;
                 }
                 i++;
-            }
+            })
+
         },
     
         terminarProceso : function(paquetes,colaSalida) {

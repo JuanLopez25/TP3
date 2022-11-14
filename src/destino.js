@@ -1,4 +1,3 @@
-const Paquete = require("./Paquete");
 
 function Destino(numero){
     this.numero=numero;
