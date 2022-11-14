@@ -21,7 +21,7 @@ test("Crear centro de facturacion y verificamos su cola de espera la cual deberi
     var facturacion= new CentroFacturacion(6);
     facturacion.agregarACola(lista);
     facturacion.procesarPaquetes();
-    expect(facturacion.cola.length).toBe(6);
+    expect(facturacion.cola.length).toBe(3);
 })
 
 
@@ -30,14 +30,14 @@ test("Crear centro de calidad y verificamos su cola de espera la cual deberia se
     var calidad= new CentroCalidad(5);
     calidad.agregarACola(lista);
     calidad.procesarPaquetes();
-    expect(calidad.cola.length).toBe(5);
+    expect(calidad.cola.length).toBe(4);
 })
 
 test("Crear centro de distribucion y verificamos su cola de espera la cual deberia ser 30", () =>{
     var distribucion= new CentroDistribucion(30);
     distribucion.agregarACola(lista);
     distribucion.procesarPaquetes();
-    expect(distribucion.cola.length).toBe(30);
+    expect(distribucion.cola.length).toBe(20);
 })
 
 
