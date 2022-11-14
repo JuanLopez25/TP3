@@ -100,13 +100,16 @@ test("Procesamos y verificamos donde estan los paquetes con destino 3", () =>{
 
 
 test("Procesamos y verificamos donde estan los paquetes con destino 3", () =>{
-    matriz.avanzarTiempo(1);
-    matriz.avanzarTiempo(1);
-    matriz.avanzarTiempo(1);
-    expect(matriz.locales[0].centrosCreados[2].paquetes[0].destino).toBe(2);
-    expect(matriz.locales[0].centrosCreados[3].paquetes[0].destino).toBe(1);
-    expect(matriz.locales[1].centrosCreados[2].paquetes[0].destino).toBe(3);
-    expect(matriz.locales[2].centrosCreados[3].paquetes[0].destino).toBe(3);
+    var matriz2= new MatrizLocales(3,["CF","CC","CD"],[[6,3,23],[5,4,10],[6,2,14],[6,3,20]]);
+    lista.push(new Paquete(4,[],"rapido",4));
+    matriz.agregarPaquetes(lista,"A");
+    matriz2.avanzarTiempo(1);
+    matriz2.avanzarTiempo(1);
+    matriz2.avanzarTiempo(1);
+    expect(matriz2.locales[0].centrosCreados[2].paquetes[0].destino).toBe(2);
+    expect(matriz2.locales[0].centrosCreados[3].paquetes[0].destino).toBe(1);
+    expect(matriz2.locales[1].centrosCreados[2].paquetes[0].destino).toBe(3);
+    expect(matriz2.locales[2].centrosCreados[3].paquetes[0].destino).toBe(3);
 
 })
 
