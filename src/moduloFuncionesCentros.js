@@ -28,12 +28,17 @@ var funcionesCentros= (function(){
             paquetes.forEach(paquete=>{
                 colaSalida.push(paquete);
             });
-            paquetes = [];
             var entrega=[]
             colaSalida.forEach(paquete=>{
                 entrega.push(paquete);
             });
-            colaSalida=[];
+            paquetes.forEach(paquete=>{
+                paquetes.pop();
+            })
+            
+            colaSalida.forEach(paquete=>{
+                colaSalida.pop();
+            })
             return entrega;
         },
     
