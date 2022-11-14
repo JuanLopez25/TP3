@@ -1,5 +1,3 @@
-
-
 var funcionesCentros= (function(){
     return {
         procesarPaquetes: function(cola,paquetes,cantidadProcesables) {

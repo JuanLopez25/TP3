@@ -14,13 +14,8 @@ function CentroDistribucion(limiteColaDeEspera) {
     this.procesarPaquetes = function() {
         var i=0;
         var paqueteTemporal;
-
-        
-
         this.cola.forEach(elemento => elemento.aumentarTiempo());
-
         this.unirPaquetes();
-
         this.cola.sort(function (a, b) {
             if (a.urgencia > b.urgencia) {
               return 1;

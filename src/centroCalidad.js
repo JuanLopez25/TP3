@@ -1,9 +1,11 @@
-
+const FuncionesCentros= require('./moduloFuncionesCentros');
 
 function CentroCalidad(limiteColaDeEspera) {
     this.paquetes=[];
-    this.cola= [];
-    this.colaSalida=[];
+    this.cola= ["1"];
+    this.funcionesCentros=FuncionesCentros;
+    this.colaSalida=["3"];
+    
     this.nombre="CC";
     if (limiteColaDeEspera<2){
         limiteColaDeEspera=2;
@@ -11,32 +13,9 @@ function CentroCalidad(limiteColaDeEspera) {
         limiteColaDeEspera=5;
     }
     this.limiteCola= limiteColaDeEspera;
-    
+    this.funcionesCentros=FuncionesCentros;
     this.procesarPaquetes = function() {
-        var i=0;
-        var paqueteTemporal;
-        
-        this.cola.forEach(elemento => elemento.aumentarTiempo());
-
-        this.cola.sort(function (a, b) {
-            if (a.urgencia > b.urgencia) {
-              return 1;
-            }
-            if (a.urgencia < b.urgencia) {
-              return -1;
-            }
-            return 0;
-        });
-
-        while (i<((this.cola).length)) {
-            if (this.paquetes.length<1) {
-                paqueteTemporal= this.cola[i];
-                (this.paquetes).push(paqueteTemporal);
-                this.cola.splice(i,1);
-                i--;
-            }
-            i++;
-        }
+        this.funcionesCentros.procesarPaquetes(this.cola,this.paquetes,1);
     }
 
     
@@ -67,4 +46,3 @@ function CentroCalidad(limiteColaDeEspera) {
 }
 
 module.exports=CentroCalidad;
-
