@@ -119,7 +119,7 @@ test("Creo un local que no cumpla los requisitos y agrego CC", () =>{
 test("Creo un local que no cumpla losrequisitos y agrego CC", () =>{
     matriz= new MatrizLocales(1,["CD","CF","CD","CD","CD","CD"],[[15,4,30,25,24,20]]);
     expect(matriz.locales[0].centrosCreados[8].nombre).toBe("D");
-// })
+})
 
 test("Creo un local mas grande y verifico la urgencia", () =>{
     var reseter= new Paquete("1",[],"muy rapido");
