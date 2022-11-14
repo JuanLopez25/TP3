@@ -41,7 +41,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                 paquetesAProcesar=paquetesDeLocales[fila][columna-1];
                 console.log(paquetesAProcesar);
                 if (paquetesAProcesar!=0){
-                    console.log("entre a procesar "+paquetesAProcesar+"----"+local.centrosCreados[columna]);
+                    console.log("entre a procesar "+paquetesAProcesar+"----"+local.centrosCreados[columna].nombre);
                     if (local.centrosCreados[columna].puedeEntrarACola()) {
                         console.log("entre a procesar "+paquetesAProcesar);
                         local.centrosCreados[columna].procesarPaquetes(paquetesAProcesar);
