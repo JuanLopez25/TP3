@@ -55,8 +55,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
         this.locales.forEach(local => {
             console.log("El local "+local.nombre);
             local.centrosCreados.forEach(elemento =>{
-                console.log("El centro "+elemento.nombre+" esta procesando : ")
-                console.log(elemento.paquetes.length+" paquetes y tiene en la cola de espera "+elemento.cola.length);
+                console.log("El centro "+elemento.nombre+" esta procesando : "+elemento.paquetes.length+" paquetes y tiene en la cola de espera "+elemento.cola.length);
             });
         });
 
