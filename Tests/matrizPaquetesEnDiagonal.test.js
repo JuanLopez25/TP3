@@ -167,13 +167,13 @@ test("Procesamos y verificamos donde estan los paquetes con destino 3", () =>{
     var matriz2= new MatrizLocales(4,["CF","CC","CD"],[[6,3,23],[5,4,10],[6,2,14],[6,3,20]]);
     lista.push(new Paquete(4,[],"rapido",4));
     matriz2.agregarPaquetes(lista,"A");
-    console.log(matriz2.locales[0].centrosCreados[0].paquetes[0].id+matriz2.locales[0].centrosCreados[0].paquetes[0].tiempo)
+    console.log(matriz2.locales[0].centrosCreados[0].paquetes[0].id+"-"+matriz2.locales[0].centrosCreados[0].paquetes[0].tiempo)
     matriz2.avanzarTiempo(1);
-    console.log(matriz2.locales[0].centrosCreados[1].paquetes[0].id+matriz2.locales[0].centrosCreados[1].paquetes[0].tiempo)
+    console.log(matriz2.locales[0].centrosCreados[1].paquetes[0].id+"-"+matriz2.locales[0].centrosCreados[1].paquetes[0].tiempo)
     matriz2.avanzarTiempo(1);
-    console.log(matriz2.locales[0].centrosCreados[2].paquetes[0].id+matriz2.locales[0].centrosCreados[2].paquetes[0].tiempo)
+    console.log(matriz2.locales[0].centrosCreados[2].paquetes[0].id+"-"+matriz2.locales[0].centrosCreados[2].paquetes[0].tiempo)
     matriz2.avanzarTiempo(1);
-    console.log(matriz2.locales[0].centrosCreados[3].paquetes[0].id+matriz2.locales[0].centrosCreados[3].paquetes[0].tiempo)
+    console.log(matriz2.locales[0].centrosCreados[3].paquetes[0].id+"-"+matriz2.locales[0].centrosCreados[3].paquetes[0].tiempo)
     matriz2.avanzarTiempo(1);
     console.log(matriz2.locales[0].centrosCreados[4].paquetes[0].tiempo)
     expect(matriz2.locales[0].informarPaquetesEnDestino()).toBe("P1: Destino 1, Urgencia 4, llego a tiempo\n");
