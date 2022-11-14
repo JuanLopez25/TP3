@@ -51,8 +51,26 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             });
             columna++;
         }
-        console.log(this.locales[0].centrosCreados[5].nombre);
-        console.log("informa: "+this.locales[0].informarPaquetesEnDestino());
+
+        //me queda procesar para el destino
+        fila=0;
+        var paquetesDelDestino=[];
+        this.locales.forEach(local => {
+            paquetesAProcesar=paquetesDeLocales[fila][columna-1];
+            if (paquetesAProcesar!=0){
+                paquetesAProcesar.forEach(elemento => {
+                    if(elemento.destino==(fila+1)) {
+                        paquetesDelDestino.push(elemento);
+                    }
+                });
+                local.centrosCreados[columna].procesarPaquetes(paquetesDelDestino);
+            } else {
+                local.centrosCreados[columna].procesarPaquetes([])
+            }
+            fila++;
+        });
+        //console.log(this.locales[0].centrosCreados[5].nombre);
+        //console.log("informa: "+this.locales[0].informarPaquetesEnDestino());
         // this.locales.forEach(local => {
         //     console.log("El local "+local.nombre);
         //     local.centrosCreados.forEach(elemento =>{
