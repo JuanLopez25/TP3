@@ -61,13 +61,16 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
         var filasAMoverse;
         var arribaOAbajo;
         fila=1;
-        
         paquetesDeLocales.forEach(filaPaquetes=> {
-            columna=this.centrosCreados;
+            columna=this.cantidadCentros;
+           
             filaPaquetes.forEach(paquetes=>{
                 if (paquetes!=0) {
+                   
                     paquetes.forEach(paquete=> {
+              
                         filasAMoverse=(paquete.destino-(fila));
+                       
                         if (filasAMoverse<0) {
                             arribaOAbajo=1;
                         } else if (filasAMoverse>0) {
@@ -76,7 +79,6 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                             arribaOAbajo=0;
                         }
                         filasAMoverse=math.abs(filasAMoverse);
-                    
                         
                         if(filasAMoverse<(columna-1)) {
                             paquete.sePuedeMover=2; //hay que analizar el caso limite aun

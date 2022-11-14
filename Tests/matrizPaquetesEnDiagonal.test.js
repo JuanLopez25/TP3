@@ -81,11 +81,18 @@ test("Proceso paquetes en A y B y avanzo para verificar los destinos", () =>{
 })
 
 
-test("Proceso paquetes en A y B y avanzo para verificar los destinos de los paquetes rapido y muy rapido", () =>{
+// test("Proceso paquetes en A y B y avanzo para verificar los destinos de los paquetes rapido y muy rapido", () =>{
+//     matriz.avanzarTiempo(1);
+//     matriz.avanzarTiempo(1);
+//     matriz.avanzarTiempo(1);
+//     matriz.avanzarTiempo(1);
+//     matriz.avanzarTiempo(1);
+//     expect(matriz.locales[1].informarPaquetesEnDestino()).toBe("P2: Destino 2, Urgencia 4, llego a tiempo\n");
+// })
+
+
+test("Procesamos y verificamos donde estan los paquetes con destino 3", () =>{
     matriz.avanzarTiempo(1);
     matriz.avanzarTiempo(1);
-    matriz.avanzarTiempo(1);
-    matriz.avanzarTiempo(1);
-    matriz.avanzarTiempo(1);
-    expect(matriz.locales[1].informarPaquetesEnDestino()).toBe("P2: Destino 2, Urgencia 4, llego a tiempo\n");
+    expect(matriz.locales[2].centrosCreados[2].paquetes.length).toBe(2);
 })
