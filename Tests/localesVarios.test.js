@@ -5,6 +5,12 @@ const MatrizLocales= require('../src/matrizLocales');
 var paqueteMuyRapido;
 var paqueteRapido;
 var paqueteNormal;
+
+var paqueteMuyRapido2;
+var paqueteRapido2;
+var paqueteNormal2;
+
+
 var lista;
 var reseter;
 var matriz;

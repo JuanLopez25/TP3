@@ -9,6 +9,7 @@ var paqueteNormal;
 var paqueteMuyRapido2;
 var paqueteRapido2;
 var paqueteNormal2;
+
 var lista;
 var reseter;
 var matriz;
