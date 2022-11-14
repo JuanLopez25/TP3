@@ -44,7 +44,6 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             this.locales.forEach(local => {  
                 paquetesAProcesar=paquetesDeLocales[fila][columna-1];
                 if ((fila-1)>=0){   
-                    console.log("no entro")
                     paquetesLocalSuperior=paquetesDeLocales[fila-1][columna-1];
                     localSuperior=this.locales[fila-1];
                 } else {
@@ -52,7 +51,6 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                     paquetesLocalSuperior=0;
                 }
                 if ((fila+1)<this.locales.length) {
-                    console.log("no entro")
                     paquetesLocalPosterior=paquetesDeLocales[fila+1][columna-1];
                     
                 } else {
@@ -62,21 +60,20 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
 
                 
 
-                console.log("intentando procesar en: "+local.centrosCreados[columna].nombre);
+               
                 if (paquetesAProcesar!=0){
                     if (local.centrosCreados[columna].puedeEntrarACola()) {
-                        console.log("entre con: "+local.centrosCreados[columna].nombre);
                         local.centrosCreados[columna].procesarPaquetes(paquetesAProcesar);
                     }
                     if(paquetesLocalSuperior!=0 && local.centrosCreados[columna].puedeEntrarACola()) {
-                        console.log("no entro")
                         local.centrosCreados[columna].procesarPaquetes(paquetesLocalSuperior);
                     }
                     if(paquetesLocalPosterior!=0 && local.centrosCreados[columna].puedeEntrarACola()) {
-                        console.log("no entro")
                         local.centrosCreados[columna].procesarPaquetes(paquetesLocalPosterior);
                     }
                     
+                } else {
+                    local.centrosCreados[columna].procesarPaquetes([]);
                 }
 
 
