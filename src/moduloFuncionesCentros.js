@@ -13,17 +13,15 @@ var funcionesCentros= (function(){
                 }
                 return 0;
             });
-            
-            cola.forEach(paquete=>{
+            while (i<(cola.length)) {
                 if (paquetes.length<cantidadProcesables) {
-                    paqueteTemporal= paquete;
+                    paqueteTemporal= cola[i];
                     (paquetes).push(paqueteTemporal);
                     cola.splice(i,1);
                     i--;
                 }
                 i++;
-            })
-
+            }
         },
     
         terminarProceso : function(paquetes,colaSalida) {
@@ -38,11 +36,11 @@ var funcionesCentros= (function(){
         },
     
         agregarACola : function (cola,limiteCola,paquetesAgregar) {
-            var i=0;
-            while ((cola.length)<(limiteCola)  &&  i<paquetesAgregar.length) {  
-                cola.push(paquetesAgregar[i]);
-                i++;
-            }
+            paquetesAgregar.forEach(paquete=>{
+                if (cola.length<limiteCola){
+                    cola.push(paquete);
+                }
+            });
         },
     
         puedeEntrarACola: function(limiteCola,cola) {
