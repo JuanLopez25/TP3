@@ -92,11 +92,11 @@ test("Proceso paquetes en A y B y avanzo para verificar los destinos de los paqu
 })
 
 
-// test("Procesamos y verificamos donde estan los paquetes con destino 3", () =>{
-//     matriz.avanzarTiempo(1);
-//     matriz.avanzarTiempo(1);
-//     expect(matriz.locales[1].centrosCreados[2].paquetes.length).toBe(1);
-// })
+test("Procesamos y verificamos donde estan los paquetes con destino 3", () =>{
+    matriz.avanzarTiempo(1);
+    matriz.avanzarTiempo(1);
+    expect(matriz.locales[1].centrosCreados[2].paquetes.length).toBe(1);
+})
 
 
 
