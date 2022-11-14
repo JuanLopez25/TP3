@@ -87,7 +87,7 @@ test("Proceso paquetes en A y B y avanzo para verificar los destinos de los paqu
     matriz.avanzarTiempo(1);
     matriz.avanzarTiempo(1);
     matriz.avanzarTiempo(1);
-    expect(matriz.locales[1].informarPaquetesEnDestino()).toBe("P2: Destino 2, Urgencia 4, llego a tiempo\n");
+    expect(matriz.locales[1].informarPaquetesEnDestino()).toBe("P2: Destino 2, Urgencia 6, llego a tiempo\n");
 })
 
 
