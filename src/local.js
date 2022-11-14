@@ -64,17 +64,13 @@ var Local = (function(){
         
 
         this.proceso = function () {
-            var contador=(this.centrosCreados.length)-1;
-            var centroActual;
-            var centroAnterior;
-            var paquetesAux;
-            while (contador>0) {
-                centroActual=this.centrosCreados[contador];
-                centroAnterior=this.centrosCreados[contador-1];
-                paquetesAux=centroAnterior.terminarProceso();
-                centroActual.procesarPaquetes(paquetesAux); 
-                contador--;
+            var paquetes=new Array(this.centrosCreados.length-1);
+            var contador=0;
+            while (contador<this.centrosCreados.length-1) {
+                paquetes.push(this.centrosCreados[contador].terminarProceso());
+                contador++;
             }
+            return paquetes;
         }
 
         this.avanzarTiempo = function(cantidad) {
