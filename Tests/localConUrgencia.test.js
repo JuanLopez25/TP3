@@ -81,12 +81,15 @@ test("Comparar urgencia con tiempo de llegada", () =>{
     matriz.avanzarTiempo(); 
     matriz.avanzarTiempo(); 
     matriz.avanzarTiempo(); 
-    expect(locales[0].informarPaquetesEnDestino()).toBe("P1: Destino 1, Urgencia 4, llego a tiempo\n");
+    expect(matriz.locales[0].informarPaquetesEnDestino()).toBe("P1: Destino 1, Urgencia 4, llego a tiempo\n");
 })
 
 test("Comparar urgencia con tiempo de llegada del segundo paquete muy rapido, el cual llega a destiempo", () =>{
-    local.avanzarTiempo(4);
-    local.informarPaquetesEnDestino();
-    local.avanzarTiempo(1);  //Llega el primer paquete, el "muy rapido"
-    expect(local.informarPaquetesEnDestino()).toBe("P2: Destino 2, Urgencia 4, no llego a tiempo\n");
+    matriz.avanzarTiempo();   
+    matriz.avanzarTiempo(); 
+    matriz.avanzarTiempo(); 
+    matriz.avanzarTiempo(); 
+    matriz.locales[0].informarPaquetesEnDestino();
+    matriz.avanzarTiempo();   //Llega el primer paquete, el "muy rapido"
+    expect(matriz.locales[0].informarPaquetesEnDestino()).toBe("P2: Destino 2, Urgencia 4, no llego a tiempo\n");
 })
