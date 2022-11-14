@@ -19,6 +19,7 @@ var Paquete = (function(){
                 this.urgencia=cantidadCentros*2;
                 break;
         }
+        this.urgencia=this.calcularUrgencia(urgenciaSolicitada,cantidadCentros);
         this.informe= function() {
             if(this.tiempo<=this.urgencia) {
                 return "P"+this.id+": Destino "+this.destino+", Urgencia "+this.urgencia+", llego a tiempo\n";
@@ -33,8 +34,20 @@ var Paquete = (function(){
             this.tiempo+=1;
         }
 
-        this.calcularUrgencia=function() {
-            
+        this.calcularUrgencia=function(urgenciaSolicitada,cantidadCentros) {
+            var urgencia;
+            switch(urgenciaSolicitada){
+                case "muy rapido":
+                    urgencia=cantidadCentros;
+                    break;
+                case "rapido":
+                    urgencia=cantidadCentros*1.5;
+                    break;
+                case "normal":
+                    urgencia=cantidadCentros*2;
+                    break;
+            }
+            return urgencia;
         }
 
     }
