@@ -85,7 +85,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                             if(filasAMoverse==columna-2) {
                                 paquete.sePuedeMover=0;
                             } else {
-                                paquete.sePuedeMover=2; //hay que analizar el caso limite aun
+                                paquete.sePuedeMover=4; //hay que analizar el caso limite aun
                             }
                         } else {
                             
@@ -133,7 +133,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                     cantidadQuePuedoProcesar=local.centrosCreados[columna].puedeEntrarACola();
 
                     paquetesAProcesarMismoLocal.forEach(paquete=> {
-                        if (paquete.sePuedeMover==2 || paquete.sePuedeMover==0) {
+                        if (paquete.sePuedeMover==2 || paquete.sePuedeMover==0  || paquete.sePuedeMover==-2 || paquete.sePuedeMover==4) {
                             paquetesQueDePuedenProcesar.push(paquete);
                         } else {
                             noProcesados.push(paquete);
@@ -166,7 +166,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
 
 
                     paquetesLocalSuperior.forEach(paquete=> {
-                        if (paquete.sePuedeMover==2 || paquete.sePuedeMover==-1) {
+                        if (paquete.sePuedeMover==4 || paquete.sePuedeMover==-1) {
                             paquetesQueDePuedenProcesar.push(paquete);
                         }else {
                             noProcesados.push(paquete);
@@ -200,7 +200,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
 
 
                     paquetesLocalPosterior.forEach(paquete=> {
-                        if (paquete.sePuedeMover==2 || paquete.sePuedeMover==1) {
+                        if (paquete.sePuedeMover==4 || paquete.sePuedeMover==1) {
                             paquetesQueDePuedenProcesar.push(paquete);
                         }else {
                             noProcesados.push(paquete);
@@ -240,3 +240,9 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
 }
 
 module.exports= MatrizLocales;
+
+
+
+["Cs","CF","CC","CC"]
+["Cs","CF","CC","CC"]
+["Cs","CF","CC","CC"]
