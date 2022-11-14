@@ -69,7 +69,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             }
             fila++;
         });
-        console.log(this.locales[0].centrosCreados[2].paquetes.length+" y "+this.locales[0].centrosCreados[2].cola.length);
+        console.log(this.locales[0].centrosCreados[3].paquetes.length+" y "+this.locales[0].centrosCreados[3].cola.length);
         //console.log(this.locales[0].centrosCreados[4].paquetes);
         //console.log("informa: "+this.locales[0].informarPaquetesEnDestino());
         // this.locales.forEach(local => {
