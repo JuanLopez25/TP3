@@ -112,7 +112,8 @@ test("Procesamos y verificamos donde estan los paquetes con destino 3", () =>{
     expect(matriz2.locales[0].centrosCreados[3].paquetes[0].destino).toBe(1);
     expect(matriz2.locales[1].centrosCreados[2].paquetes[0].destino).toBe(3);
     expect(matriz2.locales[2].centrosCreados[3].paquetes[0].destino).toBe(3);
-
+    expect(matriz2.locales[2].centrosCreados[3].paquetes[0].destino).toBe(3);
+    expect(matriz2.locales[3].centrosCreados[3].paquetes[0].destino).toBe(4);
 })
 
 // test("Procesamos y verificamos donde estan los paquetes con destino 3", () =>{
