@@ -27,10 +27,13 @@ var funcionesCentros= (function(){
         },
     
         terminarProceso: function(paquetes,colaSalida) {
+            var i=0;
             paquetes.forEach(paquete=>{
                 colaSalida.push(paquete);
+                paquetes.splice(i,1);
+                i++;
             });
-            paquetes = [];
+            
             var entrega=[]
             colaSalida.forEach(paquete=>{
                 entrega.push(paquete);
