@@ -11,9 +11,9 @@ commit 461 hemos logrado que los paquetes se mueven en diagonal pero sin tener e
 commit 461 tenemos la version de que entran x paquetes a ser procesados y x paquetes a la cola, todo a la vez
 A partir del commit 463 tenemos la version de que no podes meter mas de los aceptados cola
 Cambiamos los test en los cuales existe 1 centro de distribucion en el medio xq los une
+COMMIT NUMERO 537 FUNCIONA LA BESTIA, FALTA AGREGAR LISTA DE SALIDA Y PERFECCIONAR CODIGO, Y QUE NO SE PUEDA CREAR LA MATRIZ CON MAS FILAS QUE COLUMNAS
 
-
-
+FALTA FIJARSE QUE NO SE DESVIE SI EN EL SIGUIENTE TIENE ESPACIO PARA MOVERSE, NO SI EN EL ACTUAL
 
 TDD
 array.sort

@@ -179,6 +179,7 @@ test("Procesamos y verificamos donde estan los paquetes con destino 3", () =>{
     lista2.push(new Paquete(4,[],"rapido",4));
     matriz2.agregarPaquetes(lista2,"A");
     matriz2.avanzarTiempo(1);
+    expect(matriz2.locales[1].centrosCreados[1].paquetes.length).toBe(1);
     matriz2.avanzarTiempo(1);
     matriz2.avanzarTiempo(1);
     matriz2.avanzarTiempo(1);
