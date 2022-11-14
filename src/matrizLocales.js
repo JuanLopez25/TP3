@@ -1,6 +1,7 @@
 const Local= require('./local');
 const Paquete=require('./paquete')
 const math = require('mathjs');
+const Excepcion= require('./excepcion')
 
 function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
     var contador=0;
@@ -12,6 +13,10 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
 
     this.cantidadCentros=this.locales[0].centrosCreados.length-1;
     
+    if (this.cantidadCentros<localesAgregar) {
+        throw new Excepcion("no se puede crear la matriz porque los centros son menos que la cantidad de locales");
+    }
+
     this.agregarPaquetes= function(paquetesAgregar,localNombre){
         var local=(this.locales).find(elemento => elemento.nombre==localNombre);
         local.agregarPaquetes(paquetesAgregar);
