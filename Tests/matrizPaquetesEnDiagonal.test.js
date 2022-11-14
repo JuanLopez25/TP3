@@ -19,7 +19,7 @@ beforeEach(()=> {
     matriz= new MatrizLocales(3,["CF","CC","CD"],[[6,3,23],[5,4,10],[6,2,14]]);
     lista=[];
     paqueteMuyRapido=new Paquete(1,[],"muy rapido",4);
-    paqueteRapido=new Paquete(1,[],"rapido",4);
+    paqueteRapido=new Paquete(2,[],"rapido",4);
     paqueteNormal=new Paquete(3,[],"normal",4);
     paqueteRapido2=new Paquete(4,[],"rapido",4);
     
@@ -77,8 +77,15 @@ test("Proceso paquetes en A y B y avanzo para verificar los destinos", () =>{
     matriz.avanzarTiempo(1);
     matriz.avanzarTiempo(1);
     matriz.avanzarTiempo(1);
-    matriz.locales[0].informarPaquetesEnDestino()
+    expect(matriz.locales[0].informarPaquetesEnDestino()).toBe("P1: Destino 1, Urgencia 4, llego a tiempo\n");
+})
+
+
+test("Proceso paquetes en A y B y avanzo para verificar los destinos de los paquetes rapido y muy rapido", () =>{
     matriz.avanzarTiempo(1);
-    //expect(matriz.locales[0].informarPaquetesEnDestino()).toBe("P1: Destino 1, Urgencia 4, llego a tiempo\n");
-    expect(matriz.locales[0].informarPaquetesEnDestino()).toBe("P2: Destino 1, Urgencia 6, llego a tiempo\n");
+    matriz.avanzarTiempo(1);
+    matriz.avanzarTiempo(1);
+    matriz.avanzarTiempo(1);
+    matriz.avanzarTiempo(1);
+    expect(matriz.locales[1].informarPaquetesEnDestino()).toBe("P2: Destino 2, Urgencia 4, llego a tiempo\n");
 })
