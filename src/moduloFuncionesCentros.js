@@ -32,13 +32,6 @@ var funcionesCentros= (function(){
             colaSalida.forEach(paquete=>{
                 entrega.push(paquete);
             });
-            paquetes.forEach(paquete=>{
-                paquetes.pop();
-            })
-            
-            colaSalida.forEach(paquete=>{
-                colaSalida.pop();
-            })
             return entrega;
         },
     
