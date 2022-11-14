@@ -21,10 +21,9 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
 
 
     this.avanzarTiempo= function(){
-        var paquetesDeLocales;
-        paquetesDeLocales=this.generarMatrizPaquetes();
-        paquetesDeLocales=this.procesarPaquetesDelDestino(paquetesDeLocales);
-        paquetesDeLocales=this.analizarMovimientos(paquetesDeLocales);
+        var paquetesDeLocales=this.generarMatrizPaquetes();
+        this.procesarPaquetesDelDestino(paquetesDeLocales);
+        this.analizarMovimientos(paquetesDeLocales);
         this.encolarYProcesar(paquetesDeLocales);
         this.encolarNoProcesados(paquetesDeLocales); 
     }
@@ -73,7 +72,6 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             }
             fila++;
         });
-        return paquetesDeLocales;
     }
 
 
@@ -105,7 +103,6 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             })
             fila++;
         })
-        return paquetesDeLocales;
     }
 
     this.aCualMoverme = function(paquete,filasAMoverse,fila,columna,arribaOAbajo) {
