@@ -158,8 +158,8 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                 }
 
                 this.procesarPaquetesPermitidos(paquetesDeLocales,paquetesAProcesarMismoLocal,local,fila,columna,0);
-                this.procesarPaquetesPermitidos(paquetesDeLocales,paquetesLocalSuperior,local,fila,columna,1);
-                this.procesarPaquetesPermitidos(paquetesDeLocales,paquetesLocalPosterior,local,fila,columna,-1);
+                this.procesarPaquetesPermitidos(paquetesDeLocales,paquetesLocalSuperior,local,fila,columna,-1);
+                this.procesarPaquetesPermitidos(paquetesDeLocales,paquetesLocalPosterior,local,fila,columna,1);
 
                 local.centrosCreados[columna].procesarPaquetes();
                 
@@ -201,13 +201,13 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                     } else {
                         noProcesados.push(paquete);
                     }
-                } else if (limite==1) {
+                } else if (limite==-1) {
                     if (this.limitesLocalSuperior(paquete)) {
                         paquetesQueDePuedenProcesar.push(paquete);
                     } else {
                         noProcesados.push(paquete);
                     }
-                } else if (limite==-1) {
+                } else if (limite==1) {
                     if (this.limitesLocalPosterior(paquete)) {
                         paquetesQueDePuedenProcesar.push(paquete);
                     } else {
