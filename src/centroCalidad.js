@@ -54,7 +54,7 @@ function CentroCalidad(limiteColaDeEspera) {
     }
 
     this.puedeEntrarACola= function() {
-        return (this.cola.length+1)<this.limiteCola;
+        return (this.cola.length)<(this.limiteCola+1);
     }
 }
 
