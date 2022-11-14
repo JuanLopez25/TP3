@@ -19,7 +19,7 @@ function ColaSalida(paquete) {
       return entrega;
   }
   this.agregarACola = function (paquetesAgregar) {
-      this.funcionesCentros.agregarACola(this.cola,this.limiteCola,paquetesAgregar);
+      this.funcionesCentros.agregarACola(this.cola,5,paquetesAgregar);
   }
 }
 
