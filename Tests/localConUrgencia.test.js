@@ -26,7 +26,7 @@ beforeEach(()=> {
     paqueteNormal=new Paquete(5,[],"normal",4);
     paqueteNormal2=new Paquete(6,[],"normal",4);
     matriz= new MatrizLocales(1,["CF","CC","CD"],[[3,3,24]]);
-    lista=[paqueteMuyRapido,paqueteNormal,paqueteNormal2,paqueteRapido,paqueteRapido2,paqueteMuyRapido2];
+    lista=[paqueteMuyRapido,paqueteNormal,paqueteNormal2,paqueteRapido,paqueteMuyRapido2,paqueteRapido2];
     matriz.agregarPaquetes(lista,"A");
 });
 

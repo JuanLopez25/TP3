@@ -37,7 +37,7 @@ test("6 paquetes a cola de salida y toma los 5 de mayor urgencia", () =>{
     matriz.agregarPaquetes(lista,"A");
     var urgenciaTotal=0;
     matriz.locales[0].centrosCreados[0].paquetes.forEach(elemento => urgenciaTotal+=elemento.urgencia);
-    expect(urgenciaTotal).toBe(28);
+    expect(urgenciaTotal).toBe(32);
 })
 
 test("6 paquetes a cola de salida y proceso una vez por lo que deberia el centro de facturacion estar procesando 3 paquetes", () =>{
