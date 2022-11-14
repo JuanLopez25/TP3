@@ -28,7 +28,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             paquetesDeLocales[numeroLocal]=paquetesAux;   
             numeroLocal++;
         });
-        console.log(paquetesAux);
+        //console.log(paquetesAux);
 
         var columna=1;
         var fila=0;
@@ -51,7 +51,13 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             columna++;
         }
 
-
+        this.locales.forEach(local => {
+            console.log("El local "+local.nombre);
+            local.centrosCreados.forEach(elemento =>{
+                console.log("El centro "+elemento.nombre+" esta procesando : ")
+                console.log(elemento.paquetes.length+" paquetes y tiene en la cola de espera "+elemento.cola.length);
+            });
+        });
        
 
 
