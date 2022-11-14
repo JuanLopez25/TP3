@@ -31,14 +31,14 @@ beforeEach(()=> {
     lista=[paqueteMuyRapido,paqueteNormal,paqueteNormal2,paqueteRapido,paqueteRapido2,paqueteMuyRapido2];
 });
 
-test("6 paquetes a cola de salida y toma los 5 de mayor urgencia", () =>{
+test("6 paquetes a cola de salida y toma los 5 de mayor urgencia procesa, y luego deja 2 en la cola de salida", () =>{
     matriz= new MatrizLocales(1,["CF","CC","CC","CD","CF"],[[3,2,5,24,6]]);
     matriz.agregarPaquetes(lista,"A");
     matriz.avanzarTiempo();
     expect(matriz.locales[0].centrosCreados[0].colaSalida.length).toBe(2);
 })
 
-test("6 paquetes a cola de salida y toma los 5 de mayor urgencia", () =>{
+test("6 paquetes a cola de salida y toma los 5 de mayor urgencia, procesa dos tiempos dejando vacia a la cola de salida de CS y luego en CF deja 1 en la cola de salida luego de haber 3 y pasado 2 a CC", () =>{
     matriz= new MatrizLocales(1,["CF","CC","CC","CD","CF"],[[3,2,5,24,6]]);
     matriz.agregarPaquetes(lista,"A");
     matriz.avanzarTiempo();
