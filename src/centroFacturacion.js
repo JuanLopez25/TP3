@@ -56,7 +56,7 @@ function CentroFacturacion(limiteColaDeEspera) {
     }
 
     this.puedeEntrarACola= function() {
-        return this.cola.length<(this.limiteCola + 3);
+        return (this.limiteCola+3)-(this.paquetes.length+this.cola.length);  //me dice la suma entre los que pueden entrar todavia a ser procesados y los que pueden entrar a la cola
     }
 
     

@@ -41,7 +41,9 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
 
         while (columna<this.cantidadCentros) {
             fila=0;
-            this.locales.forEach(local => {  
+            this.locales.forEach(local => { 
+                
+                
                 paquetesAProcesar=paquetesDeLocales[fila][columna-1];
                 if ((fila-1)>=0){   
                     paquetesLocalSuperior=paquetesDeLocales[fila-1][columna-1];
@@ -58,34 +60,29 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                     paquetesLocalPosterior=0;
                 }
 
-                
-
                
-                if (paquetesAProcesar!=0){
-                    if (local.centrosCreados[columna].puedeEntrarACola()) {
-                        local.centrosCreados[columna].procesarPaquetes(paquetesAProcesar);
-                    }
-                    if(paquetesLocalSuperior!=0 && local.centrosCreados[columna].puedeEntrarACola()) {
-                        local.centrosCreados[columna].procesarPaquetes(paquetesLocalSuperior);
-                    }
-                    if(paquetesLocalPosterior!=0 && local.centrosCreados[columna].puedeEntrarACola()) {
-                        local.centrosCreados[columna].procesarPaquetes(paquetesLocalPosterior);
-                    }
+        
+                if (paquetesAProcesar!=0 && local.centrosCreados[columna].puedeEntrarACola()>0) {
                     
-                } else {
+                    local.centrosCreados[columna].procesarPaquetes(paquetesAProcesar);
+                }
+                if(paquetesLocalSuperior!=0 && local.centrosCreados[columna].puedeEntrarACola()>0) {
+                    local.centrosCreados[columna].procesarPaquetes(paquetesLocalSuperior);
+                }
+                if(paquetesLocalPosterior!=0 && local.centrosCreados[columna].puedeEntrarACola()>0) {
+                    local.centrosCreados[columna].procesarPaquetes(paquetesLocalPosterior);
+                }else {
                     local.centrosCreados[columna].procesarPaquetes([]);
                 }
 
 
                 fila++;
 
-
-
             });
             columna++;
         }
 
-        //me queda procesar para el destino
+        
         fila=0;
         var paquetesDelDestino=[];
         this.locales.forEach(local => {
