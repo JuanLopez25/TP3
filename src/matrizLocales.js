@@ -36,8 +36,6 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
         var paquetesAProcesar;
         var paquetesLocalSuperior;
         var paquetesLocalPosterior;
-        var localSuperior;
-        var localPosterior;
         var nuevoPaquetes;
         var l=0;
         var cantidadQuePuedoProcesar=0;
@@ -50,16 +48,12 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                 paquetesAProcesar=paquetesDeLocales[fila][columna-1];
                 if ((fila-1)>=0){   
                     paquetesLocalSuperior=paquetesDeLocales[fila-1][columna-1];
-                    localSuperior=this.locales[fila-1];
                 } else {
-                    localSuperior=0;
                     paquetesLocalSuperior=0;
                 }
                 if ((fila+1)<this.locales.length) {
                     paquetesLocalPosterior=paquetesDeLocales[fila+1][columna-1];
-                    
                 } else {
-                    localPosterior=0;
                     paquetesLocalPosterior=0;
                 }
 
@@ -83,6 +77,8 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
 
                     paquetesDeLocales[fila][columna-1]=nuevoPaquetes;
                 }
+
+
                 if(paquetesLocalSuperior!=0 && local.centrosCreados[columna].puedeEntrarACola()>0) {
                     nuevoPaquetes=[];
                     l=0;
@@ -94,12 +90,13 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                         }
                         l++;
                     }
-                    
                     if (nuevoPaquetes.length==0) {
                         nuevoPaquetes=0;
                     }
                     paquetesDeLocales[fila-1][columna-1]=nuevoPaquetes;
                 }
+
+
                 if(paquetesLocalPosterior!=0 && local.centrosCreados[columna].puedeEntrarACola()>0) {
                     nuevoPaquetes=[];
                     l=0;
