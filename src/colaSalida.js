@@ -6,26 +6,9 @@ function ColaSalida(paquete) {
     this.cola=[];
     this.nombre="CS";
     this.colaSalida=[];
-    this.procesarPaquetes = function(paquetesAgregar) {
-        var i=0;
-
-        paquetesAgregar.forEach(elemento => elemento.aumentarTiempo());
-
-        paquetesAgregar.sort(function (a, b) {
-            if (a.urgencia > b.urgencia) {
-              return 1;
-            }
-            if (a.urgencia < b.urgencia) {
-              return -1;
-            }
-            return 0;
-          });
-        while (i<(paquetesAgregar.length)) {
-            if (this.paquetes.length<5) {
-                (this.paquetes).push(paquetesAgregar[i]);
-            }
-            i++;
-        }
+    this.funcionesCentros=FuncionesCentros;  
+    this.procesarPaquetes = function() {
+        this.funcionesCentros.procesarPaquetes(this.cola,this.paquetes,5);
     }
     
     
