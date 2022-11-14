@@ -41,6 +41,7 @@ function CentroCalidad(limiteColaDeEspera) {
     }
 
     this.terminarProceso = function() {
+        this.colaSalida=[];
         this.paquetes.forEach(paquete=>{
             this.colaSalida.push(paquete);
         });

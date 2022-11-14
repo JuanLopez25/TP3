@@ -41,11 +41,9 @@ function CentroFacturacion(limiteColaDeEspera) {
     }
 
     this.terminarProceso = function() {
-        this.paquetes.forEach(paquete=>{
-            this.colaSalida.push(paquete);
-        });
+        var entrega= this.paquetes;
         this.paquetes = [];
-        return this.colaSalida;
+        return entrega;
     }
 
 
