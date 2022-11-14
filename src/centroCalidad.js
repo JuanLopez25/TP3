@@ -34,7 +34,7 @@ function CentroCalidad(limiteColaDeEspera) {
     }
 
     this.agregarACola = function (paquetesAgregar) {
-        this.funcionesCentros.agregarACola(this.cola,this.limiteCola);
+        this.funcionesCentros.agregarACola(this.cola,this.limiteCola,paquetesAgregar);
     }
 
     this.puedeEntrarACola= function() {
