@@ -1,14 +1,14 @@
+const Paquete = require("./Paquete");
+
 function Destino(numero){
     this.numero=numero;
     this.paquetes=[];
     this.cola=[];
     this.nombre="D";
     this.procesarPaquetes = function(paquetesAgregar) {
-        var i=0;
-        while (i<(paquetesAgregar.length)) {
-            (this.paquetes).push(paquetesAgregar[i]);
-            i++;
-        }
+        paquetesAgregar.forEach(paquete=>{
+            this.paquetes.push(paquete);
+        });
     }
 
     this.informarLlegadas= function(){
