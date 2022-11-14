@@ -55,6 +55,7 @@ var Local = (function(){
         //---------------------------------------------------------------------
         
         this.agregarPaquetes= function(paquetes) {
+            console.log("llegue")
             this.centrosCreados[0].procesarPaquetes(paquetes);
         }
 
