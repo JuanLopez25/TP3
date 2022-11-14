@@ -100,22 +100,22 @@ test("Procesamos y verificamos donde estan los paquetes con destino 3", () =>{
 
 
 
-// test("Procesamos y verificamos donde estan los paquetes con destino 3", () =>{
-//     reseter2= new Local(["CF","CC","CD"],[6,2,14]);
-//     reseter2.resetearID();
-//     var matriz2= new MatrizLocales(4,["CF","CC","CD"],[[6,3,23],[5,4,10],[6,2,14],[6,3,20]]);
-//     lista.push(new Paquete(4,[],"rapido",4));
-//     matriz2.agregarPaquetes(lista,"A");
-//     matriz2.avanzarTiempo(1);
-//     matriz2.avanzarTiempo(1);
-//     matriz2.avanzarTiempo(1);
-//     expect(matriz2.locales[0].centrosCreados[2].paquetes[0].destino).toBe(2);
-//     expect(matriz2.locales[0].centrosCreados[3].paquetes[0].destino).toBe(1);
-//     expect(matriz2.locales[1].centrosCreados[2].paquetes[0].destino).toBe(3);
-//     expect(matriz2.locales[2].centrosCreados[3].paquetes[0].destino).toBe(3);
-//     expect(matriz2.locales[2].centrosCreados[3].paquetes[0].destino).toBe(3);
-//     expect(matriz2.locales[3].centrosCreados[3].paquetes[0].destino).toBe(4);
-// })
+test("Procesamos y verificamos donde estan los paquetes con destino 3", () =>{
+    reseter2= new Local(["CF","CC","CD"],[6,2,14]);
+    reseter2.resetearID();
+    var matriz2= new MatrizLocales(4,["CF","CC","CD"],[[6,3,23],[5,4,10],[6,2,14],[6,3,20]]);
+    lista.push(new Paquete(4,[],"rapido",4));
+    matriz2.agregarPaquetes(lista,"A");
+    matriz2.avanzarTiempo(1);
+    matriz2.avanzarTiempo(1);
+    matriz2.avanzarTiempo(1);
+    expect(matriz2.locales[0].centrosCreados[2].paquetes[0].destino).toBe(2);
+    expect(matriz2.locales[0].centrosCreados[3].paquetes[0].destino).toBe(1);
+    expect(matriz2.locales[1].centrosCreados[2].paquetes[0].destino).toBe(3);
+    expect(matriz2.locales[2].centrosCreados[3].paquetes[0].destino).toBe(3);
+    expect(matriz2.locales[2].centrosCreados[3].paquetes[0].destino).toBe(3);
+    expect(matriz2.locales[3].centrosCreados[3].paquetes[0].destino).toBe(4);
+})
 
 // test("Procesamos y verificamos donde estan los paquetes con destino 3", () =>{
 //     reseter2= new Local(["CF","CC","CD"],[6,2,14]);
