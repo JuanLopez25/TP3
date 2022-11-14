@@ -52,9 +52,9 @@ test("Avanzar tiempo en los locales de la matriz", () =>{
     matriz.agregarPaquetes([paqueteRapido],"B");
     matriz.agregarPaquetes([paqueteNormal],"C");
     matriz.avanzarTiempo(1);
-    expect(matriz.locales[0].centrosCreados[1].paquetes.length).toBe(1);
+    expect(matriz.locales[0].centrosCreados[1].paquetes.length).toBe(2);
     expect(matriz.locales[1].centrosCreados[1].paquetes.length).toBe(1);
-    expect(matriz.locales[2].centrosCreados[1].paquetes.length).toBe(1);
+    expect(matriz.locales[2].centrosCreados[1].paquetes.length).toBe(0);
 })
 
 
