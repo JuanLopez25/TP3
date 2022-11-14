@@ -8,9 +8,17 @@ var Paquete = (function(){
         this.destino=destinoPropuesto;
         this.productos=productos;
         this.tiempo=0;
-        this.urgencia=0;
-        this.urgenciaSolicitada2=urgenciaSolicitada;
-        this.urgencia=this.calcularUrgencia(this.urgenciaSolicitada2,cantidadCentros);
+        switch(urgenciaSolicitada){
+            case "muy rapido":
+                this.urgencia=cantidadCentros;
+                break;
+            case "rapido":
+                this.urgencia=cantidadCentros*1.5;
+                break;
+            case "normal":
+                this.urgencia=cantidadCentros*2;
+                break;
+        }
 
 
 
@@ -27,23 +35,6 @@ var Paquete = (function(){
         this.aumentarTiempo= function(){
             this.tiempo+=1;
         }
-
-        this.calcularUrgencia=function(urgenciaSolicitada,cantidadCentros) {
-            var urgencia;
-            switch(urgenciaSolicitada){
-                case "muy rapido":
-                    urgencia=cantidadCentros;
-                    break;
-                case "rapido":
-                    urgencia=cantidadCentros*1.5;
-                    break;
-                case "normal":
-                    urgencia=cantidadCentros*2;
-                    break;
-            }
-            return urgencia;
-        }
-
     }
     return newPaquete;
 })();
