@@ -47,12 +47,15 @@ test("5 paquetes a centro de Facturacion y procesa los 3 con mayor urgencia", ()
 })
 
 test("3 paquetes a centro de calidad y procesa el de mayor urgencia", () =>{
-    local.avanzarTiempo(2); 
+    matriz.avanzarTiempo();
+    matriz.avanzarTiempo();
+    matriz.avanzarTiempo();
     var lista2= [paqueteMuyRapido,paqueteMuyRapido, paqueteMuyRapido, paqueteMuyRapido, paqueteMuyRapido, paqueteMuyRapido];
-    local.agregarPaquetes(lista2);
-    local.avanzarTiempo(2);  
+    matriz.agregarPaquetes(lista2,"A");
+    matriz.avanzarTiempo();
+    matriz.avanzarTiempo(); 
     var urgenciaTotal=0;
-    local.centrosCreados[2].paquetes.forEach(elemento => urgenciaTotal+=elemento.urgencia);
+    matriz.locales[0].centrosCreados[2].paquetes.forEach(elemento => urgenciaTotal+=elemento.urgencia);
     expect(urgenciaTotal).toBe(4);
 })
 
@@ -73,9 +76,12 @@ test("12 paquetes a centro de distribucion y procesa los 10 con mayor urgencia",
 })
 
 test("Comparar urgencia con tiempo de llegada", () =>{
-    local.centrosCreados[0].paquetes;
-    local.avanzarTiempo(4);  //Llega el primer paquete, el "muy rapido"
-    expect(local.informarPaquetesEnDestino()).toBe("P1: Destino 1, Urgencia 4, llego a tiempo\n");
+    matriz.locales[0].centrosCreados[0].paquetes;
+    matriz.avanzarTiempo();   //Llega el primer paquete, el "muy rapido"
+    matriz.avanzarTiempo(); 
+    matriz.avanzarTiempo(); 
+    matriz.avanzarTiempo(); 
+    expect(locales[0].informarPaquetesEnDestino()).toBe("P1: Destino 1, Urgencia 4, llego a tiempo\n");
 })
 
 test("Comparar urgencia con tiempo de llegada del segundo paquete muy rapido, el cual llega a destiempo", () =>{
