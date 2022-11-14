@@ -6,36 +6,28 @@ function CentroDistribucion(limiteColaDeEspera) {
     this.cola=[];
     this.colaSalida=[];
     this.nombre="CD";
-    if (limiteColaDeEspera<10){
-        limiteColaDeEspera=10;
-    } else if (limiteColaDeEspera>30) {
-        limiteColaDeEspera=30;
-    }
-    this.limiteCola= limiteColaDeEspera;
     this.funcionesCentros=FuncionesCentros;
+    this.limiteCola=this.funcionesCentros.limitesCola(2,5,limiteColaDeEspera);
+
 
     this.procesarPaquetes = function() {
         this.unirPaquetes();
         this.funcionesCentros.procesarPaquetes(this.cola,this.paquetes,10);
     }
-    
     this.terminarProceso = function() {
-        
         var entrega=this.funcionesCentros.terminarProceso(this.paquetes,this.colaSalida);
         this.paquetes=[];
         this.colaSalida=[];
         return entrega;
     }
-
     this.agregarACola = function (paquetesAgregar) {
         this.funcionesCentros.agregarACola(this.cola,this.limiteCola,paquetesAgregar);
     }
-
     this.puedeEntrarACola= function() {
         var cantidad= this.funcionesCentros.puedeEntrarACola(this.limiteCola,this.cola);
         return cantidad;
     }
-    
+
     this.unirPaquetes = function(){
         var colaAux=[];
         var destinoAnterior=[];

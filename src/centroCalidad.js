@@ -7,14 +7,10 @@ function CentroCalidad(limiteColaDeEspera) {
     this.colaSalida=[];
     
     this.nombre="CC";
-    if (limiteColaDeEspera<2){
-        limiteColaDeEspera=2;
-    } else if (limiteColaDeEspera>5) {
-        limiteColaDeEspera=5;
-    }
-    this.limiteCola= limiteColaDeEspera;
     this.funcionesCentros=FuncionesCentros;
+    this.limiteCola=this.funcionesCentros.limitesCola(2,5,limiteColaDeEspera);
 
+    
     this.procesarPaquetes = function() {
         this.funcionesCentros.procesarPaquetes(this.cola,this.paquetes,1);
     }
