@@ -95,6 +95,20 @@ function CentroDistribucion(limiteColaDeEspera) {
         return (this.cola.length)<(this.limiteCola+10);
     }
 
+    this.prioridadCola= function() {
+        var prio;
+        if (this.cola.length==0){
+            prio=1;   //nadie en la cola
+        } else if (this.cola.length<(this.limiteCola+10)) {
+            prio=2;   //se puede entrar a la cola
+        } else {
+            prio=3;   //no se puede entrar a la cola
+        }
+
+        return prio;
+    }
+
+
 }
 
 module.exports=CentroDistribucion;
