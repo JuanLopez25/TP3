@@ -10,7 +10,7 @@ beforeEach(()=> {
     paquete = new Paquete("1");
     lista=[];
     lista.push(paquete)
-    calidad.funcionesCentro.agregarACola(lista);
+    calidad.agregarACola(lista);
 });
 
 test("Crear centro de Calidad", () =>{
@@ -19,14 +19,14 @@ test("Crear centro de Calidad", () =>{
 
 
 test("Procesar paquete centro de calidad", () =>{
-    calidad.funcionesCentro.procesarPaquetes();
+    calidad.procesarPaquetes();
     expect(calidad.paquetes.length).toBe(1);
 })
 
 
 test("Procesar paquete centro de calidad", () =>{
-    calidad.funcionesCentro.procesarPaquetes();
-    calidad.funcionesCentro.terminarProceso(lista);
+    calidad.procesarPaquetes();
+    calidad.terminarProceso(lista);
     expect(calidad.paquetes.length).toBe(0);
 })
 

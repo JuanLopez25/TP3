@@ -1,21 +1,12 @@
 
 
 var funcionesCentros= (function(){
-
-    
-    newFuncionesCentro= function(colaCentro,paquetesProcesando,colaSalidaCentro,limiteColaEspera,cantidadProcesablesCentro) {
-        this.cola=colaCentro;
-        this.paquetes=paquetesProcesando;
-        this.colaSalida=colaSalidaCentro;
-        this.limiteCola=limiteColaEspera;
-        this.cantidadProcesables=cantidadProcesablesCentro;
-        this.procesarPaquetes=function() {
+    return {
+        procesarPaquetes: function(cola,paquetes,cantidadProcesables) {
             var i=0;
             var paqueteTemporal;
-            
-            this.cola.forEach(elemento => elemento.aumentarTiempo());
-    
-            this.cola.sort(function (a, b) {
+            cola.forEach(elemento => elemento.aumentarTiempo());
+            cola.sort(function (a, b) {
                 if (a.urgencia > b.urgencia) {
                   return 1;
                 }
@@ -24,45 +15,42 @@ var funcionesCentros= (function(){
                 }
                 return 0;
             });
-    
-            while (i<(this.cola.length)) {
-                if (this.paquetes.length<this.cantidadProcesables) {
-                    paqueteTemporal= this.cola[i];
-                    (this.paquetes).push(paqueteTemporal);
-                    this.cola.splice(i,1);
+            while (i<(cola.length)) {
+                if (paquetes.length<cantidadProcesables) {
+                    paqueteTemporal= cola[i];
+                    (paquetes).push(paqueteTemporal);
+                    cola.splice(i,1);
                     i--;
                 }
                 i++;
             }
-        }
+        },
     
-        
-        this.terminarProceso= function() {
-            this.paquetes.forEach(paquete=>{
-                this.colaSalida.push(paquete);
+        terminarProceso: function(paquetes,colaSalida) {
+            paquetes.forEach(paquete=>{
+                colaSalida.push(paquete);
             });
-            this.paquetes = [];
+            paquetes = [];
             var entrega=[]
-            this.colaSalida.forEach(paquete=>{
+            colaSalida.forEach(paquete=>{
                 entrega.push(paquete);
             });
-            this.colaSalida=[];
+            colaSalida=[];
             return entrega;
-        }
+        },
     
-        this.agregarACola=function (paquetesAgregar) {
+        agregarACola : function (cola,limiteCola,paquetesAgregar) {
             var i=0;
-            while ((this.cola.length)<(this.limiteCola)  &&  i<paquetesAgregar.length) {  
-                this.cola.push(paquetesAgregar[i]);
+            while ((cola.length)<(limiteCola)  &&  i<paquetesAgregar.length) {  
+                cola.push(paquetesAgregar[i]);
                 i++;
             }
-        }
+        },
     
-        this.puedeEntrarACola=function() {
-            return (this.limiteCola-this.cola.length);
-        }
+        puedeEntrarACola: function(limiteCola,cola) {
+            return (limiteCola-cola.length);
+        },
     }
-    return newFuncionesCentro;   
 })();
 
 
