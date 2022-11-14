@@ -16,7 +16,6 @@ beforeEach(()=> {
     paqueteMuyRapido=new Paquete(1,[],"muy rapido",4);
     paqueteRapido=new Paquete(2,[],"rapido",4);
     paqueteNormal=new Paquete(3,[],"normal",4);
-    paqueteRapido2=new Paquete(4,[],"rapido",4);
 });
 
 test("Crear matriz de locales", () =>{

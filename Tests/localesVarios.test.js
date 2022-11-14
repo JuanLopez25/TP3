@@ -18,11 +18,11 @@ beforeEach(()=> {
 
 
     paqueteMuyRapido=new Paquete(1,[],"muy rapido",4);
-    paqueteMuyRapido2=new Paquete(2,[],"muy rapido",4);
-    paqueteRapido=new Paquete(3,[],"rapido",4);
-    paqueteRapido2=new Paquete(4,[],"rapido",4);
-    paqueteNormal=new Paquete(5,[],"normal",4);
-    paqueteNormal2=new Paquete(6,[],"normal",4);
+    paqueteMuyRapido2=new Paquete(1,[],"muy rapido",4);
+    paqueteRapido=new Paquete(1,[],"rapido",4);
+    paqueteRapido2=new Paquete(1,[],"rapido",4);
+    paqueteNormal=new Paquete(1,[],"normal",4);
+    paqueteNormal2=new Paquete(1,[],"normal",4);
     lista=[paqueteMuyRapido,paqueteNormal,paqueteNormal2,paqueteRapido,paqueteRapido2,paqueteMuyRapido2];
 });
 
@@ -64,15 +64,15 @@ test("6 paquetes a cola de salida y proceso tres veces por lo que deberia el cen
 test("6 paquetes a cola de salida y toma los 5 de mayor urgencia", () =>{
     matriz= new MatrizLocales(1,["CD","CD","CF","CC","CD"],[[30,22,4,3,15]]);
     matriz.agregarPaquetes(lista,"A");
-    expect(matriz.locales[0].centrosCreados[0].paquetes.length).toBe(5);
+    expect(matriz.locales[0].centrosCreados[0].paquetes.length).toBe(1);
 })
 
 
 test("6 paquetes a cola de salida y proceso una vez por lo que deberia el centro de distribucion estar procesando 5 paquetes", () =>{
     matriz= new MatrizLocales(1,["CD","CD","CF","CC","CD"],[[13,15,3,2,28]]);
     matriz.agregarPaquetes(lista,"A");
-    matriz.avanzarTiempo();  
-    expect(matriz.locales[0].centrosCreados[1].paquetes.length).toBe(5);
+    matriz.avanzarTiempo(1);  
+    expect(matriz.locales[0].centrosCreados[1].paquetes.length).toBe(1);
 })
 
 
