@@ -57,6 +57,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
         var paquetesDelDestino=[];
         this.locales.forEach(local => {
             paquetesAProcesar=paquetesDeLocales[fila][columna-1];
+            console.log(paquetesAProcesar);
             if (paquetesAProcesar!=0){
                 paquetesAProcesar.forEach(elemento => {
                     if(elemento.destino==(fila+1)) {
@@ -70,7 +71,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             fila++;
         });
         //console.log(this.locales[0].centrosCreados[3].paquetes.length+" y "+this.locales[0].centrosCreados[3].cola.length);
-        console.log(this.locales[0].centrosCreados[4].paquetes);
+        //console.log(this.locales[0].centrosCreados[4].paquetes);
         //console.log("informa: "+this.locales[0].informarPaquetesEnDestino());
         // this.locales.forEach(local => {
         //     console.log("El local "+local.nombre);
