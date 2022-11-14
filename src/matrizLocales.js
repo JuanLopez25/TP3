@@ -21,31 +21,29 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
         var paquetesAux;
         var numeroLocal=0;
         var paquetesDeLocales= new Array(this.locales.length);
-       
+        var columna=1;
+        var fila=0;
+        var paquetesAProcesarMismoLocal;
+        var paquetesLocalSuperior;
+        var paquetesLocalPosterior;
+        var noProcesados;
+        var l=0;
+        var cantidadQuePuedoProcesar=0;
+        var prio=0;
+        var paquetesDeLocalesProcesar=new Array(this.locales.length);
             
         this.locales.forEach(local => {
             paquetesAux=local.proceso();
             paquetesDeLocales[numeroLocal]=paquetesAux;   
             numeroLocal++;
         });
-        
-        
 
-        var columna=1;
-        var fila=0;
-        var paquetesAProcesar;
-        var paquetesLocalSuperior;
-        var paquetesLocalPosterior;
-        var nuevoPaquetes;
-        var l=0;
-        var cantidadQuePuedoProcesar=0;
-
+       
+        columna=1;
         while (columna<this.cantidadCentros) {
             fila=0;
             this.locales.forEach(local => { 
-                
-                
-                paquetesAProcesar=paquetesDeLocales[fila][columna-1];
+                paquetesAProcesarMismoLocal=paquetesDeLocales[fila][columna-1];
                 if ((fila-1)>=0){   
                     paquetesLocalSuperior=paquetesDeLocales[fila-1][columna-1];
                 } else {
@@ -57,74 +55,68 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
                     paquetesLocalPosterior=0;
                 }
 
-               
-
-                if (paquetesAProcesar!=0 && local.centrosCreados[columna].puedeEntrarACola()>0) {
-                    nuevoPaquetes=[];
+                if (paquetesAProcesarMismoLocal!=0 && local.centrosCreados[columna].puedeEntrarACola()>0) {
+                    noProcesados=[];
                     l=0;
                     cantidadQuePuedoProcesar=local.centrosCreados[columna].puedeEntrarACola();
-                    local.centrosCreados[columna].procesarPaquetes(paquetesAProcesar);
-                    while (l<paquetesAProcesar.length) {
+                    local.centrosCreados[columna].procesarPaquetes(paquetesAProcesarMismoLocal);
+                    while (l<paquetesAProcesarMismoLocal.length) {
                         if (l>(cantidadQuePuedoProcesar-1)) {
-                            nuevoPaquetes.push(paquetesAProcesar[l]);
+                            noProcesados.push(paquetesAProcesarMismoLocal[l]);
                         }
                         l++;
                     }
 
-                    if (nuevoPaquetes.length==0) {
-                        nuevoPaquetes=0;
+                    if (noProcesados.length==0) {
+                        noProcesados=0;
                     }
 
-                    paquetesDeLocales[fila][columna-1]=nuevoPaquetes;
+                    paquetesDeLocales[fila][columna-1]=noProcesados;
                 }
 
-
                 if(paquetesLocalSuperior!=0 && local.centrosCreados[columna].puedeEntrarACola()>0) {
-                    nuevoPaquetes=[];
+                    noProcesados=[];
                     l=0;
                     cantidadQuePuedoProcesar=local.centrosCreados[columna].puedeEntrarACola();
                     local.centrosCreados[columna].procesarPaquetes(paquetesLocalSuperior);
                     while (l<paquetesLocalSuperior.length) {
                         if (l>(cantidadQuePuedoProcesar-1)) {
-                            nuevoPaquetes.push(paquetesLocalSuperior[l]);
+                            noProcesados.push(paquetesLocalSuperior[l]);
                         }
                         l++;
                     }
-                    if (nuevoPaquetes.length==0) {
-                        nuevoPaquetes=0;
+                    if (noProcesados.length==0) {
+                        noProcesados=0;
                     }
-                    paquetesDeLocales[fila-1][columna-1]=nuevoPaquetes;
+                    paquetesDeLocales[fila-1][columna-1]=noProcesados;
                 }
 
 
+
                 if(paquetesLocalPosterior!=0 && local.centrosCreados[columna].puedeEntrarACola()>0) {
-                    nuevoPaquetes=[];
+                    noProcesados=[];
                     l=0;
                     cantidadQuePuedoProcesar=local.centrosCreados[columna].puedeEntrarACola();
                     local.centrosCreados[columna].procesarPaquetes(paquetesLocalPosterior);
                     while (l<paquetesLocalPosterior.length) {
                         if (l>(cantidadQuePuedoProcesar-1)) {
-                            nuevoPaquetes.push(paquetesLocalPosterior[l]);
+                            noProcesados.push(paquetesLocalPosterior[l]);
                         }
                         l++;
                     }
                     
-                    if (nuevoPaquetes.length==0) {
-                        nuevoPaquetes=0;
+                    if (noProcesados.length==0) {
+                        noProcesados=0;
                     }
-                    paquetesDeLocales[fila+1][columna-1]=nuevoPaquetes;
+                    paquetesDeLocales[fila+1][columna-1]=noProcesados;
 
-                }else {
+                }else if (paquetesAProcesarMismoLocal==0 && paquetesLocalSuperior==0 && paquetesLocalPosterior==0) {
                     local.centrosCreados[columna].procesarPaquetes([]);
                 }
-
-
                 fila++;
-
             });
             columna++;
         }
-
         
         fila=0;
         var paquetesDelDestino=[];

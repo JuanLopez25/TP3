@@ -64,7 +64,7 @@ var Local = (function(){
         
 
         this.proceso = function () {
-            var paquetes=new Array(this.centrosCreados.length-1);
+            var paquetesLocal=new Array(this.centrosCreados.length-1);
             
             var contador=0;
             var paquetesAux;
@@ -73,10 +73,10 @@ var Local = (function(){
                 if (paquetesAux.length==0) {
                     paquetesAux=0;
                 }
-                paquetes[contador]=(paquetesAux);
+                paquetesLocal[contador]=(paquetesAux);
                 contador++;
             }
-            return paquetes;
+            return paquetesLocal;
         }
 
         this.avanzarTiempo = function(cantidad) {
