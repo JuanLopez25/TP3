@@ -41,9 +41,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             this.locales.forEach(local => {
                 paquetesAProcesar=paquetesDeLocales[fila][columna-1];
                 if (paquetesAProcesar!=0){
-                    //console.log(local.centrosCreados[columna].cola.length)
                     if (local.centrosCreados[columna].puedeEntrarACola()) {
-                        //console.log("entra--------")
                         local.centrosCreados[columna].procesarPaquetes(paquetesAProcesar);
                     }
                 } else {
@@ -54,7 +52,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             columna++;
         }
 
-       
+        this.locales.informarPaquetesEnDestino();
         // this.locales.forEach(local => {
         //     console.log("El local "+local.nombre);
         //     local.centrosCreados.forEach(elemento =>{
