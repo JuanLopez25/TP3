@@ -7,12 +7,12 @@ commmit 189 eliminamos los test de paquete ya que quedaron obsoletos
 Rediseñamos la clase paquete para que tenga el nivel de urgencia
 commit 336 cambio en colas de espera 
 commit 356 funcionan colas de esperar variables con matrices de varios locales y los obliga a cumplir los limites de la consigna
-
+commit 461 hemos logrado que los paquetes se mueven en diagonal pero sin tener en cuenta al destino que deben llegar
 
 
 TDD
 array.sort
-arrat.splice
+array.splice
 protocolos
 refactors
 module pattern

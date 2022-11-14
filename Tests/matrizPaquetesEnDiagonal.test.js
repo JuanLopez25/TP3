@@ -39,10 +39,7 @@ test("Proceso paquetes en un A y B y avanzo para verificar momentaneamente que s
      matriz.avanzarTiempo(1);
      expect(matriz.locales[0].centrosCreados[1].paquetes.length).toBe(3);
      expect(matriz.locales[0].centrosCreados[1].cola.length).toBe(4);
+     expect(matriz.locales[1].centrosCreados[1].paquetes.length).toBe(1);
 })
 
 
-test("Proceso paquetes en un unico local y avanzo de manera tal que se distribuyan en el local A y B", () =>{
-     matriz.avanzarTiempo(1);
-     expect(matriz.locales[1].centrosCreados[1].paquetes.length).toBe(3);
-})
