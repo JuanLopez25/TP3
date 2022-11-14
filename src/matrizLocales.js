@@ -25,7 +25,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
         paquetesDeLocales=this.generarMatrizPaquetes();
         paquetesDeLocales=this.procesarPaquetesDelDestino(paquetesDeLocales);
         paquetesDeLocales=this.analizarMovimientos(paquetesDeLocales);
-        paquetesDeLocales=this.encolarYProcesar(paquetesDeLocales);
+        this.encolarYProcesar(paquetesDeLocales);
         this.encolarNoProcesados(paquetesDeLocales); 
     }
 
@@ -268,7 +268,6 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
             });
             columna--;
         }
-        return paquetesDeLocales;
     }
 
     this.encolarNoProcesados= function(paquetesDeLocales) {
