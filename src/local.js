@@ -3,7 +3,7 @@ const CentroFacturacion = require('./centroFacturacion');
 const CentroCalidad = require('./centroCalidad');
 const CentroDistribucion = require('./centroDistribucion');
 const Destino=require('./destino');
-const Paquete=require('./Paquete');
+
 
 var Local = (function(){
     var contadorOrigen="A";
