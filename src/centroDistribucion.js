@@ -51,6 +51,7 @@ function CentroDistribucion(limiteColaDeEspera) {
                     var paqueteUnion= new Paquete(paquete1.destino,listaAux);
                     paqueteUnion.tiempo=paquete1.tiempo;
                     paqueteUnion.urgencia=paqueteUnion.productos[0].urgencia;
+                    paqueteUnion.id=paquete1.id;
                     colaAux.push(paqueteUnion);
                 }
                 else{
