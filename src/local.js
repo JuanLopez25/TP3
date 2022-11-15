@@ -10,12 +10,43 @@ var Local = (function(){
     var contadorDestino=1;
     newLocal= function(centros,limitesColasDeEspera){
         this.nombre=contadorOrigen;
-        this.centrosCreados=this.inicializarCentros(centros);
-        contadorDestino+=1;
-        var letra=contadorOrigen.charCodeAt();
-        letra++;
-        contadorOrigen=String.fromCharCode(letra);
+        this.centrosCreados=[new ColaSalida()];
+        var i=0;
+        var j=0;
+        var k=0;
+        var contador=0;
+        centros.forEach(elemento =>
+            {
+            switch(elemento){
+                case "CF":
+                    this.centrosCreados.push(new CentroFacturacion(limitesColasDeEspera[contador]));
+                    i=1;
+                    break;
+                case "CC":
+                    this.centrosCreados.push(new CentroCalidad(limitesColasDeEspera[contador]));
+                    j=1;
+                    break;
+                case "CD":
+                    this.centrosCreados.push(new CentroDistribucion(limitesColasDeEspera[contador]));
+                    k=1;
+                    break;
+            }
+            contador+=1;
+        }
+        );
+        if (i==0) {
+            this.centrosCreados.push(new CentroFacturacion(3));
+        }
+        if (j==0) {
+            this.centrosCreados.push(new CentroCalidad(2));
+        }
+        if (k==0) {
+            this.centrosCreados.push(new CentroDistribucion(30));
+        }
+        this.centrosCreados.push(new Destino(contadorDestino));
         
+
+       this.sumarContadores();
         //---------------------------------------------------------------------
         //---------------------------------------------------------------------
         
@@ -60,43 +91,11 @@ var Local = (function(){
             contadorOrigen="A";
             contadorDestino=1;
         }
-
-        this.inicializarCentros= function(centros) {
-            var centrosCreados=[new ColaSalida()];
-            var i=0;
-            var j=0;
-            var k=0;
-            var contador=0;
-            centros.forEach(elemento =>
-                {
-                switch(elemento){
-                    case "CF":
-                        centrosCreados.push(new CentroFacturacion(limitesColasDeEspera[contador]));
-                        i=1;
-                        break;
-                    case "CC":
-                        centrosCreados.push(new CentroCalidad(limitesColasDeEspera[contador]));
-                        j=1;
-                        break;
-                    case "CD":
-                        centrosCreados.push(new CentroDistribucion(limitesColasDeEspera[contador]));
-                        k=1;
-                        break;
-                }
-                contador+=1;
-            }
-            );
-            if (i==0) {
-                centrosCreados.push(new CentroFacturacion(3));
-            }
-            if (j==0) {
-                centrosCreados.push(new CentroCalidad(2));
-            }
-            if (k==0) {
-                centrosCreados.push(new CentroDistribucion(30));
-            }
-            centrosCreados.push(new Destino(contadorDestino));
-            return centrosCreados;
+        this.sumarContadores= function(){
+            contadorDestino+=1;
+            var letra=contadorOrigen.charCodeAt();
+            letra++;
+            contadorOrigen=String.fromCharCode(letra);    
         }
 
     }
