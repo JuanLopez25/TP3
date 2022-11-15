@@ -51,19 +51,21 @@ try {
     // imprimirPaquetes(2,0);
 
     matriz.avanzarTiempo();
-    console.log("procesando CF");
-    imprimirPaquetes(0,1);
-    imprimirPaquetes(1,1);
-    imprimirPaquetes(2,1);
-    console.log("colas de espera CF");
-    imprimirColaEspera(1,1);
-    matriz.avanzarTiempo();
+    
+    // imprimirColaSalida(0,0);
+    // imprimirColaSalida(1,0);
+    // imprimirColaSalida(2,0);
     // console.log("procesando CF");
     // imprimirPaquetes(0,1);
     // imprimirPaquetes(1,1);
     // imprimirPaquetes(2,1);
     // console.log("colas de espera CF");
     // imprimirColaEspera(1,1);
+   
+    matriz.avanzarTiempo();
+    
+    // console.log("procesando CF");
+    // imprimirPaquetes(1,1);
     // console.log("cola de salida CF");
     // imprimirColaSalida(0,1);
     // console.log("procesando CC");
@@ -75,9 +77,89 @@ try {
     // imprimirColaEspera(1,2);
     // imprimirColaEspera(2,2);
     matriz.avanzarTiempo();
+    // console.log("cola de salida CF");
+    // imprimirColaSalida(1,1);
+    // console.log("procesando CC");
+    // imprimirPaquetes(0,2);
+    // imprimirPaquetes(1,2);
+    // imprimirPaquetes(2,2);
+    // console.log("colas de espera CC");
+    // imprimirColaEspera(0,2);
+    // imprimirColaEspera(1,2);
+    // imprimirColaEspera(2,2);
+    // console.log("procesando CD");
     // imprimirPaquetes(0,3);
     // imprimirPaquetes(1,3);
     // imprimirPaquetes(2,3);
+    // console.log("colas de espera CD");
+    // imprimirColaEspera(0,3);
+    // imprimirColaEspera(1,3);
+    // imprimirColaEspera(2,3);
+
+    matriz.avanzarTiempo();
+    // console.log("cola de salida CF");
+    // imprimirColaSalida(1,1);
+    // console.log("procesando CC");
+    // imprimirPaquetes(0,2);
+    // imprimirPaquetes(1,2);
+    // imprimirPaquetes(2,2);
+    // console.log("colas de espera CC");
+    // imprimirColaEspera(0,2);
+    // imprimirColaEspera(1,2);
+    // imprimirColaEspera(2,2);
+    // console.log("procesando CD");
+    // imprimirPaquetes(0,3);
+    // imprimirPaquetes(1,3);
+    // imprimirPaquetes(2,3);
+    // console.log("colas de espera CD");
+    // imprimirColaEspera(0,3);
+    // imprimirColaEspera(1,3);
+    // imprimirColaEspera(2,3);
+
+    matriz.avanzarTiempo();
+    // console.log("cola de salida CF");
+    // imprimirColaSalida(1,1);
+    // console.log("procesando CC");
+    // imprimirPaquetes(0,2);
+    // imprimirPaquetes(1,2);
+    // imprimirPaquetes(2,2);
+    // console.log("colas de espera CC");
+    // imprimirColaEspera(0,2);
+    // imprimirColaEspera(1,2);
+    // imprimirColaEspera(2,2);
+    // console.log("procesando CD");
+    // imprimirPaquetes(0,3);
+    // imprimirPaquetes(1,3);
+    // imprimirPaquetes(2,3);
+    // console.log("colas de espera CD");
+    // imprimirColaEspera(0,3);
+    // imprimirColaEspera(1,3);
+    // imprimirColaEspera(2,3);
+
+    matriz.avanzarTiempo();
+    // console.log("cola de salida CF");
+    // imprimirColaSalida(1,1);
+    // console.log("procesando CC");
+    // imprimirPaquetes(0,2);
+    // imprimirPaquetes(1,2);
+    // imprimirPaquetes(2,2);
+    // console.log("colas de espera CC");
+    // imprimirColaEspera(0,2);
+    // imprimirColaEspera(1,2);
+    // imprimirColaEspera(2,2);
+    // console.log("procesando CD");
+    // imprimirPaquetes(0,3);
+    // imprimirPaquetes(1,3);
+    // imprimirPaquetes(2,3);
+    // console.log("colas de espera CD");
+    // imprimirColaEspera(0,3);
+    // imprimirColaEspera(1,3);
+    // imprimirColaEspera(2,3);
+
+    matriz.avanzarTiempo();
+    matriz.locales.forEach(local=>{
+        console.log(local.informarPaquetesEnDestino());
+    })
 
 } catch(Error) {
     console.log(Error);
