@@ -42,7 +42,6 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
     this.generarMatrizPaquetes= function(paquetesDeLocales) {
         var numeroLocal=0;
         var paquetesAux;
-        var paquetesDeLocales= new Array(this.locales.length);
         this.locales.forEach(local => {
             paquetesAux=local.proceso();
             paquetesDeLocales[numeroLocal]=paquetesAux;   
