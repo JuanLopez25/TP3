@@ -6,7 +6,6 @@ var matriz;
 var reseter;
 var paqueteMuyRapido;
 var paqueteRapido;
-var paqueteRapido2;
 var paqueteNormal;
 
 beforeEach(()=> {
