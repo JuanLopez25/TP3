@@ -21,7 +21,7 @@ function MatrizLocales(localesAgregar,centros,limitesColasDeEspera){
 
 
     this.avanzarTiempo= function(){
-        var paquetesDeLocales;
+        var paquetesDeLocales=new Array(this.locales.length);
         this.generarMatrizPaquetes(paquetesDeLocales);
         this.procesarPaquetesDelDestino(paquetesDeLocales);
         this.analizarMovimientos(paquetesDeLocales);
