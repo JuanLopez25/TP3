@@ -45,8 +45,12 @@ var Local = (function(){
         }
         this.centrosCreados.push(new Destino(contadorDestino));
         
-
-       this.sumarContadores();
+        
+        contadorDestino+=1;
+        var letra=contadorOrigen.charCodeAt();
+        letra++;
+        contadorOrigen=String.fromCharCode(letra);
+        
         //---------------------------------------------------------------------
         //---------------------------------------------------------------------
         
@@ -91,12 +95,7 @@ var Local = (function(){
             contadorOrigen="A";
             contadorDestino=1;
         }
-        this.sumarContadores= function(){
-            contadorDestino+=1;
-            var letra=contadorOrigen.charCodeAt();
-            letra++;
-            contadorOrigen=String.fromCharCode(letra);    
-        }
+        
 
     }
     return newLocal;
