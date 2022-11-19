@@ -36,14 +36,18 @@ var funcionesCentros= (function(){
         },
     
         agregarACola : function (cola,limiteCola,paquetesAgregar) {
+            var noEntraron=[];
             paquetesAgregar.forEach(paquete=>{
                 if (cola.length<limiteCola){
                     cola.push(paquete);
+                } else {
+                    noEntraron.push(paquete);
                 }
             });
+            return noEntraron;
         },
     
-        puedeEntrarACola: function(limiteCola,cola) {
+        espacioEnCola: function(limiteCola,cola) {
             return (limiteCola-cola.length);
         },
 

@@ -7,7 +7,7 @@ var destino;
 
 beforeEach(()=> {
     destino= new Destino("1");
-    paquete = new Paquete("1");
+    paquete = new Paquete(1);
     lista=[];
     lista.push(paquete)
 });

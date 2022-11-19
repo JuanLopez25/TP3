@@ -7,7 +7,7 @@ var facturacion;
 
 beforeEach(()=> {
     facturacion= new CentroFacturacion(6);
-    paquete = new Paquete("1");
+    paquete = new Paquete(1);
     lista=[];
     lista.push(paquete)
 });

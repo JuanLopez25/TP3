@@ -19,10 +19,11 @@ function CentroFacturacion(limiteColaDeEspera) {
         return entrega;
     }
     this.agregarACola = function (paquetesAgregar) {
-        this.funcionesCentros.agregarACola(this.cola,this.limiteCola,paquetesAgregar);
+        var noEntraron=this.funcionesCentros.agregarACola(this.cola,this.limiteCola,paquetesAgregar);
+        return noEntraron;
     }
-    this.puedeEntrarACola= function() {
-        var cantidad= this.funcionesCentros.puedeEntrarACola(this.limiteCola,this.cola);
+    this.espacioEnCola= function() {
+        var cantidad= this.funcionesCentros.espacioEnCola(this.limiteCola,this.cola);
         return cantidad;
     }
 }

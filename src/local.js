@@ -7,10 +7,9 @@ const Destino=require('./destino');
 
 var Local = (function(){
     var contadorOrigen="A";
-    var contadorDestino=1;
     newLocal= function(centros,limitesColasDeEspera){
         this.nombre=contadorOrigen;
-        this.centrosCreados=[new ColaSalida()];
+        this.centros=[new ColaSalida()];
         var i=0;
         var j=0;
         var k=0;
@@ -19,15 +18,15 @@ var Local = (function(){
             {
             switch(elemento){
                 case "CF":
-                    this.centrosCreados.push(new CentroFacturacion(limitesColasDeEspera[contador]));
+                    this.centros.push(new CentroFacturacion(limitesColasDeEspera[contador]));
                     i=1;
                     break;
                 case "CC":
-                    this.centrosCreados.push(new CentroCalidad(limitesColasDeEspera[contador]));
+                    this.centros.push(new CentroCalidad(limitesColasDeEspera[contador]));
                     j=1;
                     break;
                 case "CD":
-                    this.centrosCreados.push(new CentroDistribucion(limitesColasDeEspera[contador]));
+                    this.centros.push(new CentroDistribucion(limitesColasDeEspera[contador]));
                     k=1;
                     break;
             }
@@ -35,18 +34,17 @@ var Local = (function(){
         }
         );
         if (i==0) {
-            this.centrosCreados.push(new CentroFacturacion(3));
+            this.centros.push(new CentroFacturacion(3));
         }
         if (j==0) {
-            this.centrosCreados.push(new CentroCalidad(2));
+            this.centros.push(new CentroCalidad(2));
         }
         if (k==0) {
-            this.centrosCreados.push(new CentroDistribucion(30));
+            this.centros.push(new CentroDistribucion(30));
         }
-        this.centrosCreados.push(new Destino(contadorDestino));
+        this.centros.push(new Destino());
         
         
-        contadorDestino+=1;
         var letra=contadorOrigen.charCodeAt();
         letra++;
         contadorOrigen=String.fromCharCode(letra);
@@ -55,21 +53,15 @@ var Local = (function(){
         //---------------------------------------------------------------------
         
         this.agregarPaquetes= function(paquetes) {
-            this.centrosCreados[0].procesarPaquetes(paquetes);
+            this.centros[0].procesarPaquetes(paquetes);
         }
 
-        this.paquetesColaDeSalida= function() {
-            return this.centrosCreados[0].paquetes.length;
-        }
-        
-
-        this.proceso = function () {
-            var paquetesLocal=new Array(this.centrosCreados.length-1);
-            
+        this.obtenerPaquetesProcesados = function () {
+            var paquetesLocal=new Array(this.centros.length-1);
             var contador=0;
             var paquetesAux;
-            while (contador<this.centrosCreados.length-1) {
-                paquetesAux=this.centrosCreados[contador].terminarProceso();
+            while (contador<this.centros.length-1) {
+                paquetesAux=this.centros[contador].terminarProceso();
                 if (paquetesAux.length==0) {
                     paquetesAux=0;
                 }
@@ -78,22 +70,14 @@ var Local = (function(){
             }
             return paquetesLocal;
         }
-
-        this.avanzarTiempo = function(cantidad) {
-            var i=0;
-            while (i<cantidad) {
-                this.proceso();
-                i++;
-            }
-        }
         
         this.informarPaquetesEnDestino=function() {
-            var largo= this.centrosCreados.length-1;
-            return this.centrosCreados[largo].informarLlegadas();
+            var largo= this.centros.length-1;
+            return this.centros[largo].informarLlegadas();
         }
+
         this.resetearID=function() {
             contadorOrigen="A";
-            contadorDestino=1;
         }
         
 

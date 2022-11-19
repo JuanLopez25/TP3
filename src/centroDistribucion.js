@@ -1,4 +1,3 @@
-const Paquete = require("./Paquete");
 const FuncionesCentros= require('./moduloFuncionesCentros');
 
 function CentroDistribucion(limiteColaDeEspera) {
@@ -20,10 +19,11 @@ function CentroDistribucion(limiteColaDeEspera) {
         return entrega;
     }
     this.agregarACola = function (paquetesAgregar) {
-        this.funcionesCentros.agregarACola(this.cola,this.limiteCola,paquetesAgregar);
+        var noEntraron=this.funcionesCentros.agregarACola(this.cola,this.limiteCola,paquetesAgregar);
+        return noEntraron;
     }
-    this.puedeEntrarACola= function() {
-        var cantidad= this.funcionesCentros.puedeEntrarACola(this.limiteCola,this.cola);
+    this.espacioEnCola= function() {
+        var cantidad= this.funcionesCentros.espacioEnCola(this.limiteCola,this.cola);
         return cantidad;
     }
     
@@ -48,7 +48,8 @@ function CentroDistribucion(limiteColaDeEspera) {
                         }
                         return 0;
                       });
-                    var paqueteUnion= new Paquete(paquete1.destino,listaAux);
+                    var paqueteUnion= listaAux[0];
+                    paqueteUnion.agregarProductos(listaAux);
                     paqueteUnion.tiempo=paquete1.tiempo;
                     paqueteUnion.urgencia=paqueteUnion.productos[0].urgencia;
                     paqueteUnion.id=paquete1.id;

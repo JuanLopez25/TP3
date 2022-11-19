@@ -36,3 +36,33 @@ refactors
 funciones que retornan si se cumplen condiciones
 module pattern para instanciar locales y paquetes
 modulo pattern para las funciones de los centros
+
+
+
+
+1_ Mysterious name: consiste en cambiar los nombres de las funciones, las variables y los "field"¿?
+2_ Duplicted code: Podemos extraer la funcion, slide statements (si uno se encuentra con el codigo no es identico), pull up method (si el codigo se encuentra en subclases)
+3_ Code smells, funciones con mas de 10 lineas de codigo deben hacernos dudar: Podemos extraer la funcion, si posee demasiados parametro ponerlos en un objeto
+4_ Longo parameter list, no se pueden tener mas de tres o cuatro parametros en el método.
+5_ fijarse si un cambio dispara errores en varias clases o si tira varios errores en una sola clase.
+6_ Feature envy: sucede cuando un modulo se pasa mas hablando con otro modulo que con sus propias caracteristicas.
+7_ Data clumps: si una clase contiene variables repetidad deberian agruparse en una unica clase propia.
+
+MEGA IMPORTANTE
+8_REPEATED SWITCHES: no se deben usar las sentencias de decision: reemplzarlas por un condicional
+MEGA IMPORTANTE
+
+9_ Podemos decir que usamos lo de sacar los loops.
+
+10_ Speculative generality: una funcionalidad que, al momento de diseño se penso que iba a ser genial, pero en realidad nunca fue necesaria (nombre en los centros)
+11_ Temporay field: un campo de un objeto que solo es util en determinadas circunstancias.
+12_ Massage chains¿?
+13_ Middel man una clase que lo unico que hace es delegar la tarea a otra clase
+14_ Insider trading: los modulos deben ser desiñados de forma solida y al intercambiar datos en exceso aumenta el acomplamiento
+15_Large class, una clase con demsiados campos, metodos y lineas de codigo.
+16_ Alternative classes with diferrent interfaces: dos clases que realizan la misma funcionalidad pero sus interfaces son diferentes (nombres o parametros)
+17_ Data class, una clase que solo contiene valores en sus propiedades y su funcionalidad solo se limita a setter y getters.
+18_ Replace superclass with delegate: lo tenemos
+19_ Principio SRP (delegar actividades)
+20_ OCP: que un cambio en un modulo no delege en una cascada de errores
+21_ ISP: separar interfaces de manera tal que podamos tener interfaces mas pequeñas y que no todas deban obtenrse de la misma.

@@ -3,17 +3,17 @@ const MatrizLocales=require('./matrizLocales');
 const Paquete= require('./paquete');
 
 try {
-    var matriz= new MatrizLocales(3,["CF","CC","CD"],[[3,2,10],[5,3,25],[6,2,12]]);
-    var P1=new Paquete(2,[],"muy rapido",3);
-    var P2=new Paquete(1,[],"rapido",4);
-    var P3=new Paquete(1,[],"normal",4);
-    var P4=new Paquete(2,[],"normal",4);
-    var P5=new Paquete(1,[],"normal",4);
-    var P6=new Paquete(2,[],"rapido",4);
-    var P7=new Paquete(2,[],"rapido",4);
-    var P8=new Paquete(1,[],"muy rapido",4);
-    var P9=new Paquete(3,[],"normal",4);
-    var P10=new Paquete(3,[],"rapido",4);
+    var matriz= new MatrizLocales(["CF","CC","CD"],[[3,2,10],[5,3,25],[6,2,12]]);
+    var P1=new Paquete(2,"muy rapido",3);
+    var P2=new Paquete(1,"rapido",4);
+    var P3=new Paquete(1,"normal",4);
+    var P4=new Paquete(2,"normal",4);
+    var P5=new Paquete(1,"normal",4);
+    var P6=new Paquete(2,"rapido",4);
+    var P7=new Paquete(2,"rapido",4);
+    var P8=new Paquete(1,"muy rapido",4);
+    var P9=new Paquete(3,"normal",4);
+    var P10=new Paquete(3,"rapido",4);
     var lista=[P1,P2,P3];
     var lista2=[P4,P5];
     var lista3=[P6,P7,P8,P9,P10];
@@ -25,7 +25,7 @@ try {
       
     var imprimirPaquetes= function(nroLocal,nroCentro) {
         var idPaquetes="";
-        matriz.locales[nroLocal].centrosCreados[nroCentro].paquetes.forEach(element => {
+        matriz.locales[nroLocal].centros[nroCentro].paquetes.forEach(element => {
             idPaquetes=idPaquetes+element.id+"-----";
         });
         console.log(idPaquetes);
@@ -33,7 +33,7 @@ try {
 
     var imprimirColaSalida= function(nroLocal,nroCentro) {
         var idPaquetes="";
-        matriz.locales[nroLocal].centrosCreados[nroCentro].colaSalida.forEach(element => {
+        matriz.locales[nroLocal].centros[nroCentro].colaSalida.forEach(element => {
             idPaquetes=idPaquetes+element.id+"-----";
         });
         console.log(idPaquetes);
@@ -41,7 +41,7 @@ try {
 
     var imprimirColaEspera = function(nroLocal,nroCentro) {
         var idPaquetes="";
-        matriz.locales[nroLocal].centrosCreados[nroCentro].cola.forEach(element => {
+        matriz.locales[nroLocal].centros[nroCentro].cola.forEach(element => {
             idPaquetes=idPaquetes+element.id+"-----";
         });
         console.log(idPaquetes);

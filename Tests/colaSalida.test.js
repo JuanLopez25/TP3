@@ -7,7 +7,7 @@ var salida;
 
 beforeEach(()=> {
     salida= new ColaSalida();
-    paquete = new Paquete("1");
+    paquete = new Paquete(1);
     lista=[];
     lista.push(paquete)
 });

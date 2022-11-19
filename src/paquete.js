@@ -1,13 +1,20 @@
 
 var Paquete = (function(){
     var contador=0;
-    newPaquete= function(destinoPropuesto,productos,urgenciaSolicitada,cantidadCentros) {
+    newPaquete= function(destinoPropuesto,urgenciaSolicitada,cantidadCentros) {
         this.sePuedeMover=2;
         contador+=1;
         this.id=contador;
         this.destino=destinoPropuesto;
-        this.productos=productos;
+        this.productos=[];
         this.tiempo=0;
+
+
+
+
+
+
+        
         switch(urgenciaSolicitada){
             case "muy rapido":
                 this.urgencia=cantidadCentros;
@@ -30,11 +37,18 @@ var Paquete = (function(){
             }
         }
         this.resetearID=function() {
-            contador=0;
+            contador=1;
+            this.id=contador;
         }
         this.aumentarTiempo= function(){
             this.tiempo+=1;
         }
+        this.agregarProductos= function(productosAgregar) {
+            productosAgregar.forEach(producto => {
+                this.productos.push(producto);
+            });
+        }
+
     }
     return newPaquete;
 })();

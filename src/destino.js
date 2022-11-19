@@ -1,6 +1,5 @@
 
-function Destino(numero){
-    this.numero=numero;
+function Destino(){
     this.paquetes=[];
     this.cola=[];
     this.nombre="D";

@@ -7,7 +7,7 @@ var calidad;
 
 beforeEach(()=> {
     calidad= new CentroCalidad(3);
-    paquete = new Paquete("1");
+    paquete = new Paquete(1);
     lista=[];
     lista.push(paquete)
     calidad.agregarACola(lista);
