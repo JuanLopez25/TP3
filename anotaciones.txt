@@ -39,7 +39,6 @@ modulo pattern para las funciones de los centros
 
 
 
-
 1.	Mysterious name: consiste en cambiar los nombres de las funciones, las variables y los "field". Consideramos que esto es fundamental para la comprensión del código, por lo tanto lo primero que debemos hacer es cambiarle los nombres a las funciones y variables de manera tal que contengan un nombre representativo:
 a.	Empezamos por el método “proceso” en el archivo local.js línea 66. Proponemos cambiar el nombre de la funcion a “obtenerPaquetesProcesados”, la idea de esta funcion es obtener los paquetes que se procesaron en cada tiempo en los centros de dicho local.
 b.	Un cambio en el nombre de la variable “paquetesDeLocales” a “paquetesDeLocalesProcesados” en el archivo matrizLocales.js. La idea de esta variable era representar a una matriz con los paquetes que ya fueron procesados en cada centro respectivamente.
@@ -49,6 +48,7 @@ e.	En el archivos matrizLocales.js cambiamos el nombre de la variable “arribaO
 f.	Le cambiamos el nombre al método “procesarPaquetesPermitidos” del archivo matrizLocales.js dado que la idea es que la funcion encole en los centros de los locales los paquetes “permitidos”, por ende su nuevo nombre será “encolarPaquetesPermitidos”.
 g.	Cambiamos también el nombre a la variable “paquetesQueDePuedenProcesasar” a “paquetesQueSePuedenProcesar”, que por un error de tipeo estaba mal escrita en el método “encolarPaquetesPermitidos” del archivo matrizLocales.js.
 h.	Cambiamos en los centros, y en el módulos de las funciones de los centros el nombre del método “puedeEntrarACola()” por “espacioEnCola” ya que retorna el espacio que hay disponible en la cola.
+i.	Cambiamos el nombre de los parámetros fila y columna que se le pasan a la funcion “aCualMoverme” en las líneas 85 y 96. El nombre pasa a ser “filaQueEstoy”, “columnasQueQuedan” ya que generaba confusión porque representan cosas distintas
 
 
 2.	En “procesarPaquetesDelDestino” en el archivos matrizLocales.js en la línea 54, creamos una variable denominada “columna” la cual es redundante, por lo tanto la eliminamos.
@@ -80,7 +80,12 @@ h.	Cambiamos en los centros, y en el módulos de las funciones de los centros el
 15.	 Se puede eliminar el condicional que se encuentra entre las líneas 193-200 que había sido recientemente refactorizada para eliminar el while, simplemente haciendo que el método “agregarACola” retorne los paquetes que no entraron a la cola, haciendo así que se vaya el condicional, la bandera “l” y la variable “cantidadQuePuedoProcesar”.
 
 16.	 Se puede eliminar el parámetro “localesAgregar” en el prototipo “MatrizLocales” dado que es completamente innecesario, se puede contar el largo de los limitesColaDeEspera y obtener los locales que se quieren agregar. Además sacaremos el “while” que se encuentra entra la línea 12-15 por un forEach, sacando no solo el while, sino que también la variable contador.
- 
+
+17.	 Sacamos el switch en el prototipo paquete, creando una herencia con 3 tipos de paquetes, los muy rápidos, los rápidos, y los normales. De esta forma podemos sacar el switch que se encuentra entre las líneas 19 a 29 del prototipo paquetes, además de sacarle un parámetro: “urgenciaSolicitada”.
+
+18.	 El siguiente cambio requiere de varias aclaraciones. Primero que nada la idea fue sacar la variable filasAMoverse en el método “analizarMovimientos”, para ello debíamos hacer que cada paquete supiese en que fila se encuentra y además que tenga un método para retornas cuantas filas debe moverse. El método que agregamos entonces fue “filasAMoverse” en el prototipo paquetes, que hace lo mismo que hacíamos para calcular la variable en “analizarMovimientos” de matrizLocales.js. Para el tema de saber en que fila estaba decidimos primero que nada que cuando se agregan paquetes a la cola de salida, que se pase por parámetro el nombre del local, entonces la cola de salida les pondrá el valor de la fila correspondiente a cada paquete. Luego en el método “encolarYProcesar” del archivo matrizLocales.js agregamos que cuando un paquete se mueve, se le actualiza la fila, de esta forma los paquetes sabrán su fila constantemente, y debemos olvidarnos no solo de utilizar la variable “filasAMoverse” anteriormente mencionada sino que también debemos dejar de pasarle por parámetro dicho valor a el método “aCualMoverme”. A su vez, podemos dejar de usar el parámetro “filaQueEstoy” al método “aCualMoverme” ya que ahora el dato lo tiene el paquete también, como consecuencia tampoco es necesaria la bandera en el método “analizarMovimientos”. El mismo cambio podemos realizar con la variable “columnasQueQuedan”, generando un método en el prototipo paquete que retorne cuantas columnas quedan el cual dominamos “columnasQueQuedan”, y actualizamos en que columna se encuentra el paquete en cada tiempo. De esta forma no solo eliminamos la bandera “columnasQueQuedan” en el método “analizarMovimientos” sino que también dejamos de pasarle por parámetro la variable “columnasQueQuedan” al método “aCualMoverme”.
+
+19.	 Por otro lado el código de matrizLocales.js es muy extenso por lo que el método “aCualMoverme”, lo delegaremos al prototipo Paquete dado que solo se utilizan métodos y variables de dicho prototipo. Con este cambio logramos sacar uno de los últimos parámetros “paquete” dado que no hace falta que cuando llamamos a la funcion del objeto, se los pasemos por parámetro, dejando así en el método “aCualMoverme” un único parámetro que corresponde a ”subirOBajar”. Y habiendo reducido finalmente el código de matrizLocales.js de 210 líneas a 150.
 
 2_ Duplicted code: Podemos extraer la funcion, slide statements (si uno se encuentra con el codigo no es identico), pull up method (si el codigo se encuentra en subclases)
 3_ Code smells, funciones con mas de 10 lineas de codigo deben hacernos dudar: Podemos extraer la funcion, si posee demasiados parametro ponerlos en un objeto
@@ -107,4 +112,3 @@ MEGA IMPORTANTE
 19_ Principio SRP (delegar actividades)
 20_ OCP: que un cambio en un modulo no delege en una cascada de errores
 21_ ISP: separar interfaces de manera tal que podamos tener interfaces mas pequeñas y que no todas deban obtenrse de la misma.
-

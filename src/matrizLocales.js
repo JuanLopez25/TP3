@@ -3,6 +3,9 @@ const math = require('mathjs');
 const PaquetesLocalPosterior=require('./paquetesLocalPosterior');
 const PaquetesLocalSuperior=require('./paquetesLocalSuperior');
 const PaquetesMismoLocal=require('./paquetesMismoLocal');
+const Paquete = require('./paquete');
+
+
 
 
 function MatrizLocales(centrosAgregar,limitesColasDeEspera){
@@ -64,63 +67,23 @@ function MatrizLocales(centrosAgregar,limitesColasDeEspera){
 
     this.analizarMovimientos= function(paquetesDeLocalesProcesados) {
         var columna;
-        var filasAMoverse;
-        var subirOBajar;
-        var fila=1;
-
         paquetesDeLocalesProcesados.forEach(filaPaquetes=> {
             columna=this.cantidadColumnas;
-            //Se puede hacer que los paquetes contenga su fila y columna en la que estan entonces no necesitamos muchas de estas variables.
             filaPaquetes.forEach(paquetes=>{
                 if (paquetes!=0) {
                     paquetes.forEach(paquete=> {
-                        filasAMoverse=(paquete.destino-(fila));
-                        
-                        if (filasAMoverse<0) {   //no me gusta el "if" pero no puedo sacarlo
-                            subirOBajar=1;
-                        } else if (filasAMoverse>0) {
-                            subirOBajar=-1;
-                        } else {
-                            subirOBajar=0;
-                        }
-                        filasAMoverse=math.abs(filasAMoverse);
-                        
-                        this.aCualMoverme(paquete,filasAMoverse,fila,columna,subirOBajar);  //muchos parametros.
-                        
+                        paquete.filasAMoverse=(paquete.destino-(paquete.fila));
+                        paquete.columna=columna;
+                        paquete.actualizarSubirOBajar();
+                        paquete.filasAMoverse=math.abs(paquete.filasAMoverse);
+                        paquete.aCualMoverme();
                     });
                 }
                 columna--;
             })
-            fila++;
         })
     }
-
-    this.aCualMoverme = function(paquete,filasAMoverse,fila,columna,subirOBajar) {
-
-        if(filasAMoverse<(columna-1)) {
-            if(filasAMoverse==columna-2) {
-               if(paquete.destino-(fila) == 0) {
-                    paquete.sePuedeMover=0;
-               }else if (paquete.destino-(fila)>0) {
-                    paquete.sePuedeMover=-2;
-               } else {
-                    paquete.sePuedeMover=2;
-               }
-            } else {
-                paquete.sePuedeMover=4; 
-            }
-        } else {
-            if (subirOBajar==1) {
-                paquete.sePuedeMover=1;
-            } else if (subirOBajar==-1) {
-                
-                paquete.sePuedeMover=-1;
-            } else {
-                paquete.sePuedeMover=0;
-            }
-        }
-    }
-
+    
     this.encolarYProcesar= function(paquetesDeLocalesProcesados) {
         var paquetesAProcesarMismoLocal= new PaquetesMismoLocal();
         var paquetesLocalSuperior=new PaquetesLocalSuperior();
@@ -175,6 +138,7 @@ function MatrizLocales(centrosAgregar,limitesColasDeEspera){
         if (paquetesAProcesar.paquetes!=0 && local.centros[columna].espacioEnCola()>0) { 
             paquetesAProcesar.paquetes.forEach(paquete=> {
                 if (paquetesAProcesar.limites(paquete)) {
+                    paquete.fila=fila+1;
                     paquetesQueSePuedenProcesar.push(paquete);
                 } else {
                     noProcesados.push(paquete);
@@ -192,3 +156,10 @@ function MatrizLocales(centrosAgregar,limitesColasDeEspera){
 
 module.exports= MatrizLocales;
 
+
+// var matriz= new MatrizLocales(["CF","CC","CD"],[[4,3,23],[5,4,10],[6,2,14]]);
+// var paqueteMuyRapido=new Paquete(1,"muy rapido",4);
+// //var paqueteRapido=new Paquete(2,"rapido",4);
+// //var paqueteNormal=new Paquete(3,"normal",4);
+// matriz.agregarPaquetes([paqueteMuyRapido],"A");
+// console.log(matriz.locales[0].centros[0].paquetes);

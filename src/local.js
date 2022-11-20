@@ -53,7 +53,8 @@ var Local = (function(){
         //---------------------------------------------------------------------
         
         this.agregarPaquetes= function(paquetes) {
-            this.centros[0].procesarPaquetes(paquetes);
+            var numero= this.nombre.charCodeAt()-64;
+            this.centros[0].procesarPaquetes(paquetes,numero);
         }
 
         this.obtenerPaquetesProcesados = function () {

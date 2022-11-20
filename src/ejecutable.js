@@ -174,8 +174,6 @@ try {
 
 
 
-
-
 // var paquetes=["1"];
 // var lista=["2"];
 // lista.forEach(element=> paquetes.push(element));

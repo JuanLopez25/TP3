@@ -8,7 +8,10 @@ function ColaSalida(paquete) {
   this.colaSalida=[];
   this.funcionesCentros=FuncionesCentros;
 
-  this.procesarPaquetes = function(paquetesAProcesar) {
+  this.procesarPaquetes = function(paquetesAProcesar,numero) {
+    paquetesAProcesar.forEach(paquete=>{
+      paquete.fila=numero;
+    })
     this.agregarACola(paquetesAProcesar);
     this.funcionesCentros.procesarPaquetes(this.cola,this.paquetes,5);
   }
