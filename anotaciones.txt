@@ -38,77 +38,86 @@ module pattern para instanciar locales y paquetes
 modulo pattern para las funciones de los centros
 
 
-
+Analizando en el commit 641.
 1.	Mysterious name: consiste en cambiar los nombres de las funciones, las variables y los "field". Consideramos que esto es fundamental para la comprensión del código, por lo tanto lo primero que debemos hacer es cambiarle los nombres a las funciones y variables de manera tal que contengan un nombre representativo:
 a.	Empezamos por el método “proceso” en el archivo local.js línea 66. Proponemos cambiar el nombre de la funcion a “obtenerPaquetesProcesados”, la idea de esta funcion es obtener los paquetes que se procesaron en cada tiempo en los centros de dicho local.
-b.	Un cambio en el nombre de la variable “paquetesDeLocales” a “paquetesDeLocalesProcesados” en el archivo matrizLocales.js. La idea de esta variable era representar a una matriz con los paquetes que ya fueron procesados en cada centro respectivamente.
-c.	En el archivo de local.js el atributo “centrosCreados” lo cambiaremos a simplemente “centros”, dado que tendrá una lista con sus centros y su respectivo destino.
-d.	En el archivo matrizLocales.js le cambiamos el nombre al atributo “cantidadCentros” dado que es confuso con la cantidad de centros de los locales porque “cantidadCentros” en la matriz no contiene al destino. Por lo tanto el atributo pasará de llamarse “cantidadCentros” a llamarse “cantidadColumnas”.
-e.	En el archivos matrizLocales.js cambiamos el nombre de la variable “arribaOAbajo” en los métodos “aCualMoverme” y en “analizarMovimientos” por el nombre “subirOBajar” ya que la variable representa un 1 si el paquete debe subir, un -1 si debe bajar o un 0 si se debe mantener en la fila actual.
-f.	Le cambiamos el nombre al método “procesarPaquetesPermitidos” del archivo matrizLocales.js dado que la idea es que la funcion encole en los centros de los locales los paquetes “permitidos”, por ende su nuevo nombre será “encolarPaquetesPermitidos”.
-g.	Cambiamos también el nombre a la variable “paquetesQueDePuedenProcesasar” a “paquetesQueSePuedenProcesar”, que por un error de tipeo estaba mal escrita en el método “encolarPaquetesPermitidos” del archivo matrizLocales.js.
-h.	Cambiamos en los centros, y en el módulos de las funciones de los centros el nombre del método “puedeEntrarACola()” por “espacioEnCola” ya que retorna el espacio que hay disponible en la cola.
-i.	Cambiamos el nombre de los parámetros fila y columna que se le pasan a la funcion “aCualMoverme” en las líneas 85 y 96. El nombre pasa a ser “filaQueEstoy”, “columnasQueQuedan” ya que generaba confusión porque representan cosas distintas
+
+b.	Un cambio en el nombre de la variable “paquetesDeLocales” a “paquetesDeLocalesProcesados” en el archivo matrizLocales.js (primera aparición en la línea 24) . La idea de esta variable era representar a una matriz con los paquetes que ya fueron procesados en cada centro respectivamente.
+
+c.	En el archivo de local.js el atributo “centrosCreados” lo cambiaremos a simplemente “centros” (primera aparición línea 13), dado que tendrá una lista con sus centros y su respectivo destino.
+
+d.	En el archivo matrizLocales.js le cambiamos el nombre al atributo “cantidadCentros” dado que es confuso con la cantidad de centros de los locales porque “cantidadCentros” en la matriz no contiene al destino. Por lo tanto el atributo pasará de llamarse “cantidadCentros” a llamarse “cantidadColumnas” (primera aparición línea 14).
+
+e.	En el archivos matrizLocales.js cambiamos el nombre de la variable “arribaOAbajo” en los métodos “aCualMoverme” (se lo pasamos por parámetro en la línea 106) y en “analizarMovimientos” (primera aparición línea 80) por el nombre “subirOBajar” ya que la variable representa un 1 si el paquete debe subir, un -1 si debe bajar o un 0 si se debe mantener en la fila actual .
+
+f.	Le cambiamos el nombre al método “procesarPaquetesPermitidos” (línea 178). del archivo matrizLocales.js dado que la idea es que la funcion encole en los centros de los locales los paquetes “permitidos”, por ende su nuevo nombre será “encolarPaquetesPermitidos”.
 
 
-2.	En “procesarPaquetesDelDestino” en el archivos matrizLocales.js en la línea 54, creamos una variable denominada “columna” la cual es redundante, por lo tanto la eliminamos.
+g.	Cambiamos también el nombre a la variable “paquetesQueDePuedenProcesasar” a “paquetesQueSePuedenProcesar”, que por un error de tipeo estaba mal escrita en el método “encolarPaquetesPermitidos” (línea 179) del archivo matrizLocales.js.
 
-3.	Tenemos un condicional entre las líneas 65-67 del archivo matrizLocales.js el cual es redundante, debido a que se utilizaba para no procesar los paquetes que no pertenecieran a dicho destino, esto es un caso de “Speculative generality” en donde se pensó a la hora del diseño que seria útil, pero luego nos dimos cuenta de que no es así.
+h.	Cambiamos en los centros, y en el módulos de las funciones de los centros el nombre del método “puedeEntrarACola” por “espacioEnCola” ya que retorna el espacio que hay disponible en la cola. (línea 46 del módulo de funciones)
 
-4.	Luego entre las líneas 73-75 tenemos un “else” que es redundante, debido a que si no tiene paquetes para procesar (esto se debe a que los paquetesAProcesar==0) el destino procesa paquetes vacíos, lo cual no es necesario y complejiza el código. 
+i.	Le cambiamos el nombre al atributo columna de Paquetes por “columnasQueQuedan” ya que representa la cantidad de columnas que quedan para llegar a destino
 
-5.	Con los refactors realizados al método procesarPaquetesDelDestino logramos acortarlo unas 5 líneas de código.
 
-6.	Creo que es un tema mas de prolijidad pero no hace falta instanciar con un determinado valor la variable columna en el método “analizarMovimientos” del archivo matrizLocales.js
+2.	 Tenemos un condicional entre las líneas 62-64 en el método “procesarPaquetesDelDestino” del archivo matrizLocales.js el cual es redundante, debido a que se utilizaba para no procesar los paquetes que no pertenecieran a dicho destino, esto es un caso de “Speculative generality” en donde se pensó a la hora del diseño que sería útil, pero luego nos dimos cuenta de que no es así.
 
-7.	Sacamos la variable productos en paquete dado que es redundante y creamos un método que sea para agregar productos a un paquete. Teniendo así que pasar por parámetros menos variables.
+3.	Sacamos la variable productos en paquete (línea 4) dado que es redundante y creamos un método que sea para agregar productos a un paquete (línea 42-46 en el nuevo archivo). Teniendo así que pasar por parámetros menos variables. “Long parameter list”.
 
-8.	Un método redundante es el de “paquetesColaDeSalida” en local.js, el cual antes era de utilidad y dejo de serlo. Lo mismo sucede con el test LocalSinUrgencia.test.js, el cual solo utilizaba este método y verificaba que los paquetes estén siendo procesados. Lo mismo sucede con su método “avanzarTiempo” el cual se utilizaba en un principio para avanzar el tiempo en el local, que luego fue trasladado a “matrizLocales.js” quien se ocupada de que avance el tiempo en todos los locales.
+4.	Un método redundante es el de “paquetesColaDeSalida” en local.js, el cual antes era de utilidad y dejo de serlo (línea 61-63). Lo mismo sucede con el test LocalSinUrgencia.test.js, el cual solo utilizaba este método y verificaba que los paquetes estén siendo procesados. Lo mismo sucede con el método “avanzarTiempo” (líneas 82-88) de local.js el cual se utilizaba en un principio para avanzar el tiempo en el local, que luego fue trasladado a “matrizLocales.js” quien se ocupada de que avance el tiempo en todos los locales. “Large class”
 
-9.	Es redundante e incensario pasarle por parámetro al destino su numero de Destino, debido a que estará asociado a un local en una matriz y corresponde a una determinada fila, por lo tanto no solo podemos dejar de pasar por parámetro el numero de destino, sino que también, podemos dejar de tener el atributo en destino.js y también podemos dejar de tener un contador en local.js que corresponda al número de destino. Como consecuencia de esto no tenemos mas que resetear el contador de destino en el método “resetearID”.
+5.	Es redundante e incensario pasarle por parámetro al destino su número de Destino (línea 46 en local.js), debido a que estará asociado a un local en una matriz y corresponde a una determinada fila, por lo tanto no solo podemos dejar de pasar por parámetro el número de destino, sino que también, podemos dejar de tener el atributo en destino.js (línea 3) y también podemos dejar de tener un contador en local.js (línea 10) que corresponda al número de destino. Como consecuencia de esto no tenemos más que resetear el contador de destino en el método “resetearID”. “Large class”, “Long parameter list”, “Long function”.
 
-10.	 Podemos agregar al método “resetearID” una línea de código que sea: “this.nombre=contadorOrigen” por lo tanto cuando queremos resetear id podemos hacerlo con el primer local creado, y no crear un local auxiliar solo para esto. (Fijarse si se puede)
+6.	 Podemos remover una serie de condicionales que se encuentran en el método  “procesarPaquetesPermitidos” (líneas 178-221) en el archivo matrizLocales.js con polimorfismo, esto además nos permite remover de este prototipo 3 métodos los cuales son: “limitesMismoLocal” (línea 224), “limitesLocalSuperior” (línea 227) y “limitesLocalPosterior” (línea 230) . Para ello creamos 3 prototipos que se denominan “PaquetesLocalSuperior”, “PaquetesMismoLocal” y “PaquetesLocalPosterior”, los cuales usaremos para indicar si los paquetes son del local que está por encima en la matriz, en la misma fila, o en la fila posterior. Creando estos prototipos no solo sacamos una serie de condicionales, sino que también, dejamos de pasarle por parámetro la variable “limite” al método “procesarPaquetesPermitidos” debido a que ahora se encontrará en el objeto instanciado. “Long function”, “Repeated switches”, “Large class”, “Long parameter list”, “Duplicated code”.
 
-11.	 Podemos agregar al método “resetearID” una línea de código que sea: “ this.id=contador” por lo tanto cuando queremos resetear id podemos hacerlo con el primer paquete creado, y no crear un paquete auxiliar solo para esto.
+7.	Para seguir sacando condicionales de más, decidimos sacar los “else” de los “if” que se encontraban en las filas 143-145 y de 148-150 del método “encolarYProcesar” en el archivo “matrizLocales.js”. Para ellos lo que haremos es que cada vez que se entra al “forEach” de “this.locales.forEach” se seten en los objetos de PaquetesLocalSuperior y PaquetesLocalPosterior los paquetes en 0, y en caso de no ser la primer o última fila se cambiaran los valores. “Repeated switches”, “Long function”.
 
-12.	 Podemos remover una serie de condicionales que se encuentran en el método  “procesarPaquetesPermitidos” en el archivo matrizLocales.js con polimorfismo, esto además nos permite remover de esta clase 3 métodos los cuales son: “limitesMismoLocal”, “limitesLocalSuperior” y “limitesLocalPosterior”. Para ello creamos 3 prototipos que se denominan “PaquetesLocalSuperior”, “PaquetesMismoLocal” y “PaquetesLocalPosterior”, los cuales usaremos para indicar si los paquetes son del local que esta por encima en la matriz, en la misma fila, o en la fila posterior. Creando estos prototipos no solo sacamos una serie de condicionales, sino que también, dejamos de pasarle por parámetro la variable “limite” al método “procesarPaquetesPermitidos” debido a que ahora se encontrará en el objeto instanciado.
+8.	 Se puede eliminar el “while” que se encuentra entre las líneas 209-214 por un forEach en el método “procesarPaquetesPermitidos” del archivo matrizLocales.js. “Loops”
 
-13.	Para seguir sacando condicionales de más, decidimos sacar los “else” de los “if” que se encontraban en las filas 139-141 y de 144-146 del método “encolarYProcesar” en el archivo “matrizLocales.js”. Para ellos lo que haremos es que cada vez que se entra al “forEach” de “this.locales.forEach” se seten en los objetos de PaquetesLocalSuperior y PaquetesLocalPosterior los paquetes en 0, y en caso de no ser la primer o ultima fila se cambiaran los valores.
+9.	 Se puede eliminar los condicionales y el forEach que se encuentra entre las líneas (líneas 208-215) en el método “procesarPaquetesPermitidos”, simplemente haciendo que el método “agregarACola” (línea 38 del moduloFuncionesCentros) retorne los paquetes que no entraron a la cola, haciendo así que se vaya el condicional, la bandera “l” (línea 181) y la variable “cantidadQuePuedoProcesar” (línea 182). “Long function”, “Repeated switches”.
 
-14.	 Se puede eliminar el “while” que se encuentra entre las líneas 192-197 por un forEach del método “encolarPaquetesPermitidos” del archivo matrizLocales.js.
+10.	 Se puede eliminar el parámetro “localesAgregar” (línea 6) en el prototipo “MatrizLocales” dado que es completamente innecesario, se puede contar el largo de los limitesColaDeEspera y obtener los locales que se quieren agregar. Además sacaremos el “while” que se encuentra entra la línea 9-12 por un forEach, sacando no solo el while, sino que también la variable contador (línea 7). “Long parameter list”, “Loops”, “Speculative generality”.
 
-15.	 Se puede eliminar el condicional que se encuentra entre las líneas 193-200 que había sido recientemente refactorizada para eliminar el while, simplemente haciendo que el método “agregarACola” retorne los paquetes que no entraron a la cola, haciendo así que se vaya el condicional, la bandera “l” y la variable “cantidadQuePuedoProcesar”.
 
-16.	 Se puede eliminar el parámetro “localesAgregar” en el prototipo “MatrizLocales” dado que es completamente innecesario, se puede contar el largo de los limitesColaDeEspera y obtener los locales que se quieren agregar. Además sacaremos el “while” que se encuentra entra la línea 12-15 por un forEach, sacando no solo el while, sino que también la variable contador.
+11.	Decidimos sacar el “else”(119-128) que era redundante en el método “aCualMoverme” en el prototipo MatrizLocales ya que lo que hacía era cambiar el valor del atributo “sePuedeMover” que iba a ser igual que el valor del atributo “subirOBajar”, por lo tanto también tuvimos que utilizar el atributo “subirOBajar” en el método “limites” de “PaquetesLocalSuperior”, “PaquetesMismoLocal” y “PaquetesLocalPosterior”. “Long function”, “Repeated switches”.
 
-17.	 Sacamos el switch en el prototipo paquete, creando una herencia con 3 tipos de paquetes, los muy rápidos, los rápidos, y los normales. De esta forma podemos sacar el switch que se encuentra entre las líneas 19 a 29 del prototipo paquetes, además de sacarle un parámetro: “urgenciaSolicitada”.
+12.	 En el archivo matrizLocales.js sacamos dos variables: por un lado la variable “filasAMoverse” (línea 79), y lo transformamos en un atributo del prototipo paquete. Lo mismo hicimos con las filas (línea 81), y en cuanto el paquete se mueve, se le reasigna una fila. Además la variable subirOBajar la pusimos como un atributo del prototipo paquete (sacándola del método “analizarMovimientos” línea 80) y creamos también dos nuevos métodos en dicho prototipo: por un lado el método “aCualMoverme” de manera tal que ahora de 5 parámetros que se le pasaban se le pasan 0. Además creamos un método denominado “actualizarSubirOBajar” que simplemente hace que el paquete actualice el valor de “subirOBajar” con su nuevo valor de “filasAMoverse”. “Long parameter list”, “Long function”, “Large class”.
 
-18.	 El siguiente cambio requiere de varias aclaraciones. Primero que nada la idea fue sacar la variable filasAMoverse en el método “analizarMovimientos”, para ello debíamos hacer que cada paquete supiese en que fila se encuentra y además que tenga un método para retornas cuantas filas debe moverse. El método que agregamos entonces fue “filasAMoverse” en el prototipo paquetes, que hace lo mismo que hacíamos para calcular la variable en “analizarMovimientos” de matrizLocales.js. Para el tema de saber en que fila estaba decidimos primero que nada que cuando se agregan paquetes a la cola de salida, que se pase por parámetro el nombre del local, entonces la cola de salida les pondrá el valor de la fila correspondiente a cada paquete. Luego en el método “encolarYProcesar” del archivo matrizLocales.js agregamos que cuando un paquete se mueve, se le actualiza la fila, de esta forma los paquetes sabrán su fila constantemente, y debemos olvidarnos no solo de utilizar la variable “filasAMoverse” anteriormente mencionada sino que también debemos dejar de pasarle por parámetro dicho valor a el método “aCualMoverme”. A su vez, podemos dejar de usar el parámetro “filaQueEstoy” al método “aCualMoverme” ya que ahora el dato lo tiene el paquete también, como consecuencia tampoco es necesaria la bandera en el método “analizarMovimientos”. El mismo cambio podemos realizar con la variable “columnasQueQuedan”, generando un método en el prototipo paquete que retorne cuantas columnas quedan el cual dominamos “columnasQueQuedan”, y actualizamos en que columna se encuentra el paquete en cada tiempo. De esta forma no solo eliminamos la bandera “columnasQueQuedan” en el método “analizarMovimientos” sino que también dejamos de pasarle por parámetro la variable “columnasQueQuedan” al método “aCualMoverme”.
+13.	Gracias a haber agregado fila como atributo, en el método “encolarNoProcesados” podemos dejar de usar la variable fila, y directamente usar el valor del atributo del paquete en cuestión. “Long function”.
 
-19.	 Por otro lado el código de matrizLocales.js es muy extenso por lo que el método “aCualMoverme”, lo delegaremos al prototipo Paquete dado que solo se utilizan métodos y variables de dicho prototipo. Con este cambio logramos sacar uno de los últimos parámetros “paquete” dado que no hace falta que cuando llamamos a la funcion del objeto, se los pasemos por parámetro, dejando así en el método “aCualMoverme” un único parámetro que corresponde a ”subirOBajar”. Y habiendo reducido finalmente el código de matrizLocales.js de 210 líneas a 150.
 
-2_ Duplicted code: Podemos extraer la funcion, slide statements (si uno se encuentra con el codigo no es identico), pull up method (si el codigo se encuentra en subclases)
-3_ Code smells, funciones con mas de 10 lineas de codigo deben hacernos dudar: Podemos extraer la funcion, si posee demasiados parametro ponerlos en un objeto
-4_ Longo parameter list, no se pueden tener mas de tres o cuatro parametros en el método.
-5_ fijarse si un cambio dispara errores en varias clases o si tira varios errores en una sola clase.
-6_ Feature envy: sucede cuando un modulo se pasa mas hablando con otro modulo que con sus propias caracteristicas.
-7_ Data clumps: si una clase contiene variables repetidad deberian agruparse en una unica clase propia.
+14.	 Decidimos agregar a “PaquetesLocalPosterior”, “PaquetesLocalSuperior” y “PaquetesMismoLocal” dos atributos, uno que sea la fila en la que se encuentran, y otro que sea la columna en la que se encuentran, y además un método para actualizarlos, de esta forma ya no es necesario pasar por parámetro la fila y la columna en el método “procesarPaquetesPermitidos” en el archivo MatrizLocales.js línea 178. “Long parameter list”.
 
-MEGA IMPORTANTE
-8_REPEATED SWITCHES: no se deben usar las sentencias de decision: reemplzarlas por un condicional
-MEGA IMPORTANTE
 
-9_ Podemos decir que usamos lo de sacar los loops.
 
-10_ Speculative generality: una funcionalidad que, al momento de diseño se penso que iba a ser genial, pero en realidad nunca fue necesaria (nombre en los centros)
-11_ Temporay field: un campo de un objeto que solo es util en determinadas circunstancias.
-12_ Massage chains¿?
-13_ Middel man una clase que lo unico que hace es delegar la tarea a otra clase
-14_ Insider trading: los modulos deben ser desiñados de forma solida y al intercambiar datos en exceso aumenta el acomplamiento
-15_Large class, una clase con demsiados campos, metodos y lineas de codigo.
-16_ Alternative classes with diferrent interfaces: dos clases que realizan la misma funcionalidad pero sus interfaces son diferentes (nombres o parametros)
-17_ Data class, una clase que solo contiene valores en sus propiedades y su funcionalidad solo se limita a setter y getters.
-18_ Replace superclass with delegate: lo tenemos
-19_ Principio SRP (delegar actividades)
-20_ OCP: que un cambio en un modulo no delege en una cascada de errores
-21_ ISP: separar interfaces de manera tal que podamos tener interfaces mas pequeñas y que no todas deban obtenrse de la misma.
+15.	 En el prototipo “centroDistribucion” modificamos el método “unirPaquetes” de manera tal que sacamos el condicional (líneas 41-59) que verificaba que “listaAux” tenga un largo determinado para ordenarla, esto lo hicimos instanciando la listaAux con el paquete1 (línea 35) y agregando al condicional de la línea 37 la condicion de que las instancias de los paquetes 1 y 2 sean distintas. “Repeated switches”, “Long function”.
+
+16.	 Observamos que el ordenamiento de paquetes es código que podemos reutilizar, ya que se encuentra tanto en el método “procesarPaquetes” en “moduloFuncionesCentro.js” (líneas 7 a 15) y también se encuentra en “unirPaquetes” líneas (42-50) en el centroDistribucion.js, por lo tanto lo agregaremos como un método a “moduloFuncionesCentros” y que se ordenen los paquetes antes de entrar al método “procesarPaquetes”. De esta manera logramos dejar de tener el ordenamiento en el método “unirPaquetes” ya que simplemente se lo pedirá a la funcion del módulo. “Duplicated code”, “Long function”.
+
+17.	Nos dimos cuenta de que el prototipo colaSalida utilizaba pocos métodos del moduloFuncionesCentros, por lo que decidimos crear un nuevo modulo denominado moduloFuncionesColaLimite con los métodos que no utilizaba colaSalida, dejando así 2 módulos, en donde en uno están los métodos que utilizan todos los centros (incluida la cola de salida) y en el otro modulo los métodos “extra” que utilizan algunos centros. “ISP (Separation through multiple inheritance”.
+
+18.	 sacaríamos el switch del archivo paquete.js entre las líneas 11 a 21 que se utilizaba para verificar el tipo de urgencia y obtener un valor numérico, generando 3 nuevos archivos “PaqueteMuyRapido”, “PaqueteRapido” y “PaqueteNormal” y que contengan un atributo denominado “paqueteGenerico” que es un objeto paquete con sus respectivos métodos y atributos, logrando sacar el switch para obtener la urgencia. Como consecuencia el parámetro urgenciaSolicitada en Paquete.js es redundante ya que se le da un valor a la hora de instanciar un tipo de paquete determinado. “Repeated switches”, “Large class”, “Long parameter list”.
+
+19.	 El parámetro paquete en colaSalida.js es redundante y puede ser eliminado. “Long parameter list”, “Speculative generality”.
+
+20.	 Sacaríamos el nombre de los centros dado que es útil nada mas para cierto tipo de test en los cuales queríamos verificar que se creen de forma correcta. “Speculative generality”, “Temporary field”.
+
+
+
+
+
+Correcciones adicionales:
+I.	En “procesarPaquetesDelDestino” en el archivo matrizLocales.js en la línea 53, creamos una variable denominada “columna” la cual es redundante, por lo tanto la eliminamos.
+
+II.	Luego entre las líneas 69-71 tenemos un “else” que es redundante, debido a que si no tiene paquetes para procesar (esto se debe a que los paquetesAProcesar==0) el destino procesa paquetes vacíos, lo cual no es necesario y complejiza el código. 
+
+III.	Podemos agregar al método “resetearID” una línea de código que sea: “ this.id=contador” por lo tanto cuando queremos resetear id podemos hacerlo con el primer paquete creado, y no crear un paquete auxiliar solo para esto. (línea 33).
+
+IV.	También cambiamos el valor del atributo columnas en paquetes a un valor menos dado que al representar la cantidad de columnas que quedan debía tener un valor una unidad menor.
+
+
+Acortamos matrizLocales 90 lineas de codigo.
+Acortamos 20 lineas de codigo en local.
+
+
+12_ Massage chains

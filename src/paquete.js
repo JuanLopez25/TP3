@@ -6,13 +6,11 @@ var Paquete = (function(){
         this.id=contador;
         this.destino=destinoPropuesto;
         this.productos=[];
-
         this.tiempo=0;
         this.filasAMoverse=0;
         this.subirOBajar=0;
         this.fila=0;
         this.columnasQueQuedan=cantidadCentros;
-    
         switch(urgenciaSolicitada){
             case "muy rapido":
                 this.urgencia=cantidadCentros;
