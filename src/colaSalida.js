@@ -1,7 +1,7 @@
 const FuncionesCentros= require('./moduloFuncionesCentros');
 
 
-function ColaSalida(paquete) {
+function ColaSalida() {
   this.paquetes=[];
   this.cola=[];
   this.nombre="CS";
@@ -11,9 +11,9 @@ function ColaSalida(paquete) {
   this.procesarPaquetes = function(paquetesAProcesar,numero) {
     paquetesAProcesar.forEach(paquete=>{
       paquete.fila=numero;
-      //paquete.columnasQueQueda-=1;
     })
     this.agregarACola(paquetesAProcesar);
+    this.funcionesCentros.ordenarPaquetes(this.cola);
     this.funcionesCentros.procesarPaquetes(this.cola,this.paquetes,5);
   }
   this.terminarProceso = function() {

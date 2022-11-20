@@ -4,15 +4,6 @@ var funcionesCentros= (function(){
             var i=0;
             var paqueteTemporal;
             cola.forEach(elemento => elemento.aumentarTiempo());
-            cola.sort(function (a, b) {
-                if (a.urgencia > b.urgencia) {
-                  return 1;
-                }
-                if (a.urgencia < b.urgencia) {
-                  return -1;
-                }
-                return 0;
-            });
             while (i<(cola.length)) {
                 if (paquetes.length<cantidadProcesables) {
                     paqueteTemporal= cola[i];
@@ -47,17 +38,16 @@ var funcionesCentros= (function(){
             return noEntraron;
         },
     
-        espacioEnCola: function(limiteCola,cola) {
-            return (limiteCola-cola.length);
-        },
-
-        limitesCola:function(num1,num2,limiteColaDeEspera) {
-            if (limiteColaDeEspera<num1){
-                limiteColaDeEspera=num1;
-            } else if (limiteColaDeEspera>num2) {
-                limiteColaDeEspera=num2;
-            }
-            return limiteColaDeEspera;
+        ordenarPaquetes: function(cola) {
+            cola.sort(function (a, b) {
+                if (a.urgencia > b.urgencia) {
+                  return 1;
+                }
+                if (a.urgencia < b.urgencia) {
+                  return -1;
+                }
+                return 0;
+            });
         }
     }
 })();

@@ -1,4 +1,5 @@
 const FuncionesCentros= require('./moduloFuncionesCentros');
+const funcionesColaLimite=require('./moduloFuncionesColaLimite');
 
 function CentroFacturacion(limiteColaDeEspera) {
     this.paquetes=[];
@@ -6,10 +7,12 @@ function CentroFacturacion(limiteColaDeEspera) {
     this.colaSalida=[];
     this.nombre="CF";
     this.funcionesCentros=FuncionesCentros;
-    this.limiteCola=this.funcionesCentros.limitesCola(3,6,limiteColaDeEspera);
+    this.funcionesColaLimite=funcionesColaLimite;
+    this.limiteCola=this.funcionesColaLimite.limitesCola(3,6,limiteColaDeEspera);
 
 
     this.procesarPaquetes = function() {
+        this.funcionesCentros.ordenarPaquetes(this.cola);
         this.funcionesCentros.procesarPaquetes(this.cola,this.paquetes,3);
     }
     this.terminarProceso = function() {
@@ -23,7 +26,7 @@ function CentroFacturacion(limiteColaDeEspera) {
         return noEntraron;
     }
     this.espacioEnCola= function() {
-        var cantidad= this.funcionesCentros.espacioEnCola(this.limiteCola,this.cola);
+        var cantidad= this.funcionesColaLimite.espacioEnCola(this.limiteCola,this.cola);
         return cantidad;
     }
 }

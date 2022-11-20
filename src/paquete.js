@@ -2,11 +2,11 @@
 var Paquete = (function(){
     var contador=0;
     newPaquete= function(destinoPropuesto,urgenciaSolicitada,cantidadCentros) {
-        this.sePuedeMover=2;
         contador+=1;
         this.id=contador;
         this.destino=destinoPropuesto;
         this.productos=[];
+
         this.tiempo=0;
         this.filasAMoverse=0;
         this.subirOBajar=0;
@@ -24,8 +24,6 @@ var Paquete = (function(){
                 this.urgencia=cantidadCentros*2;
                 break;
         }
-
-
 
         this.informe= function() {
             if(this.tiempo<=this.urgencia) {
@@ -61,7 +59,7 @@ var Paquete = (function(){
             if(this.filasAMoverse<(this.columnasQueQuedan)) {
                 if(this.filasAMoverse==this.columnasQueQuedan-1) {
                    if(this.destino-(this.fila) == 0) {
-                    this.subirOBajar=0;
+                        this.subirOBajar=0;
                    }else if (this.destino-(this.fila)>0) {
                         this.subirOBajar=-2;
                    } else {

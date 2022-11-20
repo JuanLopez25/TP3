@@ -45,6 +45,7 @@ try {
     // console.log(matriz.locales[0].centros[1].paquetes[1].productos);
     // console.log(matriz.locales[0].centros[1].paquetes[1].tiempo);
     // console.log(matriz.locales[0].centros[1].paquetes[1].urgencia);
+    // console.log(matriz.locales[0].centros[1].paquetes[1].destino);
 
     matriz.avanzarTiempo(); //tiempo 2
     

@@ -1,4 +1,6 @@
 const FuncionesCentros= require('./moduloFuncionesCentros');
+const Paquete= require('./paquete')
+const funcionesColaLimite=require('./moduloFuncionesColaLimite');
 
 function CentroDistribucion(limiteColaDeEspera) {
     this.paquetes=[];
@@ -6,10 +8,13 @@ function CentroDistribucion(limiteColaDeEspera) {
     this.colaSalida=[];
     this.nombre="CD";
     this.funcionesCentros=FuncionesCentros;
-    this.limiteCola=this.funcionesCentros.limitesCola(10,30,limiteColaDeEspera);
+    
+    this.funcionesColaLimite=funcionesColaLimite;
+    this.limiteCola=this.funcionesColaLimite.limitesCola(10,30,limiteColaDeEspera);
 
     this.procesarPaquetes = function() {
         this.unirPaquetes();
+        this.funcionesCentros.ordenarPaquetes(this.cola);
         this.funcionesCentros.procesarPaquetes(this.cola,this.paquetes,10);
     }
     this.terminarProceso = function() {
@@ -23,52 +28,36 @@ function CentroDistribucion(limiteColaDeEspera) {
         return noEntraron;
     }
     this.espacioEnCola= function() {
-        var cantidad= this.funcionesCentros.espacioEnCola(this.limiteCola,this.cola);
+        var cantidad= this.funcionesColaLimite.espacioEnCola(this.limiteCola,this.cola);
         return cantidad;
     }
     
     this.unirPaquetes = function(){
         var colaAux=[];
         var destinoAnterior=[];
+        var listaAux;
+        var paqueteUnion;
         this.cola.forEach(paquete1 => {
             if(!destinoAnterior.includes(paquete1.destino)){
-                var listaAux=[];
+                listaAux=[paquete1];        
                 this.cola.forEach(paquete2 => {
-                    if(paquete1.destino==paquete2.destino){
+                    if(paquete1.destino==paquete2.destino && !(paquete1===paquete2)){
                         listaAux.push(paquete2);
                     }
                 });
-                if(listaAux.length>1){
-                    listaAux.sort(function (a, b) {
-                        if (a.urgencia > b.urgencia) {
-                          return 1;
-                        }
-                        if (a.urgencia < b.urgencia) {
-                          return -1;
-                        }
-                        return 0;
-                      });
-                    var paqueteUnion= listaAux[0];
-                    paqueteUnion.agregarProductos(listaAux);
-                    paqueteUnion.tiempo=paquete1.tiempo;
-                    paqueteUnion.urgencia=paqueteUnion.productos[0].urgencia;
-                    paqueteUnion.id=paquete1.id;
-                    colaAux.push(paqueteUnion);
-                }
-                else{
-                    colaAux.push(paquete1);
-                }
+                this.funcionesCentros.ordenarPaquetes(listaAux);
+                paqueteUnion= new Paquete(listaAux[0].destino);
+                paqueteUnion.agregarProductos(listaAux);
+                paqueteUnion.tiempo=paquete1.tiempo;
+                paqueteUnion.urgencia=listaAux[0].urgencia;
+                paqueteUnion.columnasQueQuedan=listaAux[0].columnasQueQuedan;
+                paqueteUnion.id=paquete1.id;
+                colaAux.push(paqueteUnion);
                 destinoAnterior.push(paquete1.destino);
             }
         });
         this.cola=colaAux;
     }
-
-
-    
-
-  
-
 }
 
 module.exports=CentroDistribucion;
