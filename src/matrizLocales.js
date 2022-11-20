@@ -3,10 +3,6 @@ const math = require('mathjs');
 const PaquetesLocalPosterior=require('./paquetesLocalPosterior');
 const PaquetesLocalSuperior=require('./paquetesLocalSuperior');
 const PaquetesMismoLocal=require('./paquetesMismoLocal');
-const Paquete = require('./paquete');
-
-
-
 
 function MatrizLocales(centrosAgregar,limitesColasDeEspera){
     this.locales=[]
@@ -53,7 +49,7 @@ function MatrizLocales(centrosAgregar,limitesColasDeEspera){
             paquetesDelDestino=[];
             paquetesAProcesar=[];
             paquetesAProcesar=paquetesDeLocalesProcesados[fila][this.cantidadColumnas-1];
-            if (paquetesAProcesar!=0){ //se puede aplicar null object¿?
+            if (paquetesAProcesar!=0){
                 paquetesAProcesar.forEach(elemento => {   
                     paquetesDelDestino.push(elemento);
                 });
@@ -73,7 +69,7 @@ function MatrizLocales(centrosAgregar,limitesColasDeEspera){
                 if (paquetes!=0) {
                     paquetes.forEach(paquete=> {
                         paquete.filasAMoverse=(paquete.destino-(paquete.fila));
-                        paquete.columna=columna;
+                        //paquete.columna=columna;
                         paquete.actualizarSubirOBajar();
                         paquete.filasAMoverse=math.abs(paquete.filasAMoverse);
                         paquete.aCualMoverme();
@@ -143,6 +139,7 @@ function MatrizLocales(centrosAgregar,limitesColasDeEspera){
         if (paquetesAProcesar.paquetes!=0 && local.centros[paquetesAProcesar.columna].espacioEnCola()>0) { 
             paquetesAProcesar.paquetes.forEach(paquete=> {
                 if (paquetesAProcesar.limites(paquete)) {
+                    paquete.columna=paquetesAProcesar.columna+1;
                     paquete.fila=paquetesAProcesar.fila+1;
                     paquetesQueSePuedenProcesar.push(paquete);
                 } else {

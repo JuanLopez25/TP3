@@ -11,6 +11,7 @@ var Paquete = (function(){
         this.filasAMoverse=0;
         this.subirOBajar=0;
         this.fila=0;
+        this.columna=cantidadCentros;
     
         switch(urgenciaSolicitada){
             case "muy rapido":

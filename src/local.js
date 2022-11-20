@@ -49,9 +49,6 @@ var Local = (function(){
         letra++;
         contadorOrigen=String.fromCharCode(letra);
         
-        //---------------------------------------------------------------------
-        //---------------------------------------------------------------------
-        
         this.agregarPaquetes= function(paquetes) {
             var numero= this.nombre.charCodeAt()-64;
             this.centros[0].procesarPaquetes(paquetes,numero);
