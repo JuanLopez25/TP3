@@ -5,7 +5,7 @@ function paquetesMismoLocal(paquetesAProcesar) {
     this.columna=0;
     
     this.limites = function(paquete) {
-        return (paquete.sePuedeMover==2 || paquete.sePuedeMover==0  || paquete.sePuedeMover==-2 || paquete.sePuedeMover==4);
+        return (paquete.subirOBajar==2 || paquete.subirOBajar==0  || paquete.subirOBajar==-2 || paquete.subirOBajar==4);
     }
     
     this.cambiarPaquetes= function(paquetesAProcesar) {

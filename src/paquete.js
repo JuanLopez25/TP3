@@ -11,7 +11,7 @@ var Paquete = (function(){
         this.filasAMoverse=0;
         this.subirOBajar=0;
         this.fila=0;
-        this.columna=cantidadCentros;
+        this.columnasQueQuedan=cantidadCentros;
     
         switch(urgenciaSolicitada){
             case "muy rapido":
@@ -58,27 +58,19 @@ var Paquete = (function(){
         }
 
         this.aCualMoverme = function() {
-            if(this.filasAMoverse<(this.columna-1)) {
-                if(this.filasAMoverse==this.columna-2) {
+            if(this.filasAMoverse<(this.columnasQueQuedan)) {
+                if(this.filasAMoverse==this.columnasQueQuedan-1) {
                    if(this.destino-(this.fila) == 0) {
-                    this.sePuedeMover=0;
+                    this.subirOBajar=0;
                    }else if (this.destino-(this.fila)>0) {
-                        this.sePuedeMover=-2;
+                        this.subirOBajar=-2;
                    } else {
-                        this.sePuedeMover=2;
+                        this.subirOBajar=2;
                    }
                 } else {
-                    this.sePuedeMover=4; 
+                    this.subirOBajar=4; 
                 }
-            } else {
-                if (this.subirOBajar==1) {
-                    this.sePuedeMover=1;
-                } else if (this.subirOBajar==-1) {
-                    this.sePuedeMover=-1;
-                } else {
-                    this.sePuedeMover=0;
-                }
-            }
+            } 
         }
 
 

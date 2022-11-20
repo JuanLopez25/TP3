@@ -11,6 +11,7 @@ function ColaSalida(paquete) {
   this.procesarPaquetes = function(paquetesAProcesar,numero) {
     paquetesAProcesar.forEach(paquete=>{
       paquete.fila=numero;
+      //paquete.columnasQueQueda-=1;
     })
     this.agregarACola(paquetesAProcesar);
     this.funcionesCentros.procesarPaquetes(this.cola,this.paquetes,5);
