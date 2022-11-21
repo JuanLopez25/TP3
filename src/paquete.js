@@ -1,3 +1,7 @@
+const PaqueteMuyRapido= require('./paqueteMuyRapido');
+const PaqueteRapido= require('./paqueteRapido');
+const PaqueteNormal= require('./paqueteNormal');
+
 
 var Paquete = (function(){
     var contador=0;
@@ -11,18 +15,7 @@ var Paquete = (function(){
         this.subirOBajar=0;
         this.fila=0;
         this.columnasQueQuedan=cantidadCentros;
-        switch(urgenciaSolicitada){
-            case "muy rapido":
-                this.urgencia=cantidadCentros;
-                break;
-            case "rapido":
-                this.urgencia=cantidadCentros*1.5;
-                break;
-            case "normal":
-                this.urgencia=cantidadCentros*2;
-                break;
-        }
-
+        this.urgencia= (this.getTipo(urgenciaSolicitada,cantidadCentros)).urgencia;
         this.informe= function() {
             if(this.tiempo<=this.urgencia) {
                 return "P"+this.id+": Destino "+this.destino+", Urgencia "+this.urgencia+", llego a tiempo\n";
@@ -67,6 +60,10 @@ var Paquete = (function(){
                     this.subirOBajar=4; 
                 }
             } 
+        }
+
+        this.getTipo= function(tipoUrgencia,cantCentros) {
+            return tipoUrgencia=="muy rapido" ? new PaqueteMuyRapido(cantCentros) : (tipoUrgencia=="rapido" ? new PaqueteRapido(cantCentros) : new PaqueteNormal(cantCentros));
         }
 
 

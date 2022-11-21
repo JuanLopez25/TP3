@@ -1,9 +1,5 @@
-const Paquete=require('./paquete');
-
-function PaqueteMuyRapido(destinoPropuesto,cantidadCentros) {
-    this.paqueteGenerico=new Paquete(destinoPropuesto,cantidadCentros);
-    this.paqueteGenerico.urgencia=cantidadCentros;
-
+function PaqueteMuyRapido(cantidadCentros) {
+    this.urgencia=cantidadCentros;
 }
 
 module.exports= PaqueteMuyRapido;
