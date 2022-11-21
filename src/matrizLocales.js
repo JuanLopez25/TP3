@@ -116,16 +116,13 @@ function MatrizLocales(centrosAgregar,limitesColasDeEspera){
     }
 
     this.encolarNoProcesados= function(paquetesDeLocalesProcesados) {
-        var columna;
         paquetesDeLocalesProcesados.forEach(filaPaquetes=> {
-            columna=0;
             filaPaquetes.forEach(paquetes=>{
                 if (paquetes!=0) {
                     paquetes.forEach(paquete=> {
-                        this.locales[paquete.fila-1].centros[columna].colaSalida.push(paquete);
+                        this.locales[paquete.fila-1].centros[this.cantidadColumnas-paquete.columnasQueQuedan-1].colaSalida.push(paquete);
                     });
                 }
-                columna++;
             })
         })
     }
