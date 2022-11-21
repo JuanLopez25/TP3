@@ -15,7 +15,7 @@ var Paquete = (function(){
         this.subirOBajar=0;
         this.fila=0;
         this.columnasQueQuedan=cantidadCentros;
-        this.urgencia= (this.getTipo(urgenciaSolicitada,cantidadCentros)).urgencia;
+        this.urgencia= (getTipo(urgenciaSolicitada,cantidadCentros)).urgencia;
         this.informe= function() {
             if(this.tiempo<=this.urgencia) {
                 return "P"+this.id+": Destino "+this.destino+", Urgencia "+this.urgencia+", llego a tiempo\n";
@@ -61,12 +61,9 @@ var Paquete = (function(){
                 }
             } 
         }
-
-        this.getTipo= function(tipoUrgencia,cantCentros) {
-            return tipoUrgencia=="muy rapido" ? new PaqueteMuyRapido(cantCentros) : (tipoUrgencia=="rapido" ? new PaqueteRapido(cantCentros) : new PaqueteNormal(cantCentros));
+        function getTipo (tipoUrgencia,cantCentros) {
+            return tipoUrgencia=="muy rapido" ? new PaqueteMuyRapido(cantCentros) :(tipoUrgencia=="rapido" ? new PaqueteRapido(cantCentros): new PaqueteNormal(cantCentros));
         }
-
-
     }
     return newPaquete;
 })();
