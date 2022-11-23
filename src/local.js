@@ -9,8 +9,7 @@ var Local = (function(){
     var contadorOrigen="A";
     newLocal= function(centros,limitesColasDeEspera){
         this.nombre=contadorOrigen;
-        this.centros=[];
-        this.crearCentros(centros,limitesColasDeEspera);
+        this.centros=this.crearCentros(centros,limitesColasDeEspera);
         this.siguienteLocal();
         
 
@@ -52,27 +51,28 @@ var Local = (function(){
         }
 
         this.crearCentros = function (centros,limitesColasDeEspera) {
-            this.centros=[new ColaSalida()];
+            var centrosCreados=[new ColaSalida()];
             var contador=0;
             centros.forEach(elemento =>
                 {
-                this.centros.push(getCentro(elemento,limitesColasDeEspera[contador]));
+                centrosCreados.push(getCentro(elemento,limitesColasDeEspera[contador]));
                 contador+=1;
             }
             );
-            this.validarCentrosCreados(centros)
-            this.centros.push(new Destino());
+            this.validarCentrosCreados(centros,centrosCreados)
+            centrosCreados.push(new Destino());
+            return centrosCreados;
         }
 
-        this.validarCentrosCreados= function(centros) {
+        this.validarCentrosCreados= function(centros,centrosCreados) {
             if (!centros.includes("CF")) {
-                this.centros.push(getCentro("CF",3));
+                centrosCreados.push(getCentro("CF",3));
             }
             if (!centros.includes("CC")) {
-                this.centros.push(getCentro("CC",2));
+                centrosCreados.push(getCentro("CC",2));
             }
             if (!centros.includes("CD")) {
-                this.centros.push(getCentro("CD",30));
+                centrosCreados.push(getCentro("CD",30));
             }
         }
 
