@@ -10,38 +10,23 @@ var Local = (function(){
     newLocal= function(centros,limitesColasDeEspera){
         this.nombre=contadorOrigen;
         this.centros=[new ColaSalida()];
-        var i=0;
-        var j=0;
-        var k=0;
         var contador=0;
         centros.forEach(elemento =>
             {
-            switch(elemento){
-                case "CF":
-                    this.centros.push(new CentroFacturacion(limitesColasDeEspera[contador]));
-                    i=1;
-                    break;
-                case "CC":
-                    this.centros.push(new CentroCalidad(limitesColasDeEspera[contador]));
-                    j=1;
-                    break;
-                case "CD":
-                    this.centros.push(new CentroDistribucion(limitesColasDeEspera[contador]));
-                    k=1;
-                    break;
-            }
+            this.centros.push(getCentro(elemento,limitesColasDeEspera[contador]));
             contador+=1;
         }
         );
-        if (i==0) {
-            this.centros.push(new CentroFacturacion(3));
+        if (!centros.includes("CF")) {
+            this.centros.push(getCentro("CF",3));
         }
-        if (j==0) {
-            this.centros.push(new CentroCalidad(2));
+        if (!centros.includes("CC")) {
+            this.centros.push(getCentro("CC",2));
         }
-        if (k==0) {
-            this.centros.push(new CentroDistribucion(30));
+        if (!centros.includes("CD")) {
+            this.centros.push(getCentro("CD",30));
         }
+        
         this.centros.push(new Destino());
         
         
@@ -78,6 +63,11 @@ var Local = (function(){
             contadorOrigen="A";
         }
         
+
+        function getCentro (centro,limite) {
+            return centro=="CF" ? new CentroFacturacion(limite) :(centro=="CC" ? new CentroCalidad(limite): new CentroDistribucion(limite));
+        }
+
 
     }
     return newLocal;

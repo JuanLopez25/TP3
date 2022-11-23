@@ -61,6 +61,7 @@ var Paquete = (function(){
                 }
             } 
         }
+        
         function getTipo (tipoUrgencia,cantCentros) {
             return tipoUrgencia=="muy rapido" ? new PaqueteMuyRapido(cantCentros) :(tipoUrgencia=="rapido" ? new PaqueteRapido(cantCentros): new PaqueteNormal(cantCentros));
         }
