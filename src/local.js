@@ -9,7 +9,7 @@ var Local = (function(){
     var contadorOrigen="A";
     newLocal= function(centros,limitesColasDeEspera){
         this.nombre=contadorOrigen;
-        this.centros=this.crearCentros(centros,limitesColasDeEspera);
+        this.centros=crearCentros(centros,limitesColasDeEspera);
         this.siguienteLocal();
         
 
@@ -50,7 +50,7 @@ var Local = (function(){
             this.centros[columna].procesarPaquetes();
         }
 
-        this.crearCentros = function (centros,limitesColasDeEspera) {
+        function crearCentros (centros,limitesColasDeEspera) {
             var centrosCreados=[new ColaSalida()];
             var contador=0;
             centros.forEach(elemento =>
