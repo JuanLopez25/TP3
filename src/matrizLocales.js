@@ -5,8 +5,7 @@ const PaquetesLocalSuperior=require('./paquetesLocalSuperior');
 const PaquetesMismoLocal=require('./paquetesMismoLocal');
 
 function MatrizLocales(centrosAgregar,limitesColasDeEspera){
-    this.locales=[]
-    crearLocales(centrosAgregar,limitesColasDeEspera);
+    this.locales=crearLocales(centrosAgregar,limitesColasDeEspera);
     this.cantidadColumnas=this.locales[0].centros.length-1;  
     
     if (this.cantidadColumnas<limitesColasDeEspera.length) {
@@ -166,9 +165,11 @@ function MatrizLocales(centrosAgregar,limitesColasDeEspera){
     }
 
     function crearLocales(centrosAgregar, limitesColasDeEspera) {
+        var locales=[];
         limitesColasDeEspera.forEach(limiteCola=> {
-            this.locales.push(new Local(centrosAgregar,limiteCola));
-        });  
+            locales.push(new Local(centrosAgregar,limiteCola));
+        });
+        return locales;  
     }
 
 }
