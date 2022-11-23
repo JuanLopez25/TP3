@@ -10,7 +10,7 @@ var Local = (function(){
     newLocal= function(centros,limitesColasDeEspera){
         this.nombre=contadorOrigen;
         this.centros=crearCentros(centros,limitesColasDeEspera);
-        this.siguienteLocal();
+        siguienteLocal();
         
 
         
@@ -76,7 +76,7 @@ var Local = (function(){
             }
         }
 
-        this.siguienteLocal= function() {
+        function siguienteLocal() {
             var letra=contadorOrigen.charCodeAt();
             letra++;
             contadorOrigen=String.fromCharCode(letra);
