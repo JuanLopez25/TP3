@@ -9,30 +9,11 @@ var Local = (function(){
     var contadorOrigen="A";
     newLocal= function(centros,limitesColasDeEspera){
         this.nombre=contadorOrigen;
-        this.centros=[new ColaSalida()];
-        var contador=0;
-        centros.forEach(elemento =>
-            {
-            this.centros.push(getCentro(elemento,limitesColasDeEspera[contador]));
-            contador+=1;
-        }
-        );
-        if (!centros.includes("CF")) {
-            this.centros.push(getCentro("CF",3));
-        }
-        if (!centros.includes("CC")) {
-            this.centros.push(getCentro("CC",2));
-        }
-        if (!centros.includes("CD")) {
-            this.centros.push(getCentro("CD",30));
-        }
+        this.centros=[];
+        this.crearCentros(centros,limitesColasDeEspera);
+        this.siguienteLocal();
         
-        this.centros.push(new Destino());
-        
-        
-        var letra=contadorOrigen.charCodeAt();
-        letra++;
-        contadorOrigen=String.fromCharCode(letra);
+
         
         this.agregarPaquetes= function(paquetes) {
             var numero= this.nombre.charCodeAt()-64;
@@ -68,6 +49,37 @@ var Local = (function(){
         }
         this.procesarPaquetesCentro= function(columna) {
             this.centros[columna].procesarPaquetes();
+        }
+
+        this.crearCentros = function (centros,limitesColasDeEspera) {
+            this.centros=[new ColaSalida()];
+            var contador=0;
+            centros.forEach(elemento =>
+                {
+                this.centros.push(getCentro(elemento,limitesColasDeEspera[contador]));
+                contador+=1;
+            }
+            );
+            this.validarCentrosCreados(centros)
+            this.centros.push(new Destino());
+        }
+
+        this.validarCentrosCreados= function(centros) {
+            if (!centros.includes("CF")) {
+                this.centros.push(getCentro("CF",3));
+            }
+            if (!centros.includes("CC")) {
+                this.centros.push(getCentro("CC",2));
+            }
+            if (!centros.includes("CD")) {
+                this.centros.push(getCentro("CD",30));
+            }
+        }
+
+        this.siguienteLocal= function() {
+            var letra=contadorOrigen.charCodeAt();
+            letra++;
+            contadorOrigen=String.fromCharCode(letra);
         }
 
         function getCentro (centro,limite) {

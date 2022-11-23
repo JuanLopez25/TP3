@@ -35,28 +35,42 @@ function CentroDistribucion(limiteColaDeEspera) {
     this.unirPaquetes = function(){
         var colaAux=[];
         var destinoAnterior=[];
-        var listaAux;
-        var paqueteUnion;
         this.cola.forEach(paquete1 => {
-            if(!destinoAnterior.includes(paquete1.destino)){
-                listaAux=[paquete1];        
-                this.cola.forEach(paquete2 => {
-                    if(paquete1.destino==paquete2.destino && !(paquete1===paquete2)){
-                        listaAux.push(paquete2);
-                    }
-                });
-                this.funcionesCentros.ordenarPaquetes(listaAux);
-                paqueteUnion= new Paquete(listaAux[0].destino);
-                paqueteUnion.agregarProductos(listaAux);
-                paqueteUnion.tiempo=paquete1.tiempo;
-                paqueteUnion.urgencia=listaAux[0].urgencia;
-                paqueteUnion.columnasQueQuedan=listaAux[0].columnasQueQuedan;
-                paqueteUnion.id=paquete1.id;
-                colaAux.push(paqueteUnion);
-                destinoAnterior.push(paquete1.destino);
-            }
+            this.unirPaquetesParaUnDestino(destinoAnterior,colaAux,paquete1);
         });
         this.cola=colaAux;
+    }
+
+    this.crearPaqueteUnion = function(listaAux,paquete1) {
+        var paqueteUnion;
+        this.funcionesCentros.ordenarPaquetes(listaAux);
+        paqueteUnion= new Paquete(listaAux[0].destino);
+        paqueteUnion.agregarProductos(listaAux);
+        paqueteUnion.tiempo=paquete1.tiempo;
+        paqueteUnion.urgencia=listaAux[0].urgencia;
+        paqueteUnion.columnasQueQuedan=listaAux[0].columnasQueQuedan;
+        paqueteUnion.id=paquete1.id;
+        return paqueteUnion;
+    }
+
+    this.buscarPaquetesMismoDestino = function (listaAux,paquete1) {
+        this.cola.forEach(paquete2 => {
+            if(paquete1.destino==paquete2.destino && !(paquete1===paquete2)){
+                listaAux.push(paquete2);
+            }
+        });
+    }
+
+    this.unirPaquetesParaUnDestino = function (destinoAnterior,colaAux,paquete1) {
+        var listaAux;
+        var paqueteUnion;
+        if(!destinoAnterior.includes(paquete1.destino)){
+            listaAux=[paquete1];        
+            this.buscarPaquetesMismoDestino(listaAux,paquete1);
+            paqueteUnion=this.crearPaqueteUnion(listaAux,paquete1);
+            colaAux.push(paqueteUnion);
+            destinoAnterior.push(paquete1.destino);
+        }
     }
 }
 
