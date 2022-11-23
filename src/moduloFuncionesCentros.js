@@ -1,18 +1,17 @@
 var funcionesCentros= (function(){
     return {
         procesarPaquetes: function(cola,paquetes,cantidadProcesables) {
-            var i=0;
-            var paqueteTemporal;
+            var listaAux=[];
             cola.forEach(elemento => elemento.aumentarTiempo());
-            while (i<(cola.length)) {
-                if (paquetes.length<cantidadProcesables) {
-                    paqueteTemporal= cola[i];
-                    (paquetes).push(paqueteTemporal);
-                    cola.splice(i,1);
-                    i--;
+            cola.forEach(elemento=>{
+                if(((paquetes.length)>=cantidadProcesables)) {
+                    listaAux.push(elemento);
+                }else {
+                    paquetes.push(elemento);
                 }
-                i++;
-            }
+            });
+            
+            return listaAux;
         },
     
         terminarProceso : function(paquetes,colaSalida) {

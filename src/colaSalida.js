@@ -14,7 +14,7 @@ function ColaSalida() {
     })
     this.agregarACola(paquetesAProcesar);
     this.funcionesCentros.ordenarPaquetes(this.cola);
-    this.funcionesCentros.procesarPaquetes(this.cola,this.paquetes,5);
+    this.cola=this.funcionesCentros.procesarPaquetes(this.cola,this.paquetes,5);
   }
   this.terminarProceso = function() {
       var entrega=this.funcionesCentros.terminarProceso(this.paquetes,this.colaSalida);
