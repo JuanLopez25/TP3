@@ -1,7 +1,5 @@
-function PaqueteMuyRapido() {
-    this.getUrgencia = function(cantidadCentros) {
-        return cantidadCentros;
-    }
+function PaqueteMuyRapido(cantidadCentros) {
+    this.urgencia=cantidadCentros;
 }
 
 module.exports= PaqueteMuyRapido;

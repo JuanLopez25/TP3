@@ -1,7 +1,6 @@
-function PaqueteNormal() {
-    this.getUrgencia = function(cantidadCentros) {
-        return cantidadCentros*2;
-    }
+function PaqueteNormal(cantidadCentros) {
+    this.urgencia=cantidadCentros*2;
+
 }
 
 
