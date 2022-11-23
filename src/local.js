@@ -63,6 +63,12 @@ var Local = (function(){
             contadorOrigen="A";
         }
         
+        this.procesarPaquetesDestino= function(columna,paquetesAProcesar) {
+            this.centros[columna].procesarPaquetes(paquetesAProcesar);
+        }
+        this.procesarPaquetesCentro= function(columna) {
+            this.centros[columna].procesarPaquetes();
+        }
 
         function getCentro (centro,limite) {
             return centro=="CF" ? new CentroFacturacion(limite) :(centro=="CC" ? new CentroCalidad(limite): new CentroDistribucion(limite));

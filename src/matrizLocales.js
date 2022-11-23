@@ -54,7 +54,7 @@ function MatrizLocales(centrosAgregar,limitesColasDeEspera){
                     paquetesDelDestino.push(elemento);
                 });
                 paquetesDeLocalesProcesados[fila][this.cantidadColumnas-1]=[];
-                local.centros[this.cantidadColumnas].procesarPaquetes(paquetesDelDestino);
+                local.procesarPaquetesDestino(this.cantidadColumnas,paquetesDelDestino);
             }
             fila++;
         });
@@ -85,34 +85,30 @@ function MatrizLocales(centrosAgregar,limitesColasDeEspera){
         var paquetesLocalSuperior=new PaquetesLocalSuperior();
         var paquetesLocalPosterior= new PaquetesLocalPosterior();
         var columna=this.cantidadColumnas-1;
-    
         while (columna>0) {
             fila=0;
             this.locales.forEach(local => { 
                 paquetesLocalSuperior.cambiarPaquetes(0);
                 paquetesLocalPosterior.cambiarPaquetes(0);
                 paquetesAProcesarMismoLocal.cambiarPaquetes(paquetesDeLocalesProcesados[fila][columna-1]);
-
                 if ((fila-1)>=0){   
                     paquetesLocalSuperior.cambiarPaquetes(paquetesDeLocalesProcesados[fila-1][columna-1]);
                 }
                 if ((fila+1)<this.locales.length) {
                     paquetesLocalPosterior.cambiarPaquetes(paquetesDeLocalesProcesados[fila+1][columna-1]);
                 }
-                
                 paquetesAProcesarMismoLocal.actualizarFilaColumna(fila,columna);
                 paquetesLocalPosterior.actualizarFilaColumna(fila,columna);
                 paquetesLocalSuperior.actualizarFilaColumna(fila,columna);
-
                 this.encolarPaquetesPermitidos(paquetesDeLocalesProcesados,paquetesAProcesarMismoLocal,local);
                 this.encolarPaquetesPermitidos(paquetesDeLocalesProcesados,paquetesLocalSuperior,local);
                 this.encolarPaquetesPermitidos(paquetesDeLocalesProcesados,paquetesLocalPosterior,local);
-
-                local.centros[columna].procesarPaquetes();
+                local.procesarPaquetesCentro(columna);
                 fila++;
             });
             columna--;
         }
+
     }
 
     this.encolarNoProcesados= function(paquetesDeLocalesProcesados) {
@@ -142,7 +138,6 @@ function MatrizLocales(centrosAgregar,limitesColasDeEspera){
             });
             noEntraron=local.centros[paquetesAProcesar.columna].agregarACola(paquetesQueSePuedenProcesar);
             noEntraron.forEach(paquete=> noProcesados.push(paquete));
-
             if (noProcesados.length==0) {
                 noProcesados=0;
             }
