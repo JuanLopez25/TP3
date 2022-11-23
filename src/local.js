@@ -59,12 +59,12 @@ var Local = (function(){
                 contador+=1;
             }
             );
-            this.validarCentrosCreados(centros,centrosCreados)
+            validarCentrosCreados(centros,centrosCreados)
             centrosCreados.push(new Destino());
             return centrosCreados;
         }
 
-        this.validarCentrosCreados= function(centros,centrosCreados) {
+        function validarCentrosCreados(centros,centrosCreados) {
             if (!centros.includes("CF")) {
                 centrosCreados.push(getCentro("CF",3));
             }
